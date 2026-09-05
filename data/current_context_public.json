@@ -1,0 +1,482 @@
+{
+  "generated_at": "2026-09-05T23:51:47+09:00",
+  "indicators": {
+    "vix": {
+      "value": null,
+      "as_of": null,
+      "status": "unavailable"
+    },
+    "oil": {
+      "value": 91.48,
+      "as_of": "2026-09-01",
+      "status": "ok",
+      "source": "us_eia"
+    },
+    "ff": {
+      "value": 3.63,
+      "as_of": "2026-09-03",
+      "status": "ok",
+      "source": "ny_fed"
+    },
+    "ust10y": {
+      "value": 4.78,
+      "as_of": "2026-09-04",
+      "status": "ok",
+      "source": "us_treasury"
+    },
+    "usdjpy": {
+      "value": 156.25,
+      "as_of": "2026-09-04",
+      "status": "ok",
+      "source": "ecb_derived_usdjpy",
+      "derived": true
+    }
+  },
+  "market_state_tags": {
+    "oil": "hi",
+    "rate": "high"
+  },
+  "rate_display": {
+    "rate_env_label": "高",
+    "spread": 1.15,
+    "curve_note": "normal"
+  },
+  "data_completeness": 2,
+  "free_top_match": {
+    "supply_shock": {
+      "event_id": null,
+      "overlap_label": "数値での重なり判定不可",
+      "reason": "no_comparable_snapshot",
+      "matched_summary": "類似局面の候補はありますが、現在の市場環境と数値で比較できる指標が揃っていません"
+    },
+    "bank_crisis": {
+      "event_id": null,
+      "overlap_label": "数値での重なり判定不可",
+      "reason": "no_comparable_snapshot",
+      "matched_summary": "類似局面の候補はありますが、現在の市場環境と数値で比較できる指標が揃っていません"
+    },
+    "war": {
+      "event_id": null,
+      "overlap_label": "数値での重なり判定不可",
+      "reason": "no_comparable_snapshot",
+      "matched_summary": "類似局面の候補はありますが、現在の市場環境と数値で比較できる指標が揃っていません"
+    },
+    "middle_east": {
+      "event_id": null,
+      "overlap_label": "数値での重なり判定不可",
+      "reason": "no_comparable_snapshot",
+      "matched_summary": "類似局面の候補はありますが、現在の市場環境と数値で比較できる指標が揃っていません"
+    },
+    "monetary_tightening": {
+      "event_id": null,
+      "overlap_label": "数値での重なり判定不可",
+      "reason": "no_comparable_snapshot",
+      "matched_summary": "類似局面の候補はありますが、現在の市場環境と数値で比較できる指標が揃っていません"
+    },
+    "monetary_easing": {
+      "event_id": null,
+      "overlap_label": "数値での重なり判定不可",
+      "reason": "no_comparable_snapshot",
+      "matched_summary": "類似局面の候補はありますが、現在の市場環境と数値で比較できる指標が揃っていません"
+    },
+    "emergency_cut": {
+      "event_id": null,
+      "overlap_label": "数値での重なり判定不可",
+      "reason": "no_comparable_snapshot",
+      "matched_summary": "類似局面の候補はありますが、現在の市場環境と数値で比較できる指標が揃っていません"
+    },
+    "pandemic": {
+      "event_id": null,
+      "overlap_label": "数値での重なり判定不可",
+      "reason": "no_comparable_snapshot",
+      "matched_summary": "類似局面の候補はありますが、現在の市場環境と数値で比較できる指標が揃っていません"
+    }
+  },
+  "similar_scenarios": {
+    "supply_shock": {
+      "candidate_count": 5,
+      "reaction_available_count": 4,
+      "candidates": [
+        {
+          "event_id": "russia_ukraine_2022",
+          "name": "ロシアによるウクライナ侵攻",
+          "date": "2022-02-24",
+          "similarity_reason": "中東ではないが、エネルギー大国が当事者となった大規模軍事衝突。供給不安とインフレ波及という点で中東の供給ショック型と構造が重なるため、横断比較の対象とする。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "saudi_attack_2019",
+          "name": "サウジアラビア石油施設への攻撃",
+          "date": "2019-09-14",
+          "similarity_reason": "中東の主要産油インフラが物理的に損傷し、現実の供給が止まったケース。『供給ショック型』の地政学リスクの典型例として、後続の供給途絶懸念イベントと比較する基準点になる。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "libya_civil_war_2011",
+          "name": "リビア内戦による原油供給停止",
+          "date": "2011-02-17",
+          "similarity_reason": "中規模産油国の供給停止が特定市場（欧州）に集中したケース。世界シェアは約2%と小さくても、欧州精油所の主要供給源であったため市場インパクトが増幅された。代替品質の原油調達に時間がかかり、価格プレミアムが持続した。全6資産（金GLDを含む）のデータが取得可能な供給ショック事例。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "gulf_war_1990",
+          "name": "イラクのクウェート侵攻（湾岸戦争）",
+          "date": "1990-08-02",
+          "similarity_reason": "産油国が直接当事者となった大規模軍事衝突で、供給が現実に失われたケース。1973年の禁輸より規模は小さいが、代替増産（サウジ等）が早期に機能した点が異なる。VIX・WTIが取得可能な1990年以降の最初の大規模供給ショックとして、グループ内の基準イベントになる。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り"
+          ]
+        },
+        {
+          "event_id": "oil_shock_1973",
+          "name": "第一次石油危機（OAPEC石油禁輸）",
+          "date": "1973-10-17",
+          "similarity_reason": "政治的意図による組織的な石油禁輸という点で、供給ショックの原型局面。ただし発生から50年以上が経過しており、WTI・VIX・金（GLD）の日次データは取得不可。取得できるのはS&P500・米10年債・ドル円のみ。歴史的参考イベントとして登録し、統計集計では参照できる系列が限られることを前提とする。",
+          "reaction_available": false,
+          "reaction_labels": []
+        }
+      ]
+    },
+    "bank_crisis": {
+      "candidate_count": 5,
+      "reaction_available_count": 5,
+      "candidates": [
+        {
+          "event_id": "svb_collapse_2023",
+          "name": "シリコンバレー銀行（SVB）破綻",
+          "date": "2023-03-10",
+          "similarity_reason": "SNSが加速させた現代型の銀行取り付けの初事例。リーマン（2008年）と比較すると規模は格段に小さく、当局の初動対応が素早かったため全体への波及は限定的だった。同じ『銀行破綻』でも、政策対応の速度と範囲が市場反応をどれだけ変えうるかを示す事例。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "eurozone_crisis_2010",
+          "name": "欧州債務危機（ギリシャJunk格下げ）",
+          "date": "2010-04-27",
+          "similarity_reason": "財政危機が銀行危機に転化した事例。純粋な金融機関の破綻（LTCM・リーマン・SVB）とは異なり、国家の債務問題が銀行システムに波及した点で、銀行危機グループ内で『実物供給の停止』でも『金融機関の直接破綻』でもない第三の経路——信用の停止が国家財政から始まる——を担う。ECBがユーロ圏の制度的制約から国債購入に踏み切るまでに時間を要した点が、FRBが即日動けたLTCMとの重要な対比になる。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "lehman_shock_2008",
+          "name": "リーマンブラザーズ破綻（リーマンショック）",
+          "date": "2008-09-15",
+          "similarity_reason": "金融システム全体に波及したグローバル規模の銀行危機の最大事例。LTCMと比較すると『FRBが介入したケース（LTCM）』と『介入しなかったケース（リーマン）』という対照例として機能する。SVBと比較すると『政策対応が遅れ不明確だったケース』として、同じ銀行破綻でも対応速度の違いが結果を変えることを示す。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "ltcm_crisis_1998",
+          "name": "LTCMショック（ヘッジファンド救済）",
+          "date": "1998-09-02",
+          "similarity_reason": "規制対象外のヘッジファンドが引き起こした流動性危機の原型局面。FRBが『調整役』として民間救済を成功させた事例で、リーマン（救済なし）との対比で『介入があれば市場の動揺が短期で収束しやすい』という構造を示す最初の事例として位置づけられる。一方で救済成功がその後の過剰リスクテイクを生んだという評価もあり、LTCM→リーマンという教訓の失敗の系譜として重要。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り"
+          ]
+        },
+        {
+          "event_id": "asian_crisis_1997",
+          "name": "アジア通貨危機（タイバーツ切り下げ）",
+          "date": "1997-07-02",
+          "similarity_reason": "通貨危機と銀行危機が同時進行した「ツイン・クライシス」の典型例。銀行危機グループ内で通貨ペッグという固定相場制の崩壊が引き金になった唯一の事例として、欧州債務危機（ユーロという固定相場への縛り）との構造比較に使える。ただし、米国市場（S&P500・VIX）への直接的な波及は限定的であり、本イベントの変化率は他の銀行危機イベントより小さく出る可能性がある。震源はアジア市場であり、LTCMショックを通じた翌年の波及と合わせて読む必要がある。金（GLD）は2004年設定のためデータ取得不可。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り"
+          ]
+        }
+      ]
+    },
+    "war": {
+      "candidate_count": 6,
+      "reaction_available_count": 6,
+      "candidates": [
+        {
+          "event_id": "iran_israel_strike_2024",
+          "name": "イランによるイスラエルへの攻撃",
+          "date": "2024-04-13",
+          "similarity_reason": "中東の直接的な軍事的応酬だが、攻撃が大きく迎撃され『拡大しなかった』ケース。緊張が高まっても短期間で織り込みが進むパターンの代表例として分類する。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "hamas_israel_2023",
+          "name": "ハマス・イスラエル衝突",
+          "date": "2023-10-07",
+          "similarity_reason": "中東の軍事衝突だが、主要産油インフラへの直接的な打撃を伴わなかったケース。『地政学リスクの高まり＝必ず原油急騰』ではないことを示す対照例として重要。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "russia_ukraine_2022",
+          "name": "ロシアによるウクライナ侵攻",
+          "date": "2022-02-24",
+          "similarity_reason": "中東ではないが、エネルギー大国が当事者となった大規模軍事衝突。供給不安とインフレ波及という点で中東の供給ショック型と構造が重なるため、横断比較の対象とする。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "us_iran_tension_2020",
+          "name": "米イラン緊張の高まり（ソレイマニ司令官殺害）",
+          "date": "2020-01-03",
+          "similarity_reason": "供給インフラ自体は無傷だが『報復・戦争への懸念』が主役となった、緊張先行型の中東リスク。実害より心理的リスクが価格を動かしたケースとして分類する。注意：発生日（2020年1月3日）から90日後は2020年4月初旬にあたり、この期間はCOVID-19ショックが市場を席巻していた。90日後の変化率（VIX急騰・原油急落等）はコロナショックの影響を強く含んでおり、ソレイマニ殺害イベント単体の反応として解釈することは適切でない。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "libya_civil_war_2011",
+          "name": "リビア内戦による原油供給停止",
+          "date": "2011-02-17",
+          "similarity_reason": "中規模産油国の供給停止が特定市場（欧州）に集中したケース。世界シェアは約2%と小さくても、欧州精油所の主要供給源であったため市場インパクトが増幅された。代替品質の原油調達に時間がかかり、価格プレミアムが持続した。全6資産（金GLDを含む）のデータが取得可能な供給ショック事例。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "gulf_war_1990",
+          "name": "イラクのクウェート侵攻（湾岸戦争）",
+          "date": "1990-08-02",
+          "similarity_reason": "産油国が直接当事者となった大規模軍事衝突で、供給が現実に失われたケース。1973年の禁輸より規模は小さいが、代替増産（サウジ等）が早期に機能した点が異なる。VIX・WTIが取得可能な1990年以降の最初の大規模供給ショックとして、グループ内の基準イベントになる。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り"
+          ]
+        }
+      ]
+    },
+    "middle_east": {
+      "candidate_count": 7,
+      "reaction_available_count": 6,
+      "candidates": [
+        {
+          "event_id": "iran_israel_strike_2024",
+          "name": "イランによるイスラエルへの攻撃",
+          "date": "2024-04-13",
+          "similarity_reason": "中東の直接的な軍事的応酬だが、攻撃が大きく迎撃され『拡大しなかった』ケース。緊張が高まっても短期間で織り込みが進むパターンの代表例として分類する。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "hamas_israel_2023",
+          "name": "ハマス・イスラエル衝突",
+          "date": "2023-10-07",
+          "similarity_reason": "中東の軍事衝突だが、主要産油インフラへの直接的な打撃を伴わなかったケース。『地政学リスクの高まり＝必ず原油急騰』ではないことを示す対照例として重要。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "us_iran_tension_2020",
+          "name": "米イラン緊張の高まり（ソレイマニ司令官殺害）",
+          "date": "2020-01-03",
+          "similarity_reason": "供給インフラ自体は無傷だが『報復・戦争への懸念』が主役となった、緊張先行型の中東リスク。実害より心理的リスクが価格を動かしたケースとして分類する。注意：発生日（2020年1月3日）から90日後は2020年4月初旬にあたり、この期間はCOVID-19ショックが市場を席巻していた。90日後の変化率（VIX急騰・原油急落等）はコロナショックの影響を強く含んでおり、ソレイマニ殺害イベント単体の反応として解釈することは適切でない。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "saudi_attack_2019",
+          "name": "サウジアラビア石油施設への攻撃",
+          "date": "2019-09-14",
+          "similarity_reason": "中東の主要産油インフラが物理的に損傷し、現実の供給が止まったケース。『供給ショック型』の地政学リスクの典型例として、後続の供給途絶懸念イベントと比較する基準点になる。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "libya_civil_war_2011",
+          "name": "リビア内戦による原油供給停止",
+          "date": "2011-02-17",
+          "similarity_reason": "中規模産油国の供給停止が特定市場（欧州）に集中したケース。世界シェアは約2%と小さくても、欧州精油所の主要供給源であったため市場インパクトが増幅された。代替品質の原油調達に時間がかかり、価格プレミアムが持続した。全6資産（金GLDを含む）のデータが取得可能な供給ショック事例。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "gulf_war_1990",
+          "name": "イラクのクウェート侵攻（湾岸戦争）",
+          "date": "1990-08-02",
+          "similarity_reason": "産油国が直接当事者となった大規模軍事衝突で、供給が現実に失われたケース。1973年の禁輸より規模は小さいが、代替増産（サウジ等）が早期に機能した点が異なる。VIX・WTIが取得可能な1990年以降の最初の大規模供給ショックとして、グループ内の基準イベントになる。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り"
+          ]
+        },
+        {
+          "event_id": "oil_shock_1973",
+          "name": "第一次石油危機（OAPEC石油禁輸）",
+          "date": "1973-10-17",
+          "similarity_reason": "政治的意図による組織的な石油禁輸という点で、供給ショックの原型局面。ただし発生から50年以上が経過しており、WTI・VIX・金（GLD）の日次データは取得不可。取得できるのはS&P500・米10年債・ドル円のみ。歴史的参考イベントとして登録し、統計集計では参照できる系列が限られることを前提とする。",
+          "reaction_available": false,
+          "reaction_labels": []
+        }
+      ]
+    },
+    "monetary_tightening": {
+      "candidate_count": 2,
+      "reaction_available_count": 2,
+      "candidates": [
+        {
+          "event_id": "fed_hike_final_2023",
+          "name": "FRB利上げサイクル最終（22年ぶり高水準）",
+          "date": "2023-07-26",
+          "similarity_reason": "引き締めサイクルの『出口・打ち止め』局面。金利のピークが意識される段階で各資産がどう反応したかを見るケースとして分類する。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "fed_hike_start_2022",
+          "name": "FRB利上げ開始（インフレ対応）",
+          "date": "2022-03-16",
+          "similarity_reason": "金融引き締めサイクルの『入り口』。緩和から引き締めへの転換点で各資産がどう動いたかを見る、利下げ局面の対照例として分類する。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        }
+      ]
+    },
+    "monetary_easing": {
+      "candidate_count": 2,
+      "reaction_available_count": 2,
+      "candidates": [
+        {
+          "event_id": "fed_cut_start_2024",
+          "name": "FRB利下げ開始（50bpの大幅利下げ）",
+          "date": "2024-09-18",
+          "similarity_reason": "引き締め後の『緩和転換』の起点。2019年の予防的利下げと比較できる、利下げサイクルの入り口のケースとして分類する。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        },
+        {
+          "event_id": "fed_cut_start_2019",
+          "name": "FRB利下げ開始（2008年以来初）",
+          "date": "2019-07-31",
+          "similarity_reason": "景気後退入り前の『予防的利下げ』の起点。緩和サイクルの入り口で各資産がどう反応したかを見る基準点として分類する。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        }
+      ]
+    },
+    "emergency_cut": {
+      "candidate_count": 1,
+      "reaction_available_count": 1,
+      "candidates": [
+        {
+          "event_id": "fed_emergency_cut_2020",
+          "name": "FRB緊急利下げ（ゼロ金利復帰）",
+          "date": "2020-03-15",
+          "similarity_reason": "危機対応としての『緊急・大幅利下げ』。通常の予防的利下げとは異なり、流動性危機とセットで起きたケースとして区別する。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        }
+      ]
+    },
+    "pandemic": {
+      "candidate_count": 1,
+      "reaction_available_count": 1,
+      "candidates": [
+        {
+          "event_id": "covid_shock_2020",
+          "name": "COVID-19ショック（世界的パンデミック勃発）",
+          "date": "2020-03-09",
+          "similarity_reason": "パンデミックによるショックは需要側から始まった点で、供給ショック（原油高・インフレ）や銀行危機（信用収縮）とは伝播経路が根本的に異なる。同じ「株安・VIX急騰」でも、WTIが急落した点が供給ショックとの決定的な違いであり、金が初期に下落した点が銀行危機との違いになっている。FRBの無制限QEと財政出動が迅速に発動したため、30日後の統計には「危機」と「政策対応による回復」の両方が混在している点に注意が必要。",
+          "reaction_available": true,
+          "reaction_labels": [
+            "WTI原油",
+            "米10年債利回り",
+            "ドル円"
+          ]
+        }
+      ]
+    }
+  },
+  "disclaimer": "本データは過去の市場状況の記録であり、将来の値動きを示すものでも、売買を推奨するものでもありません。",
+  "data_note": "各指標の基準日はデータ提供元の更新タイミングにより異なります。CPI等の月次データはこのファイルに含まれません。"
+}

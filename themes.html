@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/themes.html">
+<meta name="description" content="金融危機・インフレ・金利・地政学・景気循環など、市場を動かすテーマごとの解説一覧です。どなたでも無料でご利用いただけます。">
+<title>テーマ一覧 ｜ Marketcast Lab</title>
+<meta property="og:title" content="テーマ一覧 ｜ Marketcast Lab">
+<meta property="og:description" content="金融危機・インフレ・金利・地政学・景気循環など、市場を動かすテーマごとの解説一覧です。どなたでも無料でご利用いただけます。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/themes.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="テーマ一覧 ｜ Marketcast Lab">
+<meta name="twitter:description" content="金融危機・インフレ・金利・地政学・景気循環など、市場を動かすテーマごとの解説一覧です。どなたでも無料でご利用いただけます。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+  header{border-bottom:1px solid var(--line-rule);padding:18px 5vw 16px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-family:var(--display);font-size:20px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:24px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+
+  .page-head{padding:48px 5vw 28px;border-bottom:1px solid var(--line-rule);}
+  .page-head .eyebrow{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;}
+  .page-head h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;}
+  .page-head p{max-width:64ch;color:var(--ink-soft);font-size:14.5px;margin:0;}
+
+  .cat-group{padding:36px 5vw 0;}
+  .cat-group h2{font-family:var(--display);font-size:18px;font-weight:400;margin:0 0 18px;}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));gap:12px;max-width:1040px;}
+  .card{
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+    padding:16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  a.card:hover{border-color:var(--ink-soft);}
+  .card-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);}
+  .card h3{font-family:var(--display);font-size:15px;font-weight:400;margin:0;}
+  .card p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.7;}
+  .card-stats{display:flex;gap:14px;margin-top:auto;padding-top:6px;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);}
+
+  #themes-loading{padding:40px 5vw;font-size:13px;color:var(--ink-soft);}
+
+  footer{margin-top:50px;border-top:1px solid var(--line-rule);padding:28px 5vw 50px;font-size:12px;color:var(--ink-soft);}
+  footer .back{display:inline-block;margin-bottom:14px;border-bottom:1px solid var(--line-rule);}
+  footer .disclaimer{max-width:64ch;line-height:1.8;}
+  [hidden]{display:none !important;}
+
+  .local-subnav{padding:10px 5vw;border-bottom:1px solid var(--line-rule);display:flex;gap:20px;font-size:12px;color:var(--ink-soft);}
+  .local-subnav a{color:var(--ink-soft);}
+  .local-subnav a:hover{color:var(--ink);}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+  /* Task46.2: 静的発見リンク（JS未実行でも個別ページへ辿れるようにする） */
+  .disc-nav{padding:14px 5vw 0;max-width:920px;}
+  .disc-nav h3{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px;font-weight:400;}
+  .disc-list{display:flex;flex-wrap:wrap;gap:7px 14px;}
+  .disc-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);display:inline-flex;align-items:center;min-height:36px;}
+  .disc-link:hover{color:var(--ink);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="local-subnav"><a href="learning_path.html">学習ロードマップ</a><a href="lessons.html">Lesson一覧</a><a href="themes.html">テーマ一覧</a></div>
+
+<div class="page-head">
+  <div class="eyebrow">Themes</div>
+  <h1>テーマ一覧</h1>
+  <p>Marketcast Labで学べる経済・市場テーマの一覧です。興味のあるテーマから、関連するLessonや歴史イベントへ進めます。</p>
+</div>
+
+<p id="themes-loading">読み込み中…</p>
+<div class="disc-nav" id="themes-static">
+  <h3>テーマ一覧</h3>
+  <div class="disc-list">
+  <!-- AUTOGEN:themes:start -->
+    <a class="disc-link" href="theme_detail.html?id=inflation">インフレ</a>
+    <a class="disc-link" href="theme_detail.html?id=interest_rates">金利</a>
+    <a class="disc-link" href="theme_detail.html?id=yen_depreciation">円安</a>
+    <a class="disc-link" href="theme_detail.html?id=financial_crisis">金融危機</a>
+    <a class="disc-link" href="theme_detail.html?id=war_geopolitics">戦争・地政学</a>
+    <a class="disc-link" href="theme_detail.html?id=pandemic">パンデミック</a>
+    <a class="disc-link" href="theme_detail.html?id=oil_resources">原油・資源</a>
+    <a class="disc-link" href="theme_detail.html?id=gold_safe_haven">金・安全資産</a>
+    <a class="disc-link" href="theme_detail.html?id=crypto">暗号資産</a>
+    <a class="disc-link" href="theme_detail.html?id=ai_technology">AI・テクノロジー</a>
+    <a class="disc-link" href="theme_detail.html?id=central_banks">中央銀行</a>
+    <a class="disc-link" href="theme_detail.html?id=business_cycle">景気循環</a>
+    <a class="disc-link" href="theme_detail.html?id=risk_on_off">リスクオン・リスクオフ</a>
+    <a class="disc-link" href="theme_detail.html?id=fx">為替</a>
+    <a class="disc-link" href="theme_detail.html?id=long_term_investing">長期投資</a>
+  <!-- AUTOGEN:themes:end -->
+  </div>
+</div>
+
+<div id="themes-root" hidden></div>
+
+<footer>
+  <a class="back" href="index.html">← トップに戻る</a>
+  <div class="disclaimer">本ページのコンテンツは投資判断を代行するものではありません。基礎知識の整理・過去の傾向の記録として、自分で考えるための材料としてご利用ください。</div>
+
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script>
+(async function () {
+  const DIFFICULTY_LABEL = {
+    beginner: 'はじめての方向け',
+    intermediate: '少し慣れてきた方向け',
+  };
+  const THEME_CATEGORY_LABEL = {
+    economy: '経済のしくみ',
+    assets: '資産クラス',
+    geopolitics: '地政学・社会',
+    technology: 'テクノロジー',
+    markets: '市場のうごき',
+    investing: '投資の考え方',
+  };
+  const CATEGORY_ORDER = ['economy', 'assets', 'geopolitics', 'technology', 'markets', 'investing'];
+
+  const loadingEl = document.getElementById('themes-loading');
+  const rootEl = document.getElementById('themes-root');
+
+  let themesData = { themes: [] };
+  let lessonsData = { lessons: [] };
+  let eventsData = { events: [] };
+  try {
+    const [themesRes, lessonsRes, eventsRes] = await Promise.all([
+      fetch('data/themes.json', { cache: 'no-store' }),
+      fetch('data/lessons.json', { cache: 'no-store' }),
+      fetch('data/events.json', { cache: 'no-store' }),
+    ]);
+    themesData = await themesRes.json();
+    lessonsData = await lessonsRes.json();
+    eventsData = await eventsRes.json();
+  } catch (_) {
+    loadingEl.textContent = 'データを読み込めませんでした。';
+    return;
+  }
+
+  // 関連Lesson数・関連Event数はJSONから実カウントする（ハードコードしない）
+  const lessonIds = new Set(lessonsData.lessons.map((l) => l.id));
+  function countRelatedLessons(theme) {
+    return (theme.related_lesson_ids || []).filter((id) => lessonIds.has(id)).length;
+  }
+  function countRelatedEvents(theme) {
+    return eventsData.events.filter((e) => (e.theme_ids || []).includes(theme.id)).length;
+  }
+
+  const byCategory = new Map();
+  themesData.themes.forEach((t) => {
+    const key = t.category || 'other';
+    if (!byCategory.has(key)) byCategory.set(key, []);
+    byCategory.get(key).push(t);
+  });
+
+  const orderedCategories = [
+    ...CATEGORY_ORDER.filter((c) => byCategory.has(c)),
+    ...[...byCategory.keys()].filter((c) => !CATEGORY_ORDER.includes(c)),
+  ];
+
+  rootEl.innerHTML = orderedCategories.map((cat) => {
+    const items = byCategory.get(cat);
+    const cardsHtml = items.map((t) => {
+      const diffLabel = DIFFICULTY_LABEL[t.difficulty] || '';
+      const lessonCount = countRelatedLessons(t);
+      const eventCount = countRelatedEvents(t);
+      return `<a class="card" href="theme_detail.html?id=${encodeURIComponent(t.id)}">
+        <div class="card-eyebrow">${diffLabel}</div>
+        <h3>${t.label}</h3>
+        <p>${t.intro_summary || ''}</p>
+        <div class="card-stats"><span>関連Lesson ${lessonCount}件</span><span>関連イベント ${eventCount}件</span></div>
+      </a>`;
+    }).join('');
+
+    return `
+      <div class="cat-group">
+        <h2>${THEME_CATEGORY_LABEL[cat] || cat}</h2>
+        <div class="card-grid">${cardsHtml}</div>
+      </div>
+    `;
+  }).join('');
+
+  loadingEl.hidden = true;
+  rootEl.hidden = false;
+  // Task46.2: 静的発見リンクはJS未実行時のための代替。描画できたら隠す。
+  const staticNav = document.getElementById('themes-static');
+  if (staticNav) staticNav.hidden = true;
+})();
+</script>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>

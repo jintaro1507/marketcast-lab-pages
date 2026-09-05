@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/alerts.html">
+<title>Marketcast Alert ｜ Marketcast Lab</title>
+<meta property="og:title" content="Marketcast Alert ｜ Marketcast Lab">
+<meta property="og:description" content="重要な市場変化があったときにお知らせする会員向けコンテンツ Marketcast Alert のアーカイブです。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/alerts.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marketcast Alert ｜ Marketcast Lab">
+<meta name="twitter:description" content="重要な市場変化があったときにお知らせする会員向けコンテンツ Marketcast Alert のアーカイブです。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<meta name="description" content="重要な市場変化があったときにお知らせする会員向けコンテンツ Marketcast Alert のアーカイブです。">
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --surface-card:#FBFAF7;
+    --shadow-card:0 1px 2px rgba(28,26,22,.05), 0 2px 8px rgba(28,26,22,.04);
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.85;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:11.5px;padding:8px 5vw;line-height:1.6;}
+  header{border-bottom:1px solid var(--line-rule);padding:14px 5vw;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .brand{font-family:var(--display);font-size:18px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:8px;}
+  .brand .mark{font-family:var(--mono);font-size:10px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;}
+  .home-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+
+  main{padding:0 5vw 60px;max-width:760px;margin:0 auto;}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);padding-top:26px;}
+  h1{font-family:var(--display);font-size:clamp(21px,5.4vw,30px);margin:8px 0 0;line-height:1.5;}
+  .lead{font-size:14px;color:var(--ink-soft);margin:12px 0 0;max-width:62ch;line-height:1.9;}
+  .back-link{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);margin-top:22px;}
+  .back-link:hover{color:var(--ink);}
+
+  .list{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .item{display:block;border:1px solid var(--line-rule);background:var(--surface-card);border-radius:8px;
+        box-shadow:var(--shadow-card);padding:18px 19px;min-height:44px;}
+  .item:hover{border-color:var(--ink-soft);}
+  .item-meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;}
+  .item-time{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:0.06em;}
+  .badge{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;border:1px solid var(--line-rule);
+         padding:2px 7px;border-radius:2px;color:var(--ink-soft);}
+  .item b{font-family:var(--display);font-size:17px;font-weight:400;display:block;margin-top:7px;}
+  .item-summary{font-size:13px;color:var(--ink-soft);margin-top:8px;line-height:1.85;}
+  .item-assets{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+  .item-assets span{font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);
+                    padding:1px 7px;border-radius:2px;}
+
+  .empty{border:1px dashed var(--line-rule);border-radius:8px;padding:24px;margin-top:22px;
+         font-size:13.5px;color:var(--ink-soft);text-align:center;line-height:1.9;}
+
+  footer{margin-top:44px;border-top:1px solid var(--line-rule);padding:22px 0 0;font-size:12px;color:var(--ink-soft);line-height:1.9;}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 5vw 40px;margin-top:6px;border-top:1px solid var(--line-rule);max-width:760px;margin-left:auto;margin-right:auto;}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+  .local-subnav{padding:10px 5vw;border-bottom:1px solid var(--line-rule);display:flex;gap:20px;font-size:12px;color:var(--ink-soft);flex-wrap:wrap;}
+  .local-subnav a{color:var(--ink-soft);display:inline-flex;align-items:center;min-height:44px;}
+  .local-subnav a:hover{color:var(--ink);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+<script src="assets/js/analytics.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。特定の取引・銘柄・商品を推奨するものではありません。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <a class="home-link" href="index.html">トップへ</a>
+</header>
+
+<div class="local-subnav"><a href="premium.html">&larr; プレミアム</a><a href="weekly.html">Marketcast Weekly</a><a href="account.html">受け取り設定</a></div>
+
+<main id="app">
+  <div class="eyebrow">Marketcast Alert</div>
+  <h1>重要な市場変化があったときに</h1>
+  <p class="lead"><b>Marketcast Alert</b>とは、公式データ上で普段より明らかに大きな市場の動きがあったときや重要な出来事があったときに、その変化が My Watch に登録した資産にとってどのような追い風・逆風の材料になるかまで整理してお知らせする Marketcast Lab のプレミアム機能です。</p>
+  <p class="lead">速報の早さを競うものではなく、毎日は届きません。本文はプレミアムプランでご覧いただけます。タイトル・日時・要約はどなたでもご覧いただけます。これから何が起きるかを予想するものではありません。</p>
+  <p style="font-size:13px;color:var(--ink-soft);margin-top:10px;">読み込み中…</p>
+</main>
+
+<nav class="legal-links" aria-label="ご利用にあたって">
+  <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="disclaimer.html">免責事項</a>
+</nav>
+
+<script type="module">
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function track(name, props) {
+  try { if (typeof trackProductEvent === 'function') trackProductEvent(name, props); } catch (_) {}
+}
+const ALERT_TYPE_LABEL = {
+  market_move: '市場の動き',
+  important_event: '重要な出来事',
+};
+function formatDate(iso) {
+  if (!iso) return '';
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso));
+  return m ? `${m[1]}年${Number(m[2])}月${Number(m[3])}日` : '';
+}
+
+(async () => {
+  const main = document.getElementById('app');
+
+  // 資産の表示名は data/assets.json を正とする（重複マッピングを増やさない）
+  let labelById = {};
+  try {
+    const res = await fetch('data/assets.json', { cache: 'no-store' });
+    const json = await res.json();
+    labelById = Object.fromEntries((json.assets || []).map((a) => [a.id, a.label]));
+  } catch (_) { /* フォールバックでkeyそのまま */ }
+
+  let items = [];
+  if (!(typeof window !== 'undefined' && window.MEMBERSHIP_SUSPENDED)) {
+    try {
+      const { supabase } = await import('./assets/js/supabase-client.js');
+      const { data, error } = await supabase.functions.invoke('get-marketcast-alert', { method: 'GET' });
+      if (!error && data) items = Array.isArray(data.items) ? data.items : [];
+    } catch (_) { /* items は空のまま */ }
+  }
+
+  const loading = main.querySelector('p:last-of-type');
+  if (loading) loading.remove();
+
+  if (items.length === 0) {
+    main.insertAdjacentHTML('beforeend',
+      '<div class="empty">まだ配信されたMarketcast Alertはありません。'
+      + '<br>重要な市場変化があったときに、ここに表示されます。</div>');
+  } else {
+    const listHtml = items.map((item) => {
+      const preview = item.free_preview || {};
+      const assets = (item.affected_asset_keys || [])
+        .map((k) => `<span>${esc(labelById[k] || k)}</span>`).join('');
+      return `<li><a class="item" href="alert_detail.html?key=${encodeURIComponent(item.publication_key)}">
+        <div class="item-meta">
+          <span class="badge">${esc(ALERT_TYPE_LABEL[item.alert_type] || 'Alert')}</span>
+          <span class="item-time">${esc(formatDate(item.published_at))}</span>
+        </div>
+        <b>${esc(item.title)}</b>
+        <div class="item-summary">${esc(preview.summary || '')}</div>
+        <div class="item-assets">${assets}</div>
+      </a></li>`;
+    }).join('');
+    main.insertAdjacentHTML('beforeend', `<ul class="list">${listHtml}</ul>`);
+  }
+
+  main.insertAdjacentHTML('beforeend',
+    '<a class="back-link" href="account.html">受け取る資産を設定する（My Watch）</a>');
+  main.insertAdjacentHTML('beforeend',
+    '<br><a class="back-link" href="weekly.html">Marketcast Weekly を見る</a>');
+
+  track('alert_index_view');
+})();
+</script>
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>

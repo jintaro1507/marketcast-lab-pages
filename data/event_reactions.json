@@ -1,0 +1,3062 @@
+{
+  "generated_at": "2026-09-05T14:51:27.059277+00:00",
+  "cause_tag_labels": {
+    "war": "戦争・軍事衝突",
+    "terror": "テロ",
+    "supply_shock": "供給ショック",
+    "demand_shock": "需要ショック",
+    "monetary_tightening": "金融引き締め",
+    "monetary_easing": "金融緩和",
+    "emergency_cut": "緊急利下げ",
+    "pandemic": "パンデミック",
+    "bank_crisis": "銀行危機",
+    "debt_crisis": "債務危機",
+    "currency_crisis": "通貨危機",
+    "natural_disaster": "自然災害",
+    "middle_east": "中東地政学",
+    "liquidity_crisis": "流動性危機"
+  },
+  "cause_tag_hierarchy": {
+    "financial": [
+      "bank_crisis",
+      "liquidity_crisis",
+      "debt_crisis",
+      "currency_crisis"
+    ],
+    "geopolitical": [
+      "war",
+      "terror",
+      "middle_east"
+    ],
+    "commodity": [
+      "supply_shock",
+      "demand_shock"
+    ],
+    "health": [
+      "pandemic"
+    ],
+    "monetary": [
+      "monetary_easing",
+      "monetary_tightening",
+      "emergency_cut"
+    ]
+  },
+  "effect_tag_labels": {
+    "oil_up": "原油上昇",
+    "oil_down": "原油下落",
+    "gold_up": "金上昇",
+    "gold_down": "金下落",
+    "equity_up": "株式上昇",
+    "equity_down": "株式下落",
+    "yield_up": "金利上昇",
+    "yield_down": "金利低下",
+    "usd_strong": "ドル高",
+    "usd_weak": "ドル安",
+    "vix_up": "VIX上昇",
+    "vix_down": "VIX低下"
+  },
+  "category_labels": {
+    "geopolitics": "地政学",
+    "macro": "マクロ経済",
+    "monetary": "金融政策",
+    "health": "公衆衛生",
+    "financial": "金融・信用不安"
+  },
+  "confidence_levels": [
+    {
+      "max_n": 2,
+      "level": "reference",
+      "label": "参考値",
+      "note": "件数が少なく統計的な意味は限定的です"
+    },
+    {
+      "max_n": 4,
+      "level": "low",
+      "label": "信頼性：低",
+      "note": "件数が少なめです"
+    },
+    {
+      "max_n": 9,
+      "level": "mid",
+      "label": "信頼性：中",
+      "note": ""
+    },
+    {
+      "max_n": 999,
+      "level": "high",
+      "label": "信頼性：高",
+      "note": ""
+    }
+  ],
+  "horizons": [
+    "d1",
+    "d7",
+    "d30",
+    "d90"
+  ],
+  "summary_horizon": "d30",
+  "events": [
+    {
+      "id": "saudi_attack_2019",
+      "name": "サウジアラビア石油施設への攻撃",
+      "date": "2019-09-14",
+      "category": "geopolitics",
+      "cause_tags": [
+        "middle_east",
+        "supply_shock"
+      ],
+      "effect_tags": [
+        "oil_up"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d7"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "サウジアラビアの主要石油施設アブカイクとクライス油田がドローン・ミサイル攻撃を受け、同国の原油生産の約半分、世界供給の約5%が一時的に停止した。供給不安から原油価格が記録的に急騰した局面。",
+      "similarity_reason": "中東の主要産油インフラが物理的に損傷し、現実の供給が止まったケース。『供給ショック型』の地政学リスクの典型例として、後続の供給途絶懸念イベントと比較する基準点になる。",
+      "why_reaction": "原油が急騰したのは、攻撃が産油インフラそのものを破壊し、現実の供給が日量単位で止まったため。市場は『心理的な不安』ではなく『実際に減る供給量』を織り込んだ。一方で株式の反応が比較的限定的だったのは、サウジ側が早期に復旧見通しを示し、供給途絶は一時的との見方が広がったため。",
+      "key_insight": "供給インフラに実被害が及び、現実の供給が止まった局面では、原油が大きく反応する傾向が過去データで観察された。同じ中東地域の事件でも、実被害の有無で原油の反応の大きさは分かれてきた。",
+      "contrast": [
+        {
+          "with": "hamas_israel_2023",
+          "axis": "供給インフラへの実被害の有無",
+          "this_side": "実被害あり（生産が現実に停止）",
+          "other_side": "実被害なし（生産は継続）",
+          "outcome_note": "サウジ攻撃では原油が急騰した一方、ハマス衝突では原油の反応は限定的だった。地政学的緊張の大きさそのものよりも、現実の供給が止まったか否かが、原油の反応を分ける要因だったことが読み取れる。",
+          "type": "structural_contrast"
+        }
+      ],
+      "propagation": [
+        "原油供給インフラ損傷",
+        "原油先物 急騰",
+        "エネルギー株 上昇",
+        "航空・物流株 下落"
+      ],
+      "sources": [
+        {
+          "title": "U.S. EIA: Saudi Arabia crude oil production outage",
+          "url": "https://www.eia.gov/todayinenergy/detail.php?id=41413"
+        },
+        {
+          "title": "Al Jazeera: Aramco attack sends oil prices soaring",
+          "url": "https://www.aljazeera.com/economy/2019/9/16/aramco-attack-worst-disruption-ever-sends-oil-prices-soaring"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": 5.8,
+            "d30": -2.2,
+            "d90": 9.8
+          },
+          "source": "us_eia",
+          "base_date": "2019-09-13"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": -8.4,
+            "d30": -7.4,
+            "d90": -4.2
+          },
+          "changes_pt": {
+            "d1": 0.0,
+            "d7": -0.16,
+            "d30": -0.14,
+            "d90": -0.08
+          },
+          "source": "us_treasury",
+          "base_date": "2019-09-13"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": 0.0,
+            "d30": 0.2,
+            "d90": 1.5
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2019-09-13"
+        }
+      },
+      "reverse_contrast": [
+        {
+          "from": "oil_shock_1973",
+          "from_name": "第一次石油危機（OAPEC石油禁輸）",
+          "axis": "供給停止の継続期間と意図（一時的被害か組織的禁輸か）",
+          "this_side": "施設攻撃による一時的停止（数週間以内に復旧）",
+          "other_side": "組織的・政治的禁輸（数ヶ月単位）",
+          "outcome_note": "サウジ攻撃は数週間で供給が回復し原油の上昇も一時的だったのに対し、1973年の禁輸は数ヶ月続きスタグフレーションを招いた。供給停止の継続期間が、市場へのダメージの深さを分ける要因だったことが読み取れる。",
+          "type": "structural_contrast"
+        },
+        {
+          "from": "libya_civil_war_2011",
+          "from_name": "リビア内戦による原油供給停止",
+          "axis": "供給停止の規模（世界シェア）と市場インパクトの関係",
+          "this_side": "世界シェア約5%の一時停止だが、短期で回復し長期インパクトは限定的",
+          "other_side": "世界シェア約2%の停止だが、特定市場（欧州）への集中で大きなインパクト",
+          "outcome_note": "世界シェアの大きさだけでなく、停止の継続期間と代替供給の調達難易度が市場インパクトを左右した傾向が読み取れる。リビアは規模は小さいが継続期間が長く、サウジは規模が大きいが短期で回復した対照例となる。",
+          "type": "structural_contrast"
+        }
+      ]
+    },
+    {
+      "id": "us_iran_tension_2020",
+      "name": "米イラン緊張の高まり（ソレイマニ司令官殺害）",
+      "date": "2020-01-03",
+      "category": "geopolitics",
+      "cause_tags": [
+        "middle_east",
+        "war"
+      ],
+      "effect_tags": [
+        "oil_down",
+        "yield_down"
+      ],
+      "effect_tag_details": {
+        "oil_down": [
+          "d7",
+          "d30"
+        ],
+        "yield_down": [
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "イランの軍事指導者が殺害され、報復への懸念から中東情勢の軍事的緊張が急激に高まった局面。実際の供給途絶は限定的だったが、短期的にリスク回避の動きが広がった。",
+      "similarity_reason": "供給インフラ自体は無傷だが『報復・戦争への懸念』が主役となった、緊張先行型の中東リスク。実害より心理的リスクが価格を動かしたケースとして分類する。注意：発生日（2020年1月3日）から90日後は2020年4月初旬にあたり、この期間はCOVID-19ショックが市場を席巻していた。90日後の変化率（VIX急騰・原油急落等）はコロナショックの影響を強く含んでおり、ソレイマニ殺害イベント単体の反応として解釈することは適切でない。",
+      "why_reaction": "",
+      "key_insight": "",
+      "contrast": [],
+      "propagation": [
+        "軍事的緊張の高まり",
+        "原油先物 上昇",
+        "金 上昇（逃避）",
+        "株式 一時下落"
+      ],
+      "sources": [
+        {
+          "title": "CNBC: Oil prices jump after US airstrike",
+          "url": "https://www.cnbc.com/2020/01/03/oil-prices-jump-after-us-airstrike-kills-irans-soleimani.html"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": -6.3,
+            "d30": -18.1,
+            "d90": -60.0
+          },
+          "source": "us_eia",
+          "base_date": "2020-01-03"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": 1.7,
+            "d30": -16.1,
+            "d90": -65.0
+          },
+          "changes_pt": {
+            "d1": 0.0,
+            "d7": 0.03,
+            "d30": -0.29,
+            "d90": -1.17
+          },
+          "source": "us_treasury",
+          "base_date": "2020-01-03"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": 1.4,
+            "d30": 0.7,
+            "d90": -0.7
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2020-01-03"
+        }
+      }
+    },
+    {
+      "id": "russia_ukraine_2022",
+      "name": "ロシアによるウクライナ侵攻",
+      "date": "2022-02-24",
+      "category": "geopolitics",
+      "cause_tags": [
+        "war",
+        "supply_shock"
+      ],
+      "effect_tags": [
+        "oil_up",
+        "usd_strong",
+        "yield_up"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d7",
+          "d30"
+        ],
+        "usd_strong": [
+          "d30"
+        ],
+        "yield_up": [
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "大規模な軍事侵攻が始まり、エネルギー・穀物の供給網への懸念から商品価格が急騰。世界的なインフレ圧力と各国中央銀行の利上げ加速につながった局面。",
+      "similarity_reason": "中東ではないが、エネルギー大国が当事者となった大規模軍事衝突。供給不安とインフレ波及という点で中東の供給ショック型と構造が重なるため、横断比較の対象とする。",
+      "why_reaction": "",
+      "key_insight": "",
+      "contrast": [],
+      "propagation": [
+        "大規模軍事侵攻",
+        "エネルギー・穀物 供給不安",
+        "商品価格 急騰",
+        "インフレ圧力 上昇",
+        "利上げ加速"
+      ],
+      "sources": [
+        {
+          "title": "Reuters: Oil tops $100 as Russia attacks Ukraine",
+          "url": "https://www.reuters.com/business/energy/oil-tops-100-first-time-since-2014-russia-attacks-ukraine-2022-02-24/"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -1.2,
+            "d7": 16.1,
+            "d30": 25.3,
+            "d90": 21.7
+          },
+          "source": "us_eia",
+          "base_date": "2022-02-24"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.5,
+            "d7": -5.1,
+            "d30": 26.5,
+            "d90": 40.3
+          },
+          "changes_pt": {
+            "d1": 0.01,
+            "d7": -0.1,
+            "d30": 0.52,
+            "d90": 0.79
+          },
+          "source": "us_treasury",
+          "base_date": "2022-02-24"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.6,
+            "d7": 0.7,
+            "d30": 6.0,
+            "d90": 10.5
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2022-02-24"
+        }
+      }
+    },
+    {
+      "id": "hamas_israel_2023",
+      "name": "ハマス・イスラエル衝突",
+      "date": "2023-10-07",
+      "category": "geopolitics",
+      "cause_tags": [
+        "middle_east",
+        "war"
+      ],
+      "effect_tags": [
+        "oil_up"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d7"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "中東地域で大規模な武力衝突が発生し、地域情勢の不確実性が一気に高まった局面。直接の産油国が当事者ではなかったため、原油の反応は当初想定より限定的だった。",
+      "similarity_reason": "中東の軍事衝突だが、主要産油インフラへの直接的な打撃を伴わなかったケース。『地政学リスクの高まり＝必ず原油急騰』ではないことを示す対照例として重要。",
+      "why_reaction": "中東での大規模な武力衝突にもかかわらず原油の反応が限定的だったのは、当事者が主要産油国ではなく、実際の原油生産・輸送インフラに直接の被害が及ばなかったため。市場は緊張の高まりを認識しつつも、現実の供給量は維持されると判断した。金が買われたのは、地政学的不確実性に対する逃避需要が働いたためと解釈される。",
+      "key_insight": "地政学的な緊張が高くても、現実の供給に被害が及ばない局面では、原油の反応が限定的にとどまる傾向が過去データで観察された。一方で金は、実被害の有無にかかわらず逃避先として買われる場面が見られた。",
+      "contrast": [],
+      "propagation": [
+        "中東での武力衝突",
+        "地政学リスク上昇",
+        "金 上昇（逃避）",
+        "原油は限定的反応"
+      ],
+      "sources": [
+        {
+          "title": "Reuters: Global markets after Hamas attack on Israel",
+          "url": "https://www.reuters.com/markets/global-markets-themes-2023-10-09/"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": 5.8,
+            "d30": -1.6,
+            "d90": -10.7
+          },
+          "source": "us_eia",
+          "base_date": "2023-10-06"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": -3.1,
+            "d30": -2.3,
+            "d90": -15.3
+          },
+          "changes_pt": {
+            "d1": 0.0,
+            "d7": -0.15,
+            "d30": -0.11,
+            "d90": -0.73
+          },
+          "source": "us_treasury",
+          "base_date": "2023-10-06"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": 0.3,
+            "d30": 0.5,
+            "d90": -2.6
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2023-10-06"
+        }
+      },
+      "reverse_contrast": [
+        {
+          "from": "saudi_attack_2019",
+          "from_name": "サウジアラビア石油施設への攻撃",
+          "axis": "供給インフラへの実被害の有無",
+          "this_side": "実被害なし（生産は継続）",
+          "other_side": "実被害あり（生産が現実に停止）",
+          "outcome_note": "サウジ攻撃では原油が急騰した一方、ハマス衝突では原油の反応は限定的だった。地政学的緊張の大きさそのものよりも、現実の供給が止まったか否かが、原油の反応を分ける要因だったことが読み取れる。",
+          "type": "structural_contrast"
+        },
+        {
+          "from": "gulf_war_1990",
+          "from_name": "イラクのクウェート侵攻（湾岸戦争）",
+          "axis": "当事国に主要産油国が含まれるかどうか",
+          "this_side": "非産油国間の衝突（産油インフラへの影響なし）",
+          "other_side": "主要産油国（イラク・クウェート）が直接当事者",
+          "outcome_note": "湾岸戦争では主要産油国2カ国の供給が失われ原油が急騰した。ハマス衝突では産油インフラへの影響がなく原油反応は限定的だった。同じ中東の軍事衝突でも、産油国が当事者かどうかが原油反応の規模を分けた要因として読み取れる。",
+          "type": "structural_contrast"
+        }
+      ]
+    },
+    {
+      "id": "iran_israel_strike_2024",
+      "name": "イランによるイスラエルへの攻撃",
+      "date": "2024-04-13",
+      "category": "geopolitics",
+      "cause_tags": [
+        "middle_east",
+        "war"
+      ],
+      "effect_tags": [
+        "oil_down"
+      ],
+      "effect_tag_details": {
+        "oil_down": [
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "イランがイスラエル領土へ直接、大規模なドローン・ミサイル攻撃を実施。多くが迎撃され実害が限定的だったため、市場は当初の警戒から比較的早く落ち着いた。",
+      "similarity_reason": "中東の直接的な軍事的応酬だが、攻撃が大きく迎撃され『拡大しなかった』ケース。緊張が高まっても短期間で織り込みが進むパターンの代表例として分類する。",
+      "why_reaction": "",
+      "key_insight": "",
+      "contrast": [],
+      "propagation": [
+        "直接的な軍事的応酬",
+        "原油・金 一時上昇",
+        "迎撃成功で警戒後退",
+        "反応は短期間で収束"
+      ],
+      "sources": [
+        {
+          "title": "CNBC: Oil prices after Iran attack on Israel",
+          "url": "https://www.cnbc.com/2024/04/14/oil-prices-are-set-to-rise-as-market-braces-for-israel-response-to-irans-missile-and-drone-barrage.html"
+        },
+        {
+          "title": "Investing.com: Iranian attacks put markets on edge",
+          "url": "https://www.investing.com/analysis/iranian-attacks-put-markets-on-edge-but-fallout-limited-200647640"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": -3.1,
+            "d30": -6.7,
+            "d90": -3.4
+          },
+          "source": "us_eia",
+          "base_date": "2024-04-12"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": 2.7,
+            "d30": -0.4,
+            "d90": -7.1
+          },
+          "changes_pt": {
+            "d1": 0.0,
+            "d7": 0.12,
+            "d30": -0.02,
+            "d90": -0.32
+          },
+          "source": "us_treasury",
+          "base_date": "2024-04-12"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": 0.9,
+            "d30": 1.8,
+            "d90": 3.6
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2024-04-12"
+        }
+      }
+    },
+    {
+      "id": "fed_cut_start_2019",
+      "name": "FRB利下げ開始（2008年以来初）",
+      "date": "2019-07-31",
+      "category": "monetary",
+      "cause_tags": [
+        "monetary_easing"
+      ],
+      "effect_tags": [
+        "oil_down",
+        "usd_weak",
+        "yield_down"
+      ],
+      "effect_tag_details": {
+        "oil_down": [
+          "d1",
+          "d7",
+          "d30"
+        ],
+        "usd_weak": [
+          "d7",
+          "d30"
+        ],
+        "yield_down": [
+          "d7",
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "FRBが政策金利を0.25%引き下げ、2008年の金融危機以来初の利下げに踏み切った局面。景気減速と低インフレへの『予防的』な利下げと位置づけられた。",
+      "similarity_reason": "景気後退入り前の『予防的利下げ』の起点。緩和サイクルの入り口で各資産がどう反応したかを見る基準点として分類する。",
+      "why_reaction": "FRBが2008年以来初めて利下げに踏み切った局面。景気減速への先回りとして『予防的』と位置づけられ、長期金利の低下は素直に現れた。しかし発表直後、トランプ政権が中国への追加関税（第4弾）の発動を表明したため、市場は利下げの好影響より米中貿易摩擦の深刻化を嫌気した。株安とVIX急騰が続き、7日後にはVIXが約38%上昇する展開となった。利下げ単体の効果が素直に出た局面ではなく、金融政策イベントと地政学イベント（貿易摩擦）が重なった複合局面として理解する必要がある。",
+      "key_insight": "景気後退前の予防的利下げ局面では、長期金利の低下が観察された。ただし今回の局面では、利下げ直後に米中貿易摩擦が激化したことで緩和効果が相殺され、VIXが急騰する展開も見られた。利下げの市場効果は、同時期の地政学・政策環境に左右される例が過去データで確認された。",
+      "contrast": [],
+      "propagation": [
+        "予防的利下げ",
+        "長期金利 低下圧力",
+        "株式 追い風",
+        "ドル 軟化要因"
+      ],
+      "sources": [
+        {
+          "title": "CNBC: Fed cuts rates by a quarter point",
+          "url": "https://www.cnbc.com/2019/07/31/fed-cuts-rates-by-a-quarter-point.html"
+        },
+        {
+          "title": "Washington Post: Fed cuts for first time since 2008",
+          "url": "https://www.washingtonpost.com/business/2019/07/31/federal-reserve-cuts-interest-rate-quarter-point-effort-keep-economy-track/"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -8.4,
+            "d7": -12.6,
+            "d30": -5.9,
+            "d90": -5.5
+          },
+          "source": "us_eia",
+          "base_date": "2019-07-31"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -5.9,
+            "d7": -15.3,
+            "d30": -25.7,
+            "d90": -8.9
+          },
+          "changes_pt": {
+            "d1": -0.12,
+            "d7": -0.31,
+            "d30": -0.52,
+            "d90": -0.18
+          },
+          "source": "us_treasury",
+          "base_date": "2019-07-31"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.3,
+            "d7": -2.6,
+            "d30": -2.1,
+            "d90": 0.4
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2019-07-31"
+        }
+      },
+      "reverse_contrast": [
+        {
+          "from": "fed_emergency_cut_2020",
+          "from_name": "FRB緊急利下げ（ゼロ金利復帰）",
+          "axis": "予防的利下げか、危機対応の緊急利下げか",
+          "this_side": "予防的利下げ（景気減速への先回り）",
+          "other_side": "危機対応の緊急利下げ（流動性危機下）",
+          "outcome_note": "2019年の予防的利下げは比較的落ち着いた環境で行われた一方、2020年の緊急利下げは流動性危機のさなかで、利下げ直後も市場の動揺が続いた。同じ『利下げ』でも、平時の予防か危機対応かで市場の反応は大きく異なっていたことが読み取れる。",
+          "type": "structural_contrast"
+        }
+      ]
+    },
+    {
+      "id": "fed_emergency_cut_2020",
+      "name": "FRB緊急利下げ（ゼロ金利復帰）",
+      "date": "2020-03-15",
+      "category": "monetary",
+      "cause_tags": [
+        "emergency_cut"
+      ],
+      "effect_tags": [
+        "oil_down",
+        "usd_strong"
+      ],
+      "effect_tag_details": {
+        "oil_down": [
+          "d1",
+          "d7",
+          "d30"
+        ],
+        "usd_strong": [
+          "d7"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "パンデミックによる急激な景気悪化に対し、FRBが緊急会合で政策金利を実質ゼロまで引き下げ、量的緩和の再開を発表した局面。市場の流動性危機への対応だった。",
+      "similarity_reason": "危機対応としての『緊急・大幅利下げ』。通常の予防的利下げとは異なり、流動性危機とセットで起きたケースとして区別する。",
+      "why_reaction": "これは景気の予防的な調整ではなく、パンデミックによる急激な悪化と市場の流動性危機に対する緊急対応だった。緊急利下げと量的緩和の再開がセットで打ち出されたが、危機の深刻さゆえに株式は直後にむしろ急落し、利下げが相場を即座に支えたわけではなかった。市場が落ち着くには追加の財政・金融措置を要した。",
+      "key_insight": "危機対応としての『緊急利下げ』は、予防的な利下げと異なり、実施直後に市場が安定するとは限らない傾向が過去データで観察された。緩和の実施そのものより、危機の深刻さと追加措置の有無が市場の落ち着きを左右した。",
+      "contrast": [
+        {
+          "with": "fed_cut_start_2019",
+          "axis": "予防的利下げか、危機対応の緊急利下げか",
+          "this_side": "危機対応の緊急利下げ（流動性危機下）",
+          "other_side": "予防的利下げ（景気減速への先回り）",
+          "outcome_note": "2019年の予防的利下げは比較的落ち着いた環境で行われた一方、2020年の緊急利下げは流動性危機のさなかで、利下げ直後も市場の動揺が続いた。同じ『利下げ』でも、平時の予防か危機対応かで市場の反応は大きく異なっていたことが読み取れる。",
+          "type": "structural_contrast"
+        }
+      ],
+      "propagation": [
+        "緊急利下げ・QE再開",
+        "流動性供給",
+        "金利 急低下",
+        "株式は当初急落後に反発"
+      ],
+      "sources": [
+        {
+          "title": "Federal Reserve: FOMC statement March 15 2020",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -8.7,
+            "d7": -38.6,
+            "d30": -36.5,
+            "d90": 14.2
+          },
+          "source": "us_eia",
+          "base_date": "2020-03-13"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -22.3,
+            "d7": -2.1,
+            "d30": -19.1,
+            "d90": -24.5
+          },
+          "changes_pt": {
+            "d1": -0.21,
+            "d7": -0.02,
+            "d30": -0.18,
+            "d90": -0.23
+          },
+          "source": "us_treasury",
+          "base_date": "2020-03-13"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -1.6,
+            "d7": 3.1,
+            "d30": 0.0,
+            "d90": 0.0
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2020-03-13"
+        }
+      }
+    },
+    {
+      "id": "fed_hike_start_2022",
+      "name": "FRB利上げ開始（インフレ対応）",
+      "date": "2022-03-16",
+      "category": "monetary",
+      "cause_tags": [
+        "monetary_tightening"
+      ],
+      "effect_tags": [
+        "oil_up",
+        "usd_strong",
+        "yield_up"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d1",
+          "d7",
+          "d30"
+        ],
+        "usd_strong": [
+          "d7",
+          "d30"
+        ],
+        "yield_up": [
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "高インフレを抑制するため、FRBが2018年以来となる利上げに着手した局面。以降、急ピッチの連続利上げサイクルの起点となった。",
+      "similarity_reason": "金融引き締めサイクルの『入り口』。緩和から引き締めへの転換点で各資産がどう動いたかを見る、利下げ局面の対照例として分類する。",
+      "why_reaction": "利上げ開始は金融引き締めの起点であり、長期金利の上昇とグロース株への逆風が意識された。ただし開始時点では『これから引き締まる』という織り込みが進む段階で、株式が当初底堅く推移する場面も見られた。市場は利上げの『開始』そのものより、その後のペースと到達点に注目した。",
+      "key_insight": "金融引き締めの『開始』局面では、長期金利の上昇が観察される一方、株式の反応はその後の利上げペースの見方に左右され、開始直後は方向感が定まりにくい傾向が過去データで見られた。",
+      "contrast": [
+        {
+          "with": "fed_hike_final_2023",
+          "axis": "金融引き締めサイクルの開始か終盤か",
+          "this_side": "サイクルの開始（これから引き締まる）",
+          "other_side": "サイクルの終盤（引き締めの打ち止めが近い）",
+          "outcome_note": "開始局面では金利の先高観が市場を支配しやすかった一方、終盤局面では金利のピークアウトが意識され、同じ『利上げ』でも市場の受け止めは異なっていたことが読み取れる。",
+          "type": "structural_contrast"
+        }
+      ],
+      "propagation": [
+        "利上げ開始",
+        "長期金利 上昇",
+        "グロース株 逆風",
+        "ドル 強含み要因"
+      ],
+      "sources": [
+        {
+          "title": "Federal Reserve: FOMC statement March 16 2022",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220316a.htm"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 8.6,
+            "d7": 21.1,
+            "d30": 12.6,
+            "d90": 25.4
+          },
+          "source": "us_eia",
+          "base_date": "2022-03-16"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.5,
+            "d7": 5.9,
+            "d30": 29.2,
+            "d90": 59.4
+          },
+          "changes_pt": {
+            "d1": 0.01,
+            "d7": 0.13,
+            "d30": 0.64,
+            "d90": 1.3
+          },
+          "source": "us_treasury",
+          "base_date": "2022-03-16"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.4,
+            "d7": 2.1,
+            "d30": 5.9,
+            "d90": 13.7
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2022-03-16"
+        }
+      },
+      "reverse_contrast": [
+        {
+          "from": "fed_hike_final_2023",
+          "from_name": "FRB利上げサイクル最終（22年ぶり高水準）",
+          "axis": "金融引き締めサイクルの開始か終盤か",
+          "this_side": "サイクルの開始（これから引き締まる）",
+          "other_side": "サイクルの終盤（打ち止めが近い）",
+          "outcome_note": "利上げ開始局面では金利の先高観が強く、グロース株への逆風が意識された。一方、利上げ最終局面では金利のピークアウトが意識され始め、同じ『利上げ』でも市場の受け止めは異なっていたことが読み取れる。引き締めサイクルのどの段階にいるかが、市場反応を分ける要因だった。",
+          "type": "structural_contrast"
+        }
+      ]
+    },
+    {
+      "id": "fed_hike_final_2023",
+      "name": "FRB利上げサイクル最終（22年ぶり高水準）",
+      "date": "2023-07-26",
+      "category": "monetary",
+      "cause_tags": [
+        "monetary_tightening"
+      ],
+      "effect_tags": [
+        "usd_strong",
+        "yield_up"
+      ],
+      "effect_tag_details": {
+        "usd_strong": [
+          "d30"
+        ],
+        "yield_up": [
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "FRBが0.25%の利上げを実施し、政策金利を5.25〜5.50%へ。結果的にこの利上げサイクルの最後の引き上げとなり、以降は据え置きが続いた局面。",
+      "similarity_reason": "引き締めサイクルの『出口・打ち止め』局面。金利のピークが意識される段階で各資産がどう反応したかを見るケースとして分類する。",
+      "why_reaction": "この利上げが結果的にサイクル最後の引き上げとなった。市場では『金利はそろそろ打ち止め』という観測が強まりつつあり、利上げ自体よりも『次は据え置き・いずれ利下げ』という先の展開が意識された。金利の先高観が和らぎ始めた局面と整理できる。",
+      "key_insight": "金融引き締めの『終盤・打ち止め』が意識される局面では、利上げが実施されても金利の先高観が和らぎ、開始局面とは異なる市場反応が観察された。同じ利上げでも、サイクルのどの段階かによって市場の受け止めは変わってきた。",
+      "contrast": [
+        {
+          "with": "fed_hike_start_2022",
+          "axis": "金融引き締めサイクルの開始か終盤か",
+          "this_side": "サイクルの終盤（打ち止めが近い）",
+          "other_side": "サイクルの開始（これから引き締まる）",
+          "outcome_note": "利上げ開始局面では金利の先高観が強く、グロース株への逆風が意識された。一方、利上げ最終局面では金利のピークアウトが意識され始め、同じ『利上げ』でも市場の受け止めは異なっていたことが読み取れる。引き締めサイクルのどの段階にいるかが、市場反応を分ける要因だった。",
+          "type": "structural_contrast"
+        }
+      ],
+      "propagation": [
+        "利上げサイクル終盤",
+        "金利ピーク観測",
+        "株式 一服感",
+        "ドル 高止まり"
+      ],
+      "sources": [
+        {
+          "title": "Federal Reserve: FOMC statement July 26 2023",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 1.3,
+            "d7": 0.5,
+            "d30": 1.7,
+            "d90": 6.9
+          },
+          "source": "us_eia",
+          "base_date": "2023-07-26"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 3.9,
+            "d7": 5.7,
+            "d30": 10.1,
+            "d90": 25.1
+          },
+          "changes_pt": {
+            "d1": 0.15,
+            "d7": 0.22,
+            "d30": 0.39,
+            "d90": 0.97
+          },
+          "source": "us_treasury",
+          "base_date": "2023-07-26"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -0.2,
+            "d7": 1.7,
+            "d30": 3.9,
+            "d90": 6.7
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2023-07-26"
+        }
+      },
+      "reverse_contrast": [
+        {
+          "from": "fed_hike_start_2022",
+          "from_name": "FRB利上げ開始（インフレ対応）",
+          "axis": "金融引き締めサイクルの開始か終盤か",
+          "this_side": "サイクルの終盤（引き締めの打ち止めが近い）",
+          "other_side": "サイクルの開始（これから引き締まる）",
+          "outcome_note": "開始局面では金利の先高観が市場を支配しやすかった一方、終盤局面では金利のピークアウトが意識され、同じ『利上げ』でも市場の受け止めは異なっていたことが読み取れる。",
+          "type": "structural_contrast"
+        }
+      ]
+    },
+    {
+      "id": "fed_cut_start_2024",
+      "name": "FRB利下げ開始（50bpの大幅利下げ）",
+      "date": "2024-09-18",
+      "category": "monetary",
+      "cause_tags": [
+        "monetary_easing"
+      ],
+      "effect_tags": [
+        "usd_strong",
+        "yield_up"
+      ],
+      "effect_tag_details": {
+        "usd_strong": [
+          "d30"
+        ],
+        "yield_up": [
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "インフレ鈍化と労働市場の減速を受け、FRBが0.50%の利下げを実施。2020年3月以来となる緩和サイクルの開始となった局面。",
+      "similarity_reason": "引き締め後の『緩和転換』の起点。2019年の予防的利下げと比較できる、利下げサイクルの入り口のケースとして分類する。",
+      "why_reaction": "",
+      "key_insight": "",
+      "contrast": [],
+      "propagation": [
+        "緩和サイクル開始",
+        "金利 低下",
+        "株式 追い風",
+        "ドル 軟化要因"
+      ],
+      "sources": [
+        {
+          "title": "Federal Reserve: FOMC statement Sept 18 2024",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240918a.htm"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 1.4,
+            "d7": -2.0,
+            "d30": -2.9,
+            "d90": -2.2
+          },
+          "source": "us_eia",
+          "base_date": "2024-09-18"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.8,
+            "d7": 2.4,
+            "d30": 10.3,
+            "d90": 18.9
+          },
+          "changes_pt": {
+            "d1": 0.03,
+            "d7": 0.09,
+            "d30": 0.38,
+            "d90": 0.7
+          },
+          "source": "us_treasury",
+          "base_date": "2024-09-18"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.7,
+            "d7": 1.6,
+            "d30": 5.7,
+            "d90": 8.5
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2024-09-18"
+        }
+      }
+    },
+    {
+      "id": "oil_shock_1973",
+      "name": "第一次石油危機（OAPEC石油禁輸）",
+      "date": "1973-10-17",
+      "category": "geopolitics",
+      "cause_tags": [
+        "supply_shock",
+        "middle_east"
+      ],
+      "effect_tags": [],
+      "effect_tag_details": {},
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "OAPECが親イスラエル国向けの石油生産削減を決定し、段階的な禁輸へ発展した局面。原油価格は約4倍に急騰し、スタグフレーション（インフレと景気停滞の同時進行）という当時の経済学では想定外の事態を招いた。供給ショック型インフレの歴史的原型として位置づけられる。",
+      "similarity_reason": "政治的意図による組織的な石油禁輸という点で、供給ショックの原型局面。ただし発生から50年以上が経過しており、WTI・VIX・金（GLD）の日次データは取得不可。取得できるのはS&P500・米10年債・ドル円のみ。歴史的参考イベントとして登録し、統計集計では参照できる系列が限られることを前提とする。",
+      "why_reaction": "政治的な禁輸措置という需給を超えた強制的な供給制限が、価格を約4倍に押し上げた。同時期に高インフレが進行しており、エネルギーコスト上昇がさらに物価を押し上げる二重構造となった。米国はドルの金兌換停止（1971年）直後でドル安が進んでおり、石油代金のドル建て取引を通じたインフレ増幅も起きた。FRBの対応が後手に回り、スタグフレーションが長期化した。",
+      "key_insight": "政治的に組織された石油禁輸は、需要・供給の市場メカニズムでは価格を抑制できず、インフレが長期化した傾向が過去データで観察された。株式は発生後数ヶ月にわたり下落が続き、代替供給源が登場するまで市場の回復が遅れた例として記録されている。",
+      "contrast": [
+        {
+          "with": "saudi_attack_2019",
+          "axis": "供給停止の継続期間と意図（一時的被害か組織的禁輸か）",
+          "this_side": "組織的・政治的禁輸（数ヶ月単位）",
+          "other_side": "施設攻撃による一時的停止（数週間以内に復旧）",
+          "outcome_note": "サウジ攻撃は数週間で供給が回復し原油の上昇も一時的だったのに対し、1973年の禁輸は数ヶ月続きスタグフレーションを招いた。供給停止の継続期間が、市場へのダメージの深さを分ける要因だったことが読み取れる。",
+          "type": "structural_contrast"
+        }
+      ],
+      "propagation": [
+        "政治的石油禁輸",
+        "原油価格 約4倍に急騰",
+        "インフレ加速",
+        "景気後退（スタグフレーション）"
+      ],
+      "sources": [
+        {
+          "title": "Federal Reserve History: Oil Shock of 1973-74",
+          "url": "https://www.federalreservehistory.org/essays/oil-shock-of-1973-74"
+        },
+        {
+          "title": "Britannica: Arab oil embargo",
+          "url": "https://www.britannica.com/event/Arab-oil-embargo"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "no_data",
+          "changes": {},
+          "source": "us_eia"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "no_data",
+          "changes": {},
+          "changes_pt": {},
+          "source": "us_treasury"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "no_data",
+          "changes": {},
+          "source": "ecb_derived_usdjpy"
+        }
+      }
+    },
+    {
+      "id": "gulf_war_1990",
+      "name": "イラクのクウェート侵攻（湾岸戦争）",
+      "date": "1990-08-02",
+      "category": "geopolitics",
+      "cause_tags": [
+        "supply_shock",
+        "war",
+        "middle_east"
+      ],
+      "effect_tags": [
+        "oil_up",
+        "yield_up"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d7",
+          "d30"
+        ],
+        "yield_up": [
+          "d7",
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "イラクがOPEC加盟国のクウェートを占領し、イラク・クウェート合わせて日量430万バレルの供給が市場から失われた。原油価格は7月の17ドルから10月には36〜46ドルへ倍増した。翌1991年1月の砂漠の嵐作戦開始後、価格は急落し9ヶ月で収束した。",
+      "similarity_reason": "産油国が直接当事者となった大規模軍事衝突で、供給が現実に失われたケース。1973年の禁輸より規模は小さいが、代替増産（サウジ等）が早期に機能した点が異なる。VIX・WTIが取得可能な1990年以降の最初の大規模供給ショックとして、グループ内の基準イベントになる。",
+      "why_reaction": "イラク・クウェート2カ国分の産油が市場から消えたことで供給不安が急騰した。さらにサダム・フセインがサウジアラビアに侵攻するリスクが意識され、中東全域の供給喪失シナリオが価格を押し上げた。ただしサウジを含む他のOPEC諸国が増産して代替供給を確保したため、1973年のような長期的なスタグフレーションには至らなかった。軍事的解決の見通しが立った1991年1月以降は急落した。",
+      "key_insight": "産油国が当事者の軍事衝突では供給途絶が現実化し、原油が急騰した傾向が過去データで観察された。代替供給源（他のOPEC諸国）の存在が、1973年との違いを生んだ。軍事的解決の見通しが立った時点で価格が急落したことも、『解決可能性の認識』が市場を左右するという構造を示している。",
+      "contrast": [
+        {
+          "with": "hamas_israel_2023",
+          "axis": "当事国に主要産油国が含まれるかどうか",
+          "this_side": "主要産油国（イラク・クウェート）が直接当事者",
+          "other_side": "非産油国間の衝突（産油インフラへの影響なし）",
+          "outcome_note": "湾岸戦争では主要産油国2カ国の供給が失われ原油が急騰した。ハマス衝突では産油インフラへの影響がなく原油反応は限定的だった。同じ中東の軍事衝突でも、産油国が当事者かどうかが原油反応の規模を分けた要因として読み取れる。",
+          "type": "structural_contrast"
+        }
+      ],
+      "propagation": [
+        "産油国間の武力衝突",
+        "日量430万バレルの供給喪失",
+        "原油価格 倍増",
+        "株式 急落後に回復"
+      ],
+      "sources": [
+        {
+          "title": "EconLib: Who Caused the August 1990 Spike in Oil Prices?",
+          "url": "https://www.econlib.org/archives/2014/06/who_caused_the.html"
+        },
+        {
+          "title": "Wikipedia: 1990 oil price shock",
+          "url": "https://en.wikipedia.org/wiki/1990_oil_price_shock"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.3,
+            "d7": 8.4,
+            "d30": 15.8,
+            "d90": 48.9
+          },
+          "source": "us_eia",
+          "base_date": "1990-08-02"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.2,
+            "d7": 3.0,
+            "d30": 5.4,
+            "d90": 2.9
+          },
+          "changes_pt": {
+            "d1": 0.02,
+            "d7": 0.25,
+            "d30": 0.45,
+            "d90": 0.24
+          },
+          "source": "us_treasury",
+          "base_date": "1990-08-02"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "no_data",
+          "changes": {},
+          "source": "ecb_derived_usdjpy"
+        }
+      },
+      "reverse_contrast": [
+        {
+          "from": "covid_shock_2020",
+          "from_name": "COVID-19ショック（世界的パンデミック勃発）",
+          "axis": "需要消滅型ショック vs 供給制約型ショック",
+          "this_side": "産油国の軍事衝突で供給が制約されWTI原油が急騰（供給側から市場を直撃）",
+          "other_side": "パンデミックで需要が消滅しWTI原油が急落（需要側から市場を直撃）",
+          "outcome_note": "WTIの方向が完全に逆転している。需要消滅型のCOVIDショックでは原油が急落したのに対し、供給制約型の湾岸戦争では原油が急騰した。同じ「株安・VIX上昇」局面でも、危機の起点が需要か供給かによって原油の動きが正反対になることが過去データから読み取れる。",
+          "type": "structural_contrast"
+        }
+      ]
+    },
+    {
+      "id": "libya_civil_war_2011",
+      "name": "リビア内戦による原油供給停止",
+      "date": "2011-02-17",
+      "category": "geopolitics",
+      "cause_tags": [
+        "supply_shock",
+        "war",
+        "middle_east"
+      ],
+      "effect_tags": [
+        "oil_up",
+        "usd_weak",
+        "yield_down"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d7",
+          "d30"
+        ],
+        "usd_weak": [
+          "d7",
+          "d30"
+        ],
+        "yield_down": [
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "リビアで内戦が勃発し、日量160万バレルの原油輸出が約30万バレルまで急減した。リビアの原油は世界供給の約2%だが、欧州向け輸出の85%超を占める高品質（軽質・低硫黄）原油だったため、欧州市場への影響は世界シェア以上に大きかった。同時期のアラブの春による中東全域の供給不安も重なった。",
+      "similarity_reason": "中規模産油国の供給停止が特定市場（欧州）に集中したケース。世界シェアは約2%と小さくても、欧州精油所の主要供給源であったため市場インパクトが増幅された。代替品質の原油調達に時間がかかり、価格プレミアムが持続した。全6資産（金GLDを含む）のデータが取得可能な供給ショック事例。",
+      "why_reaction": "内戦により生産インフラが機能を停止し、欧州向けの軽質原油が急減した。代替となる同品質の原油をアルジェリア等から調達する必要があり、需給の再編に時間がかかった。同時期のアラブの春による中東全域の不安定化も需要家心理に重なりプレミアムを押し上げた。その後IEAが緊急在庫放出を実施し、価格は次第に落ち着いた。",
+      "key_insight": "産油国の世界シェアが小さくても、特定市場の主要供給源である場合、そのシェア以上のインパクトがある傾向が過去データで観察された。同品質の代替原油が限られる場合、価格プレミアムが長期化しやすいことも観察されている。",
+      "contrast": [
+        {
+          "with": "saudi_attack_2019",
+          "axis": "供給停止の規模（世界シェア）と市場インパクトの関係",
+          "this_side": "世界シェア約2%の停止だが、特定市場（欧州）への集中で大きなインパクト",
+          "other_side": "世界シェア約5%の一時停止だが、短期で回復し長期インパクトは限定的",
+          "outcome_note": "世界シェアの大きさだけでなく、停止の継続期間と代替供給の調達難易度が市場インパクトを左右した傾向が読み取れる。リビアは規模は小さいが継続期間が長く、サウジは規模が大きいが短期で回復した対照例となる。",
+          "type": "structural_contrast"
+        }
+      ],
+      "propagation": [
+        "内戦による生産停止",
+        "欧州向け軽質原油 急減",
+        "油価 3桁突破",
+        "IEA 緊急在庫放出"
+      ],
+      "sources": [
+        {
+          "title": "U.S. EIA: Libyan supply disruption",
+          "url": "https://www.eia.gov/todayinenergy/detail.php?id=390"
+        },
+        {
+          "title": "U.S. EIA: Conflict in Libya and crude oil production",
+          "url": "https://www.eia.gov/todayinenergy/detail.php?id=53419"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -0.0,
+            "d7": 12.7,
+            "d30": 18.8,
+            "d90": 17.0
+          },
+          "source": "us_eia",
+          "base_date": "2011-02-17"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.3,
+            "d7": -3.4,
+            "d30": -8.4,
+            "d90": -11.2
+          },
+          "changes_pt": {
+            "d1": 0.01,
+            "d7": -0.12,
+            "d30": -0.3,
+            "d90": -0.4
+          },
+          "source": "us_treasury",
+          "base_date": "2011-02-17"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -0.3,
+            "d7": -2.2,
+            "d30": -2.9,
+            "d90": -3.0
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2011-02-17"
+        }
+      }
+    },
+    {
+      "id": "ltcm_crisis_1998",
+      "name": "LTCMショック（ヘッジファンド救済）",
+      "date": "1998-09-02",
+      "category": "financial",
+      "cause_tags": [
+        "bank_crisis",
+        "liquidity_crisis"
+      ],
+      "effect_tags": [
+        "oil_up",
+        "yield_down"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d1",
+          "d30"
+        ],
+        "yield_down": [
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "ノーベル賞受賞者も参加した超高レバレッジのヘッジファンドLTCMが、ロシアのデフォルト（1998年8月）をきっかけに崩壊寸前となった局面。9月2日にLTCMが投資家宛の書簡で損失（年初来−52%）を開示し、問題が市場に広く認知された。FRBニューヨーク連銀が14の大手金融機関を説得して36億ドルの協調救済を主導し、9月23日に合意が成立。公的資金は使わず民間主導で収束した。",
+      "similarity_reason": "規制対象外のヘッジファンドが引き起こした流動性危機の原型局面。FRBが『調整役』として民間救済を成功させた事例で、リーマン（救済なし）との対比で『介入があれば市場の動揺が短期で収束しやすい』という構造を示す最初の事例として位置づけられる。一方で救済成功がその後の過剰リスクテイクを生んだという評価もあり、LTCM→リーマンという教訓の失敗の系譜として重要。",
+      "why_reaction": "ロシアのデフォルトがLTCMの収束ベット（スプレッド縮小予測）を悉く裏切り、高レバレッジゆえに損失が雪だるま式に拡大した。カウンターパーティの大手金融機関への連鎖リスクが意識され、8月末から9月にかけてS&P500が急落した。9月23日にFRBが調整した民間救済が成立し、市場の不安は比較的速やかに後退した。FRBはその後10月・11月に利下げを実施し、年末にかけて市場は回復した。",
+      "key_insight": "中央銀行が早期に調整役として動き民間主導の救済が成立した局面では、危機が比較的短期間で収束した傾向が過去データで観察された。ただし救済成功が次の大型危機（リーマンショック）における過剰リスクテイクを誘発したという見方も歴史的記録として残っている。",
+      "contrast": [],
+      "propagation": [
+        "ロシアデフォルトがLTCMの収束ベットを裏切る",
+        "超高レバレッジで損失が急拡大",
+        "FRBが民間銀行14行の協調救済を調整",
+        "9月23日 救済合意で市場の不安が後退",
+        "FRBが10月・11月に利下げ"
+      ],
+      "sources": [
+        {
+          "title": "Federal Reserve History: Near Failure of Long-Term Capital Management",
+          "url": "https://www.federalreservehistory.org/essays/ltcm-near-failure"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 7.1,
+            "d7": 4.7,
+            "d30": 14.5,
+            "d90": -17.9
+          },
+          "source": "us_eia",
+          "base_date": "1998-09-02"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -1.4,
+            "d7": -2.9,
+            "d30": -15.5,
+            "d90": -8.4
+          },
+          "changes_pt": {
+            "d1": -0.07,
+            "d7": -0.15,
+            "d30": -0.79,
+            "d90": -0.43
+          },
+          "source": "us_treasury",
+          "base_date": "1998-09-02"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "no_data",
+          "changes": {},
+          "source": "ecb_derived_usdjpy"
+        }
+      },
+      "reverse_contrast": [
+        {
+          "from": "lehman_shock_2008",
+          "from_name": "リーマンブラザーズ破綻（リーマンショック）",
+          "axis": "救済・介入の有無と介入の形式",
+          "this_side": "FRB主導で民間銀行の協調救済が成立",
+          "other_side": "救済なし（市場任せで破綻）",
+          "outcome_note": "LTCMはFRBが調整役として動き民間主導の救済が成立したため、危機は比較的短期間で収束した。リーマンは救済が見送られ信用市場が凍結、世界的な金融危機へと発展した。同じ過剰レバレッジによる流動性危機でも、当局の介入有無が市場への波及を決定的に変えたことが過去データから読み取れる。",
+          "type": "structural_contrast"
+        },
+        {
+          "from": "eurozone_crisis_2010",
+          "from_name": "欧州債務危機（ギリシャJunk格下げ）",
+          "axis": "中央銀行が即座に動けたかどうか（制度的制約の有無）",
+          "this_side": "FRBは即日調整役として動き民間救済を短期間で組成",
+          "other_side": "ECBはユーロ圏の制度的制約で国債購入に踏み切れず対応が長期化",
+          "outcome_note": "LTCMはFRBが素早く動いたことで危機が数週間で収束したのに対し、欧州債務危機はECBの対応が制度的に制約されたため不安が2年以上続いた。危機対応能力は中央銀行の意思だけでなく制度設計にも左右されることが過去データから読み取れる。",
+          "type": "structural_contrast"
+        }
+      ]
+    },
+    {
+      "id": "lehman_shock_2008",
+      "name": "リーマンブラザーズ破綻（リーマンショック）",
+      "date": "2008-09-15",
+      "category": "financial",
+      "cause_tags": [
+        "bank_crisis",
+        "liquidity_crisis"
+      ],
+      "effect_tags": [
+        "oil_down",
+        "oil_up",
+        "usd_weak",
+        "yield_up"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d7"
+        ],
+        "oil_down": [
+          "d30"
+        ],
+        "usd_weak": [
+          "d1",
+          "d30"
+        ],
+        "yield_up": [
+          "d7",
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "米国第4位の投資銀行リーマンブラザーズが6,390億ドルの負債を抱えて破産申請し、史上最大の破綻となった局面。サブプライムローンを担保にした証券の価格崩壊が引き金となり、信用市場が機能停止に陥った。FRBと財務省は救済に動かず（翌日にAIGは救済という矛盾が不確実性を拡大）、金融恐慌が世界に波及した。",
+      "similarity_reason": "金融システム全体に波及したグローバル規模の銀行危機の最大事例。LTCMと比較すると『FRBが介入したケース（LTCM）』と『介入しなかったケース（リーマン）』という対照例として機能する。SVBと比較すると『政策対応が遅れ不明確だったケース』として、同じ銀行破綻でも対応速度の違いが結果を変えることを示す。",
+      "why_reaction": "破綻申請は『政府は大型金融機関を救わない』というシグナルを市場に送り、翌日のAIG救済との矛盾がさらなる不信感を生んだ。MMF（マネーマーケットファンド）が元本割れを起こし、信用市場が凍結してTEDスプレッドが急拡大した。株式は1日後に約5%下落し、30日後にも下落が続いた。VIXは発生後も上昇し続け、FRBのゼロ金利・量的緩和と財政出動の組み合わせが底打ちをもたらすまで数ヶ月を要した。",
+      "key_insight": "大型金融機関への救済が見送られ、かつその判断が不透明だった局面では、信用市場の機能停止が長引き、株式の回復に数ヶ月以上を要した傾向が過去データで観察された。政策対応の有無と一貫性が危機の深さを左右した事例として記録されている。",
+      "contrast": [
+        {
+          "with": "ltcm_crisis_1998",
+          "axis": "救済・介入の有無と介入の形式",
+          "this_side": "救済なし（市場任せで破綻）",
+          "other_side": "FRB主導で民間銀行の協調救済が成立",
+          "outcome_note": "LTCMはFRBが調整役として動き民間主導の救済が成立したため、危機は比較的短期間で収束した。リーマンは救済が見送られ信用市場が凍結、世界的な金融危機へと発展した。同じ過剰レバレッジによる流動性危機でも、当局の介入有無が市場への波及を決定的に変えたことが過去データから読み取れる。",
+          "type": "structural_contrast"
+        }
+      ],
+      "propagation": [
+        "破産申請・救済見送り",
+        "翌日AIG救済との矛盾が不確実性を拡大",
+        "MMFが元本割れ・信用市場が凍結",
+        "VIX 継続上昇・株式 長期下落",
+        "FRB ゼロ金利・QE導入で底打ち"
+      ],
+      "sources": [
+        {
+          "title": "HISTORY: Lehman Brothers declares bankruptcy September 15 2008",
+          "url": "https://www.history.com/this-day-in-history/september-15/lehman-brothers-collapses"
+        },
+        {
+          "title": "Federal Reserve History: The 2007-08 Financial Crisis in Review",
+          "url": "https://www.federalreservehistory.org/essays/financial-crisis-in-review"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -4.2,
+            "d7": 28.4,
+            "d30": -22.1,
+            "d90": -51.6
+          },
+          "source": "us_eia",
+          "base_date": "2008-09-15"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.3,
+            "d7": 10.4,
+            "d30": 16.4,
+            "d90": -25.1
+          },
+          "changes_pt": {
+            "d1": 0.01,
+            "d7": 0.36,
+            "d30": 0.57,
+            "d90": -0.87
+          },
+          "source": "us_treasury",
+          "base_date": "2008-09-15"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -2.0,
+            "d7": 0.6,
+            "d30": -4.2,
+            "d90": -14.9
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2008-09-15"
+        }
+      },
+      "reverse_contrast": [
+        {
+          "from": "svb_collapse_2023",
+          "from_name": "シリコンバレー銀行（SVB）破綻",
+          "axis": "政策対応の速度と初動の範囲",
+          "this_side": "救済せず破綻させ、翌日AIG救済との矛盾が不確実性を拡大",
+          "other_side": "破綻翌々日（週末中）に全預金者保護を決定",
+          "outcome_note": "SVBは週末中に全預金保護が決まり月曜から通常業務が継続できたため、30日後の株式市場の下落は限定的だった。リーマンは救済見送りと翌日のAIG救済という矛盾が不信感を増幅し、株式は30日後も大幅下落が続いた。同じ金融機関の破綻でも、政策の初動速度と明確さが市場への波及の深さを左右したことが過去データから読み取れる。",
+          "type": "structural_contrast"
+        },
+        {
+          "from": "covid_shock_2020",
+          "from_name": "COVID-19ショック（世界的パンデミック勃発）",
+          "axis": "需要崩壊（実体経済起点）vs 信用崩壊（金融システム起点）",
+          "this_side": "金融機関の破綻と信用市場の凍結から実体経済に波及した信用崩壊型ショック",
+          "other_side": "人の移動・消費停止という実体経済の直撃から始まった需要消滅型ショック",
+          "outcome_note": "どちらも株式・VIXが大幅下落したが、金の動きが対照的だった。リーマンショックでは金は「逃避先」として上昇したが、COVIDショックの初期では流動性確保のための現金化で一時下落した。「逃避先資産」の振る舞いが危機の型によって変わることが読み取れる。",
+          "type": "structural_contrast"
+        }
+      ]
+    },
+    {
+      "id": "svb_collapse_2023",
+      "name": "シリコンバレー銀行（SVB）破綻",
+      "date": "2023-03-10",
+      "category": "financial",
+      "cause_tags": [
+        "bank_crisis"
+      ],
+      "effect_tags": [
+        "oil_down",
+        "oil_up",
+        "usd_weak",
+        "yield_down"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d30"
+        ],
+        "oil_down": [
+          "d7"
+        ],
+        "usd_weak": [
+          "d7",
+          "d30"
+        ],
+        "yield_down": [
+          "d7",
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "テック系スタートアップに特化したシリコンバレー銀行（資産2,090億ドル）がFDICに接収された。FRBの急速な利上げで長期国債ポートフォリオに多額の含み損が発生し、増資失敗の報道がSNSを通じた取り付けを誘発した。1日で420億ドルの預金引き出しが殺到し、翌3月12日には当局が全預金者を保護すると発表。同日、シグネチャー銀行も破綻した。",
+      "similarity_reason": "SNSが加速させた現代型の銀行取り付けの初事例。リーマン（2008年）と比較すると規模は格段に小さく、当局の初動対応が素早かったため全体への波及は限定的だった。同じ『銀行破綻』でも、政策対応の速度と範囲が市場反応をどれだけ変えうるかを示す事例。",
+      "why_reaction": "利上げ環境下で長期債を大量保有するという固有のビジネスモデルの脆弱性が、SNSによる情報拡散で一気に顕在化した。ただし当局が週末中に全預金保護を決定し、月曜朝から通常業務が継続できる措置が取られたことで、信用市場の凍結は起きなかった。VIXは一時上昇したが30日後には落ち着いた。金は逃避先として買われ、利下げ期待の高まりから米国債利回りは低下した。株式は個別銀行株に打撃が集中し、市場全体への波及はリーマン時と比べて限定的だった。",
+      "key_insight": "金融当局が初動で全預金者保護を決定した局面では、銀行危機の伝染が限定的にとどまった傾向が過去データで観察された。SNSによる情報拡散が危機の速度を増幅した一方、政策対応の速度もそれに対応して速くなった構造が読み取れる。同じ銀行危機でも政策初動の速さが結果を分けた事例として記録されている。",
+      "contrast": [
+        {
+          "with": "lehman_shock_2008",
+          "axis": "政策対応の速度と初動の範囲",
+          "this_side": "破綻翌々日（週末中）に全預金者保護を決定",
+          "other_side": "救済せず破綻させ、翌日AIG救済との矛盾が不確実性を拡大",
+          "outcome_note": "SVBは週末中に全預金保護が決まり月曜から通常業務が継続できたため、30日後の株式市場の下落は限定的だった。リーマンは救済見送りと翌日のAIG救済という矛盾が不信感を増幅し、株式は30日後も大幅下落が続いた。同じ金融機関の破綻でも、政策の初動速度と明確さが市場への波及の深さを左右したことが過去データから読み取れる。",
+          "type": "structural_contrast"
+        }
+      ],
+      "propagation": [
+        "利上げ環境下での長期債含み損",
+        "SNSによる情報拡散・取り付け加速",
+        "当局が週末中に全預金者保護を決定",
+        "信用不安は限定的・逃避需要で金・米国債が上昇"
+      ],
+      "sources": [
+        {
+          "title": "FDIC: Failed Bank Information - Silicon Valley Bank",
+          "url": "https://www.fdic.gov/resources/resolutions/bank-failures/failed-bank-list/silicon-valley.html"
+        },
+        {
+          "title": "CNBC: Silicon Valley Bank is shut down by regulators",
+          "url": "https://www.cnbc.com/2023/03/10/silicon-valley-bank-is-shut-down-by-regulators-fdic-to-protect-insured-deposits.html"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": -13.0,
+            "d30": 5.4,
+            "d90": -6.9
+          },
+          "source": "us_eia",
+          "base_date": "2023-03-10"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": -8.4,
+            "d30": -8.4,
+            "d90": 0.8
+          },
+          "changes_pt": {
+            "d1": 0.0,
+            "d7": -0.31,
+            "d30": -0.31,
+            "d90": 0.03
+          },
+          "source": "us_treasury",
+          "base_date": "2023-03-10"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.0,
+            "d7": -3.2,
+            "d30": -3.8,
+            "d90": 2.2
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2023-03-10"
+        }
+      }
+    },
+    {
+      "id": "eurozone_crisis_2010",
+      "name": "欧州債務危機（ギリシャJunk格下げ）",
+      "date": "2010-04-27",
+      "category": "financial",
+      "cause_tags": [
+        "bank_crisis",
+        "debt_crisis"
+      ],
+      "effect_tags": [
+        "oil_down",
+        "usd_weak",
+        "yield_down"
+      ],
+      "effect_tag_details": {
+        "oil_down": [
+          "d30"
+        ],
+        "usd_weak": [
+          "d30"
+        ],
+        "yield_down": [
+          "d30"
+        ]
+      },
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "S&PがギリシャをBB+（投機的等級）に格下げし欧州債務危機が本格化した局面。ギリシャのGDP比13.6%という財政赤字が露呈し、スペイン・ポルトガル・イタリアへの波及懸念が市場を動揺させた。欧州銀行が大量のソブリン債を保有していたため財政危機と銀行危機が連動した。ユーロ圏の単一通貨という制約が、各国が独自の金融政策で対応できない構造的問題を浮き彫りにした。",
+      "similarity_reason": "財政危機が銀行危機に転化した事例。純粋な金融機関の破綻（LTCM・リーマン・SVB）とは異なり、国家の債務問題が銀行システムに波及した点で、銀行危機グループ内で『実物供給の停止』でも『金融機関の直接破綻』でもない第三の経路——信用の停止が国家財政から始まる——を担う。ECBがユーロ圏の制度的制約から国債購入に踏み切るまでに時間を要した点が、FRBが即日動けたLTCMとの重要な対比になる。",
+      "why_reaction": "ギリシャの格下げはユーロ圏全体の財政脆弱国への不信感を呼び起こした。欧州銀行が大量のソブリン債を保有していたため、国債価格の下落が銀行の資本毀損懸念につながった。ユーロ安・株安・金買いが同時進行した。ECBは制度的制約から独自の国債購入に踏み込めず危機は拡大した。ECBのOMT（無制限国債購入）宣言が2012年7月に出るまで市場の不安は断続的に続いた。",
+      "key_insight": "財政危機が銀行危機に転化した局面では、中央銀行が積極的な市場介入に踏み切るまで市場の不安が持続した傾向が過去データで観察された。単一通貨圏という制度的制約が危機対応の選択肢を狭め、解決までの期間を長くした例として記録されている。",
+      "contrast": [
+        {
+          "type": "structural_contrast",
+          "with": "ltcm_crisis_1998",
+          "axis": "中央銀行が即座に動けたかどうか（制度的制約の有無）",
+          "this_side": "ECBはユーロ圏の制度的制約で国債購入に踏み切れず対応が長期化",
+          "other_side": "FRBは即日調整役として動き民間救済を短期間で組成",
+          "outcome_note": "LTCMはFRBが素早く動いたことで危機が数週間で収束したのに対し、欧州債務危機はECBの対応が制度的に制約されたため不安が2年以上続いた。危機対応能力は中央銀行の意思だけでなく制度設計にも左右されることが過去データから読み取れる。"
+        }
+      ],
+      "propagation": [
+        "ギリシャ財政赤字の露呈・格下げ",
+        "欧州ソブリン債 下落",
+        "欧州銀行の資本毀損懸念",
+        "ユーロ安・株安・金買い",
+        "ECBのOMT宣言（2012年）で収束"
+      ],
+      "sources": [
+        {
+          "title": "CFA Institute: European Sovereign Debt Crisis Timeline",
+          "url": "https://blogs.cfainstitute.org/investor/2011/11/21/european-sovereign-debt-crisis-overview-analysis-and-timeline-of-major-events/"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 1.0,
+            "d7": 0.4,
+            "d30": -9.5,
+            "d90": -4.2
+          },
+          "source": "us_eia",
+          "base_date": "2010-04-27"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 2.4,
+            "d7": -2.2,
+            "d30": -10.0,
+            "d90": -18.3
+          },
+          "changes_pt": {
+            "d1": 0.09,
+            "d7": -0.08,
+            "d30": -0.37,
+            "d90": -0.68
+          },
+          "source": "us_treasury",
+          "base_date": "2010-04-27"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 0.2,
+            "d7": 0.7,
+            "d30": -3.7,
+            "d90": -7.4
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2010-04-27"
+        }
+      },
+      "reverse_contrast": [
+        {
+          "from": "asian_crisis_1997",
+          "from_name": "アジア通貨危機（タイバーツ切り下げ）",
+          "axis": "固定相場制の制約下での危機で通貨切り下げという出口があったかどうか",
+          "this_side": "ユーロ圏内での通貨切り下げが不可能で緊縮一辺倒を迫られ回復が長期化",
+          "other_side": "ペッグ放棄→通貨安という調整機能が働き数年で回復に向かった",
+          "outcome_note": "アジア通貨危機ではペッグ放棄後に通貨安という調整機能が働き、数年で回復に向かった。欧州債務危機ではユーロ圏という制約から通貨切り下げという出口がなく、ECBのOMT宣言が出るまで2年以上不安が続いた。固定相場制の制約下の危機でも、通貨切り下げという出口の有無が回復速度を分けた傾向が読み取れる。",
+          "type": "structural_contrast"
+        }
+      ]
+    },
+    {
+      "id": "asian_crisis_1997",
+      "name": "アジア通貨危機（タイバーツ切り下げ）",
+      "date": "1997-07-02",
+      "category": "financial",
+      "cause_tags": [
+        "bank_crisis",
+        "currency_crisis"
+      ],
+      "effect_tags": [],
+      "effect_tag_details": {},
+      "causal_chain": [],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": null,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "タイが14年間維持したドルペッグを放棄しバーツが急落した局面。マレーシア・フィリピン・インドネシア・韓国へ連鎖し、アジア全域の通貨・株式・銀行システムが崩壊した。ドル建て短期借入への過度な依存と不動産バブル崩壊という構造的脆弱性に国際的な投機攻撃が重なり、通貨危機と銀行危機が同時進行する「ツイン・クライシス」となった。",
+      "similarity_reason": "通貨危機と銀行危機が同時進行した「ツイン・クライシス」の典型例。銀行危機グループ内で通貨ペッグという固定相場制の崩壊が引き金になった唯一の事例として、欧州債務危機（ユーロという固定相場への縛り）との構造比較に使える。ただし、米国市場（S&P500・VIX）への直接的な波及は限定的であり、本イベントの変化率は他の銀行危機イベントより小さく出る可能性がある。震源はアジア市場であり、LTCMショックを通じた翌年の波及と合わせて読む必要がある。金（GLD）は2004年設定のためデータ取得不可。",
+      "why_reaction": "バーツのペッグ放棄は市場のドミノ的不信感を引き起こした。アジア諸国の銀行がドル建て短期債務でファイナンスしていたため、通貨下落が負債の実質増大を招き銀行危機と通貨危機が同時進行した。IMFの介入条件（緊縮財政）が当初景気を悪化させ株式と通貨への圧力が長引いた。S&P500・VIXへの直接的な打撃は限定的で、本格的な波及は翌年のロシアデフォルト→LTCMショックの連鎖を通じて起きた。",
+      "key_insight": "ドルペッグへの依存と過剰な短期外貨借入という脆弱性を抱えた国では、通貨危機と銀行危機が連鎖して増幅された傾向が過去データで観察された。震源から遠い米国市場への直接的な波及は翌年のLTCMショックまで限定的だった例として記録されている。",
+      "contrast": [
+        {
+          "type": "structural_contrast",
+          "with": "eurozone_crisis_2010",
+          "axis": "固定相場制の制約下での危機で通貨切り下げという出口があったかどうか",
+          "this_side": "ペッグ放棄→通貨安という調整機能が働き数年で回復に向かった",
+          "other_side": "ユーロ圏内での通貨切り下げが不可能で緊縮一辺倒を迫られ回復が長期化",
+          "outcome_note": "アジア通貨危機ではペッグ放棄後に通貨安という調整機能が働き、数年で回復に向かった。欧州債務危機ではユーロ圏という制約から通貨切り下げという出口がなく、ECBのOMT宣言が出るまで2年以上不安が続いた。固定相場制の制約下の危機でも、通貨切り下げという出口の有無が回復速度を分けた傾向が読み取れる。"
+        }
+      ],
+      "propagation": [
+        "タイバーツ ペッグ放棄・急落",
+        "アジア各国の通貨・株式に連鎖",
+        "ドル建て短期債務の実質増大→通貨危機と銀行危機が同時進行",
+        "IMF介入・緊縮財政で景気悪化が長期化",
+        "米国市場への直接波及は翌年LTCMショックを通じて顕在化"
+      ],
+      "sources": [
+        {
+          "title": "Federal Reserve History: Asian Financial Crisis",
+          "url": "https://www.federalreservehistory.org/essays/asian-financial-crisis"
+        },
+        {
+          "title": "Federal Reserve Bank of San Francisco: Lessons from Thailand",
+          "url": "https://www.frbsf.org/research-and-insights/publications/economic-letter/1997/11/lessons-from-thailand/"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -4.5,
+            "d7": -4.9,
+            "d30": -0.6,
+            "d90": 3.6
+          },
+          "source": "us_eia",
+          "base_date": "1997-07-02"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": -1.7,
+            "d7": -2.6,
+            "d30": -3.4,
+            "d90": -4.7
+          },
+          "changes_pt": {
+            "d1": -0.11,
+            "d7": -0.17,
+            "d30": -0.22,
+            "d90": -0.3
+          },
+          "source": "us_treasury",
+          "base_date": "1997-07-02"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "no_data",
+          "changes": {},
+          "source": "ecb_derived_usdjpy"
+        }
+      }
+    },
+    {
+      "id": "covid_shock_2020",
+      "name": "COVID-19ショック（世界的パンデミック勃発）",
+      "date": "2020-03-09",
+      "category": "health",
+      "cause_tags": [
+        "pandemic"
+      ],
+      "effect_tags": [
+        "oil_down",
+        "oil_up",
+        "usd_strong"
+      ],
+      "effect_tag_details": {
+        "oil_up": [
+          "d1"
+        ],
+        "oil_down": [
+          "d7",
+          "d30"
+        ],
+        "usd_strong": [
+          "d7",
+          "d30"
+        ]
+      },
+      "causal_chain": [
+        "感染拡大→移動・消費の停止（需要消滅）",
+        "サウジ・ロシア増産競争→原油価格急落（供給過剰が同時発生）",
+        "「業績ゼロ」の不確実性→株式急落・VIX急騰",
+        "金は初期に流動性確保のための売却（過去の危機と逆方向）",
+        "FRBの無制限QE・CARES法（2.2兆ドル）→3月23日底値から急反発"
+      ],
+      "context_snapshot": {
+        "vix_level": null,
+        "oil_price_wti": null,
+        "cpi_yoy": 2.3,
+        "fed_funds_rate": null,
+        "ust10y_yield": null
+      },
+      "description": "新型コロナウイルスの世界的感染拡大が経済的現実として市場に織り込まれ始めた2020年3月、米国でサーキットブレーカーが初めて発動した。WTI原油はパンデミックによる需要急減にサウジアラビア・ロシアの増産競争が重なって記録的な暴落を演じた。ロックダウンによる需要の消滅は、供給ショック（供給側から価格に直撃）でも銀行危機（信用側から金融機能が停止）でもなく、人の移動・消費という需要そのものが止まるという「需要消滅型」の市場ショックとして記録されている。",
+      "similarity_reason": "パンデミックによるショックは需要側から始まった点で、供給ショック（原油高・インフレ）や銀行危機（信用収縮）とは伝播経路が根本的に異なる。同じ「株安・VIX急騰」でも、WTIが急落した点が供給ショックとの決定的な違いであり、金が初期に下落した点が銀行危機との違いになっている。FRBの無制限QEと財政出動が迅速に発動したため、30日後の統計には「危機」と「政策対応による回復」の両方が混在している点に注意が必要。",
+      "why_reaction": "WTI原油はパンデミックによる需要消滅とサウジ・ロシアの増産競争という二重のショックを受けて急落した。株式は「業績見通しがゼロになる」という前例のない不確実性を価格に織り込んだ。金は初期（3月）に流動性確保のための現金化で下落した点が過去の危機と異なる特徴だった（後に急騰）。VIXは2020年3月に80を超え、リーマンショック時（89）に次ぐ記録的水準に達した。3月23日に底値をつけた後は、FRBの無制限QEと財政出動（CARES法 2.2兆ドル）への期待から急速に回復した。",
+      "key_insight": "パンデミックによるショックは需要側から始まったため、供給ショックや銀行危機とは伝播経路が根本的に異なった傾向が過去データで観察された。回復の速さも異なり、FRBの無制限QEと財政出動という前例のない規模の政策対応が発動されたため、30日後にはすでに底値から大幅に反転していた。政策対応の規模と速度が過去の危機とは比較にならないほど大きかった点が統計値に影響を与えていることに注意が必要。",
+      "contrast": [
+        {
+          "type": "structural_contrast",
+          "with": "gulf_war_1990",
+          "axis": "需要消滅型ショック vs 供給制約型ショック",
+          "this_side": "パンデミックで需要が消滅しWTI原油が急落（需要側から市場を直撃）",
+          "other_side": "産油国の軍事衝突で供給が制約されWTI原油が急騰（供給側から市場を直撃）",
+          "outcome_note": "WTIの方向が完全に逆転している。需要消滅型のCOVIDショックでは原油が急落したのに対し、供給制約型の湾岸戦争では原油が急騰した。同じ「株安・VIX上昇」局面でも、危機の起点が需要か供給かによって原油の動きが正反対になることが過去データから読み取れる。"
+        },
+        {
+          "type": "structural_contrast",
+          "with": "lehman_shock_2008",
+          "axis": "需要崩壊（実体経済起点）vs 信用崩壊（金融システム起点）",
+          "this_side": "人の移動・消費停止という実体経済の直撃から始まった需要消滅型ショック",
+          "other_side": "金融機関の破綻と信用市場の凍結から実体経済に波及した信用崩壊型ショック",
+          "outcome_note": "どちらも株式・VIXが大幅下落したが、金の動きが対照的だった。リーマンショックでは金は「逃避先」として上昇したが、COVIDショックの初期では流動性確保のための現金化で一時下落した。「逃避先資産」の振る舞いが危機の型によって変わることが読み取れる。"
+        }
+      ],
+      "propagation": [
+        "感染拡大→移動・消費の停止（需要消滅）",
+        "産油国の増産競争→WTI原油の急落（需要減に供給増が重なる）",
+        "業績見通しの消滅→株式急落・サーキットブレーカー発動",
+        "流動性確保のための資産売却→金も一時下落（逃避先ロジックが機能しない初期局面）",
+        "FRBの無制限QE・CARES法の発動→3月23日底値から急反発"
+      ],
+      "sources": [
+        {
+          "title": "Federal Reserve History: COVID-19 Economic Crisis",
+          "url": "https://www.federalreservehistory.org/essays/covid-19-economic-crisis"
+        },
+        {
+          "title": "WHO: Coronavirus disease (COVID-19) pandemic",
+          "url": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019"
+        }
+      ],
+      "reactions": {
+        "wti": {
+          "label": "WTI原油",
+          "asset": "oil",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 11.0,
+            "d7": -6.7,
+            "d30": -19.6,
+            "d90": 27.2
+          },
+          "source": "us_eia",
+          "base_date": "2020-03-09"
+        },
+        "ust10y": {
+          "label": "米10年債利回り",
+          "asset": "bond",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 40.7,
+            "d7": 35.2,
+            "d30": 42.6,
+            "d90": 68.5
+          },
+          "changes_pt": {
+            "d1": 0.22,
+            "d7": 0.19,
+            "d30": 0.23,
+            "d90": 0.37
+          },
+          "source": "us_treasury",
+          "base_date": "2020-03-09"
+        },
+        "usdjpy": {
+          "label": "ドル円",
+          "asset": "fx",
+          "restricted": false,
+          "status": "ok",
+          "changes": {
+            "d1": 1.9,
+            "d7": 3.2,
+            "d30": 6.5,
+            "d90": 6.9
+          },
+          "source": "ecb_derived_usdjpy",
+          "base_date": "2020-03-09"
+        }
+      }
+    }
+  ],
+  "event_names": {
+    "saudi_attack_2019": "サウジアラビア石油施設への攻撃",
+    "us_iran_tension_2020": "米イラン緊張の高まり（ソレイマニ司令官殺害）",
+    "russia_ukraine_2022": "ロシアによるウクライナ侵攻",
+    "hamas_israel_2023": "ハマス・イスラエル衝突",
+    "iran_israel_strike_2024": "イランによるイスラエルへの攻撃",
+    "fed_cut_start_2019": "FRB利下げ開始（2008年以来初）",
+    "fed_emergency_cut_2020": "FRB緊急利下げ（ゼロ金利復帰）",
+    "fed_hike_start_2022": "FRB利上げ開始（インフレ対応）",
+    "fed_hike_final_2023": "FRB利上げサイクル最終（22年ぶり高水準）",
+    "fed_cut_start_2024": "FRB利下げ開始（50bpの大幅利下げ）",
+    "oil_shock_1973": "第一次石油危機（OAPEC石油禁輸）",
+    "gulf_war_1990": "イラクのクウェート侵攻（湾岸戦争）",
+    "libya_civil_war_2011": "リビア内戦による原油供給停止",
+    "ltcm_crisis_1998": "LTCMショック（ヘッジファンド救済）",
+    "lehman_shock_2008": "リーマンブラザーズ破綻（リーマンショック）",
+    "svb_collapse_2023": "シリコンバレー銀行（SVB）破綻",
+    "eurozone_crisis_2010": "欧州債務危機（ギリシャJunk格下げ）",
+    "asian_crisis_1997": "アジア通貨危機（タイバーツ切り下げ）",
+    "covid_shock_2020": "COVID-19ショック（世界的パンデミック勃発）"
+  },
+  "cause_summary": {
+    "middle_east": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 6,
+        "up": 2,
+        "down": 4,
+        "avg": 1.0,
+        "median": -1.9,
+        "max": 18.8,
+        "min": -18.1,
+        "confidence": {
+          "level": "mid",
+          "label": "信頼性：中",
+          "note": ""
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 6,
+        "up": 1,
+        "down": 5,
+        "avg": -4.9,
+        "median": -4.8,
+        "max": 5.4,
+        "min": -16.1,
+        "confidence": {
+          "level": "mid",
+          "label": "信頼性：中",
+          "note": ""
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 5,
+        "up": 4,
+        "down": 1,
+        "avg": 0.1,
+        "median": 0.5,
+        "max": 1.8,
+        "min": -2.9,
+        "confidence": {
+          "level": "mid",
+          "label": "信頼性：中",
+          "note": ""
+        }
+      }
+    },
+    "supply_shock": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 4,
+        "up": 3,
+        "down": 1,
+        "avg": 14.4,
+        "median": 17.3,
+        "max": 25.3,
+        "min": -2.2,
+        "confidence": {
+          "level": "low",
+          "label": "信頼性：低",
+          "note": "件数が少なめです"
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 4,
+        "up": 2,
+        "down": 2,
+        "avg": 4.0,
+        "median": -1.0,
+        "max": 26.5,
+        "min": -8.4,
+        "confidence": {
+          "level": "low",
+          "label": "信頼性：低",
+          "note": "件数が少なめです"
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 3,
+        "up": 2,
+        "down": 1,
+        "avg": 1.1,
+        "median": 0.2,
+        "max": 6.0,
+        "min": -2.9,
+        "confidence": {
+          "level": "low",
+          "label": "信頼性：低",
+          "note": "件数が少なめです"
+        }
+      }
+    },
+    "war": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 6,
+        "up": 3,
+        "down": 3,
+        "avg": 5.6,
+        "median": 7.1,
+        "max": 25.3,
+        "min": -18.1,
+        "confidence": {
+          "level": "mid",
+          "label": "信頼性：中",
+          "note": ""
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 6,
+        "up": 2,
+        "down": 4,
+        "avg": 0.8,
+        "median": -1.3,
+        "max": 26.5,
+        "min": -16.1,
+        "confidence": {
+          "level": "mid",
+          "label": "信頼性：中",
+          "note": ""
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 5,
+        "up": 4,
+        "down": 1,
+        "avg": 1.2,
+        "median": 0.7,
+        "max": 6.0,
+        "min": -2.9,
+        "confidence": {
+          "level": "mid",
+          "label": "信頼性：中",
+          "note": ""
+        }
+      }
+    },
+    "monetary_easing": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 2,
+        "up": 0,
+        "down": 2,
+        "avg": -4.4,
+        "median": -4.4,
+        "max": -2.9,
+        "min": -5.9,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 2,
+        "up": 1,
+        "down": 1,
+        "avg": -7.7,
+        "median": -7.7,
+        "max": 10.3,
+        "min": -25.7,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 2,
+        "up": 1,
+        "down": 1,
+        "avg": 1.8,
+        "median": 1.8,
+        "max": 5.7,
+        "min": -2.1,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      }
+    },
+    "emergency_cut": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 1,
+        "up": 0,
+        "down": 1,
+        "avg": -36.5,
+        "median": -36.5,
+        "max": -36.5,
+        "min": -36.5,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 1,
+        "up": 0,
+        "down": 1,
+        "avg": -19.1,
+        "median": -19.1,
+        "max": -19.1,
+        "min": -19.1,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 1,
+        "up": 0,
+        "down": 0,
+        "avg": 0.0,
+        "median": 0.0,
+        "max": 0.0,
+        "min": 0.0,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      }
+    },
+    "monetary_tightening": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 2,
+        "up": 2,
+        "down": 0,
+        "avg": 7.1,
+        "median": 7.1,
+        "max": 12.6,
+        "min": 1.7,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 2,
+        "up": 2,
+        "down": 0,
+        "avg": 19.6,
+        "median": 19.6,
+        "max": 29.2,
+        "min": 10.1,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 2,
+        "up": 2,
+        "down": 0,
+        "avg": 4.9,
+        "median": 4.9,
+        "max": 5.9,
+        "min": 3.9,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      }
+    },
+    "bank_crisis": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 5,
+        "up": 2,
+        "down": 3,
+        "avg": -2.5,
+        "median": -0.6,
+        "max": 14.5,
+        "min": -22.1,
+        "confidence": {
+          "level": "mid",
+          "label": "信頼性：中",
+          "note": ""
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 5,
+        "up": 1,
+        "down": 4,
+        "avg": -4.2,
+        "median": -8.4,
+        "max": 16.4,
+        "min": -15.5,
+        "confidence": {
+          "level": "mid",
+          "label": "信頼性：中",
+          "note": ""
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 3,
+        "up": 0,
+        "down": 3,
+        "avg": -3.9,
+        "median": -3.8,
+        "max": -3.7,
+        "min": -4.2,
+        "confidence": {
+          "level": "low",
+          "label": "信頼性：低",
+          "note": "件数が少なめです"
+        }
+      }
+    },
+    "liquidity_crisis": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 2,
+        "up": 1,
+        "down": 1,
+        "avg": -3.8,
+        "median": -3.8,
+        "max": 14.5,
+        "min": -22.1,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 2,
+        "up": 1,
+        "down": 1,
+        "avg": 0.4,
+        "median": 0.4,
+        "max": 16.4,
+        "min": -15.5,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 1,
+        "up": 0,
+        "down": 1,
+        "avg": -4.2,
+        "median": -4.2,
+        "max": -4.2,
+        "min": -4.2,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      }
+    },
+    "debt_crisis": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 1,
+        "up": 0,
+        "down": 1,
+        "avg": -9.5,
+        "median": -9.5,
+        "max": -9.5,
+        "min": -9.5,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 1,
+        "up": 0,
+        "down": 1,
+        "avg": -10.0,
+        "median": -10.0,
+        "max": -10.0,
+        "min": -10.0,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 1,
+        "up": 0,
+        "down": 1,
+        "avg": -3.7,
+        "median": -3.7,
+        "max": -3.7,
+        "min": -3.7,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      }
+    },
+    "currency_crisis": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 1,
+        "up": 0,
+        "down": 1,
+        "avg": -0.6,
+        "median": -0.6,
+        "max": -0.6,
+        "min": -0.6,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 1,
+        "up": 0,
+        "down": 1,
+        "avg": -3.4,
+        "median": -3.4,
+        "max": -3.4,
+        "min": -3.4,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      }
+    },
+    "pandemic": {
+      "wti": {
+        "label": "WTI原油",
+        "asset": "oil",
+        "count": 1,
+        "up": 0,
+        "down": 1,
+        "avg": -19.6,
+        "median": -19.6,
+        "max": -19.6,
+        "min": -19.6,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "ust10y": {
+        "label": "米10年債利回り",
+        "asset": "bond",
+        "count": 1,
+        "up": 1,
+        "down": 0,
+        "avg": 42.6,
+        "median": 42.6,
+        "max": 42.6,
+        "min": 42.6,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      },
+      "usdjpy": {
+        "label": "ドル円",
+        "asset": "fx",
+        "count": 1,
+        "up": 1,
+        "down": 0,
+        "avg": 6.5,
+        "median": 6.5,
+        "max": 6.5,
+        "min": 6.5,
+        "confidence": {
+          "level": "reference",
+          "label": "参考値",
+          "note": "件数が少なく統計的な意味は限定的です"
+        }
+      }
+    }
+  },
+  "group_metadata": {
+    "middle_east": {
+      "label": "中東地政学",
+      "summary": "中東地域での軍事的緊張・武力衝突・産油インフラ攻撃などを集めたグループ。原油の供給地としての性格から、市場は『現実の供給にどれだけ影響するか』を重視して反応してきた。",
+      "common_traits": [
+        "中東という主要産油地域が舞台",
+        "地政学的な不確実性が短期的に高まる",
+        "原油と金（逃避先）に注目が集まりやすい"
+      ],
+      "divergence_factors": [
+        "供給インフラへの実被害の有無（生産が現実に止まったか）",
+        "当事者が主要産油国かどうか",
+        "事態が拡大したか、早期に収束したか"
+      ],
+      "interpretation_caveat": "同じ『中東地政学』でも、原油の反応は局面ごとに大きく異なる。緊張の大きさそのものより、現実の供給が止まったか否かが反応を分けてきたため、平均値だけで判断せず代表イベントを個別に確認することを推奨する。",
+      "representative_events": [
+        "saudi_attack_2019",
+        "hamas_israel_2023",
+        "us_iran_tension_2020"
+      ]
+    },
+    "war": {
+      "label": "戦争・軍事衝突",
+      "summary": "国家間・地域間の大規模な軍事衝突を集めたグループ。エネルギーや穀物などの供給網への影響を通じて、市場全体に波及することがある。",
+      "common_traits": [
+        "大規模な武力行使または戦争の勃発",
+        "供給網・物流への懸念が生じやすい",
+        "リスク回避（金など逃避先への資金移動）が起きやすい"
+      ],
+      "divergence_factors": [
+        "当事国が資源・エネルギーの主要供給国かどうか",
+        "衝突の規模と長期化の見通し",
+        "実際の供給網への被害の有無"
+      ],
+      "interpretation_caveat": "戦争・軍事衝突は、当事国の経済的な立ち位置（資源国か否か）によって市場への波及が大きく変わる。同じグループでも、供給網に直結したケースとそうでないケースが混在している点に注意。",
+      "representative_events": [
+        "russia_ukraine_2022",
+        "us_iran_tension_2020",
+        "hamas_israel_2023"
+      ]
+    },
+    "monetary_easing": {
+      "label": "金融緩和",
+      "summary": "中央銀行が政策金利を引き下げる『緩和』局面を集めたグループ。金利低下を通じて株式や金に追い風となることが多いが、緩和の背景（予防的か危機対応か）で反応が異なる。",
+      "common_traits": [
+        "政策金利の引き下げ",
+        "長期金利の低下圧力",
+        "株式・金への追い風となりやすい"
+      ],
+      "divergence_factors": [
+        "予防的な利下げか、危機対応の緊急利下げか",
+        "利下げ時点での景気・市場ストレスの水準",
+        "利下げが単発か、緩和サイクルの起点か"
+      ],
+      "interpretation_caveat": "『利下げ＝株高』と単純化しやすいが、危機対応の緊急利下げ局面では実施直後に株式が急落した例もある。緩和の背景を区別せずに平均すると、性質の異なる局面を混ぜた数字になりやすい。",
+      "representative_events": [
+        "fed_cut_start_2019",
+        "fed_cut_start_2024"
+      ],
+      "preferred_asset_order": [
+        "sp500",
+        "ust10y",
+        "gold",
+        "usdjpy",
+        "vix",
+        "wti"
+      ]
+    },
+    "monetary_tightening": {
+      "label": "金融引き締め",
+      "summary": "中央銀行が政策金利を引き上げる『引き締め』局面を集めたグループ。長期金利の上昇やグロース株への逆風が意識されるが、サイクルの開始か終盤かで市場の受け止めが変わる。",
+      "common_traits": [
+        "政策金利の引き上げ",
+        "長期金利の上昇圧力",
+        "金利に敏感なグロース株への逆風が意識されやすい"
+      ],
+      "divergence_factors": [
+        "引き締めサイクルの開始か、終盤・打ち止めか",
+        "インフレの強さと利上げペースの見通し",
+        "市場が利上げをどこまで織り込んでいたか"
+      ],
+      "interpretation_caveat": "同じ『利上げ』でも、サイクルの開始局面では金利の先高観が強く、終盤局面ではピークアウトが意識されるため、市場の反応は逆方向になりうる。段階を区別せずに集計すると傾向が打ち消し合う点に注意。",
+      "representative_events": [
+        "fed_hike_start_2022",
+        "fed_hike_final_2023"
+      ],
+      "preferred_asset_order": [
+        "sp500",
+        "ust10y",
+        "usdjpy",
+        "gold",
+        "vix",
+        "wti"
+      ]
+    },
+    "supply_shock": {
+      "label": "供給ショック",
+      "summary": "主要なエネルギー資源の供給が、戦争・政治的禁輸・内戦などによって現実に失われた、または失われる見通しが強まった局面を集めたグループ。供給量が戻ると見られるまで原油価格が高止まりする傾向があった。",
+      "common_traits": [
+        "原油の実際の供給量が減少した、またはその見通しが強まった",
+        "原油価格が急騰しやすい",
+        "インフレ圧力が高まり中央銀行の対応が注目される",
+        "代替供給源の有無が回復速度を左右した"
+      ],
+      "divergence_factors": [
+        "供給停止の規模（世界シェアに占める割合）",
+        "停止の継続期間（数週間か数ヶ月か）",
+        "代替供給源の有無と調達コスト",
+        "特定市場への集中度（世界シェア以上のインパクトが出るか）",
+        "政治的・外交的解決の見通しが立ったかどうか"
+      ],
+      "interpretation_caveat": "同じ『供給ショック』でも、規模・継続期間・代替可能性によって市場反応は大きく異なる。短期急騰で終わるケースと長期のインフレに繋がるケースを区別して見ることが重要。また古いイベント（特に1990年以前）では取得可能な資産系列が限られるため、集計値は取得可能な資産のみで算出している点に留意。",
+      "representative_events": [
+        "gulf_war_1990",
+        "russia_ukraine_2022",
+        "saudi_attack_2019",
+        "libya_civil_war_2011"
+      ],
+      "preferred_asset_order": [
+        "wti",
+        "gold",
+        "sp500",
+        "vix",
+        "ust10y",
+        "usdjpy"
+      ]
+    },
+    "emergency_cut": {
+      "label": "緊急利下げ",
+      "summary": "通常の景気調整ではなく、危機対応として実施された利下げ局面を集めたグループ。現在は1件のみのため統計的な意味は限定的。件数が増えた段階で詳細な集計を行う。",
+      "common_traits": [],
+      "divergence_factors": [],
+      "interpretation_caveat": "",
+      "representative_events": [],
+      "preferred_asset_order": [
+        "sp500",
+        "ust10y",
+        "gold",
+        "usdjpy",
+        "vix",
+        "wti"
+      ]
+    },
+    "pandemic": {
+      "label": "パンデミック",
+      "summary": "世界的な感染症の拡大が経済活動を直接停止させた局面を記録するグループ。供給の停止（供給ショック）や信用の停止（銀行危機）とは異なり、人の移動・消費という需要そのものが止まる「需要消滅型」の危機として伝播経路が根本的に異なる。政府・中央銀行が前例のない規模の政策対応を迫られた点も特徴的だった。",
+      "common_traits": [
+        "感染症による移動・消費の停止が需要を消滅させた",
+        "株式・原油が同時急落した（初期は逃避先の金も下落する場合あり）",
+        "VIXが記録的水準まで急騰した",
+        "前例のない規模の中央銀行・財政対応が迅速に発動された",
+        "全業種に影響が及んだが、航空・観光・飲食などへの打撃が極端に大きかった"
+      ],
+      "divergence_factors": [
+        "政府・中央銀行の財政出動と金融緩和の規模と速度",
+        "感染拡大のスピードとロックダウン政策の強度",
+        "ワクチン・治療薬開発のタイムライン",
+        "国・地域の産業構造（観光・航空への依存度）",
+        "感染の第2波・第3波の有無と政策対応の継続性"
+      ],
+      "interpretation_caveat": "現在1件のみの記録のため、統計は参考値にとどまります。このグループの数値は2020年3月の記録として読んでください。パンデミックショックの特殊性（需要消滅＋前例のない規模の政策対応）から、30日後の変化率には「危機による下落」と「政策対応による急反発」の両方が混在しています。「パンデミックではこうなる」という一般則としてではなく、2020年3月という1つの記録として参照してください。",
+      "representative_events": [
+        "covid_shock_2020"
+      ],
+      "preferred_asset_order": [
+        "sp500",
+        "wti",
+        "vix",
+        "gold",
+        "ust10y",
+        "usdjpy"
+      ]
+    },
+    "terror": {
+      "label": "テロ",
+      "summary": "",
+      "common_traits": [],
+      "divergence_factors": [],
+      "interpretation_caveat": "",
+      "representative_events": []
+    },
+    "demand_shock": {
+      "label": "需要ショック",
+      "summary": "",
+      "common_traits": [],
+      "divergence_factors": [],
+      "interpretation_caveat": "",
+      "representative_events": []
+    },
+    "bank_crisis": {
+      "label": "銀行危機",
+      "summary": "銀行・ヘッジファンド・投資銀行の経営危機が信用市場の収縮を通じて市場全体に波及した局面を集めたグループ。供給ショックとの根本的な違いは、危機の起点が実物経済の外側（金融システムの内部）にあることだ。原油や穀物の供給が止まるのではなく、お金の流れ（信用）そのものが止まりかけることで実体経済が傷つく伝播経路をたどった。共通の起点は『過剰レバレッジと信用への不信』だが、中央銀行・政府が介入したかどうか、どれだけ速く動いたかによって、市場への波及の深さと回復速度は大きく分かれた。このグループには純粋な金融機関の破綻（LTCM・リーマン・SVB）だけでなく、財政危機が銀行危機に転化したケース（欧州債務危機）、通貨危機と銀行危機が同時進行したケース（アジア通貨危機）も含まれ、『信用の停止』に至る複数の経路を記録している。",
+      "common_traits": [
+        "金融機関・国家・通貨への信用が急速に失われたことが引き金になった",
+        "信用市場の収縮（貸し渋り・流動性の枯渇）が他の金融機関・国家・市場に波及した",
+        "株式が急落しやすく、回復に時間がかかる傾向があった",
+        "安全資産（米国債・金）への逃避が起きやすかった",
+        "中央銀行・政府の対応速度と制度的制約が市場の落ち着きを左右した"
+      ],
+      "divergence_factors": [
+        "中央銀行・政府が救済・介入に動いたかどうか、どれだけ速く動いたか",
+        "危機が『流動性危機（一時的な資金繰り問題）』か『ソルベンシー危機（資産価値の構造的毀損）』か",
+        "危機の震源の範囲（1機関・1国・グローバルか）",
+        "中央銀行が即座に動けたかどうか（制度的制約の有無）",
+        "固定相場制など制度的制約が通貨調整という出口を塞いでいたかどうか",
+        "危機発生時のマクロ環境（金利水準・インフレ・景気局面）"
+      ],
+      "interpretation_caveat": "銀行危機後の市場反応は、政策対応の有無と速度に大きく左右される。同じ『銀行危機』でも、LTCM（民間救済成立・短期収束）・リーマン（救済なし・長期波及）・SVB（即日保護決定・限定的波及）・欧州債務危機（制度的制約で長期化）・アジア通貨危機（米国市場への直接波及は限定的）と、反応パターンは大きく異なる。平均値はその違いを均してしまうため、個別イベントの確認を推奨する。また、銀行危機と供給ショックでは伝播経路が根本的に異なる。供給ショックが実物の流れを止めて価格に直撃するのに対し、銀行危機は信用の流れを止めることで実体経済に遅れて波及する。この伝播の遅さが、事後にようやく事態の深刻さが分かるという特徴を生んでいる。",
+      "representative_events": [
+        "ltcm_crisis_1998",
+        "lehman_shock_2008",
+        "svb_collapse_2023"
+      ],
+      "preferred_asset_order": [
+        "sp500",
+        "vix",
+        "gold",
+        "ust10y",
+        "usdjpy",
+        "wti"
+      ]
+    },
+    "debt_crisis": {
+      "label": "債務危機",
+      "summary": "",
+      "common_traits": [],
+      "divergence_factors": [],
+      "interpretation_caveat": "",
+      "representative_events": []
+    },
+    "currency_crisis": {
+      "label": "通貨危機",
+      "summary": "",
+      "common_traits": [],
+      "divergence_factors": [],
+      "interpretation_caveat": "",
+      "representative_events": []
+    },
+    "natural_disaster": {
+      "label": "自然災害",
+      "summary": "",
+      "common_traits": [],
+      "divergence_factors": [],
+      "interpretation_caveat": "",
+      "representative_events": []
+    },
+    "liquidity_crisis": {
+      "label": "流動性危機",
+      "summary": "金融市場で急激な流動性枯渇が生じ、信用収縮と資産の投げ売りが連鎖したグループ。LTCM破綻（1998年）とリーマン・ショック（2008年）が該当する。どちらも金融機関の過剰レバレッジが引き金となり、株式・信用市場が同時に崩壊した。",
+      "common_traits": [
+        "金融機関のバランスシートが毀損し、インターバンク市場が麻痺",
+        "株式・クレジットが同時かつ急激に売られる",
+        "中央銀行・政府の緊急介入が転換点になりやすい"
+      ],
+      "divergence_factors": [
+        "問題の震源が単一機関（LTCM）か、システム全体（リーマン）か",
+        "政府・中央銀行の介入規模と速度",
+        "実体経済への波及の深さ"
+      ],
+      "interpretation_caveat": "2件のみのため統計的信頼性は低い。個別イベントの詳細を参照することを推奨する。",
+      "representative_events": [
+        "ltcm_crisis_1998",
+        "lehman_shock_2008"
+      ],
+      "preferred_asset_order": [
+        "sp500",
+        "vix",
+        "gold",
+        "ust10y",
+        "usdjpy",
+        "wti"
+      ]
+    }
+  },
+  "disclaimer": "本データは過去の同種イベント発生後の市場反応を記録・整理したものであり、将来の値動きを示すものでも、売買を推奨するものでもありません。"
+}
