@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<meta name="robots" content="noindex,follow">
+<title>新規登録 ｜ Marketcast Lab</title>
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:var(--ink);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  header{
+    border-bottom:1px solid var(--line-rule);
+    padding:18px 5vw 16px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .brand{font-family:var(--display);font-size:22px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:28px;font-size:13px;letter-spacing:0.03em;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a{color:var(--ink-soft);}
+  nav a:hover{color:var(--ink);}
+
+  .page-wrap{max-width:420px;margin:64px auto 80px;padding:0 5vw;}
+  h1{font-family:var(--display);font-size:22px;font-weight:400;letter-spacing:0.04em;margin:0 0 32px;}
+
+  .auth-form{display:flex;flex-direction:column;gap:18px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  label{font-size:13px;color:var(--ink-soft);letter-spacing:0.02em;}
+  input[type="email"],
+  input[type="password"]{
+    background:var(--paper-deep);
+    border:1px solid var(--line-rule);
+    border-radius:2px;
+    padding:10px 12px;
+    font-family:var(--body);
+    font-size:14px;
+    color:var(--ink);
+    outline:none;
+    width:100%;
+  }
+  input[type="email"]:focus,
+  input[type="password"]:focus{border-color:var(--ink-soft);}
+
+  .field-note{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
+
+  .submit-btn{
+    margin-top:8px;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    border-radius:2px;
+    padding:12px 20px;
+    font-family:var(--body);
+    font-size:14px;
+    letter-spacing:0.04em;
+    cursor:pointer;
+    width:100%;
+  }
+  .submit-btn:hover{opacity:0.85;}
+  .submit-btn:disabled{opacity:0.5;cursor:not-allowed;}
+
+  .auth-msg{font-size:13px;padding:10px 12px;border-radius:2px;margin-bottom:4px;}
+  .auth-msg--ok{background:#e8f0eb;color:#1a4a2e;border:1px solid #b0d4bc;}
+  .auth-msg--error{background:#f5eae8;color:#5a1a14;border:1px solid #d4b0ac;}
+
+  .auth-links{margin-top:24px;font-size:13px;color:var(--ink-soft);}
+  .auth-links a{color:var(--ink-soft);}
+  .auth-links a:hover{color:var(--ink);}
+
+  footer{border-top:1px solid var(--line-rule);padding:20px 5vw;font-size:12px;color:var(--ink-soft);margin-top:auto;}
+
+  [hidden]{display:none !important;}
+  .membership-suspended-banner{margin:0 0 24px;padding:16px 20px;border:1px solid var(--line-rule);background:var(--paper-deep);font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+  /* ── 外国第三者提供の同意（Task40.3） ─────────────────── */
+  .consent-block{border:1px solid var(--line-rule);background:#FBFAF7;border-radius:8px;
+                 padding:17px 17px 19px;margin-top:22px;}
+  .consent-title{font-family:var(--display);font-size:15.5px;margin:0 0 9px;line-height:1.6;}
+  .consent-lead{font-size:13.5px;line-height:1.85;margin:0 0 10px;color:var(--ink-soft);}
+  .consent-facts{margin:0 0 10px 1.3em;padding:0;font-size:13px;line-height:1.85;color:var(--ink-soft);}
+  .consent-facts li{margin-bottom:3px;}
+  .consent-facts b{color:var(--ink);}
+  .consent-more{display:inline-flex;align-items:center;min-height:44px;font-size:13px;
+                color:var(--equity);text-decoration:underline;text-underline-offset:2px;}
+  .consent-check{display:flex;gap:11px;align-items:flex-start;margin-top:12px;padding:13px 14px;
+                 border:1px solid var(--line-rule);border-radius:8px;background:var(--paper);
+                 cursor:pointer;font-size:13px;line-height:1.85;}
+  .consent-check input{margin-top:4px;width:20px;height:20px;flex:none;cursor:pointer;}
+  .consent-check:focus-within{outline:2px solid var(--ink);outline-offset:2px;}
+  .consent-check a{color:var(--equity);text-decoration:underline;text-underline-offset:2px;}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+<script src="assets/js/analytics.js"></script>
+</head>
+<body data-auth-page="signup">
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="page-wrap">
+  <h1>新規登録</h1>
+
+  <div id="membership-suspended-banner" class="membership-suspended-banner" hidden>
+    マーケットキャストの会員機能は現在提供を停止しています。公開コンテンツは引き続き閲覧できます。
+  </div>
+  <script>
+    if (window.MEMBERSHIP_SUSPENDED) {
+      document.getElementById('membership-suspended-banner').hidden = false;
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.MEMBERSHIP_SUSPENDED) {
+        document.querySelectorAll('[data-membership-gated]').forEach(function (el) { el.hidden = true; });
+      }
+    });
+    /* 計測: 新規登録ページへの到達。ファネルの入口（Task48）。
+       会員機能停止中は登録自体ができないため計測しない
+       （pricing_view 等の既存 view 計測と同じ扱い）。 */
+    if (!window.MEMBERSHIP_SUSPENDED) {
+      try { if (typeof trackProductEvent === 'function') trackProductEvent('signup_start'); } catch (_) {}
+    }
+  </script>
+
+  <p id="auth-message" class="auth-msg" hidden></p>
+
+  <form id="signup-form" class="auth-form" data-membership-gated novalidate>
+    <div class="field">
+      <label for="email">メールアドレス</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="password">パスワード</label>
+      <input type="password" id="password" name="password" autocomplete="new-password" required>
+      <span class="field-note">8文字以上で入力してください。</span>
+    </div>
+    <div class="field">
+      <label for="confirm-password">パスワード（確認）</label>
+      <input type="password" id="confirm-password" name="confirm-password" autocomplete="new-password" required>
+    </div>
+    <!-- 外国第三者提供の事前説明と明示同意（Task40.3）。
+         長文を最後までスクロールさせる設計にはせず、要点をここに示し、
+         全文は専用ページで確認できるようにする。チェックは既定で未選択。 -->
+    <div class="consent-block">
+      <h2 class="consent-title">個人情報の取扱いについて</h2>
+      <p class="consent-lead">
+        Marketcast Lab では、アカウントの認証やデータの保存のため、国外に所在する外部サービスを利用しています。
+        外国にある第三者への個人データの提供について、以下をご確認ください。
+      </p>
+      <ul class="consent-facts">
+        <li>提供先の所在国：<b>シンガポール</b></li>
+        <li>目的：アカウントの認証、学習・契約に関する情報の保存</li>
+        <li>対象：メールアドレス、認証に関する情報、学習の記録、契約状態など</li>
+      </ul>
+      <a class="consent-more" href="foreign_data_transfer.html" target="_blank" rel="noopener noreferrer">詳しい説明を確認する（国外での個人データの取扱いについて）↗</a>
+
+      <label class="consent-check" for="foreign-transfer-consent">
+        <input type="checkbox" id="foreign-transfer-consent" name="foreign-transfer-consent">
+        <span><a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>および<a href="foreign_data_transfer.html" target="_blank" rel="noopener noreferrer">国外での個人データの取扱いに関する説明</a>を確認し、外国にある第三者への個人データの提供に同意します。</span>
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn">アカウントを作成</button>
+  </form>
+
+  <div class="auth-links" data-membership-gated>
+    <a href="login.html">すでにアカウントをお持ちの方はこちら</a>
+  </div>
+</div>
+
+<footer>Marketcast Lab
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script type="module" src="assets/js/auth-pages.js"></script>
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>
