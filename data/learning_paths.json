@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "note": "Marketcast Lab v2 学習ロードマップ定義。learning_path.html / dashboard.html が読み込む。content_id は lessons.json / events.json に実在するIDのみを参照する。",
+  "paths": [
+    {
+      "id": "investing_basics_course",
+      "title": "投資の基本コース",
+      "description": "投資という仕組みそのものを、順番に理解していくコースです。",
+      "target_user": "投資経験なし、または始めたばかりの人",
+      "steps": [
+        {
+          "step": 1,
+          "content_type": "lesson",
+          "content_id": "what_is_investing",
+          "label": "投資とは何か",
+          "description": "投資基礎"
+        },
+        {
+          "step": 2,
+          "content_type": "lesson",
+          "content_id": "what_is_stock",
+          "label": "株式とは何か",
+          "description": "投資基礎"
+        },
+        {
+          "step": 3,
+          "content_type": "lesson",
+          "content_id": "what_is_mutual_fund",
+          "label": "投資信託とは何か",
+          "description": "投資基礎"
+        },
+        {
+          "step": 4,
+          "content_type": "lesson",
+          "content_id": "what_is_etf",
+          "label": "ETFとは何か",
+          "description": "投資基礎"
+        },
+        {
+          "step": 5,
+          "content_type": "lesson",
+          "content_id": "risk_and_return",
+          "label": "リスクとリターンとは何か",
+          "description": "投資基礎"
+        },
+        {
+          "step": 6,
+          "content_type": "lesson",
+          "content_id": "diversification",
+          "label": "分散投資とは何か",
+          "description": "投資基礎"
+        }
+      ]
+    },
+    {
+      "id": "economic_news_course",
+      "title": "経済ニュース理解コース",
+      "description": "経済ニュースに出てくる基本用語を理解し、報道の背景を読み解けるようにするコースです。",
+      "target_user": "世界経済ニュースを理解したい人",
+      "steps": [
+        {
+          "step": 1,
+          "content_type": "lesson",
+          "content_id": "what_is_inflation",
+          "label": "インフレとは何か",
+          "description": "経済テーマ"
+        },
+        {
+          "step": 2,
+          "content_type": "lesson",
+          "content_id": "what_is_interest_rate",
+          "label": "金利とは何か",
+          "description": "経済テーマ"
+        },
+        {
+          "step": 3,
+          "content_type": "lesson",
+          "content_id": "what_is_central_bank",
+          "label": "中央銀行とは何か",
+          "description": "経済テーマ"
+        },
+        {
+          "step": 4,
+          "content_type": "lesson",
+          "content_id": "what_is_fx",
+          "label": "為替とは何か",
+          "description": "経済テーマ"
+        },
+        {
+          "step": 5,
+          "content_type": "lesson",
+          "content_id": "business_cycle_basics",
+          "label": "景気循環とは何か",
+          "description": "経済テーマ"
+        },
+        {
+          "step": 6,
+          "content_type": "lesson",
+          "content_id": "risk_and_return",
+          "label": "リスクとリターンとは何か",
+          "description": "投資基礎"
+        }
+      ]
+    },
+    {
+      "id": "asset_understanding_course",
+      "title": "資産を理解するコース",
+      "description": "金・債券・為替・暗号資産など、資産ごとの特徴と見るべきポイントを学ぶコースです。",
+      "target_user": "金、債券、為替、暗号資産などを理解したい人",
+      "steps": [
+        {
+          "step": 1,
+          "content_type": "lesson",
+          "content_id": "what_is_gold",
+          "label": "金とは何か",
+          "description": "資産図鑑"
+        },
+        {
+          "step": 2,
+          "content_type": "lesson",
+          "content_id": "what_is_bond",
+          "label": "債券とは何か",
+          "description": "資産図鑑"
+        },
+        {
+          "step": 3,
+          "content_type": "lesson",
+          "content_id": "what_is_fx",
+          "label": "為替とは何か",
+          "description": "経済テーマ"
+        },
+        {
+          "step": 4,
+          "content_type": "lesson",
+          "content_id": "what_is_bitcoin",
+          "label": "Bitcoinとは何か",
+          "description": "暗号資産"
+        },
+        {
+          "step": 5,
+          "content_type": "lesson",
+          "content_id": "what_is_ethereum",
+          "label": "Ethereumとは何か",
+          "description": "暗号資産"
+        },
+        {
+          "step": 6,
+          "content_type": "lesson",
+          "content_id": "crypto_risks",
+          "label": "暗号資産のリスクとは何か",
+          "description": "暗号資産"
+        }
+      ]
+    },
+    {
+      "id": "history_events_course",
+      "title": "歴史イベントから学ぶコース",
+      "description": "過去に実際に起きた局面を通じて、市場が動く理由を学ぶコースです。",
+      "target_user": "過去局面から判断材料を得たい人",
+      "steps": [
+        {
+          "step": 1,
+          "content_type": "event",
+          "content_id": "lehman_shock_2008",
+          "label": "リーマンブラザーズ破綻（リーマンショック）",
+          "description": "2008-09-15"
+        },
+        {
+          "step": 2,
+          "content_type": "event",
+          "content_id": "covid_shock_2020",
+          "label": "COVID-19ショック（世界的パンデミック勃発）",
+          "description": "2020-03-09"
+        },
+        {
+          "step": 3,
+          "content_type": "event",
+          "content_id": "dotcom_bubble_burst_2000",
+          "label": "ITバブル崩壊（ドットコムバブル）",
+          "description": "2000-03-10"
+        },
+        {
+          "step": 4,
+          "content_type": "event",
+          "content_id": "ftx_collapse_2022",
+          "label": "FTX破綻",
+          "description": "2022-11-11"
+        },
+        {
+          "step": 5,
+          "content_type": "event",
+          "content_id": "bitcoin_etf_approval_2024",
+          "label": "米国スポットBitcoin ETF承認",
+          "description": "2024-01-10"
+        }
+      ]
+    }
+  ]
+}

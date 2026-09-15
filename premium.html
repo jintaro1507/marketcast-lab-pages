@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/premium.html">
+<title>プレミアム ｜ Marketcast Lab</title>
+<meta property="og:title" content="プレミアム ｜ Marketcast Lab">
+<meta property="og:description" content="Marketcast Labのプレミアム機能の入口。毎週のまとめ、重要な変化のお知らせ、気になる資産の登録、資産への影響の深掘り、過去の局面との比較へ移動できます。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/premium.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="プレミアム ｜ Marketcast Lab">
+<meta name="twitter:description" content="Marketcast Labのプレミアム機能の入口。毎週のまとめ、重要な変化のお知らせ、気になる資産の登録、資産への影響の深掘り、過去の局面との比較へ移動できます。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<meta name="description" content="Marketcast Labのプレミアム機能の入口。毎週のまとめ、重要な変化のお知らせ、気になる資産の登録、資産への影響の深掘り、過去の局面との比較へ移動できます。">
+<style>
+  :root{
+    --paper: #F2EFE8;
+    --paper-deep: #E8E3D7;
+    --ink: #1C1A16;
+    --ink-soft: #5B564B;
+    --line-rule: #cfc7b6;
+    --equity: #38456B;
+    --display: "Shippori Mincho", "Noto Serif JP", serif;
+    --body: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    --mono: "JetBrains Mono", "Courier New", monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+
+  header{border-bottom:1px solid var(--line-rule);padding:18px 5vw 16px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-family:var(--display);font-size:20px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:24px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+
+  .breadcrumb{padding:20px 5vw 0;font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+  .breadcrumb a{border-bottom:1px solid var(--line-rule);}
+
+  .page-head{padding:28px 5vw 30px;border-bottom:1px solid var(--line-rule);max-width:860px;}
+  .page-head .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;}
+  .page-head h1{font-family:var(--display);font-size:clamp(23px,3.4vw,32px);margin:0 0 14px;line-height:1.45;}
+  .page-head .lead{max-width:58ch;color:var(--ink-soft);font-size:14px;margin:0;line-height:1.85;}
+
+  /* 契約状態に応じた案内 */
+  .state-note{margin:22px 5vw 0;max-width:72ch;border:1px solid var(--line-rule);background:var(--paper-deep);padding:14px 18px;font-size:13.5px;color:var(--ink-soft);line-height:1.85;}
+  .state-note a{color:var(--equity);border-bottom:1px solid var(--line-rule);}
+  .state-note b{color:var(--ink);}
+
+  .section-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);padding:34px 5vw 0;}
+
+  /* 利用の流れ（機能一覧ではなく、いつ使うかで並べる） */
+  .flow{padding:14px 5vw 0;max-width:820px;}
+  .flow-item{display:grid;grid-template-columns:78px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line-rule);}
+  .flow-when{font-family:var(--mono);font-size:10.5px;letter-spacing:0.06em;color:var(--ink-soft);line-height:1.7;padding-top:3px;}
+  .flow-body h2{font-family:var(--display);font-size:17px;margin:0 0 4px;line-height:1.5;}
+  .flow-body .sub{font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;color:var(--ink-soft);margin:0 0 8px;}
+  .flow-body p{margin:0 0 12px;font-size:13.5px;color:var(--ink-soft);line-height:1.9;}
+  .flow-go{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:var(--equity);border-bottom:1px solid var(--line-rule);}
+  .flow-go:hover{border-color:var(--equity);}
+
+  .closing{padding:26px 5vw 0;max-width:72ch;font-size:13.5px;color:var(--ink-soft);line-height:1.9;}
+  .closing a{color:var(--equity);border-bottom:1px solid var(--line-rule);}
+
+  .non-predict{margin:24px 5vw 0;max-width:72ch;font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);border-left:2px solid var(--line-rule);padding-left:12px;line-height:1.8;opacity:0.9;}
+
+  footer{margin-top:44px;border-top:1px solid var(--line-rule);padding:30px 5vw 50px;font-size:12px;color:var(--ink-soft);}
+  footer .back{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid var(--line-rule);}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+
+  [hidden]{display:none !important;}
+
+  @media (max-width:560px){
+    .flow-item{grid-template-columns:1fr;gap:6px;}
+    .flow-when{padding-top:0;}
+  }
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="breadcrumb"><a href="index.html">トップ</a> ／ プレミアム</div>
+
+<div class="page-head">
+  <div class="eyebrow">Marketcast Lab プレミアム</div>
+  <h1>ニュースを、自分の資産にとって<br>「追い風か、逆風か」まで。</h1>
+  <p class="lead">10資産について、出来事がその資産にとって上昇方向の材料なのか、下落方向の材料なのかを整理します。さらに、過去の似た局面で実際に上昇したのか、下落したのかまで確認できます。市場を追いかけ続けなくても大事な流れを見逃しにくくなります。このページはその入口です。</p>
+</div>
+
+<!-- 契約状態に応じて出し分ける。読み込み前は何も断定しない。 -->
+<div class="state-note" id="state-note" hidden></div>
+
+<div class="section-label">プレミアムでできること</div>
+<div class="flow">
+
+  <div class="flow-item">
+    <div class="flow-when">深く<br>知りたい<br>とき</div>
+    <div class="flow-body">
+      <h2>複数の出来事を横断して、追い風・逆風が重なる資産を調べる</h2>
+      <p class="sub">資産影響分析（Asset Impact Analysis）</p>
+      <p>日本株・米国株・投資信託・ETF・金・原油・債券・為替・Bitcoin・Ethereumの10資産について、<b>複数の出来事を横断</b>し、その資産にとって何が上昇方向の材料になり、何が下落方向の材料になってきたかを、テーマ別・時間軸別に整理しています。日本株の13業界それぞれが追い風・逆風・条件次第のどれにあたるかは、<b>1つの出来事について無料</b>で各出来事のページから確認できます。プレミアムでは、そこに複数の出来事を横断した10資産の整理が加わります。</p>
+      <a class="flow-go" href="asset_impact.html">資産影響分析を見る →</a>
+    </div>
+  </div>
+
+  <div class="flow-item">
+    <div class="flow-when">過去と<br>比べたい<br>とき</div>
+    <div class="flow-body">
+      <h2>過去の似た出来事では、実際に上がった？ 下がった？</h2>
+      <p class="sub">価格反応タイムライン（Reaction Timeline）</p>
+      <p>過去の個別の出来事のページで、発生後に各資産が上昇したのか、下落したのか、横ばいだったのかを、1日後・7日後・30日後といった時間軸で確認できます。材料の整理に対して、こちらは実際に観測された記録です。過去の観測であり、将来の値動きを示すものではありません。</p>
+      <a class="flow-go" href="index.html#events">出来事を選んで見る →</a>
+    </div>
+  </div>
+
+  <div class="flow-item">
+    <div class="flow-when">毎週</div>
+    <div class="flow-body">
+      <h2>今週の出来事が、追い風か逆風かを知る</h2>
+      <p class="sub">Marketcast Weekly</p>
+      <p>その週の重要な出来事をもとに、資産ごとに上昇方向の材料・下落方向の材料、どちらの面も持つ場合はその両面性まで整理します。観測された数値とMarketcastによる整理は分けて記載します。Webでいつでも読めます。メールで受け取ることもできます。</p>
+      <a class="flow-go" href="weekly.html">Marketcast Weekly を見る →</a>
+    </div>
+  </div>
+
+  <div class="flow-item">
+    <div class="flow-when">大きな<br>変化が<br>あったとき</div>
+    <div class="flow-body">
+      <h2>見逃したくない変化を受け取る</h2>
+      <p class="sub">Marketcast Alert</p>
+      <p>普段の値動きと比べて大きな変化があったときや、重要な出来事があったときにお知らせします。速報の早さを競うものではなく、「何が変わったか」と「My Watchに登録した資産にとってどのような追い風・逆風の材料になるか」まで整理してお伝えします。毎日は届きません。</p>
+      <a class="flow-go" href="alerts.html">これまでのAlertを見る →</a>
+    </div>
+  </div>
+
+  <div class="flow-item">
+    <div class="flow-when">最初に<br>一度</div>
+    <div class="flow-body">
+      <h2>方向性を知りたい資産を選んでおく</h2>
+      <p class="sub">My Watch</p>
+      <p>My Watch自体は分析機能ではなく、Weekly・Alert・資産影響分析を自分向けにするための設定です。10種類の資産から、追い風か逆風かを知りたいものを選んでおくと、関係する変化があったときだけAlertが届きます。保有情報は必要ありません。保有数量・取得価格・損益は記録しません。</p>
+      <a class="flow-go" href="account.html">My Watch を設定する →</a>
+    </div>
+  </div>
+
+</div>
+
+<p class="closing">受け取るメールの設定（Weekly・Alert）とMy Watchの登録は、すべて<a href="account.html">アカウントページ</a>でまとめて変更できます。プランの内容と料金は<a href="pricing.html">料金・プラン</a>をご覧ください。</p>
+
+<p class="non-predict">プレミアムを含むすべてのコンテンツは、情報提供・教育目的のものです。将来の値動きを予測したり、売買を推奨したりするものではありません。最終的な投資判断はご自身の責任で行ってください。</p>
+
+<footer>
+  <a class="back" href="index.html">← トップに戻る</a>
+
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script type="module">
+  // 契約状態に応じた案内。判定できないときは何も断定せず、案内を出さない。
+  // Premium 本文はこのページに一切含めない（入口の導線のみ）。
+  (async () => {
+    if (window.MEMBERSHIP_SUSPENDED) return;
+    const note = document.getElementById('state-note');
+    if (!note) return;
+    try {
+      const { getSubscriptionState } = await import('./assets/js/subscription-state.js');
+      // 返値は { state, rawStatus }。案内文の出し分けのみに使う。
+      // 認可はここでは行わない（各機能側の protected API が担う）。
+      const { state } = await getSubscriptionState();
+      if (state === 'paid') {
+        note.innerHTML = 'ご利用中のプランで、以下のすべてをご覧いただけます。'
+          + '受け取り方の設定は<a href="account.html">アカウントページ</a>で変更できます。';
+        note.hidden = false;
+      } else if (state === 'attention') {
+        note.innerHTML = 'お支払い状況について確認が必要な可能性があります。'
+          + '<a href="account.html">アカウントページ</a>でプランの状態をご確認ください。';
+        note.hidden = false;
+      } else if (state === 'unauthenticated' || state === 'free' || state === 'inactive') {
+        note.innerHTML = '以下はプレミアムプラン（<b>月額980円・税込</b>）の機能です。'
+          + '内容と申し込みは<a href="pricing.html">料金・プラン</a>をご覧ください。';
+        note.hidden = false;
+      }
+      // state === 'error' のときは何も断定せず、案内を出さない
+    } catch (_) { /* 判定できない場合は案内を出さない */ }
+  })();
+</script>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>

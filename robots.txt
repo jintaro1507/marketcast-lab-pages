@@ -1,0 +1,55 @@
+# Marketcast Lab — robots.txt（Task46.3）
+#
+# 役割の分離:
+#   crawler の可否               → このファイル（robots.txt）
+#   ページ単位の index/noindex   → 各ページの <meta name="robots"> のみ
+#
+# noindex 対象ページ（account.html 等）をここで Disallow しない。
+# meta noindex を検索エンジンが認識するには、まずページを取得できる
+# 必要があるため。robots.txt を「noindex URL 一覧」として使わない。
+#
+# 各 User-agent は最も一致する1グループのみに従う（グループ合算ではない）。
+# そのため通常検索クローラーを誤って遮断しないよう、学習用クローラーは
+# 個別グループとして明示している。
+#
+# ── 検索・引用目的（許可） ──────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Google-Extended は Google Search のクロールとは独立した制御対象。
+# Gemini モデルの学習だけでなく、Gemini Apps / Vertex AI での
+# grounding にも関係する。Marketcast は Premium protected body を
+# 一切 crawler へ公開していないため、公開している Free content に限り
+# Gemini からの発見性・grounding を優先し許可する（Owner判断）。
+User-agent: Google-Extended
+Allow: /
+
+# ── 学習目的（拒否） ────────────────────────────────────────────────
+# 検索・引用（上記）とモデル学習は別判断。ここで拒否しているのは
+# 明確に学習用途を目的とするクローラーのみ。
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+# ── その他すべてのクローラー ────────────────────────────────────────
+User-agent: *
+Allow: /
+
+Sitemap: https://marketcast.oneshorejp.com/sitemap.xml
