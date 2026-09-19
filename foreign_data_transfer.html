@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国外での個人データの取扱いについて ｜ Marketcast Lab</title>
+<meta name="description" content="Marketcast Labが外国にある第三者へ個人データを提供する場合の、提供先の国・当該国の制度・提供先が講じる保護措置についての説明。">
+<!-- プライバシーポリシー等の法務ページと同じ扱いとし、検索エンジンへの
+     積極的な露出は行わない。ページ自体は公開でリンクから到達可能。 -->
+<meta name="robots" content="noindex, follow">
+<style>
+  :root{
+    --paper: #F2EFE8;
+    --paper-deep: #E8E3D7;
+    --ink: #1C1A16;
+    --ink-soft: #5B564B;
+    --line-rule: #cfc7b6;
+    --equity: #38456B;
+    --display: "Shippori Mincho", "Noto Serif JP", serif;
+    --body: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    --mono: "JetBrains Mono", "Courier New", monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.85;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+
+  header{border-bottom:1px solid var(--line-rule);padding:18px 5vw 16px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-family:var(--display);font-size:20px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:24px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+
+  .page-head{padding:48px 5vw 28px;border-bottom:1px solid var(--line-rule);}
+  .page-head .eyebrow{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;}
+  .page-head h1{font-family:var(--display);font-size:clamp(23px,3.2vw,32px);margin:0 0 16px;line-height:1.5;}
+  .page-head p{max-width:62ch;color:var(--ink-soft);font-size:14.5px;margin:0;}
+
+  .content{padding:14px 5vw 0;max-width:760px;}
+  .clause{padding:26px 0;border-bottom:1px solid var(--line-rule);}
+  .clause h2{font-family:var(--display);font-size:17px;margin:0 0 12px;display:flex;align-items:baseline;gap:10px;}
+  .clause h2 .num{font-family:var(--mono);font-size:12px;color:var(--ink-soft);}
+  .clause h3{font-family:var(--display);font-size:15px;margin:18px 0 8px;}
+  .clause p{font-size:14px;margin:0 0 10px;color:var(--ink-soft);}
+  .clause p:last-child{margin-bottom:0;}
+  .clause ul{margin:6px 0 10px 1.4em;padding:0;font-size:14px;color:var(--ink-soft);}
+  .clause ul li{margin-bottom:5px;}
+  .clause a{color:var(--equity);text-decoration:underline;text-underline-offset:2px;}
+  .clause a:hover{opacity:.8;}
+  .clause b{color:var(--ink);}
+
+  .facts{border:1px solid var(--line-rule);background:#FBFAF7;border-radius:8px;padding:4px 16px;margin:14px 0;}
+  .facts dl{margin:0;}
+  .facts dt{font-family:var(--mono);font-size:11.5px;letter-spacing:0.04em;color:var(--ink-soft);padding-top:14px;}
+  .facts dd{margin:4px 0 14px;font-size:14px;line-height:1.85;}
+  .facts dd:last-child{margin-bottom:14px;}
+
+  .note-box{border-left:3px solid var(--ink-soft);background:var(--paper-deep);padding:13px 16px;margin-top:14px;font-size:13.5px;line-height:1.9;}
+
+  .updated{font-family:var(--mono);font-size:11px;color:var(--ink-soft);padding:24px 5vw 0;}
+
+  footer{margin-top:40px;border-top:1px solid var(--line-rule);padding:30px 5vw 50px;font-size:12px;color:var(--ink-soft);}
+  footer .back{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid var(--line-rule);}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="asset_impact.html">資産影響分析</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="disclaimer.html">免責事項</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="page-head">
+  <div class="eyebrow">Cross-border data transfer</div>
+  <h1>国外での個人データの取扱いについて</h1>
+  <p>Marketcast Lab では、アカウントの認証やデータの保存のために、国外に所在する事業者のサービスを利用しています。個人情報の保護に関する法律に基づき、提供先の国・その国の制度・提供先が講じている保護措置についてご説明します。</p>
+</div>
+
+<div class="content">
+
+  <div class="clause">
+    <h2><span class="num">01</span>なぜこの説明があるのか</h2>
+    <p>Marketcast Lab でアカウントを作成いただくと、メールアドレスなどの情報が、国外に所在する事業者のサービス上で保存・処理されます。また、お客様がメールの受信設定をされた場合には、配信のためにメールアドレス等が国外のメール配信事業者へ提供されます。</p>
+    <p>日本の個人情報保護法では、外国にある第三者へ個人データを提供する場合、あらかじめご本人に「どの国か」「その国の制度はどうなっているか」「提供先はどのような保護措置をとっているか」をお伝えしたうえで、同意をいただくことが求められています。このページはその説明にあたります。</p>
+    <p>アカウントを作成せずにご覧いただける無料のコンテンツについては、この同意は必要ありません。</p>
+  </div>
+
+  <div class="clause">
+    <h2><span class="num">02</span>提供先と提供する情報</h2>
+    <p>当社は、以下の2社へ個人データを提供しています。いずれも当社の委託先（処理者）として、当社の指示に基づいて取り扱う立場にあります。</p>
+
+    <h3>提供先1: Supabase Pte. Ltd.（シンガポール）</h3>
+    <div class="facts">
+      <dl>
+        <dt>外国の名称</dt>
+        <dd><b>シンガポール</b></dd>
+
+        <dt>提供先</dt>
+        <dd>Supabase Pte. Ltd.（シンガポール法人）</dd>
+
+        <dt>利用目的</dt>
+        <dd>アカウントの認証、および学習・契約に関する情報の保存</dd>
+
+        <dt>提供・処理される個人データ</dt>
+        <dd>
+          <ul>
+            <li>メールアドレス</li>
+            <li>パスワードその他の認証情報（パスワードは認証サービスへ送信され、保存時にはハッシュ化されます）</li>
+            <li>学習の進捗、お気に入り、学習テーマ診断の回答、気になる資産の登録</li>
+            <li>有料プランの契約状態、契約期間の終了日</li>
+            <li>決済代行サービスが発行する顧客ID・サブスクリプションID</li>
+          </ul>
+        </dd>
+      </dl>
+    </div>
+
+    <h3>提供先2: Plus Five Five, Inc.（サービス名: Resend／アメリカ合衆国）</h3>
+    <div class="facts">
+      <dl>
+        <dt>外国の名称</dt>
+        <dd><b>アメリカ合衆国</b></dd>
+
+        <dt>提供先</dt>
+        <dd>Plus Five Five, Inc.（サービス名: Resend）<br>
+            2261 Market Street #5039, San Francisco, CA 94114, U.S.A.</dd>
+
+        <dt>利用目的</dt>
+        <dd>Marketcast Weekly・Marketcast Alert など、<b>お客様ご自身が受信設定をされたメールの配信</b></dd>
+
+        <dt>提供・処理される個人データ</dt>
+        <dd>
+          <ul>
+            <li>メールアドレス</li>
+            <li>配信するメールの件名</li>
+            <li>配信するメールの本文</li>
+            <li>配信状況の記録に必要な技術情報（配信できたか、エラーの種別など）</li>
+          </ul>
+        </dd>
+
+        <dt>提供のタイミング</dt>
+        <dd>お客様がアカウント設定でメールの受信を有効にし、実際に配信が行われるときに限られます。受信設定はいつでも変更できます。</dd>
+      </dl>
+    </div>
+
+    <div class="note-box">
+      配信されるメールの本文は、受信されるすべての方に共通の編集コンテンツです。お客様が「気になる資産」として登録された内容そのものがメール本文に記載されることはありません。<b>パスワード・決済情報・認証トークンは、メール配信事業者へ提供していません。</b>
+    </div>
+
+    <p>クレジットカード番号などの決済情報は、決済代行サービスがお客様から直接お預かりするもので、Marketcast Lab のデータベースには保存されません。詳細は<a href="privacy.html">プライバシーポリシー</a>をご確認ください。</p>
+  </div>
+
+  <div class="clause">
+    <h2><span class="num">03</span>提供先の国の個人情報保護制度</h2>
+    <h3>シンガポール</h3>
+    <p>個人情報保護委員会が公表している外国制度の情報によると、シンガポールの状況は次のとおりです。</p>
+    <ul>
+      <li>民間部門を対象とする包括的な法令として、<b>個人データ保護法（Personal Data Protection Act 2012）</b>が制定され、2013年1月2日に施行されています。</li>
+      <li>シンガポールは、<b>APEC越境プライバシールール（CBPR）システムに2018年2月から参加</b>しています。</li>
+      <li>シンガポールは、日本の個人情報保護法上、<b>日本と同等の水準にあると認められた国としては指定されていません</b>（同等水準国として指定されているのは EU 加盟国および英国です）。</li>
+      <li>また、シンガポールは EU の十分性認定を受けていません。</li>
+      <li>個人情報保護委員会の報告書では、刑事訴訟法に基づき警察が個人データへアクセスできる制度について、独立した承認手続・取扱いの制限・透明性の確保・遵守状況の監督といった仕組みに関する規定が確認されていない旨が指摘されています。</li>
+    </ul>
+    <p>詳しくは、個人情報保護委員会が公表している<a href="https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_singapore/" target="_blank" rel="noopener noreferrer">シンガポールの制度に関する情報 ↗</a>をご確認ください。</p>
+
+    <h3>アメリカ合衆国</h3>
+    <p>個人情報保護委員会が公表している外国制度の情報によると、アメリカ合衆国の状況は次のとおりです。</p>
+    <ul>
+      <li>連邦レベルでは、<b>民間部門を包括的に対象とする個人情報保護法は制定されていません</b>。電子通信プライバシー法、金融サービス近代化法（グラム・リーチ・ブライリー法）、医療保険の相互運用性と説明責任に関する法律（HIPAA）など、分野ごとの法令が存在します。</li>
+      <li>アメリカ合衆国は、<b>APEC越境プライバシールール（CBPR）システムに2012年7月から参加</b>しています。</li>
+      <li>アメリカ合衆国は、日本の個人情報保護法上、<b>日本と同等の水準にあると認められた国としては指定されていません</b>（同等水準国として指定されているのは EU 加盟国および英国です）。</li>
+      <li>アメリカ合衆国は EU の十分性認定を受けていません。</li>
+      <li>州レベルでは、提供先が所在するカリフォルニア州において<b>カリフォルニア州消費者プライバシー法（CCPA）</b>が2020年1月1日に施行され、その後カリフォルニア州プライバシー権法（CPRA）により改正されています。</li>
+    </ul>
+    <p>詳しくは、個人情報保護委員会が公表している<a href="https://www.ppc.go.jp/enforcement/infoprovision/laws/offshore_report_america/" target="_blank" rel="noopener noreferrer">アメリカ合衆国の制度に関する情報 ↗</a>をご確認ください。</p>
+
+    <div class="note-box">
+      本項は、個人情報保護委員会が公表する外国制度の情報に基づいて記載しています。当社が制度の適法性や十分性について評価・保証するものではありません。制度は改正される場合があり、公表資料の内容も更新されることがあります。
+    </div>
+  </div>
+
+  <div class="clause">
+    <h2><span class="num">04</span>提供先が講じている保護措置</h2>
+    <h3>Supabase Pte. Ltd. が講じている保護措置</h3>
+    <p>提供先が公表している資料により、以下を確認しています。</p>
+    <ul>
+      <li>提供先は、お客様（当社）を管理者、自らを処理者とする<b>データ処理契約（Data Processing Addendum）</b>を公表しており、契約に基づいて個人データを取り扱うこととされています。</li>
+      <li>同契約には、<b>EU標準契約条項（Standard Contractual Clauses / 欧州委員会実施決定 (EU) 2021/914）</b>が組み込まれています。</li>
+      <li>提供先は<b>SOC 2</b>に関する報告を公表しています。</li>
+      <li>利用する副処理者（サブプロセッサ）の一覧を公表し、変更時の通知の仕組みを設けています。</li>
+      <li>認証基盤において、パスワードは平文では保存されず、ハッシュ化された形で保管される仕組みが提供されています。</li>
+    </ul>
+
+    <h3>Plus Five Five, Inc.（Resend）が講じている保護措置</h3>
+    <p>提供先が公表している資料により、以下を確認しています。</p>
+    <ul>
+      <li>提供先は、お客様（当社）を管理者、自らを処理者とする<b>データ処理契約（Data Processing Addendum）</b>を公表しており、契約に基づいて個人データを取り扱うこととされています。</li>
+      <li>同契約には、<b>EU標準契約条項（Standard Contractual Clauses）</b>が組み込まれています。</li>
+      <li>当社から提供先へのデータ送信は暗号化された通信路（HTTPS）で行っています。</li>
+    </ul>
+
+    <h3>当社が講じている措置</h3>
+    <p>上記とは別に、当社（ONE SHORE合同会社）が設定・運用している措置は次のとおりです。</p>
+    <ul>
+      <li>データへのアクセスは、行単位のアクセス制御（Row Level Security）により、原則としてご本人のデータのみに限定しています。これは当社が設定しているものです。</li>
+      <li>当社が平文のパスワードを保持することはありません。</li>
+      <li>アクセス解析の記録には、氏名・メールアドレス・IPアドレス・アカウントID・決済情報を含めていません。</li>
+      <li>メール配信事業者へ提供するのは配信に必要な情報に限っており、パスワード・決済情報・認証トークンは提供していません。</li>
+      <li>メールの受信設定は既定で無効です。お客様が有効にされた場合にのみ配信し、いつでも停止できます。</li>
+    </ul>
+    <div class="note-box">
+      上記は提供先が公表している資料に基づく事実の記載です。<b>当社は、これらの措置が日本の個人情報保護法の求める水準を満たすことを保証するものではありません。</b>提供先のデータ処理契約には、日本の個人情報保護法に固有の条項は含まれていません。
+    </div>
+  </div>
+
+  <div class="clause">
+    <h2><span class="num">05</span>同意をいただかない場合</h2>
+    <p>この同意は、アカウントを作成し、個人データを保存・処理するために必要なものです。同意をいただけない場合、アカウントの作成および会員機能のご利用はできません。</p>
+    <p>ただし、アカウントを作成せずにご覧いただける無料のコンテンツ（はじめての投資、現在の市場環境、出来事の解説、学習コンテンツ、用語解説など）は、同意の有無にかかわらず引き続きご利用いただけます。</p>
+  </div>
+
+  <div class="clause">
+    <h2><span class="num">06</span>同意の撤回・お問い合わせ</h2>
+    <p>同意の撤回をご希望の場合は、アカウントの削除をもって対応いたします。<a href="mailto:contact@oneshorejp.com">contact@oneshorejp.com</a> までご連絡ください。アカウントを削除された場合、学習の進捗・お気に入り・診断結果は併せて削除されます。</p>
+    <p>有料プランをご契約中の場合は、解約のお手続きを完了してからアカウント削除のご連絡をお願いいたします。</p>
+    <p>本説明の内容について実質的な変更があった場合は、あらためて同意をお願いすることがあります。</p>
+  </div>
+
+</div>
+
+<div class="updated">最終更新: 2026年8月　／　版: foreign_transfer_2026-08-30_v4</div>
+
+<footer>
+  <a class="back" href="privacy.html">← プライバシーポリシーに戻る</a>
+
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/lessons.html">
+<meta name="description" content="市場や投資の仕組みを段階的に学べるLessonの一覧です。どなたでも無料でご利用いただけます。">
+<title>Lesson一覧 ｜ Marketcast Lab</title>
+<meta property="og:title" content="Lesson一覧 ｜ Marketcast Lab">
+<meta property="og:description" content="市場や投資の仕組みを段階的に学べるLessonの一覧です。どなたでも無料でご利用いただけます。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/lessons.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lesson一覧 ｜ Marketcast Lab">
+<meta name="twitter:description" content="市場や投資の仕組みを段階的に学べるLessonの一覧です。どなたでも無料でご利用いただけます。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+  header{border-bottom:1px solid var(--line-rule);padding:18px 5vw 16px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-family:var(--display);font-size:20px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:24px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+
+  .page-head{padding:48px 5vw 28px;border-bottom:1px solid var(--line-rule);}
+  .page-head .eyebrow{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;}
+  .page-head h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;}
+  .page-head p{max-width:64ch;color:var(--ink-soft);font-size:14.5px;margin:0;}
+
+  .cat-group{padding:36px 5vw 0;}
+  .cat-group h2{font-family:var(--display);font-size:18px;font-weight:400;margin:0 0 4px;}
+  .cat-note{font-size:12.5px;color:var(--ink-soft);margin:0 0 18px;}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));gap:12px;max-width:1040px;}
+  .card{
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+    padding:16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  a.card:hover{border-color:var(--ink-soft);}
+  .card-badges{display:flex;gap:6px;flex-wrap:wrap;}
+  .card-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 7px;border-radius:2px;}
+  .card-diff{font-family:var(--mono);font-size:10px;color:var(--ink-soft);}
+  .card h3{font-family:var(--display);font-size:15px;font-weight:400;margin:0;}
+  .card p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.7;}
+
+  #lessons-loading{padding:40px 5vw;font-size:13px;color:var(--ink-soft);}
+
+  footer{margin-top:50px;border-top:1px solid var(--line-rule);padding:28px 5vw 50px;font-size:12px;color:var(--ink-soft);}
+  footer .back{display:inline-block;margin-bottom:14px;border-bottom:1px solid var(--line-rule);}
+  footer .disclaimer{max-width:64ch;line-height:1.8;}
+  [hidden]{display:none !important;}
+
+  .local-subnav{padding:10px 5vw;border-bottom:1px solid var(--line-rule);display:flex;gap:20px;font-size:12px;color:var(--ink-soft);}
+  .local-subnav a{color:var(--ink-soft);}
+  .local-subnav a:hover{color:var(--ink);}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+  /* Task46.2: 静的発見リンク（JS未実行でも個別ページへ辿れるようにする） */
+  .disc-nav{padding:14px 5vw 0;max-width:920px;}
+  .disc-nav h3{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px;font-weight:400;}
+  .disc-list{display:flex;flex-wrap:wrap;gap:7px 14px;}
+  .disc-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);display:inline-flex;align-items:center;min-height:36px;}
+  .disc-link:hover{color:var(--ink);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="local-subnav"><a href="learning_path.html">学習ロードマップ</a><a href="lessons.html">Lesson一覧</a><a href="themes.html">テーマ一覧</a></div>
+
+<div class="page-head">
+  <div class="eyebrow">Lessons</div>
+  <h1>Lesson一覧</h1>
+  <p>投資の基礎から歴史イベントの読み方まで、無料で読める学習コンテンツです。まずは「はじめての方向け」から始めることをおすすめします。</p>
+</div>
+
+<p id="lessons-loading">読み込み中…</p>
+<div class="disc-nav" id="lessons-static">
+  <h3>Lesson一覧</h3>
+  <div class="disc-list">
+  <!-- AUTOGEN:lessons:start -->
+    <a class="disc-link" href="lesson_detail.html?id=what_is_investing">投資とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_stock">株式とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_mutual_fund">投資信託とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_etf">ETFとは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=risk_and_return">リスクとリターンとは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=diversification">分散投資とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_inflation">インフレとは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_interest_rate">金利とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_fx">為替とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=yen_appreciation_depreciation">円高・円安とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_central_bank">中央銀行とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=business_cycle_basics">景気循環とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_gold">金とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_oil">原油とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_bond">債券とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_bitcoin">Bitcoinとは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_ethereum">Ethereumとは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=crypto_risks">暗号資産のリスクとは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_financial_crisis">金融危機とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=war_and_markets">戦争は市場にどう影響するか</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_japan_stock">日本株とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_us_stock">米国株とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_stock_index">株価指数とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_long_term_investing">長期投資とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=what_is_compound_interest">複利とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=dollar_cost_averaging">ドルコスト平均法とは何か</a>
+    <a class="disc-link" href="lesson_detail.html?id=pandemic_and_markets">パンデミックは市場にどう影響するか</a>
+    <a class="disc-link" href="lesson_detail.html?id=central_bank_rate_moves_and_markets">中央銀行の利上げ・利下げが市場に与える影響</a>
+    <a class="disc-link" href="lesson_detail.html?id=ai_boom_and_markets">AIブームと株式市場の関係を読み解く</a>
+    <a class="disc-link" href="lesson_detail.html?id=how_to_read_news_headlines">ニュースの見出しをどう読み解くか</a>
+  <!-- AUTOGEN:lessons:end -->
+  </div>
+</div>
+
+<div id="lessons-root" hidden></div>
+
+<footer>
+  <a class="back" href="index.html">← トップに戻る</a>
+  <div class="disclaimer">本ページのコンテンツは投資判断を代行するものではありません。基礎知識の整理・過去の傾向の記録として、自分で考えるための材料としてご利用ください。</div>
+
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script>
+(async function () {
+  const CATEGORY_ORDER = ['investing_basics', 'economic_themes', 'asset_encyclopedia', 'crypto', 'reading_history'];
+  const CATEGORY_LABEL = {
+    investing_basics: '投資の基本',
+    economic_themes: '経済テーマ',
+    asset_encyclopedia: '資産図鑑',
+    crypto: '暗号資産',
+    reading_history: '歴史イベントの読み方',
+  };
+  const DIFFICULTY_LABEL = {
+    beginner: 'はじめての方向け',
+    intermediate: '少し慣れてきた方向け',
+  };
+
+  const loadingEl = document.getElementById('lessons-loading');
+  const rootEl = document.getElementById('lessons-root');
+
+  let lessonsData = { lessons: [] };
+  try {
+    const res = await fetch('data/lessons.json', { cache: 'no-store' });
+    lessonsData = await res.json();
+  } catch (_) {
+    loadingEl.textContent = 'データを読み込めませんでした。';
+    return;
+  }
+
+  const byCategory = new Map();
+  lessonsData.lessons.forEach((l) => {
+    const key = l.category || 'other';
+    if (!byCategory.has(key)) byCategory.set(key, []);
+    byCategory.get(key).push(l);
+  });
+
+  const orderedCategories = [
+    ...CATEGORY_ORDER.filter((c) => byCategory.has(c)),
+    ...[...byCategory.keys()].filter((c) => !CATEGORY_ORDER.includes(c)),
+  ];
+
+  rootEl.innerHTML = orderedCategories.map((cat) => {
+    const items = byCategory.get(cat);
+    const cardsHtml = items.map((l) => {
+      const diffLabel = DIFFICULTY_LABEL[l.difficulty] || '';
+      return `<a class="card" href="lesson_detail.html?id=${encodeURIComponent(l.id)}">
+        <div class="card-badges">
+          <span class="card-eyebrow">${CATEGORY_LABEL[l.category] || l.category}</span>
+        </div>
+        <h3>${l.title}</h3>
+        <p>${l.overview || ''}</p>
+        <div class="card-diff">${diffLabel}</div>
+      </a>`;
+    }).join('');
+
+    return `
+      <div class="cat-group">
+        <h2>${CATEGORY_LABEL[cat] || cat}</h2>
+        <p class="cat-note">${items.length}件のLesson</p>
+        <div class="card-grid">${cardsHtml}</div>
+      </div>
+    `;
+  }).join('');
+
+  loadingEl.hidden = true;
+  rootEl.hidden = false;
+  // Task46.2: 静的発見リンクはJS未実行時のための代替。描画できたら隠す。
+  const staticNav = document.getElementById('lessons-static');
+  if (staticNav) staticNav.hidden = true;
+})();
+</script>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>
