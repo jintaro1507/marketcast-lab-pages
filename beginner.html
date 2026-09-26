@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/beginner.html">
+<title>はじめての投資 ｜ Marketcast Lab</title>
+<meta property="og:title" content="はじめての投資 ｜ Marketcast Lab">
+<meta property="og:description" content="投資が怖い・怪しいと感じている方へ。投資とは何かを、身近な言葉と図で順番に確認できます。投資助言ではありません。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/beginner.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="はじめての投資 ｜ Marketcast Lab">
+<meta name="twitter:description" content="投資が怖い・怪しいと感じている方へ。投資とは何かを、身近な言葉と図で順番に確認できます。投資助言ではありません。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<meta name="description" content="投資が怖い・怪しいと感じている方へ。投資とは何かを、身近な言葉と図で順番に確認できます。投資助言ではありません。">
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --oil:#B5703A; --gold:#9C7A2E; --equity:#38456B; --bond:#7A6A55; --fx:#4A6B5A;
+    --up:#8A3B2E; --down:#2F5D4E;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+    /* ── Task49: Interactive Learning UX v2 のアクセント。
+       ブランド基調（アイボリー×ネイビー）は維持し、限定的に加える。 ── */
+    --accent-blue:#7C93B3; --accent-blue-bg:#EAF0F7;
+    --accent-gold:#C9A227; --accent-gold-bg:#FBF3DC;
+    --accent-green:#6B8F6E; --accent-green-bg:#EAF2E9;
+    --accent-peach:#C98F6E; --accent-peach-bg:#F7EBE2;
+    --radius-card:14px; --radius-btn:12px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;}
+  :focus-visible{outline:2.5px solid var(--accent-blue);outline-offset:2px;border-radius:4px;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+           clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:11.5px;padding:8px 5vw;line-height:1.6;}
+  .strip b{font-weight:600;}
+  header{border-bottom:1px solid var(--line-rule);padding:14px 5vw;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .brand{font-family:var(--display);font-size:18px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:8px;}
+  .brand .mark{font-family:var(--mono);font-size:10px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;}
+  .home-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);}
+
+  /* ── 進捗（マクロ：STEP 0〜4） ───────────────────────── */
+  .prog{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line-rule);padding:10px 5vw;}
+  .prog-inner{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .prog-dots{display:flex;gap:6px;}
+  .prog-dot{width:26px;height:4px;border-radius:2px;background:var(--line-rule);transition:background .25s ease;}
+  .prog-dot.is-done{background:var(--accent-gold);}
+  .prog-dot.is-current{background:var(--ink);}
+  .prog-label{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);letter-spacing:0.06em;}
+
+  /* ── 進捗（ミクロ：STEP内のカード送り） ─────────────── */
+  .micro-prog{display:flex;align-items:center;gap:8px;margin:16px 0 0;}
+  .micro-prog-track{flex:1;height:4px;border-radius:2px;background:var(--line-rule);overflow:hidden;max-width:160px;}
+  .micro-prog-fill{height:100%;background:var(--accent-blue);border-radius:2px;transition:width .3s ease;}
+  .micro-prog-count{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);white-space:nowrap;}
+
+  main{padding:0 5vw 60px;max-width:760px;margin:0 auto;}
+  .step-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);padding-top:26px;}
+  h1{font-family:var(--display);font-size:clamp(21px,5.4vw,30px);margin:8px 0 0;line-height:1.5;}
+  .lead{font-size:14px;color:var(--ink-soft);margin:12px 0 0;max-width:60ch;}
+
+  /* ── 1画面1メッセージのカード ────────────────────────── */
+  .screen{margin-top:22px;}
+  .card-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px;}
+  .card-q{font-family:var(--display);font-size:clamp(19px,5vw,24px);line-height:1.5;margin:0 0 6px;white-space:pre-line;}
+  .card-sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;line-height:1.8;}
+
+  /* ── 選択カード（タップ回答） ────────────────────────── */
+  .choice-grid{display:flex;flex-direction:column;gap:10px;}
+  .choice-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;
+              min-height:56px;padding:15px 18px;border:1.5px solid var(--line-rule);border-radius:var(--radius-btn);
+              background:#fff;font-family:var(--body);font-size:14.5px;color:var(--ink);text-align:left;
+              cursor:pointer;line-height:1.5;transition:border-color .15s ease,background .15s ease,transform .1s ease;}
+  .choice-btn:hover{border-color:var(--accent-blue);background:var(--accent-blue-bg);}
+  .choice-btn:active{transform:scale(0.98);}
+  .choice-btn.is-picked{border-color:var(--accent-blue);background:var(--accent-blue-bg);}
+  .choice-btn.is-correct{border-color:var(--accent-green);background:var(--accent-green-bg);}
+  .choice-btn.is-incorrect{border-color:var(--accent-peach);background:var(--accent-peach-bg);}
+  .choice-btn:disabled{cursor:default;}
+  .choice-mark{font-family:var(--mono);font-size:13px;flex-shrink:0;}
+
+  /* ── フィードバック ──────────────────────────────────── */
+  .feedback-box{margin-top:14px;padding:16px 17px;border-radius:var(--radius-card);
+                border:1px solid var(--line-rule);background:var(--paper-deep);
+                font-size:13.5px;line-height:1.85;animation:feedback-in .25s ease;}
+  .feedback-box.is-positive{border-color:var(--accent-green);background:var(--accent-green-bg);}
+  .feedback-box.is-gentle{border-color:var(--accent-peach);background:var(--accent-peach-bg);}
+  .feedback-icon{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:0.06em;margin-bottom:6px;display:block;}
+  @keyframes feedback-in{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ── 詳しく見る（accordion） ─────────────────────────── */
+  .detail-toggle{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:12px;
+                 padding:9px 0;font-family:var(--body);font-size:13px;color:var(--ink-soft);
+                 background:none;border:none;cursor:pointer;}
+  .detail-toggle:hover{color:var(--ink);}
+  .detail-toggle .chev{transition:transform .2s ease;}
+  .detail-toggle[aria-expanded="true"] .chev{transform:rotate(180deg);}
+  .detail-panel{margin-top:6px;}
+
+  /* ── STEP完了バッジ（軽いgamification） ─────────────── */
+  .step-badge{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;
+              border-radius:999px;background:var(--accent-gold-bg);border:1px solid var(--accent-gold);
+              font-family:var(--mono);font-size:11.5px;letter-spacing:0.04em;color:var(--ink);
+              margin:4px 0 20px;animation:badge-in .35s ease;}
+  .step-badge .check{color:var(--accent-green);font-weight:700;}
+  @keyframes badge-in{from{opacity:0;transform:scale(0.9);}to{opacity:1;transform:scale(1);}}
+
+  /* ── STEP内 戻る/次へ ナビゲーション（Task49.2） ─────
+     history.back() やブラウザ履歴に依存せず、Journey自身の local state
+     だけでSTEP内を移動する。fixed positionにはせず、カードの下部に
+     自然に続ける。主CTAである「次へ」をやや強く、「戻る」は
+     secondary/ghost styleにする。 */
+  .step-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;}
+  .step-nav.no-back{justify-content:flex-end;}
+  .nav-back{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+            padding:12px 18px;border:1px solid var(--line-rule);border-radius:var(--radius-btn);
+            background:transparent;color:var(--ink-soft);font-family:var(--body);font-size:13.5px;
+            cursor:pointer;flex:none;}
+  .nav-back:hover{border-color:var(--ink-soft);color:var(--ink);}
+  .nav-next{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:52px;
+            padding:14px 26px;border:none;border-radius:var(--radius-btn);background:var(--ink);color:var(--paper);
+            font-family:var(--body);font-size:14.5px;cursor:pointer;flex:1;max-width:260px;}
+  .nav-next:not(:disabled):hover{opacity:0.88;}
+  .nav-next:disabled{background:var(--line-rule);color:var(--ink-soft);cursor:not-allowed;opacity:0.75;}
+
+  /* ── STEP0 動画（任意要素・ファーストビューを占有しない） ── */
+  .video-toggle-wrap{margin-top:16px;}
+  .video-toggle{display:inline-flex;align-items:center;gap:8px;width:100%;min-height:52px;
+                padding:13px 17px;border:1.5px dashed var(--line-rule);border-radius:var(--radius-btn);
+                background:var(--accent-blue-bg);font-family:var(--body);font-size:13.5px;color:var(--ink);
+                cursor:pointer;text-align:left;}
+  .video-toggle:hover{border-color:var(--accent-blue);}
+  .video-toggle .play{font-family:var(--mono);font-size:11px;color:var(--accent-blue);flex-shrink:0;}
+  .video-box{margin-top:14px;}
+  .video-intro{font-size:13.5px;color:var(--ink-soft);margin:0 0 10px;line-height:1.85;}
+  .step0-video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:var(--radius-card);border:1px solid var(--line-rule);}
+
+  @media(prefers-reduced-motion: reduce){
+    .feedback-box,.step-badge,.choice-btn,.prog-dot,.micro-prog-fill{animation:none!important;transition:none!important;}
+  }
+
+  /* ── 具体例（Task39）。仮の例であることを枠内で完結して示す ──── */
+  .ex{margin-top:12px;border:1px solid var(--line-rule);border-radius:var(--radius-card);background:#FBFAF7;padding:13px 14px;}
+  .ex-label{font-family:var(--mono);font-size:11.5px;letter-spacing:0.04em;color:var(--ink-soft);margin-bottom:8px;}
+  .ex-lines{display:flex;flex-direction:column;gap:6px;}
+  .ex-line{font-size:13.5px;line-height:1.8;}
+  .ex-note{font-size:12px;color:var(--ink-soft);line-height:1.75;margin:10px 0 0;padding-top:9px;border-top:1px dashed var(--line-rule);}
+
+  /* 外部公式ページへの参照。ロゴ等は転載せずテキストのみ。 */
+  .ext-wrap{margin-top:11px;}
+  .ext-link{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:var(--ink-soft);}
+  .ext-link span{border-bottom:1px solid var(--line-rule);}
+  .ext-link:hover{color:var(--ink);}
+  .ext-note{font-size:12px;color:var(--ink-soft);line-height:1.75;margin-top:2px;}
+
+  /* 初心者サポート導線。投資助言ではないことを CTA の周囲で明示する。 */
+  .support{margin-top:26px;border:1px solid var(--line-rule);border-radius:var(--radius-card);background:var(--paper-deep);padding:16px 17px;}
+  .support-title{font-family:var(--display);font-size:16px;margin:0 0 8px;line-height:1.6;}
+  .support-body{font-size:13.5px;margin:0;line-height:1.85;}
+  .support-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:13px;
+               padding:12px 20px;border:1px solid var(--ink);border-radius:var(--radius-btn);font-size:14px;background:transparent;}
+  .support-cta:hover{background:var(--ink);color:var(--paper);}
+  .support-note{font-size:12px;color:var(--ink-soft);line-height:1.8;margin:11px 0 0;}
+
+  .sec-label{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:30px;}
+
+  /* ── 資産カード（mobile stack / desktop table 相当） ──── */
+  .asset{border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:var(--radius-card);padding:15px 16px;margin-top:12px;}
+  .asset-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:9px;}
+  .asset-name{font-family:var(--display);font-size:16px;}
+  .asset-what{font-size:12.5px;color:var(--ink-soft);}
+  .asset-rows{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:12.5px;line-height:1.75;}
+  .asset-k{font-family:var(--mono);font-size:10px;color:var(--ink-soft);letter-spacing:0.05em;white-space:nowrap;padding-top:3px;}
+  /* タップ領域を 44px 以上確保する（モバイル主要導線のため） */
+  .asset-more{display:inline-flex;align-items:center;margin-top:8px;padding:11px 0;font-size:12.5px;color:var(--ink-soft);min-height:44px;}
+  .asset-more span{border-bottom:1px solid var(--line-rule);}
+  .asset-more:hover{color:var(--ink);}
+
+  .note-box{border-left:3px solid var(--ink-soft);background:var(--paper-deep);padding:13px 15px;margin-top:16px;font-size:13px;line-height:1.9;}
+
+  /* ── concept ─────────────────────────────────────────── */
+  .concept{border-top:1px solid var(--line-rule);padding-top:22px;margin-top:24px;}
+  .concept:first-of-type{border-top:none;}
+  .concept h2{font-family:var(--display);font-size:17px;margin:0 0 10px;line-height:1.55;}
+  .concept p{font-size:13.5px;margin:0;line-height:1.9;}
+  .concept .caution{font-size:12.5px;color:var(--ink-soft);margin-top:10px;padding-top:9px;border-top:1px dashed var(--line-rule);}
+
+  /* ── visuals ─────────────────────────────────────────── */
+  .vis{margin-top:16px;border:1px solid var(--line-rule);background:#fff;border-radius:var(--radius-card);padding:16px 14px;overflow-x:auto;}
+  .vis-cap{font-family:var(--mono);font-size:10px;color:var(--ink-soft);margin-top:10px;line-height:1.7;}
+  .vis svg{display:block;max-width:100%;height:auto;}
+
+  .cmp{display:grid;grid-template-columns:1fr;gap:10px;}
+  .cmp-col{border:1px solid var(--line-rule);border-radius:var(--radius-card);padding:13px 14px;}
+  .cmp-col h3{font-family:var(--display);font-size:14.5px;margin:0 0 9px;}
+  .cmp-col ul{margin:0;padding-left:17px;}
+  .cmp-col li{font-size:12.5px;line-height:1.85;margin-bottom:5px;}
+  .cmp-col li:last-child{margin-bottom:0;}
+  .cmp-invest{border-left:3px solid var(--equity);}
+  .cmp-gamble{border-left:3px solid var(--oil);}
+
+  .bars{display:flex;flex-direction:column;gap:9px;}
+  .bar-row{display:flex;align-items:center;gap:9px;}
+  .bar-lab{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);width:64px;flex:none;}
+  .bar{height:19px;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:7px;font-family:var(--mono);font-size:10.5px;color:#fff;min-width:44px;}
+
+  /* ── CTA ─────────────────────────────────────────────── */
+  .cta-wrap{margin-top:30px;display:flex;flex-direction:column;gap:11px;}
+  .cta{display:flex;align-items:center;justify-content:center;min-height:52px;padding:14px 20px;background:var(--ink);color:var(--paper);border:none;border-radius:var(--radius-btn);font-family:var(--body);font-size:14.5px;letter-spacing:0.02em;cursor:pointer;text-align:center;line-height:1.5;width:100%;}
+  .cta:hover{opacity:0.88;}
+  .cta-sub{display:flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border:1px solid var(--line-rule);border-radius:var(--radius-btn);font-size:13.5px;color:var(--ink-soft);background:transparent;cursor:pointer;font-family:var(--body);width:100%;text-align:center;line-height:1.5;}
+  .cta-sub:hover{border-color:var(--ink-soft);color:var(--ink);}
+  .cta-back{display:inline-flex;align-items:center;min-height:44px;font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);align-self:flex-start;}
+
+  .links-list{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+  .link-card{border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:var(--radius-card);padding:14px 15px;min-height:44px;}
+  .link-card:hover{border-color:var(--ink-soft);}
+  .link-card b{font-family:var(--display);font-size:14.5px;font-weight:400;display:block;}
+  .link-card span{font-size:12.5px;color:var(--ink-soft);display:block;margin-top:4px;}
+
+  .flow-steps{display:flex;flex-direction:column;gap:0;}
+  .flow-item{border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:var(--radius-card);padding:12px 14px;}
+  .flow-item b{font-family:var(--display);font-size:14.5px;font-weight:400;}
+  .flow-item span{font-size:12.5px;color:var(--ink-soft);display:block;margin-top:3px;}
+  .flow-arrow{text-align:center;color:var(--ink-soft);font-size:15px;line-height:1.6;padding:5px 0;}
+
+  footer{margin-top:44px;border-top:1px solid var(--line-rule);padding:22px 0 0;font-size:11.5px;color:var(--ink-soft);line-height:1.85;}
+
+  @media(min-width:681px){
+    .cmp{grid-template-columns:1fr 1fr;}
+    .cta,.cta-sub{width:auto;align-self:flex-start;min-width:280px;}
+  }
+  /* Footer の legal 導線。markup は beginner-journey.js が生成するため、
+     このページにも対応するスタイルが必要（無いと未装飾・17px になる）。 */
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+  .cta-note{font-size:12px;color:var(--ink-soft);line-height:1.8;margin:2px 0 0;}
+  /* 静的 semantic shell（JS未実行時のみ表示される） */
+  #app > h1{font-family:var(--display);font-size:clamp(22px,4vw,30px);line-height:1.5;margin:30px 0 14px;}
+  .static-lead{font-size:14.5px;line-height:1.9;color:var(--ink-soft);max-width:62ch;margin:0 0 14px;}
+  .static-points{margin:0 0 14px 1.2em;padding:0;font-size:13.5px;line-height:1.9;color:var(--ink-soft);max-width:62ch;}
+  .static-points b{color:var(--ink);}
+  .static-points a{border-bottom:1px solid var(--line-rule);}
+  .static-loading{font-size:13px;color:var(--ink-soft);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+<script src="assets/js/analytics.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。特定の金融商品の購入を勧めるものではありません。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <a class="home-link" href="index.html">トップへ</a>
+</header>
+
+<div class="prog">
+  <div class="prog-inner">
+    <div class="prog-dots" id="prog-dots" aria-hidden="true"></div>
+    <div class="prog-label" id="prog-label"></div>
+  </div>
+</div>
+
+<!-- 回答フィードバックの読み上げ用。常設の live region に対してのみ
+     テキストを書き換える（新規挿入した要素の aria-live は読み上げが
+     保証されないブラウザがあるため）。 -->
+<div id="sr-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+<main id="app">
+  <!-- 静的 semantic shell（JS未実行でも主題が伝わるようにする）。
+       beginner-journey.js が main.replaceChildren() で置き換えるため重複しない。
+       対話的なJourney本体はここへ複製しない。 -->
+  <h1>はじめての投資</h1>
+  <p class="static-lead">「はじめての投資」は、投資が怖い・よく分からないと感じている方が、投資とは何かを順番に確認していける Marketcast Lab の無料コンテンツです。専門用語をできるだけ使わず、身近な例と図で1ステップずつ進みます。</p>
+  <ul class="static-points">
+    <li>どなたでも<b>無料</b>でご利用いただけます。アカウント登録は不要です。</li>
+    <li>特定の金融商品・金融機関を推奨するものではなく、投資助言でもありません。</li>
+    <li>実際の口座開設や購入の流れを知りたい場合は<a href="practical_guide.html">はじめての投資 実践ガイド</a>へ進めます。</li>
+  </ul>
+  <p class="static-loading">ステップの読み込み中です…</p>
+</main>
+
+<script type="module" src="assets/js/beginner-journey.js"></script>
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>

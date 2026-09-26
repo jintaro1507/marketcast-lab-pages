@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/asset_impact.html">
+<meta name="description" content="複数の出来事を横断し、10資産それぞれの上昇方向・下落方向の材料をテーマ別・時間軸別に整理する資産影響分析の一覧です。分析本文はプレミアムプランでご利用いただけます。">
+<title>資産影響分析 ｜ Marketcast Lab</title>
+<meta property="og:title" content="資産影響分析 ｜ Marketcast Lab">
+<meta property="og:description" content="複数の出来事を横断し、10資産それぞれの上昇方向・下落方向の材料をテーマ別・時間軸別に整理する資産影響分析の一覧です。分析本文はプレミアムプランでご利用いただけます。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/asset_impact.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="資産影響分析 ｜ Marketcast Lab">
+<meta name="twitter:description" content="複数の出来事を横断し、10資産それぞれの上昇方向・下落方向の材料をテーマ別・時間軸別に整理する資産影響分析の一覧です。分析本文はプレミアムプランでご利用いただけます。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<style>
+  :root{
+    --paper: #F2EFE8;
+    --paper-deep: #E8E3D7;
+    --ink: #1C1A16;
+    --ink-soft: #5B564B;
+    --line-rule: #cfc7b6;
+    --display: "Shippori Mincho", "Noto Serif JP", serif;
+    --body: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    --mono: "JetBrains Mono", "Courier New", monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.75;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+
+  header{
+    border-bottom:1px solid var(--line-rule);
+    padding:18px 5vw 16px;
+    display:flex;align-items:baseline;justify-content:space-between;
+    flex-wrap:wrap;gap:10px;
+  }
+  .brand{font-family:var(--display);font-size:22px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:24px;font-size:13px;letter-spacing:0.03em;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a{color:var(--ink-soft);}
+  nav a:hover{color:var(--ink);}
+
+  .breadcrumb{padding:22px 5vw 0;font-size:12px;color:var(--ink-soft);}
+  .breadcrumb a{border-bottom:1px solid var(--line-rule);}
+
+  .ai-head{padding:14px 5vw 0;max-width:900px;}
+  .ai-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .ai-head h1{font-family:var(--display);font-size:clamp(24px,3.2vw,34px);font-weight:400;margin:0 0 14px;line-height:1.35;}
+  .ai-lead{font-size:14.5px;color:var(--ink-soft);max-width:64ch;margin:0;}
+
+  .section-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);padding:34px 5vw 0;}
+
+  /* ===== 対象範囲（Free側で見える要約） ===== */
+  .scope{padding:12px 5vw 0;max-width:900px;}
+  .scope-grid{display:flex;flex-wrap:wrap;gap:8px;}
+  .scope-chip{font-size:12px;border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:2px;padding:6px 12px;color:var(--ink-soft);}
+  .scope-chip b{color:var(--ink);font-weight:600;}
+  .scope-note{font-size:12.5px;color:var(--ink-soft);margin-top:12px;max-width:64ch;}
+
+  /* ===== Premium gate ===== */
+  .ai-gate{padding:14px 5vw 0;}
+  .ai-gate-inner{background:var(--paper-deep);border:1px solid var(--line-rule);padding:18px 20px;max-width:600px;}
+  .ai-gate-title{font-family:var(--display);font-size:16px;margin:0 0 10px;}
+  .ai-gate-msg{margin:0 0 12px;font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+  .ai-gate-links{display:flex;gap:10px;flex-wrap:wrap;}
+  .ai-gate-link{font-size:13px;border:1px solid var(--line-rule);padding:7px 14px;border-radius:2px;color:var(--ink-soft);}
+  .ai-gate-link:hover{border-color:var(--ink-soft);color:var(--ink);}
+
+  .scope-caveat{margin-top:12px;font-size:12.5px;color:var(--ink-soft);border-left:2px solid var(--line-rule);padding-left:12px;max-width:62ch;line-height:1.75;}
+
+  /* Free側で「何が読めるか」を具体的な問いで示す */
+  .q-preview{margin:14px 0 16px;}
+  .q-preview-label{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px;}
+  .q-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;}
+  .q-list li{font-size:13px;color:var(--ink);line-height:1.65;display:flex;gap:9px;align-items:baseline;}
+  .q-body{flex:1;}
+  .q-body b{color:var(--ink);font-weight:600;}
+  .q-h{font-family:var(--mono);font-size:9.5px;letter-spacing:0.04em;border:1px solid var(--line-rule);border-radius:2px;padding:1px 6px;color:var(--ink-soft);flex-shrink:0;}
+
+  /* ===== 分析本体 ===== */
+  .horizon-block{padding:26px 5vw 0;max-width:900px;}
+  .horizon-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line-rule);padding-bottom:8px;margin-bottom:16px;}
+  .horizon-name{font-family:var(--display);font-size:19px;}
+  .horizon-span{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:0.04em;}
+  .horizon-count{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-left:auto;}
+
+  .impact{border:1px solid var(--line-rule);border-radius:2px;background:var(--paper-deep);padding:18px 20px;margin-bottom:14px;}
+  .impact-theme{font-family:var(--mono);font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+  .impact-tendency{font-family:var(--display);font-size:16.5px;line-height:1.6;margin:0 0 12px;}
+  .impact-body{font-size:13.5px;color:var(--ink-soft);margin:0 0 12px;max-width:64ch;}
+  .impact-lesson{font-size:13.5px;border-top:1px dashed var(--line-rule);padding-top:11px;margin:0;max-width:64ch;}
+  .impact-lesson b{font-weight:600;}
+
+  .evidence{margin-top:13px;padding-top:11px;border-top:1px dashed var(--line-rule);}
+  .evidence-label{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:7px;}
+  .evidence-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .evidence-item{font-size:12.5px;border:1px solid var(--line-rule);background:var(--paper);border-radius:2px;padding:5px 10px;color:var(--ink-soft);display:inline-flex;align-items:center;gap:7px;}
+  .evidence-item:hover{border-color:var(--ink-soft);color:var(--ink);}
+  .ev-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:0.04em;border-radius:2px;padding:1px 5px;border:1px solid var(--line-rule);}
+  .ev-tag.data{color:var(--ink-soft);}
+  .ev-tag.learn{color:var(--ink-soft);opacity:0.9;}
+
+  /* ===== 一覧（入口） ===== */
+  .idx{padding:12px 5vw 0;max-width:900px;}
+  .idx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;}
+  .idx-card{border:1px solid var(--line-rule);border-radius:2px;background:var(--paper-deep);padding:16px 18px;display:block;}
+  .idx-card:hover{border-color:var(--ink-soft);}
+  .idx-card-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .idx-card h3{font-family:var(--display);font-size:17px;font-weight:400;margin:0 0 8px;}
+  .idx-card-meta{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);letter-spacing:0.03em;}
+
+  .empty-note{padding:14px 5vw 0;font-size:13.5px;color:var(--ink-soft);}
+
+  footer{margin-top:56px;border-top:1px solid var(--line-rule);padding:30px 5vw 60px;font-size:12px;color:var(--ink-soft);}
+  footer .back{display:inline-block;margin:0 18px 14px 0;border-bottom:1px solid var(--line-rule);}
+  footer .disclaimer{max-width:64ch;line-height:1.85;margin-top:10px;}
+
+  [hidden]{display:none !important;}
+
+  .local-subnav{padding:10px 5vw;border-bottom:1px solid var(--line-rule);display:flex;gap:20px;font-size:12px;color:var(--ink-soft);}
+  .local-subnav a{color:var(--ink-soft);}
+  .local-subnav a:hover{color:var(--ink);}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+  /* 静的 semantic shell（JS未実行時のみ表示される） */
+  .static-shell h1{font-family:var(--display);font-size:clamp(22px,4vw,30px);line-height:1.5;margin:30px 0 14px;}
+  .static-shell p{font-size:14px;line-height:1.9;color:var(--ink-soft);max-width:62ch;margin:0 0 12px;}
+  .static-shell b{color:var(--ink);}
+  .static-shell a{border-bottom:1px solid var(--line-rule);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+<script src="assets/js/analytics.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="local-subnav"><a href="premium.html">&larr; プレミアム</a><a href="learning_path.html">学習ロードマップ</a><a href="lessons.html">Lesson一覧</a></div>
+
+<div id="content">
+  <!-- 静的 semantic shell。JS が content.innerHTML で置き換えるため重複しない。
+       Premium 本文はここに置かない（protected API 経由のみ）。 -->
+  <div class="static-shell">
+    <h1>資産影響分析</h1>
+    <p><b>資産影響分析（Asset Impact Analysis）</b>とは、複数の出来事を横断して、10資産それぞれにとって何が上昇方向の材料になり、何が下落方向の材料になってきたかを、テーマ別・時間軸別に整理する Marketcast Lab の分析機能です。</p>
+    <p>対象は日本株・米国株・投資信託・ETF・金・原油・債券・為替・Bitcoin・Ethereum の10資産で、金融危機・インフレ・金利・地政学・景気循環などのテーマごとに、短期・中期・長期で傾向が分かれた点を確認できます。</p>
+    <p>どの資産にどのテーマ・時間軸の分析があるかの一覧は無料でご覧いただけます。各分析の本文は<a href="pricing.html">プレミアムプラン</a>でご利用いただけます。過去に観察された傾向の整理であり、将来の値動きを示すものではありません。</p>
+    <p>一覧を読み込み中です…</p>
+  </div>
+</div>
+
+<script>
+/* analytics の薄いラッパ。未読み込み・失敗時も呼び出し元を壊さない。 */
+function track(name, props){
+  try { if (typeof trackProductEvent === 'function') trackProductEvent(name, props); }
+  catch (_) { /* 計測失敗は無視する */ }
+}
+(async function () {
+  const params  = new URLSearchParams(location.search);
+  const assetId = params.get('id') ?? '';
+  const content = document.getElementById('content');
+
+  // 時間軸の表示定義。asset_impacts.json の horizon 値と1対1で対応させる。
+  const HORIZONS = [
+    { key: 'short_term', name: '短期の傾向', span: '数日 〜 数週間' },
+    { key: 'mid_term',   name: '中期の傾向', span: '数か月 程度' },
+    { key: 'long_term',  name: '長期の傾向', span: '年単位' },
+  ];
+  const HORIZON_SHORT = { short_term: '短期', mid_term: '中期', long_term: '長期' };
+
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+
+  let impactsData, assetsData, themesData, eventsData;
+  try {
+    const [r1, r2, r3, r4] = await Promise.all([
+      fetch('data/asset_impacts.json', { cache: 'no-store' }),
+      fetch('data/assets.json',        { cache: 'no-store' }),
+      fetch('data/themes.json',        { cache: 'no-store' }),
+      fetch('data/events.json',        { cache: 'no-store' }),
+    ]);
+    impactsData = await r1.json();
+    assetsData  = await r2.json();
+    themesData  = await r3.json();
+    eventsData  = await r4.json();
+  } catch (_) {
+    content.innerHTML = '<div class="empty-note">データを読み込めませんでした。</div>';
+    return;
+  }
+
+  const impacts  = impactsData.asset_impacts || [];
+  // 根拠イベントIDは protected 側へ移したため、横断件数は public metadata の
+  // 事前集計（asset_summaries）から取得する。
+  const summaries = impactsData.asset_summaries || {};
+  const assets   = assetsData.assets || [];
+  const themeById = new Map((themesData.themes || []).map(t => [t.id, t]));
+  const eventById = new Map((eventsData.events || []).map(e => [e.id, e]));
+
+  // ───────────────────────────────────────────────────────────────
+  // 入口（一覧）: ?id 未指定のとき
+  // ───────────────────────────────────────────────────────────────
+  if (!assetId) {
+    track('asset_impact_index_view');
+    const withAnalysis = assets
+      .map(a => ({ asset: a, rows: impacts.filter(i => i.asset_id === a.id) }))
+      .filter(x => x.rows.length > 0);
+
+    const cards = withAnalysis.map(({ asset, rows }) => {
+      const counts = HORIZONS
+        .map(h => ({ h, n: rows.filter(r => r.horizon === h.key).length }))
+        .filter(x => x.n > 0)
+        .map(x => `${HORIZON_SHORT[x.h.key]}${x.n}`)
+        .join(' ・ ');
+      const themeCount = (summaries[asset.id] || {}).themes ?? new Set(rows.map(r => r.theme_id)).size;
+      return `
+        <a class="idx-card" href="asset_impact.html?id=${encodeURIComponent(asset.id)}">
+          <div class="idx-card-eyebrow">ASSET</div>
+          <h3>${esc(asset.label)}</h3>
+          <div class="idx-card-meta">${themeCount}テーマ横断 ／ ${esc(counts)}</div>
+        </a>`;
+    }).join('');
+
+    content.innerHTML = `
+      <div class="breadcrumb"><a href="index.html">トップ</a> ／ 資産影響分析</div>
+      <div class="ai-head">
+        <div class="ai-eyebrow">Asset Impact Analysis</div>
+        <h1>資産ごとに、複数の出来事を横断して<br>傾向を整理する</h1>
+        <p class="ai-lead">個別の出来事を1件ずつ見るのではなく、ひとつの資産が過去の複数の局面でどのような傾向を示してきたかを、短期・中期・長期の時間軸ごとに整理したページです。将来の値動きを示すものではありません。</p>
+      </div>
+
+      <div class="section-label">分析のある資産</div>
+      <div class="idx">
+        ${cards ? `<div class="idx-grid">${cards}</div>` : '<div class="empty-note">分析データはまだ登録されていません。</div>'}
+      </div>
+
+      <footer>
+        <a class="back" href="index.html">← トップに戻る</a>
+        <a class="back" href="glossary.html">わからない用語がある場合 → 用語解説を見る</a>
+        <div class="disclaimer">本ページは情報提供・教育目的のコンテンツです。個別の投資助言ではありません。過去の局面に共通して見られた傾向の整理であり、将来の値動きを示すものでも、特定の取引・銘柄・商品を推奨するものでもありません。</div>
+      </footer>`;
+    return;
+  }
+
+  // ───────────────────────────────────────────────────────────────
+  // 個別資産の分析画面
+  // ───────────────────────────────────────────────────────────────
+  const asset = assets.find(a => a.id === assetId);
+  if (!asset) {
+    content.innerHTML = '<div class="empty-note">コンテンツが見つかりません。</div>';
+    return;
+  }
+  document.title = asset.label + 'の資産影響分析 ｜ Marketcast Lab';
+  track('asset_impact_asset_open', { asset_key: assetId });
+
+  const rows = impacts.filter(i => i.asset_id === assetId);
+  const summary    = summaries[assetId] || {};
+  const themeCount = summary.themes ?? new Set(rows.map(r => r.theme_id)).size;
+  const eventCount = summary.events ?? 0;
+
+  // 実際に存在する時間軸だけを文言に反映する。
+  // 「短期・中期・長期」と決め打ちすると、長期分析を持たない資産（暗号資産など）で
+  // 実態と異なる説明になり、欠落しているように見えてしまうため。
+  const presentHorizons = HORIZONS.filter(h => rows.some(r => r.horizon === h.key));
+  const horizonWords = presentHorizons.map(h => HORIZON_SHORT[h.key]).join('・');
+
+  // 十分な歴史的根拠がある範囲に限って分析していることを明示する。
+  // 株式などと同じ分析量を装わないこと自体を、判断材料として提示する。
+  const coverageNote = presentHorizons.length < HORIZONS.length
+    ? '<div class="scope-caveat">この資産は市場の歴史が比較的短いため、'
+      + '十分な過去事例を確認できる時間軸に限って分析しています。'
+      + '扱っていない時間軸について、根拠のない一般化は行いません。</div>'
+    : '';
+
+  // Free側でも見える「何を分析対象にしているか」の要約。
+  // 分析本文（tendency / reasoning / investor_lesson）はここには含めない。
+  const scopeChips = HORIZONS
+    .map(h => ({ h, n: rows.filter(r => r.horizon === h.key).length }))
+    .filter(x => x.n > 0)
+    .map(x => `<span class="scope-chip"><b>${x.h.name}</b> ${x.n}件</span>`)
+    .join('');
+
+  const themeChips = [...new Set(rows.map(r => r.theme_id))]
+    .map(tid => `<span class="scope-chip">${esc((themeById.get(tid) || {}).label || tid)}</span>`)
+    .join('');
+
+  // Premium で何が読めるのかを、抽象的な説明ではなく具体的な「問い」で示す。
+  // 生成元は public metadata（テーマ×時間軸）のみで、本文は一切含まない。
+  function renderQuestionPreview() {
+    const order = { short_term: 0, mid_term: 1, long_term: 2 };
+    const items = rows
+      .slice()
+      .sort((a, b) => (order[a.horizon] - order[b.horizon]))
+      .map(r => {
+        const theme = (themeById.get(r.theme_id) || {}).label || r.theme_id;
+        // 「〜の局面で」はテーマ名によって非文になる（例: 長期投資／中央銀行）。
+        // 「〜をテーマに」はラベルを話題として扱うため、全テーマで文法的に成立する。
+        return `<li><span class="q-h">${esc(HORIZON_SHORT[r.horizon])}</span>`
+             + `<span class="q-body"><b>${esc(theme)}</b>をテーマに、どのような傾向が観察されたか</span></li>`;
+      }).join('');
+    if (!items) return '';
+    return `
+      <div class="q-preview">
+        <div class="q-preview-label">この分析で扱っている問い</div>
+        <ul class="q-list">${items}</ul>
+      </div>`;
+  }
+
+  function renderEvidence(ids) {
+    const items = (ids || []).map(eid => {
+      const ev = eventById.get(eid);
+      if (!ev) return '';
+      // learning_only のイベントは数値的な価格反応分析の対象外。
+      // 反応データを持つイベントと視覚的に区別し、根拠の性質を誤認させない。
+      const isLearningOnly = !!ev.learning_only;
+      const tag = isLearningOnly
+        ? '<span class="ev-tag learn">学習事例</span>'
+        : '<span class="ev-tag data">反応データ</span>';
+      return `<a class="evidence-item" href="event_detail.html?id=${encodeURIComponent(ev.id)}">${tag}${esc(ev.name)}</a>`;
+    }).filter(Boolean).join('');
+    if (!items) return '';
+    return `
+      <div class="evidence">
+        <div class="evidence-label">根拠として参照した出来事</div>
+        <div class="evidence-list">${items}</div>
+      </div>`;
+  }
+
+  // 分析本文は protected API (get-asset-impact-analysis) の返却のみを描画する。
+  // 公開metadata(data/asset_impacts.json)には本文が存在しないため、
+  // API が 200 を返さない限り本文は一切表示されない。
+  function renderAnalysis(analyses) {
+    return HORIZONS.map(h => {
+      const hr = (analyses || []).filter(r => r.horizon === h.key);
+      if (!hr.length) return '';
+      const cards = hr.map(r => `
+        <div class="impact">
+          <div class="impact-theme">${esc((themeById.get(r.theme_id) || {}).label || r.theme_id)}</div>
+          <p class="impact-tendency">${esc(r.tendency)}</p>
+          <p class="impact-body">${esc(r.reasoning)}</p>
+          <p class="impact-lesson"><b>読み解きのポイント：</b>${esc(r.investor_lesson)}</p>
+          ${renderEvidence(r.evidence_event_ids)}
+        </div>`).join('');
+      return `
+        <div class="horizon-block">
+          <div class="horizon-head">
+            <span class="horizon-name">${h.name}</span>
+            <span class="horizon-span">${h.span}</span>
+            <span class="horizon-count">${hr.length}件</span>
+          </div>
+          ${cards}
+        </div>`;
+    }).join('');
+  }
+
+  function gateBox(title, msg, links, extraHtml) {
+    const linkHtml = (links || [])
+      .map(l => `<a class="ai-gate-link" href="${l.href}">${esc(l.text)}</a>`).join('');
+    return `
+      <div class="ai-gate">
+        <div class="ai-gate-inner">
+          <p class="ai-gate-title">${esc(title)}</p>
+          <p class="ai-gate-msg">${esc(msg)}</p>
+          ${extraHtml || ''}
+          ${linkHtml ? `<div class="ai-gate-links">${linkHtml}</div>` : ''}
+        </div>
+      </div>`;
+  }
+
+  /**
+   * 分析本文を取得する。
+   *
+   * 認可の信頼源は protected API (get-asset-impact-analysis) の応答のみ。
+   * subscription-state.js の規約どおり、client 側の契約状態は「案内の出し分け」に
+   * しか使わず、本文の解放判断には使わない。paid と判定できた場合でも、
+   * API が 200 を返すまで本文は表示しない（403 なら表示しない）。
+   *
+   * Marketcast Pause Preflight: MEMBERSHIP_SUSPENDED 中は Supabase へ一切接続せず、
+   * protected API も呼ばない（本番で到達するのはこの分岐のみ）。
+   *
+   * 分析本文は data/asset_impacts.json に存在しないため、
+   * API が本文を返さない限り画面には何も出せない構造になっている。
+   */
+  async function resolveAnalysis() {
+    const backToAsset = [{ href: 'asset_detail.html?id=' + encodeURIComponent(assetId), text: '資産の基礎解説を見る' }];
+
+    if (typeof window !== 'undefined' && window.MEMBERSHIP_SUSPENDED) {
+      return { analyses: null, box: gateBox(
+        '会員機能を停止しています',
+        '資産影響分析は有料プラン向けの機能です。現在は会員機能の提供を停止しているため表示できません。公開コンテンツは引き続きご覧いただけます。',
+        backToAsset
+      ) };
+    }
+
+    // UX上の事前分岐。ここで paid 以外を弾くのは「無駄なAPI呼び出しを避けるため」であり、
+    // 認可そのものではない。認可はあくまでAPI側で行われる。
+    let state = 'error';
+    try {
+      const mod = await import('./assets/js/subscription-state.js');
+      ({ state } = await mod.getSubscriptionState());
+    } catch (_) {
+      state = 'error';
+    }
+
+    if (state === 'unauthenticated') {
+      return { analyses: null, box: gateBox(
+        'ログインが必要です',
+        'ログインのうえ有料プランをご利用いただくと、下の問いそれぞれについて、観察された傾向とその背景をご覧いただけます。',
+        [{ href: 'login.html', text: 'ログインする' }, { href: 'pricing.html', text: '有料プランを見る' }],
+        renderQuestionPreview()
+      ) };
+    }
+    if (state === 'attention') {
+      return { analyses: null, box: gateBox(
+        'お支払い状況をご確認ください',
+        'ご契約の状態を確認できませんでした。お支払い状況をご確認いただくと、資産影響分析をご利用いただけます。',
+        [{ href: 'account.html', text: 'アカウントを確認する' }]
+      ) };
+    }
+    if (state === 'free' || state === 'inactive') {
+      return { analyses: null, box: gateBox(
+        '有料プランでご覧いただけます',
+        `有料プランでは、下の問いそれぞれについて「観察された傾向」「そう考えられる理由」「読み解きのポイント」と、根拠にした出来事をご覧いただけます。`,
+        [{ href: 'pricing.html', text: '有料プランを見る' }],
+        renderQuestionPreview()
+      ) };
+    }
+    if (state !== 'paid') {
+      return { analyses: null, box: gateBox(
+        '現在ご利用いただけません',
+        '契約状態を確認できませんでした。時間をおいて再度お試しください。資産の基礎解説は引き続きご覧いただけます。',
+        backToAsset
+      ) };
+    }
+
+    // ── protected API 呼び出し（ここが唯一の本文取得経路） ──
+    let supabase;
+    try {
+      ({ supabase } = await import('./assets/js/supabase-client.js'));
+    } catch (_) {
+      return { analyses: null, box: gateBox(
+        '現在ご利用いただけません',
+        '分析データを読み込めませんでした。時間をおいて再度お試しください。',
+        backToAsset
+      ) };
+    }
+
+    try {
+      const { data, error } = await supabase.functions.invoke('get-asset-impact-analysis', {
+        body: { asset_id: assetId },
+      });
+
+      if (error) {
+        const status = error.context?.status ?? error.status ?? null;
+        if (status === 401) {
+          return { analyses: null, box: gateBox(
+            'ログインが必要です',
+            'セッションの有効期限が切れている可能性があります。再度ログインしてください。',
+            [{ href: 'login.html', text: 'ログインする' }]
+          ) };
+        }
+        if (status === 403) {
+          return { analyses: null, box: gateBox(
+            '有料プランでご覧いただけます',
+            '下の問いそれぞれについて、観察された傾向とその背景、根拠にした出来事をご覧いただけます。',
+            [{ href: 'pricing.html', text: '有料プランを見る' }],
+            renderQuestionPreview()
+          ) };
+        }
+        if (status === 404) {
+          return { analyses: null, box: gateBox(
+            '分析が見つかりませんでした',
+            'この資産の分析はまだ登録されていません。',
+            backToAsset
+          ) };
+        }
+        return { analyses: null, box: gateBox(
+          '現在ご利用いただけません',
+          '分析データを読み込めませんでした。時間をおいて再度お試しください。',
+          backToAsset
+        ) };
+      }
+
+      const analyses = Array.isArray(data && data.analyses) ? data.analyses : [];
+      if (analyses.length === 0) {
+        return { analyses: null, box: gateBox(
+          '分析が見つかりませんでした',
+          'この資産の分析はまだ登録されていません。',
+          backToAsset
+        ) };
+      }
+      track('premium_asset_impact_view', { asset_key: assetId });
+      return { analyses, box: '' };
+    } catch (_) {
+      return { analyses: null, box: gateBox(
+        '現在ご利用いただけません',
+        '分析データを読み込めませんでした。時間をおいて再度お試しください。',
+        backToAsset
+      ) };
+    }
+  }
+
+  const gate = await resolveAnalysis();
+
+  content.innerHTML = `
+    <div class="breadcrumb"><a href="index.html">トップ</a> ／ <a href="asset_impact.html">資産影響分析</a> ／ ${esc(asset.label)}</div>
+
+    <div class="ai-head">
+      <div class="ai-eyebrow">Asset Impact Analysis</div>
+      <h1>${esc(asset.label)}は、過去の局面で<br>どのような傾向を示してきたか</h1>
+      <p class="ai-lead">${esc(asset.label)}について、過去の複数の出来事を横断し、${esc(horizonWords)}の時間軸ごとに傾向を整理しています。個別の出来事を1件ずつ読むだけでは見えにくい、共通する特徴と例外を扱います。</p>
+    </div>
+
+    <div class="section-label">この分析の対象範囲</div>
+    <div class="scope">
+      <div class="scope-grid">${scopeChips}</div>
+      <div class="scope-note">${themeCount}個のテーマ・${eventCount}件の出来事を横断して整理しています。</div>
+      <div class="scope-grid" style="margin-top:10px;">${themeChips}</div>
+      ${coverageNote}
+    </div>
+
+    ${rows.length === 0
+      ? '<div class="empty-note">この資産の分析データはまだ登録されていません。</div>'
+      : (gate.analyses
+          ? `<div class="section-label">時間軸ごとの傾向</div>${renderAnalysis(gate.analyses)}`
+          /* Premium gate を実際に表示したときだけ1回記録する。
+             gateBox() は複数の分岐から呼ばれるため、呼び出しごとではなく
+             描画箇所で1回だけ計測する（重複カウントを避ける）。 */
+          : (track('asset_impact_premium_gate_view', { asset_key: assetId }), gate.box))}
+
+    <footer>
+      <a class="back" href="asset_impact.html">← 資産影響分析の一覧へ</a>
+      <a class="back" href="asset_detail.html?id=${encodeURIComponent(asset.id)}">${esc(asset.label)}の基礎解説を見る</a>
+      <a class="back" href="glossary.html">わからない用語がある場合 → 用語解説を見る</a>
+      <div class="disclaimer">本ページは情報提供・教育目的のコンテンツです。個別の投資助言ではありません。過去の局面に共通して見られた傾向の定性的な整理であり、将来の値動きを示すものでも、特定の取引・銘柄・商品を推奨するものでもありません。「学習事例」と表示した出来事は、価格反応の数値分析の対象外として、構造の理解のみを目的に参照しています。</div>
+    
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>`;
+})();
+</script>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>
