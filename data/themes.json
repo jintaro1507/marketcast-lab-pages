@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "note": "Marketcast Lab v2 UX用のテーマ管理ファイル。既存group_metadata.json（cause_tag単位の解釈メタ情報）とは独立して管理する。Phase1では両者を並存させる。",
+  "themes": [
+    {
+      "id": "inflation",
+      "label": "インフレ",
+      "category": "economy",
+      "difficulty": "beginner",
+      "intro_summary": "物価が持続的に上がっていく現象。生活実感にも投資にも関わる、最初に理解したいテーマ。",
+      "summary": "インフレは、モノやサービスの価格が全体として継続的に上昇する現象。原因は需要の強さ・供給の制約・通貨供給量など複数あり、中央銀行の金融政策と密接に関わる。過去の急激なインフレ局面では、金融引き締めや資源価格の急騰が同時に観察されてきた。",
+      "related_lesson_ids": [
+        "what_is_inflation",
+        "what_is_interest_rate",
+        "what_is_central_bank"
+      ],
+      "representative_event_ids": [
+        "fed_hike_start_2022",
+        "fed_hike_final_2023",
+        "oil_shock_1973"
+      ]
+    },
+    {
+      "id": "interest_rates",
+      "label": "金利",
+      "category": "economy",
+      "difficulty": "beginner",
+      "intro_summary": "お金を借りる・貸すときのコスト。株式・為替・不動産などほぼ全ての資産価格に影響する基礎テーマ。",
+      "summary": "金利は中央銀行の政策金利を起点に、短期金利・長期金利へと波及する。金利が上がると借入コストが増え株式には逆風となりやすく、金利が下がると追い風となりやすい。ただし局面（予防的な調整か危機対応か）によって市場の受け止め方は異なる。",
+      "related_lesson_ids": [
+        "what_is_interest_rate",
+        "what_is_central_bank",
+        "central_bank_rate_moves_and_markets"
+      ],
+      "representative_event_ids": [
+        "fed_hike_start_2022",
+        "fed_cut_start_2019",
+        "fed_emergency_cut_2020",
+        "oil_shock_1973",
+        "fed_hike_final_2023",
+        "fed_cut_start_2024"
+      ]
+    },
+    {
+      "id": "yen_depreciation",
+      "label": "円安",
+      "category": "assets",
+      "difficulty": "beginner",
+      "intro_summary": "円の価値が他通貨に対して下がること。輸入物価や海外資産の評価額を通じて生活・投資の両方に影響する。",
+      "summary": "円安は、日米の金利差や資金の流れなど複数の要因が絡み合って進む。輸出企業の収益や海外資産の円換算額にはプラスに働く一方、輸入物価の上昇を通じて国内の生活コストを押し上げる面もある。",
+      "related_lesson_ids": [
+        "what_is_fx",
+        "yen_appreciation_depreciation"
+      ],
+      "representative_event_ids": []
+    },
+    {
+      "id": "financial_crisis",
+      "label": "金融危機",
+      "category": "economy",
+      "difficulty": "intermediate",
+      "intro_summary": "銀行や金融機関の経営不安が市場全体に波及する局面。伝播の仕組みを理解すると、危機報道の読み方が変わる。",
+      "summary": "金融危機は、金融機関・国家・通貨への信用が急速に失われ、信用市場の収縮が他の金融機関や市場に波及する現象。過去の事例では、政府・中央銀行が介入したかどうか、どれだけ速く動いたかによって、市場への波及の深さと回復速度が大きく分かれてきた。",
+      "related_lesson_ids": [
+        "what_is_financial_crisis",
+        "diversification"
+      ],
+      "representative_event_ids": [
+        "lehman_shock_2008",
+        "svb_collapse_2023",
+        "ltcm_crisis_1998",
+        "eurozone_crisis_2010",
+        "asian_crisis_1997",
+        "ftx_collapse_2022"
+      ]
+    },
+    {
+      "id": "war_geopolitics",
+      "label": "戦争・地政学",
+      "category": "geopolitics",
+      "difficulty": "beginner",
+      "intro_summary": "国家間の緊張や軍事衝突が市場に与える影響。緊張の大きさよりも「何が実際に止まったか」を見る視点が重要になる。",
+      "summary": "戦争・地政学リスクは、供給網やエネルギー供給への影響を通じて市場に波及する。過去の事例を比較すると、地政学的な緊張の強さそのものより、現実の供給が止まったか否かが市場の反応を分ける要因だったことが観察されている。",
+      "related_lesson_ids": [
+        "war_and_markets",
+        "how_to_read_news_headlines"
+      ],
+      "representative_event_ids": [
+        "russia_ukraine_2022",
+        "saudi_attack_2019",
+        "gulf_war_1990",
+        "hamas_israel_2023"
+      ]
+    },
+    {
+      "id": "pandemic",
+      "label": "パンデミック",
+      "category": "geopolitics",
+      "difficulty": "beginner",
+      "intro_summary": "感染症の拡大が経済活動そのものを止めた、過去に例の少ないタイプの危機。",
+      "summary": "パンデミックは、人の移動と消費が直接止まる「需要消滅型」の危機として、供給ショックや金融危機とは異なる伝播経路をたどる。過去の事例では、株式・原油が同時急落した後、大規模な政策対応によって急反発するという特徴的な値動きが観察された。",
+      "related_lesson_ids": [
+        "pandemic_and_markets"
+      ],
+      "representative_event_ids": [
+        "covid_shock_2020"
+      ]
+    },
+    {
+      "id": "oil_resources",
+      "label": "原油・資源",
+      "category": "assets",
+      "difficulty": "beginner",
+      "intro_summary": "エネルギー価格の動きは、インフレや株式市場、各国の外交関係にまで波及する重要な資産テーマ。",
+      "summary": "原油価格は、実際の供給量の増減に強く反応する傾向がある。過去の事例では、供給停止の規模・継続期間・代替供給源の有無によって価格反応の大きさが大きく異なってきた。",
+      "related_lesson_ids": [
+        "what_is_oil"
+      ],
+      "representative_event_ids": [
+        "oil_shock_1973",
+        "gulf_war_1990",
+        "libya_civil_war_2011",
+        "saudi_attack_2019"
+      ]
+    },
+    {
+      "id": "gold_safe_haven",
+      "label": "金・安全資産",
+      "category": "assets",
+      "difficulty": "beginner",
+      "intro_summary": "不確実性が高まったときに資金が向かいやすいとされる資産。ただし常に一方向に動くわけではない。",
+      "summary": "金は「安全資産」「逃避先」として語られることが多いが、局面によって反応は一様ではない。地政学的な緊張が高まった局面では買われやすい一方、パンデミック初期のように株式と同時に売られた例外も過去に観察されている。",
+      "related_lesson_ids": [
+        "what_is_gold"
+      ],
+      "representative_event_ids": [
+        "russia_ukraine_2022",
+        "saudi_attack_2019"
+      ]
+    },
+    {
+      "id": "crypto",
+      "label": "暗号資産",
+      "category": "assets",
+      "difficulty": "beginner",
+      "intro_summary": "株式や債券とは異なる値動きの特徴を持つ新しい資産クラス。歴史データがまだ少ない領域でもある。",
+      "summary": "暗号資産は伝統的な資産と比較して値動きの振れ幅が大きいとされる。市場の歴史が浅く、既存の資産クラスのような長期データの蓄積がまだ限られている点は理解しておく必要がある。",
+      "related_lesson_ids": [
+        "what_is_bitcoin",
+        "what_is_ethereum",
+        "crypto_risks"
+      ],
+      "representative_event_ids": [
+        "bitcoin_etf_approval_2024",
+        "ethereum_etf_approval_2024",
+        "terra_luna_crash_2022",
+        "ftx_collapse_2022"
+      ]
+    },
+    {
+      "id": "ai_technology",
+      "label": "AI・テクノロジー",
+      "category": "technology",
+      "difficulty": "intermediate",
+      "intro_summary": "技術革新への期待が株式市場のテーマとして注目を集める局面。期待と実態の見極め方を学ぶ入口。",
+      "summary": "新しい技術への期待が特定セクターの株価を押し上げる局面は過去にも繰り返し観察されてきた（例：ITバブル期）。期待先行の値動きと実際の収益成長を区別して見る視点が重要になる。",
+      "related_lesson_ids": [
+        "ai_boom_and_markets"
+      ],
+      "representative_event_ids": [
+        "dotcom_bubble_burst_2000"
+      ]
+    },
+    {
+      "id": "central_banks",
+      "label": "中央銀行",
+      "category": "economy",
+      "difficulty": "intermediate",
+      "intro_summary": "政策金利の決定を通じて経済全体に影響を与える存在。金融政策の基本を理解する入口。",
+      "summary": "中央銀行は物価の安定と経済の安定を目的に政策金利を調整する。利下げは株式や金への追い風となりやすい一方、危機対応の緊急利下げでは実施直後に株価が急落した例もあり、「利下げ＝株高」という単純な図式では説明できない局面が過去に存在する。",
+      "related_lesson_ids": [
+        "what_is_central_bank",
+        "central_bank_rate_moves_and_markets"
+      ],
+      "representative_event_ids": [
+        "fed_cut_start_2019",
+        "fed_emergency_cut_2020",
+        "fed_hike_start_2022",
+        "fed_hike_final_2023",
+        "fed_cut_start_2024",
+        "us_recovery_qe_2009"
+      ]
+    },
+    {
+      "id": "business_cycle",
+      "label": "景気循環",
+      "category": "economy",
+      "difficulty": "intermediate",
+      "intro_summary": "経済は拡大と後退を繰り返すという考え方。今がサイクルのどの局面かを考える視点を養う。",
+      "summary": "景気循環は、経済活動が拡大・後退を周期的に繰り返すという見方。金融政策・企業業績・雇用統計など複数の指標を組み合わせて、現在がサイクルのどの段階にあるかを読み解く視点が、市場理解の基礎になる。",
+      "related_lesson_ids": [
+        "business_cycle_basics"
+      ],
+      "representative_event_ids": [
+        "dotcom_bubble_burst_2000",
+        "us_recovery_qe_2009",
+        "lehman_shock_2008",
+        "covid_shock_2020"
+      ]
+    },
+    {
+      "id": "risk_on_off",
+      "label": "リスクオン・リスクオフ",
+      "category": "markets",
+      "difficulty": "intermediate",
+      "intro_summary": "投資家心理が「積極的にリスクを取る」か「安全資産に逃げる」かで市場全体の値動きが連動する現象。",
+      "summary": "リスクオン・オフは、投資家全体のリスク許容度の変化によって株式・為替・金などの資産が同じ方向に連動して動く現象を指す解釈概念。Marketcast Labのevent_tagsでは観察事実のみをタグ化し、リスクオン・オフのような解釈は編集テキストの中で扱う方針としている。",
+      "related_lesson_ids": [
+        "risk_and_return"
+      ],
+      "representative_event_ids": [
+        "russia_ukraine_2022",
+        "dotcom_bubble_burst_2000",
+        "terra_luna_crash_2022",
+        "lehman_shock_2008",
+        "covid_shock_2020"
+      ]
+    },
+    {
+      "id": "fx",
+      "label": "為替",
+      "category": "assets",
+      "difficulty": "beginner",
+      "intro_summary": "通貨同士の交換比率。金利差・貿易・資金の流れなど複数の要因が絡み合う奥の深いテーマ。",
+      "summary": "為替レートは、二国間の金利差・貿易収支・資金フローなど複数の要因で変動する。過去の通貨危機の事例では、固定相場制など制度的な制約が資金流出時の調整余地を狭め、急激な通貨下落につながったケースが観察されている。",
+      "related_lesson_ids": [
+        "what_is_fx",
+        "yen_appreciation_depreciation"
+      ],
+      "representative_event_ids": [
+        "asian_crisis_1997"
+      ]
+    },
+    {
+      "id": "long_term_investing",
+      "label": "長期投資",
+      "category": "investing",
+      "difficulty": "beginner",
+      "intro_summary": "短期的な値動きに一喜一憂せず、長い時間軸で資産形成を考える基本姿勢。",
+      "summary": "長期投資は、短期的な市場の変動を予測するのではなく、長い時間軸で資産を育てる考え方。過去の危機（金融危機・パンデミック等）は市場を大きく動かしたが、時間軸を長く取ることで単発の急落局面の影響を相対化して捉える視点が、投資の基礎として語られることが多い。",
+      "related_lesson_ids": [
+        "what_is_long_term_investing",
+        "what_is_compound_interest",
+        "dollar_cost_averaging"
+      ],
+      "representative_event_ids": [
+        "bitcoin_etf_approval_2024",
+        "ethereum_etf_approval_2024",
+        "us_recovery_qe_2009"
+      ]
+    }
+  ]
+}
