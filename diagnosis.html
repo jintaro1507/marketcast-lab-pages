@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<meta name="robots" content="noindex,follow">
+<title>初回診断 ｜ Marketcast Lab</title>
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:var(--ink);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  header{
+    border-bottom:1px solid var(--line-rule);
+    padding:18px 5vw 16px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .brand{font-family:var(--display);font-size:22px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:28px;font-size:13px;letter-spacing:0.03em;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a{color:var(--ink-soft);}
+  nav a:hover{color:var(--ink);}
+
+  .breadcrumb{padding:14px 5vw 0;font-size:12px;color:var(--ink-soft);}
+
+  .page-wrap{max-width:560px;margin:40px auto 80px;padding:0 5vw;}
+  h1{font-family:var(--display);font-size:24px;font-weight:400;letter-spacing:0.04em;margin:0 0 10px;}
+  .page-lead{font-size:13.5px;color:var(--ink-soft);margin:0 0 36px;line-height:1.8;}
+
+  .q-block{margin-bottom:32px;}
+  .q-title{font-family:var(--display);font-size:16px;margin:0 0 4px;}
+  .q-note{font-size:12px;color:var(--ink-soft);margin:0 0 14px;}
+  .q-options{display:flex;flex-direction:column;gap:8px;}
+  .q-option{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+    padding:10px 14px;
+    font-size:13.5px;
+    cursor:pointer;
+  }
+  .q-option:hover{border-color:var(--ink-soft);}
+  .q-option input{accent-color:var(--ink);}
+
+  .submit-btn{
+    margin-top:8px;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    border-radius:2px;
+    padding:12px 20px;
+    font-family:var(--body);
+    font-size:14px;
+    letter-spacing:0.04em;
+    cursor:pointer;
+    width:100%;
+  }
+  .submit-btn:hover{opacity:0.85;}
+  .submit-btn:disabled{opacity:0.5;cursor:not-allowed;}
+
+  .auth-msg{font-size:13px;padding:10px 12px;border-radius:2px;margin-bottom:16px;}
+  .auth-msg--ok{background:#e8f0eb;color:#1a4a2e;border:1px solid #b0d4bc;}
+  .auth-msg--error{background:#f5eae8;color:#5a1a14;border:1px solid #d4b0ac;}
+
+  #diagnosis-loading{font-size:13px;color:var(--ink-soft);}
+
+  footer{border-top:1px solid var(--line-rule);padding:20px 5vw;font-size:12px;color:var(--ink-soft);margin-top:auto;}
+
+  [hidden]{display:none !important;}
+  .membership-suspended-banner{margin:0 0 24px;padding:16px 20px;border:1px solid var(--line-rule);background:var(--paper-deep);font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="breadcrumb"><a href="index.html">トップ</a> ／ 初回診断</div>
+
+<div class="page-wrap">
+  <h1>初回診断</h1>
+  <p class="page-lead">
+    いくつかの質問から、あなたに合った学習テーマとコンテンツをおすすめします。所要時間は1分程度です。<br>
+    ※ この診断は投資助言を行うものではありません。個別銘柄の推奨や売買判断の提案は行いません。
+  </p>
+
+  <div id="membership-suspended-banner" class="membership-suspended-banner" hidden>
+    Marketcast Labの会員機能は現在提供を停止しています。初回診断の保存機能は停止中のため、しばらくお待ちください。
+  </div>
+
+  <p id="diagnosis-loading">読み込み中…</p>
+  <p id="auth-message" class="auth-msg" hidden></p>
+
+  <form id="diagnosis-form" hidden>
+
+    <div class="q-block">
+      <h2 class="q-title">Q1. 投資経験を教えてください</h2>
+      <div class="q-options" role="radiogroup" aria-label="投資経験">
+        <label class="q-option"><input type="radio" name="investment_experience" value="none" required> まだ投資経験はない</label>
+        <label class="q-option"><input type="radio" name="investment_experience" value="beginner"> 始めたばかり</label>
+        <label class="q-option"><input type="radio" name="investment_experience" value="over_1_year"> 1年以上経験あり</label>
+        <label class="q-option"><input type="radio" name="investment_experience" value="experienced"> 投資経験が豊富</label>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <h2 class="q-title">Q2. 興味のあるテーマを選んでください</h2>
+      <p class="q-note">複数選択できます。1つ以上選んでください。</p>
+      <div class="q-options">
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="jp_stocks"> 日本株</label>
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="us_stocks"> 米国株</label>
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="mutual_funds"> 投資信託</label>
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="etf"> ETF</label>
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="gold"> 金</label>
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="oil"> 原油</label>
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="fx"> 為替</label>
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="crypto"> 暗号資産</label>
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="world_news"> 世界経済ニュース</label>
+        <label class="q-option"><input type="checkbox" name="interest_assets" value="financial_crisis"> 金融危機</label>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <h2 class="q-title">Q3. 学習の目的を教えてください</h2>
+      <div class="q-options" role="radiogroup" aria-label="学習の目的">
+        <label class="q-option"><input type="radio" name="learning_goal" value="basics" required> 投資の基礎を学びたい</label>
+        <label class="q-option"><input type="radio" name="learning_goal" value="news_literacy"> 経済ニュースを理解したい</label>
+        <label class="q-option"><input type="radio" name="learning_goal" value="asset_building"> 資産形成について学びたい</label>
+        <label class="q-option"><input type="radio" name="learning_goal" value="judgment_material"> 過去の市場局面から判断材料を得たい</label>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn" id="diagnosis-submit">診断結果を保存してDashboardへ</button>
+  </form>
+</div>
+
+<footer>Marketcast Lab
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+<script type="module">
+/**
+ * diagnosis.html — 初回診断フォーム
+ *
+ * 方針:
+ *   - 診断前ログイン要求（account.htmlのinitAccount()と同一パターン）。
+ *     未ログインならフォームを表示せずlogin.htmlへ固定遷移する。
+ *     login.html側にredirectパラメータの仕組みがなく、成功時は常にindex.htmlへ
+ *     遷移する既存設計のため、「保存時ログイン要求」（回答保持→ログイン後に
+ *     復元して送信）よりも実装コストが低く、既存設計と整合的なこちらを採用する。
+ *   - MEMBERSHIP_SUSPENDED中はSupabaseに一切接続しない（Marketcast Pause Preflight踏襲）。
+ *   - user_profiles への保存は upsert（onConflict: user_id）。
+ *     再診断時も同じ行を更新するだけで、エラーにならない。
+ */
+
+const loadingEl  = document.getElementById('diagnosis-loading');
+const bannerEl   = document.getElementById('membership-suspended-banner');
+const formEl     = document.getElementById('diagnosis-form');
+const msgEl      = document.getElementById('auth-message');
+const submitBtn  = document.getElementById('diagnosis-submit');
+
+function showMsg(text, isError) {
+  msgEl.textContent = text;
+  msgEl.className = isError ? 'auth-msg auth-msg--error' : 'auth-msg auth-msg--ok';
+  msgEl.hidden = false;
+}
+
+if (window.MEMBERSHIP_SUSPENDED) {
+  loadingEl.hidden = true;
+  bannerEl.hidden = false;
+} else {
+  (async () => {
+    const { supabase } = await import('./assets/js/supabase-client.js');
+
+    let session;
+    try {
+      const { data } = await supabase.auth.getSession();
+      session = data.session;
+    } catch (_) {
+      window.location.href = 'login.html';
+      return;
+    }
+
+    if (!session) {
+      window.location.href = 'login.html';
+      return;
+    }
+
+    const userId = session.user.id;
+    loadingEl.hidden = true;
+    formEl.hidden = false;
+
+    formEl.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      msgEl.hidden = true;
+
+      const experience = formEl.querySelector('input[name="investment_experience"]:checked');
+      const goal = formEl.querySelector('input[name="learning_goal"]:checked');
+      const interests = Array.from(
+        formEl.querySelectorAll('input[name="interest_assets"]:checked')
+      ).map((el) => el.value);
+
+      if (!experience) {
+        showMsg('Q1. 投資経験を選択してください。', true);
+        return;
+      }
+      if (interests.length === 0) {
+        showMsg('Q2. 興味のあるテーマを1つ以上選択してください。', true);
+        return;
+      }
+      if (!goal) {
+        showMsg('Q3. 学習の目的を選択してください。', true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '保存中…';
+
+      try {
+        const { error } = await supabase
+          .from('user_profiles')
+          .upsert(
+            {
+              user_id: userId,
+              investment_experience: experience.value,
+              interest_assets: interests,
+              learning_goal: goal.value,
+            },
+            { onConflict: 'user_id' }
+          );
+
+        if (error) {
+          showMsg('保存に失敗しました。時間をおいて再度お試しください。', true);
+          submitBtn.disabled = false;
+          submitBtn.textContent = '診断結果を保存してDashboardへ';
+          return;
+        }
+
+        window.location.href = 'dashboard.html';
+      } catch (_) {
+        showMsg('保存に失敗しました。時間をおいて再度お試しください。', true);
+        submitBtn.disabled = false;
+        submitBtn.textContent = '診断結果を保存してDashboardへ';
+      }
+    });
+  })();
+}
+</script>
+</body>
+</html>
