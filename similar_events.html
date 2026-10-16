@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/similar_events.html">
+<meta name="description" content="同じ種類の出来事が過去に起きたとき、各資産がその後どう動いたかを記録・整理した類似局面のページです。過去の事実の集計であり、将来の値動きを示すものではありません。">
+<title>類似局面 ｜ Marketcast Lab</title>
+<meta property="og:title" content="類似局面 ｜ Marketcast Lab">
+<meta property="og:description" content="同じ種類の出来事が過去に起きたとき、各資産がその後どう動いたかを記録・整理した類似局面のページです。過去の事実の集計であり、将来の値動きを示すものではありません。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/similar_events.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="類似局面 ｜ Marketcast Lab">
+<meta name="twitter:description" content="同じ種類の出来事が過去に起きたとき、各資産がその後どう動いたかを記録・整理した類似局面のページです。過去の事実の集計であり、将来の値動きを示すものではありません。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --oil:#B5703A; --gold:#9C7A2E; --equity:#38456B; --crypto:#6B4A8A;
+    --fx:#4A6B5A; --bond:#7A6A55;
+    --up:#8A3B2E; --down:#2F5D4E;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+  header{border-bottom:1px solid var(--line-rule);padding:18px 5vw 16px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-family:var(--display);font-size:20px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:24px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+
+  .page-head{padding:42px 5vw 24px;border-bottom:1px solid var(--line-rule);}
+  .page-head .eyebrow{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;}
+  .page-head h1{font-family:var(--display);font-size:clamp(24px,3.2vw,34px);margin:0 0 14px;}
+  .page-head p{max-width:62ch;color:var(--ink-soft);font-size:14px;margin:0;}
+
+  /* ===== タグバー ===== */
+  .tagbar{padding:20px 5vw 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tagbar .chip{font-size:12.5px;border:1px solid var(--line-rule);padding:6px 14px;border-radius:2px;color:var(--ink-soft);cursor:pointer;background:var(--paper);display:flex;align-items:center;gap:6px;}
+  .tagbar .chip:hover{border-color:var(--ink-soft);color:var(--ink);}
+  .tagbar .chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .tagbar .chip.few{opacity:0.6;}      /* 2-4件：薄く */
+  .tagbar .chip.sparse{opacity:0.4;}   /* 1件以下：かなり薄く */
+  .chip-count{font-family:var(--mono);font-size:9px;opacity:0.7;}
+
+  /* ===== 横断比較パネル ===== */
+  #cross-panel{padding:20px 5vw 0;display:none;}
+  .cross-card{border:1px solid var(--line-rule);background:var(--paper-deep);padding:16px 20px;max-width:900px;}
+  .cross-card .cross-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .cross-card .cross-intro{font-size:13px;color:var(--ink-soft);line-height:1.75;margin-bottom:12px;max-width:72ch;}
+  .cross-card .cross-note{font-size:10.5px;color:var(--ink-soft);margin-top:10px;line-height:1.6;opacity:0.8;}
+
+  /* 観察ノート */
+  #insight-note{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line-rule);}
+  .insight-note-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+  .insight-note-items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;}
+  .insight-note-items li{font-size:12.5px;color:var(--ink);line-height:1.7;padding-left:14px;position:relative;}
+  .insight-note-items li::before{content:"・";position:absolute;left:0;color:var(--ink-soft);}
+  .insight-note-caution{font-size:11px;color:var(--ink-soft);margin-top:10px;line-height:1.6;padding-left:14px;}
+  table.cross{width:100%;border-collapse:collapse;font-size:12.5px;}
+  table.cross th{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-soft);padding:6px 10px;text-align:right;border-bottom:1px solid var(--line-rule);}
+  table.cross th:first-child{text-align:left;}
+  table.cross td{padding:9px 10px;border-bottom:1px solid var(--line-rule);text-align:right;font-family:var(--mono);font-size:12.5px;}
+  table.cross td:first-child{text-align:left;font-family:var(--body);font-size:13px;}
+  table.cross tr.cross-active td{background:rgba(28,26,22,0.05);font-weight:600;}
+  table.cross tr.cross-active td:first-child{font-weight:700;}
+  table.cross .cross-n{font-family:var(--mono);font-size:10px;color:var(--ink-soft);margin-left:5px;}
+
+  /* ===== グループ説明パネル（折りたたみ対応） ===== */
+  #group-panel{padding:24px 5vw 0;}
+  .group-card{border:1px solid var(--line-rule);background:var(--paper-deep);padding:22px 24px;max-width:860px;}
+  .group-card .g-summary{font-size:14px;line-height:1.8;margin:0 0 14px;color:var(--ink-soft);}
+  /* 代表イベント：常時表示 */
+  .rep-events{margin-top:14px;}
+  .rep-events .r-label{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:10px;}
+  .rep-events .r-list{display:flex;gap:8px;flex-wrap:wrap;}
+  .rep-events .r-list a{font-size:12.5px;border:1px solid var(--line-rule);background:var(--paper);padding:7px 13px;border-radius:2px;color:var(--ink);}
+  .rep-events .r-list a:hover{border-color:var(--ink-soft);}
+  .rep-events .r-list a .r-date{font-family:var(--mono);font-size:10px;color:var(--ink-soft);margin-right:6px;}
+  /* 解説カード：「なぜ結果が分かれたのか」 */
+  .insight-card{
+    margin-top:18px;
+    border:1px solid var(--line-rule);
+    border-left:3px solid var(--ink-soft);
+    background:var(--paper-deep);
+    padding:14px 18px 14px 20px;
+    cursor:pointer;
+    transition:border-left-color 0.15s, background 0.15s;
+    max-width:600px;
+  }
+  .insight-card:hover{border-left-color:var(--ink);background:#e2dcd2;}
+  .insight-card.open{border-left-color:var(--ink);}
+  .insight-card-head{display:flex;align-items:center;gap:10px;}
+  .insight-card-icon{font-size:15px;flex-shrink:0;line-height:1;}
+  .insight-card-title{font-family:var(--body);font-size:14.5px;font-weight:600;color:var(--ink);letter-spacing:0;}
+  .insight-card-sub{font-size:12px;color:var(--ink-soft);margin-top:5px;line-height:1.6;padding-left:25px;}
+  .insight-card-arrow{margin-left:auto;font-size:11px;color:var(--ink-soft);transition:transform 0.2s;flex-shrink:0;}
+  .insight-card.open .insight-card-arrow{transform:rotate(90deg);}
+  .group-details{display:none;margin-top:16px;border-top:1px solid var(--line-rule);padding-top:16px;}
+  .group-details.open{display:block;}
+  .group-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .group-col h4{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--ink-soft);text-transform:uppercase;margin:0 0 10px;border-bottom:1px solid var(--line-rule);padding-bottom:6px;}
+  .group-col ul{margin:0;padding-left:18px;}
+  .group-col li{font-size:13px;line-height:1.7;margin-bottom:5px;}
+  .group-caveat{margin-top:18px;border-top:1px dashed var(--line-rule);padding-top:14px;font-size:12.5px;line-height:1.8;color:var(--ink);background:rgba(156,122,46,0.06);padding:14px;border-left:3px solid var(--gold);}
+  .group-caveat .c-label{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;color:var(--ink-soft);display:block;margin-bottom:5px;}
+  @media (max-width:680px){ .group-cols{grid-template-columns:1fr;} }
+
+  /* ===== 統計テーブル ===== */
+  .section-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);padding:34px 5vw 0;}
+  .summary-wrap{padding:14px 5vw 0;overflow-x:auto;}
+  table.summary{width:100%;border-collapse:collapse;font-size:13px;min-width:500px;}
+  table.summary th{text-align:right;font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;color:var(--ink-soft);text-transform:uppercase;border-bottom:1px solid var(--line-rule);padding:9px 12px;}
+  table.summary th:first-child{text-align:left;}
+  table.summary td{padding:13px 12px;border-bottom:1px solid var(--line-rule);text-align:right;font-family:var(--mono);}
+  table.summary td:first-child{text-align:left;font-family:var(--body);}
+  .asset-name{display:flex;align-items:center;gap:8px;}
+  .swatch{width:9px;height:9px;border-radius:2px;display:inline-block;flex-shrink:0;}
+  .swatch.oil{background:var(--oil);}.swatch.gold{background:var(--gold);}
+  .swatch.equity{background:var(--equity);}.swatch.fx{background:var(--fx);}.swatch.bond{background:var(--bond);}
+  .pos{color:var(--up);} .neg{color:var(--down);}
+  .winrate{font-family:var(--body);font-size:12px;color:var(--ink-soft);}
+  table.summary td.median-val{font-weight:600;font-size:13.5px;}
+  table.summary th.median-hd{color:var(--ink);font-weight:700;}
+  table.summary td.avg-val{color:var(--ink-soft);font-size:12px;}
+  table.summary th.avg-hd{color:var(--ink-soft);}
+  /* 最大・最小：初期非表示 */
+  .col-maxmin{display:none;}
+  .col-maxmin.visible{display:table-cell;}
+  .summary-note{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);padding:10px 5vw 0;}
+  .summary-note .avg-note{display:block;margin-top:4px;font-size:10px;color:var(--ink-soft);opacity:0.8;}
+  .maxmin-toggle{background:none;border:none;padding:0;cursor:pointer;font-family:var(--mono);font-size:10px;color:var(--ink-soft);text-decoration:underline;margin-left:6px;}
+  .maxmin-toggle:hover{color:var(--ink);}
+
+  #conf-warning{display:none;background:var(--paper-deep);border:1px solid var(--line-rule);border-left:3px solid #9C7A2E;padding:12px 16px;margin:10px 5vw 0;font-size:12.5px;color:var(--ink);max-width:64ch;}
+
+  /* ===== 個別イベント一覧 ===== */
+  .events-list{padding:14px 5vw 0;}
+  /* effect_tags凡例 */
+  .effect-legend{font-family:var(--mono);font-size:10px;color:var(--ink-soft);padding:0 0 14px;border-bottom:1px dashed var(--line-rule);margin-bottom:4px;opacity:0.8;}
+  .ev{border-top:1px solid var(--line-rule);padding:22px 0;display:grid;grid-template-columns:140px 1fr 200px;gap:22px;align-items:start;}
+  .ev:first-child{border-top:none;}
+  .ev .ev-date{font-family:var(--mono);font-size:12px;color:var(--ink-soft);}
+  .ev .ev-body h3{font-family:var(--display);font-size:16px;margin:0 0 6px;}
+  .ev .ev-body p{font-size:12.5px;color:var(--ink-soft);margin:0 0 10px;max-width:60ch;}
+  .ev .ev-tags{display:flex;flex-direction:column;gap:6px;}
+  .tag-group{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+  .tag-group .tag-lead{font-family:var(--mono);font-size:9.5px;letter-spacing:0.08em;color:var(--ink-soft);width:30px;flex-shrink:0;}
+  .ev .ev-tags span.cause{font-family:var(--mono);font-size:10px;color:var(--ink);border:1px solid var(--ink-soft);padding:2px 7px;border-radius:2px;}
+  .ev .ev-tags span.effect{font-family:var(--mono);font-size:10px;color:var(--ink-soft);background:var(--paper-deep);border:1px solid var(--line-rule);padding:2px 7px;border-radius:2px;}
+  .conf-badge{font-family:var(--mono);font-size:10px;border:1px solid;padding:2px 8px;border-radius:2px;margin-left:8px;}
+  .ev .ev-mini{display:flex;flex-direction:column;gap:5px;font-size:12px;}
+  .ev .ev-mini .row{display:flex;justify-content:space-between;gap:10px;}
+  .ev .ev-mini .row .a{color:var(--ink-soft);display:flex;align-items:center;gap:6px;}
+  .ev .ev-mini .row .v{font-family:var(--mono);}
+  .ev .detail-link{font-size:11.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);display:inline-block;margin-top:10px;}
+
+  footer{margin-top:50px;border-top:1px solid var(--line-rule);padding:28px 5vw 50px;font-size:12px;color:var(--ink-soft);}
+  footer .back{display:inline-block;margin-bottom:12px;border-bottom:1px solid var(--line-rule);}
+  footer .disclaimer{max-width:64ch;line-height:1.8;}
+  .empty{padding:40px 5vw;color:var(--ink-soft);font-size:14px;}
+
+  @media (max-width:820px){
+    .ev{grid-template-columns:1fr;gap:10px;}
+    .group-cols{grid-template-columns:1fr;}
+  }
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="page-head">
+  <div class="eyebrow">Similar Events</div>
+  <h1 id="page-title">類似局面の記録</h1>
+  <p>同じ種類のイベントが過去に起きたとき、各資産がその後どう動いたかを記録・整理したものです。これは過去の事実の集計であり、将来の値動きを示すものでも、売買を推奨するものでもありません。</p>
+</div>
+
+<div class="tagbar" id="tagbar"><!-- タグチップをJSで生成 --></div>
+
+<!-- グループ横断比較パネル（タブ直下） -->
+<div id="cross-panel">
+  <div class="cross-card">
+    <div class="cross-label">原因グループ別に見る市場反応の違い（30日後・中央値）</div>
+    <p class="cross-intro">同じ市場下落でも、供給ショックでは原油、銀行危機ではVIXや金の反応が目立つなど、原因によって反応しやすい資産が異なります。これは過去データの観察であり、将来の値動きを示すものではありません。</p>
+    <div style="overflow-x:auto;">
+      <table class="cross" id="cross-table"><tbody></tbody></table>
+    </div>
+    <div class="cross-note">件数が少ないグループ（2〜4件）は参考値です。数値は各グループのイベント発生後30日の変化率の中央値。</div>
+    <div id="insight-note" style="display:none;"></div>
+  </div>
+</div>
+
+<div id="group-panel"><!-- グループ説明をJSで生成 --></div>
+
+<div class="section-label" id="summary-label">過去の同種イベント後の反応（30日後）</div>
+<div id="conf-warning"></div>
+<div class="summary-wrap">
+  <table class="summary" id="summary-table"><tbody></tbody></table>
+</div>
+<div class="summary-note">
+  勝率＝上昇した回数 / 全件数。数値は各イベント発生から30日後のおおよその変化率の集計です。
+  <span class="avg-note">平均値は外れ値の影響を受けるため、中央値も併せて確認してください。<button class="maxmin-toggle" id="maxmin-toggle">最大・最小を表示</button></span>
+</div>
+
+<div class="section-label">個別イベントの記録</div>
+<div class="events-list" id="events-list"></div>
+
+<footer>
+  <a class="back" href="index.html">← トップに戻る</a>
+  <div class="disclaimer">本ページの集計は過去データの整理であり、特定の取引・銘柄・商品を推奨するものではありません。各イベントの前提条件は異なり、同様の結果が将来も再現される保証はありません。</div>
+
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script>
+(async()=>{
+  const resp = await fetch('data/event_reactions.json');
+  const data = await resp.json();
+  const causeLabels = data.cause_tag_labels || {};
+  const effectLabels = data.effect_tag_labels || {};
+  const params = new URLSearchParams(location.search);
+
+  // ===== デフォルトタグ選択 =====
+  let activeTag = params.get('tag');
+  if(!activeTag || !causeLabels[activeTag]){
+    const counts = {};
+    data.events.forEach(e => (e.cause_tags||[]).forEach(t => counts[t]=(counts[t]||0)+1));
+    activeTag = Object.keys(counts).sort((a,b)=>counts[b]-counts[a])[0] || Object.keys(causeLabels)[0];
+  }
+
+  // ===== ヘルパー =====
+  function pct(v){ return v===null||v===undefined ? '—' : (v>0?'+':'')+v.toFixed(1)+'%'; }
+  function cls(v){ return v===null||v===undefined ? '' : v>0?'pos':v<0?'neg':''; }
+
+  function confBadge(conf){
+    if(!conf) return '';
+    const colorMap = {reference:'var(--ink-soft)', low:'#9C7A2E', mid:'#38456B', high:'#2F5D4E'};
+    const c = colorMap[conf.level] || 'var(--ink-soft)';
+    return `<span class="conf-badge" style="border-color:${c};color:${c};">${conf.label}</span>`;
+  }
+
+  // ===== 最大・最小トグル =====
+  let maxminVisible = false;
+  document.getElementById('maxmin-toggle').addEventListener('click', ()=>{
+    maxminVisible = !maxminVisible;
+    document.querySelectorAll('.col-maxmin').forEach(el=>{
+      el.classList.toggle('visible', maxminVisible);
+    });
+    document.getElementById('maxmin-toggle').textContent = maxminVisible ? '最大・最小を隠す' : '最大・最小を表示';
+  });
+
+  // ===== 解説カードの開閉トグル =====
+  function attachGroupToggle(){
+    const card = document.getElementById('group-details-btn');
+    const det = document.getElementById('group-details');
+    if(!card || !det) return;
+    function toggle(){
+      const open = det.classList.toggle('open');
+      card.classList.toggle('open', open);
+      card.querySelector('.insight-card-arrow').textContent = open ? '▼' : '▶';
+    }
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
+  }
+
+  // ===== effect_tagsラベル（期間付き） =====
+  const PERIOD_LABELS = {d1:'1日', d7:'7日', d30:'30日'};
+  function effectChipLabel(tag, details){
+    const base = effectLabels[tag] || tag;
+    const periods = ((details||{})[tag] || []).map(p => PERIOD_LABELS[p] || p);
+    return periods.length ? `${base}（${periods.join('・')}）` : base;
+  }
+
+  // ===== グループ件数マップ =====
+  function buildTagCounts(){
+    const counts = {};
+    data.events.forEach(e => (e.cause_tags||[]).forEach(t => counts[t]=(counts[t]||0)+1));
+    return counts;
+  }
+
+  // ===== 横断比較パネル =====
+  // ===== 観察ノート生成 =====
+  // 採用ロジック：
+  //   Step 2: 差分コメント採用条件 = diff >= +8pt（上振れのみ）
+  //            差分が弱い or 下振れの場合はStep 3を主役にする
+  //   Step 3: 方向一致率（件数2件以上で表示、5件未満は参考値注記）
+  //           注目資産内でスコア最大を選択
+  //   末尾注記は常時表示 / 件数2件未満は「件数不足」
+
+  const INSIGHT_ASSET_LABELS = {
+    wti:'WTI原油', sp500:'S&P500', vix:'VIX',
+    gold:'金（GLD）', ust10y:'米10年債利回り', usdjpy:'ドル円'
+  };
+  const ALL_INSIGHT_ASSETS = ['wti','sp500','vix','gold','ust10y','usdjpy'];
+
+  // グループ別注目資産（重み付きオブジェクト）
+  // スコア = 差分絶対値 × weight / 方向一致率の偏り × weight
+  // 現時点は全weight=1.0。将来「vix:1.5」などに変えるだけで優先度を調整可能
+  const GROUP_FOCUS_ASSETS = {
+    supply_shock:        { wti:1.0, gold:1.0, vix:1.0 },
+    bank_crisis:         { sp500:1.0, vix:1.0, gold:1.0 },
+    monetary_tightening: { ust10y:1.0, sp500:1.0, usdjpy:1.0 },
+    monetary_easing:     { sp500:1.0, ust10y:1.0, gold:1.0 },
+    emergency_cut:       { sp500:1.0, vix:1.0, gold:1.0 },
+    war:                 { gold:1.0, wti:1.0, vix:1.0 },
+    middle_east:         { wti:1.0, gold:1.0, vix:1.0 },
+    pandemic:            { sp500:1.0, wti:1.0, vix:1.0 },
+    debt_crisis:         { sp500:1.0, ust10y:1.0, usdjpy:1.0 },
+    currency_crisis:     { usdjpy:1.0, sp500:1.0, gold:1.0 },
+    liquidity_crisis:    { sp500:1.0, vix:1.0, gold:1.0 },
+    _default:            { wti:1.0, sp500:1.0, vix:1.0, gold:1.0 }
+  };
+
+  function getFocusAssets(tag){
+    return GROUP_FOCUS_ASSETS[tag] || GROUP_FOCUS_ASSETS['_default'];
+  }
+
+  // 差分コメント採用閾値
+  const DIFF_THRESHOLD = 8; // +8pt以上の「上振れ」のみ採用
+
+  function generateInsights(activeTag, summary, tagCounts){
+    const groupN = tagCounts[activeTag] || 0;
+    const activeS = summary[activeTag];
+    const insights = [];
+
+    if(groupN < 2) return { items: [], tooFew: true };
+
+    // Step 1: 件数2件以上グループの全資産単純平均
+    const globalAvg = {};
+    ALL_INSIGHT_ASSETS.forEach(akey => {
+      const vals = [];
+      Object.keys(summary).forEach(tag => {
+        if((tagCounts[tag]||0) < 2) return;
+        const s = summary[tag];
+        if(s && s[akey] && s[akey].median !== null && s[akey].median !== undefined){
+          vals.push(s[akey].median);
+        }
+      });
+      globalAvg[akey] = vals.length > 0 ? vals.reduce((a,b)=>a+b,0) / vals.length : null;
+    });
+
+    const focusMap = getFocusAssets(activeTag);
+
+    // Step 2: 注目資産内で「上振れ差分 >= DIFF_THRESHOLD」の最大スコアを選択
+    // 下振れは採用しない（「VIXが低い」より「金が上がった」の方が直感的）
+    // 注目資産に該当なければ全資産でフォールバック（上振れ条件は維持）
+    function pickTopUpDiff(assetMap){
+      const isMap = !Array.isArray(assetMap);
+      let top = null, topScore = 0;
+      if(!activeS) return null;
+      const keys = isMap ? Object.keys(assetMap) : assetMap;
+      keys.forEach(akey => {
+        const weight = isMap ? (assetMap[akey] || 1.0) : 1.0;
+        const med = activeS[akey] ? activeS[akey].median : null;
+        const avg = globalAvg[akey];
+        if(med === null || avg === null) return;
+        const diff = med - avg;
+        // 上振れかつ閾値以上のみ採用
+        if(diff >= DIFF_THRESHOLD){
+          const score = diff * weight;
+          if(score > topScore){ top = { akey, med, avg, diff }; topScore = score; }
+        }
+      });
+      return top;
+    }
+
+    let topDiff = pickTopUpDiff(focusMap);
+    if(!topDiff) topDiff = pickTopUpDiff(ALL_INSIGHT_ASSETS); // フォールバック
+
+    if(topDiff){
+      const lbl = INSIGHT_ASSET_LABELS[topDiff.akey] || topDiff.akey;
+      const absDiff = topDiff.diff.toFixed(0);
+      const avgStr = (topDiff.avg >= 0 ? '+' : '') + topDiff.avg.toFixed(1) + '%';
+      const medStr = (topDiff.med >= 0 ? '+' : '') + topDiff.med.toFixed(1) + '%';
+      const fewNote = groupN < 5 ? '（件数が少なく参考値）' : '';
+      insights.push(
+        `${lbl}の中央値（${medStr}）が他グループ平均（${avgStr}）より約${absDiff}pt高く、` +
+        `このグループでは${lbl}が上昇しやすい傾向が過去データで観察されています。${fewNote}`
+      );
+    }
+
+    // Step 3: 方向一致率コメント
+    // 差分コメントがない場合は主役として、ある場合は補足として追加（最大2件まで）
+    // 件数2件以上で表示、5件未満は参考値注記
+    if(activeS && insights.length < 2){
+      let bestWinrate = null, bestScore = 0;
+      Object.keys(focusMap).forEach(akey => {
+        const s = activeS[akey];
+        if(!s || !s.count || s.count === 0) return;
+        const rate = s.up / s.count;
+        const dist = Math.abs(rate - 0.5);
+        const score = dist * (focusMap[akey] || 1.0);
+        if(score > bestScore && (rate >= 0.8 || rate <= 0.2)){
+          bestWinrate = { akey, up: s.up, count: s.count, rate };
+          bestScore = score;
+        }
+      });
+      if(bestWinrate){
+        const lbl = INSIGHT_ASSET_LABELS[bestWinrate.akey] || bestWinrate.akey;
+        const fewNote = groupN < 5 ? '（件数が少なく参考値）' : '';
+        if(bestWinrate.rate >= 0.8){
+          insights.push(
+            `${lbl}は${bestWinrate.count}件中${bestWinrate.up}件で上昇しており、` +
+            `このグループでは方向が比較的一致しています。${fewNote}`
+          );
+        } else {
+          const down = bestWinrate.count - bestWinrate.up;
+          insights.push(
+            `${lbl}は${bestWinrate.count}件中${down}件で下落しており、` +
+            `このグループでは上昇が限定的な傾向がありました。${fewNote}`
+          );
+        }
+      }
+    }
+
+    return { items: insights, tooFew: false, n: groupN };
+  }
+
+    function renderInsights(activeTag, summary, tagCounts){
+    const el = document.getElementById('insight-note');
+    if(!el) return;
+    const { items, tooFew } = generateInsights(activeTag, summary, tagCounts);
+
+    if(tooFew){
+      el.innerHTML = `
+        <div class="insight-note-label">観察ノート</div>
+        <ul class="insight-note-items">
+          <li style="color:var(--ink-soft);">件数が1件のみのため、統計的な観察コメントを生成できません。</li>
+        </ul>`;
+      el.style.display = 'block';
+      return;
+    }
+    if(items.length === 0){ el.style.display = 'none'; return; }
+
+    el.innerHTML = `
+      <div class="insight-note-label">観察ノート</div>
+      <ul class="insight-note-items">${items.map(t=>`<li>${t}</li>`).join('')}</ul>
+      <p class="insight-note-caution">※ これは過去データの観察であり、将来の値動きを示すものではありません。</p>`;
+    el.style.display = 'block';
+  }
+
+  // 表示対象：件数2件以上かつgroup_metadataあり
+  // 表示資産：WTI, S&P500, VIX, 金(GLD)の4資産
+  const CROSS_ASSETS = ['wti','sp500','vix','gold'];
+  const CROSS_ASSET_LABELS = {wti:'WTI原油', sp500:'S&P500', vix:'VIX', gold:'金(GLD)'};
+
+  function renderCrossPanel(tagCounts){
+    const summary = data.cause_summary || {};
+    const gmeta = data.group_metadata || {};
+
+    // 対象グループを抽出（件数2以上・group_metadata.summaryあり）
+    const targets = Object.keys(causeLabels).filter(t =>{
+      return (tagCounts[t]||0) >= 2 && gmeta[t] && gmeta[t].summary && summary[t];
+    });
+
+    if(targets.length < 2){
+      document.getElementById('cross-panel').style.display = 'none';
+      return;
+    }
+    document.getElementById('cross-panel').style.display = 'block';
+
+    const confLevels = data.confidence_levels || [];
+    function getConf(n){
+      let c = null;
+      confLevels.forEach(lv=>{ if(!c && n<=lv.max_n) c=lv; });
+      return c;
+    }
+
+    // ヘッダー行
+    const assetHeaders = CROSS_ASSETS.map(k=>`<th>${CROSS_ASSET_LABELS[k]||k}</th>`).join('');
+    const headerRow = `<tr><th>グループ</th>${assetHeaders}</tr>`;
+
+    // データ行（現在選択グループを強調）
+    const dataRows = targets.map(t=>{
+      const s = summary[t];
+      const n = tagCounts[t] || 0;
+      const conf = getConf(n);
+      const isActive = t === activeTag;
+      const groupLabel = causeLabels[t] || t;
+      // 件数が少ない場合（2-4件）はグレーで
+      const isFew = n < 5;
+      const nameCls = isFew ? 'style="color:var(--ink-soft)"' : '';
+      const nBadge = `<span class="cross-n">(${n}件${isFew?'・参考値':''})</span>`;
+
+      const cells = CROSS_ASSETS.map(k=>{
+        const med = s && s[k] ? s[k].median : null;
+        const dimStyle = isFew ? 'style="color:var(--ink-soft)"' : '';
+        return `<td class="${cls(med)}" ${dimStyle}>${pct(med)}</td>`;
+      }).join('');
+
+      return `<tr class="${isActive?'cross-active':''}">
+        <td ${nameCls}>${groupLabel}${nBadge}</td>
+        ${cells}
+      </tr>`;
+    }).join('');
+
+    document.getElementById('cross-table').querySelector('tbody').innerHTML = headerRow + dataRows;
+
+    // 観察ノートを生成（比較パネル直下）
+    renderInsights(activeTag, summary, tagCounts);
+  }
+
+  // ===== メイン描画 =====
+  function render(){
+    const tagCounts = buildTagCounts();
+    document.getElementById('page-title').textContent = (causeLabels[activeTag] || activeTag) + ' の類似局面';
+
+    // ----- タブバー（件数バッジ・少件数スタイル） -----
+    const usedCauses = {};
+    data.events.forEach(e => (e.cause_tags||[]).forEach(t=>usedCauses[t]=true));
+    const allTags = Object.keys(causeLabels).filter(t => usedCauses[t]);
+    document.getElementById('tagbar').innerHTML = allTags.map(t => {
+      const n = tagCounts[t] || 0;
+      let cls2 = t===activeTag ? 'active' : '';
+      if(t !== activeTag){
+        if(n <= 1) cls2 += ' sparse';
+        else if(n <= 4) cls2 += ' few';
+      }
+      const badge = `<span class="chip-count">${n}</span>`;
+      return `<span class="chip ${cls2}" data-tag="${t}">${causeLabels[t]||t}${badge}</span>`;
+    }).join('');
+    document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+      activeTag = c.dataset.tag;
+      history.replaceState(null,'', '?tag='+activeTag);
+      render();
+    }));
+
+    // ----- 横断比較パネル -----
+    renderCrossPanel(tagCounts);
+
+    // ----- グループ説明パネル（折りたたみ対応） -----
+    const meta = (data.group_metadata && data.group_metadata[activeTag]) || null;
+    const eventNames = data.event_names || {};
+    const panel = document.getElementById('group-panel');
+    if(meta && meta.summary){
+      const traits = (meta.common_traits||[]).map(t=>`<li>${t}</li>`).join('');
+      const factors = (meta.divergence_factors||[]).map(t=>`<li>${t}</li>`).join('');
+      const caveat = meta.interpretation_caveat
+        ? `<div class="group-caveat"><span class="c-label">集計値の読み方・注意点</span>${meta.interpretation_caveat}</div>` : '';
+      const reps = (meta.representative_events||[]).filter(id=>eventNames[id]);
+      const repBlock = reps.length ? `
+        <div class="rep-events">
+          <div class="r-label">代表的な局面</div>
+          <div class="r-list">${reps.map(id=>{
+            const ev = data.events.find(e=>e.id===id);
+            const date = ev ? ev.date : '';
+            return `<a href="event_detail.html?id=${id}"><span class="r-date">${date}</span>${eventNames[id]}</a>`;
+          }).join('')}</div>
+        </div>` : '';
+
+      // summary を2文に短縮して常時表示（残りは折りたたみ側に）
+      // 句点または。で文を分割し、先頭2文だけ常時表示する
+      const sentences = meta.summary.split(/(?<=。)/);
+      const summaryShort = sentences.slice(0,2).join('').trim();
+      const summaryRest = sentences.slice(2).join('').trim();
+      const summaryRestHtml = summaryRest
+        ? `<p style="font-size:13.5px;color:var(--ink-soft);line-height:1.8;margin:0 0 12px;">${summaryRest}</p>` : '';
+
+      // 解説カード：「なぜ結果が分かれたのか」
+      // サブテキストはgroup_metadataのdivergence_factorsの件数に応じて変える
+      const nFactors = (meta.divergence_factors||[]).length;
+      const subText = nFactors
+        ? `${nFactors}つの分岐要因と、共通点・注意点を記録しています。`
+        : '共通点と結果が分かれた要因を記録しています。';
+
+      const detailsHtml = (traits || factors || caveat || summaryRest) ? `
+        <div class="insight-card" id="group-details-btn" role="button" tabindex="0">
+          <div class="insight-card-head">
+            <span class="insight-card-icon">💡</span>
+            <span class="insight-card-title">なぜ結果が分かれたのか？</span>
+            <span class="insight-card-arrow">▶</span>
+          </div>
+          <div class="insight-card-sub">${subText}</div>
+        </div>
+        <div class="group-details" id="group-details">
+          ${summaryRestHtml}
+          ${traits || factors ? `<div class="group-cols">
+            ${traits ? `<div class="group-col"><h4>共通点</h4><ul>${traits}</ul></div>` : ''}
+            ${factors ? `<div class="group-col"><h4>結果が分かれる主な要因</h4><ul>${factors}</ul></div>` : ''}
+          </div>` : ''}
+          ${caveat}
+        </div>` : '';
+
+      panel.innerHTML = `
+        <div class="group-card">
+          <p class="g-summary">${summaryShort}</p>
+          ${repBlock}
+          ${detailsHtml}
+        </div>`;
+      panel.style.display = 'block';
+      attachGroupToggle();
+    }else{
+      panel.innerHTML = '';
+      panel.style.display = 'none';
+    }
+
+    // ----- 信頼性 -----
+    const evs = data.events.filter(e => (e.cause_tags||[]).includes(activeTag));
+    const n = evs.length;
+    let overallConf = null;
+    (data.confidence_levels||[]).forEach(lv=>{ if(!overallConf && n<=lv.max_n) overallConf={level:lv.level,label:lv.label,note:lv.note||''}; });
+    const confLine = document.getElementById('summary-label');
+    let confNote = `参考件数：${n}件`;
+    if(overallConf){ confNote += ` ／ ${overallConf.label}`; }
+    confLine.innerHTML = `過去の同種イベント後の反応（30日後） <span style="text-transform:none;letter-spacing:0;">— ${confNote}</span>`;
+    const warnBox = document.getElementById('conf-warning');
+    if(overallConf && overallConf.level === 'reference'){
+      warnBox.style.display = 'block';
+      // pandemicは追加の注意書き（30日後に政策対応の反発が混在している旨）
+      if(activeTag === 'pandemic'){
+        warnBox.innerHTML =
+          '※ 件数が1件のため、統計的な傾向ではなく2020年3月の記録として参照してください。' +
+          '<br>30日後の数値には危機による下落と、FRBの緊急対応後の急反発が混在しています。' +
+          '7日後時点ではVIXが急騰・S&P500が大幅下落していた点を個別イベントの記録で確認してください。';
+      } else {
+        warnBox.textContent = '※ 件数が少ないため、平均・中央値などは統計的な傾向ではなく参考値としてご覧ください。';
+      }
+    }else{
+      warnBox.style.display = 'none';
+    }
+
+    // ----- 統計テーブル（勝率・中央値・平均 ＋ 最大・最小は初期非表示） -----
+    const summary = (data.cause_summary && data.cause_summary[activeTag]) || {};
+    const DEFAULT_ORDER = ['wti','gold','sp500','ust10y','usdjpy','vix'];
+    const gmeta = (data.group_metadata && data.group_metadata[activeTag]) || {};
+    const order = (gmeta.preferred_asset_order && gmeta.preferred_asset_order.length)
+      ? gmeta.preferred_asset_order : DEFAULT_ORDER;
+    const isReference = overallConf && overallConf.level === 'reference';
+    const rows = order.filter(k=>summary[k]).map(k=>{
+      const s = summary[k];
+      const dimAttr = isReference ? 'style="color:var(--ink-soft)"' : '';
+      const medClass = cls(s.median) + ' median-val';
+      const avgClass = cls(s.avg) + ' avg-val';
+      const visClass = maxminVisible ? 'col-maxmin visible' : 'col-maxmin';
+      return `<tr>
+        <td><span class="asset-name"><span class="swatch ${s.asset}"></span>${s.label}</span></td>
+        <td class="winrate">${s.up}/${s.count}件 上昇</td>
+        <td class="${medClass}" ${dimAttr}>${pct(s.median)}</td>
+        <td class="${avgClass}" ${dimAttr}>${pct(s.avg)}</td>
+        <td class="${visClass} ${cls(s.max)}">${pct(s.max)}</td>
+        <td class="${visClass} ${cls(s.min)}">${pct(s.min)}</td>
+      </tr>`;
+    }).join('');
+    const tbl = document.getElementById('summary-table');
+    const maxminHdrCls = maxminVisible ? 'col-maxmin visible' : 'col-maxmin';
+    if(rows){
+      tbl.querySelector('tbody').innerHTML =
+        `<tr><th>資産</th><th>勝率</th><th class="median-hd">中央値</th><th class="avg-hd">平均</th><th class="${maxminHdrCls}">最大</th><th class="${maxminHdrCls}">最小</th></tr>` + rows;
+    }else{
+      tbl.querySelector('tbody').innerHTML = `<tr><td colspan="4" style="color:var(--ink-soft)">この原因タグの集計データはまだありません。</td></tr>`;
+    }
+
+    // ----- 個別イベント一覧 -----
+    const list = document.getElementById('events-list');
+    if(!evs.length){ list.innerHTML = '<div class="empty">該当するイベントがまだ登録されていません。</div>'; return; }
+
+    // effect_tags期間凡例（個別イベント一覧の先頭に1回だけ表示）
+    const hasEffectTags = evs.some(e => (e.effect_tags||[]).length > 0);
+    const legend = hasEffectTags
+      ? `<div class="effect-legend">括弧内の日数は、1日後・7日後・30日後のうち、判定閾値を超えた期間を示します。</div>`
+      : '';
+
+    list.innerHTML = legend + evs.map(e=>{
+      const r = e.reactions || {};
+      // 表示資産はpreferred_asset_orderの先頭3つを優先
+      const miniKeys = (gmeta.preferred_asset_order || ['wti','gold','sp500']).slice(0,3);
+      const mini = miniKeys.filter(k=>r[k]&&r[k].status==='ok').map(k=>{
+        const c = r[k].changes.d30;
+        return `<div class="row"><span class="a"><span class="swatch ${r[k].asset}"></span>${r[k].label}</span><span class="v ${cls(c)}">${c!==null?(c>0?'▲':'▼')+' '+pct(c):'—'}</span></div>`;
+      }).join('');
+      const causeChips = (e.cause_tags||[]).map(t=>`<span class="cause">${causeLabels[t]||t}</span>`).join('');
+      const effectChips = (e.effect_tags||[]).map(t=>`<span class="effect">${effectChipLabel(t, e.effect_tag_details)}</span>`).join('');
+      return `<div class="ev">
+        <div class="ev-date">${e.date}</div>
+        <div class="ev-body">
+          <h3>${e.name}</h3>
+          <p>${e.description}</p>
+          <div class="ev-tags">
+            <div class="tag-group"><span class="tag-lead">原因</span>${causeChips}</div>
+            ${effectChips ? `<div class="tag-group"><span class="tag-lead">結果</span>${effectChips}</div>` : ''}
+          </div>
+          <a class="detail-link" href="event_detail.html?id=${e.id}">このイベントの詳細 →</a>
+        </div>
+        <div class="ev-mini">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--ink-soft);margin-bottom:2px;">30日後の変化</div>
+          ${mini}
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  render();
+})();
+</script>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>

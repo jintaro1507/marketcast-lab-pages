@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/dashboard.html">
+<meta name="description" content="診断結果に応じた学習テーマ、Lesson、資産図鑑への入口をまとめた学習ハブです。どなたでも無料でご利用いただけます。">
+<title>Dashboard ｜ Marketcast Lab</title>
+<meta property="og:title" content="Dashboard ｜ Marketcast Lab">
+<meta property="og:description" content="診断結果に応じた学習テーマ、Lesson、資産図鑑への入口をまとめた学習ハブです。どなたでも無料でご利用いただけます。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/dashboard.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dashboard ｜ Marketcast Lab">
+<meta name="twitter:description" content="診断結果に応じた学習テーマ、Lesson、資産図鑑への入口をまとめた学習ハブです。どなたでも無料でご利用いただけます。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:var(--ink);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  header{
+    border-bottom:1px solid var(--line-rule);
+    padding:18px 5vw 16px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .brand{font-family:var(--display);font-size:22px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:28px;font-size:13px;letter-spacing:0.03em;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a{color:var(--ink-soft);}
+  nav a:hover{color:var(--ink);}
+
+  .page-wrap{max-width:880px;margin:0 auto;padding:40px 5vw 80px;}
+
+  section{margin-bottom:48px;}
+  section h2{
+    font-family:var(--display);
+    font-size:19px;
+    font-weight:400;
+    margin:0 0 6px;
+  }
+  .section-note{font-size:12.5px;color:var(--ink-soft);margin:0 0 20px;}
+
+  /* Welcome */
+  .welcome-block{
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+    padding:24px 28px;
+  }
+  .welcome-block h1{font-family:var(--display);font-size:21px;font-weight:400;margin:0 0 8px;}
+  #welcome-email{font-family:var(--mono);font-size:12px;color:var(--ink-soft);}
+
+  .empty-state{
+    border:1px dashed var(--line-rule);
+    border-radius:2px;
+    padding:18px 20px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin-top:14px;
+  }
+  .empty-state a{text-decoration:underline;color:var(--ink);}
+
+  /* Card grids */
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:12px;
+  }
+  .card{
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+    padding:16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  a.card:hover{border-color:var(--ink-soft);text-decoration:none;}
+  .card-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);}
+  .card h3{font-family:var(--display);font-size:15px;font-weight:400;margin:0;}
+  .card p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.7;}
+  .card-link{font-size:12px;margin-top:auto;padding-top:6px;color:var(--ink-soft);}
+
+  /* 学習進捗 */
+  .lp-list{display:flex;flex-direction:column;gap:12px;}
+  .lp-row{border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:2px;padding:14px 18px;}
+  .lp-row-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .lp-row-title{font-family:var(--display);font-size:15px;}
+  .lp-row-count{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);}
+  .lp-bar{height:3px;background:var(--line-rule);border-radius:2px;margin-top:10px;overflow:hidden;}
+  .lp-bar span{display:block;height:100%;background:var(--ink);}
+  .lp-cta{margin-top:14px;font-size:13px;}
+  .lp-cta a{border-bottom:1px solid var(--line-rule);color:var(--ink-soft);}
+  .lp-cta a:hover{color:var(--ink);}
+  .lp-empty{border:1px dashed var(--line-rule);border-radius:2px;padding:18px 20px;font-size:13.5px;color:var(--ink-soft);}
+  .lp-empty a{text-decoration:underline;color:var(--ink);}
+
+  /* お気に入り */
+  .fav-list{display:flex;flex-direction:column;gap:10px;}
+  .fav-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:2px;padding:12px 16px;}
+  .fav-row a{font-size:13.5px;}
+  .fav-row-type{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-right:8px;}
+  .fav-empty{border:1px dashed var(--line-rule);border-radius:2px;padding:18px 20px;font-size:13.5px;color:var(--ink-soft);}
+
+  /* Premium teaser */
+  .premium-block{
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+    padding:22px 26px;
+  }
+  .premium-block ul{margin:12px 0 18px;padding-left:20px;font-size:13.5px;}
+  .premium-block li{margin-bottom:6px;}
+  .premium-cta{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:2px;
+    padding:10px 20px;
+    font-size:13px;
+    letter-spacing:0.04em;
+  }
+  .premium-cta:hover{opacity:0.85;text-decoration:none;}
+  .premium-note{font-size:11.5px;color:var(--ink-soft);margin-top:10px;}
+
+  #dashboard-loading{font-size:13px;color:var(--ink-soft);padding:40px 5vw;}
+
+  footer{border-top:1px solid var(--line-rule);padding:20px 5vw;font-size:12px;color:var(--ink-soft);margin-top:auto;}
+
+  [hidden]{display:none !important;}
+  .membership-suspended-banner{margin:24px 5vw 0;padding:16px 20px;border:1px solid var(--line-rule);background:var(--paper-deep);font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="account.html" data-auth-link>アカウント</a>
+  </nav>
+</header>
+
+<div id="membership-suspended-banner" class="membership-suspended-banner" hidden>
+  Marketcast Labの会員機能は現在提供を停止しています。Dashboardのパーソナライズ機能は停止中のため、しばらくお待ちください。公開コンテンツは引き続き<a href="index.html">トップページ</a>から閲覧できます。
+</div>
+
+<p id="dashboard-loading">読み込み中…</p>
+
+<div class="page-wrap" id="dashboard-content" hidden>
+
+  <section>
+    <div class="welcome-block">
+      <h1>あなたの投資理解を深めるための学習ロードマップ</h1>
+      <div id="welcome-email"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        まだ初回診断を行っていません。診断すると、あなたに合った学習テーマをおすすめできます。
+        <a href="diagnosis.html">初回診断をはじめる →</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>おすすめテーマ</h2>
+    <p class="section-note" id="theme-section-note">あなたの興味に基づくおすすめテーマです。</p>
+    <div class="card-grid" id="theme-cards"></div>
+  </section>
+
+  <section>
+    <h2>おすすめ資産</h2>
+    <p class="section-note" id="asset-section-note">あなたの興味に基づくおすすめ資産です。</p>
+    <div class="card-grid" id="asset-cards"></div>
+  </section>
+
+  <section>
+    <h2>学習コンテンツ</h2>
+    <p class="section-note">投資の基礎から歴史イベントの読み方まで、初心者向けの学習コンテンツです。</p>
+    <div class="card-grid" id="lesson-cards"></div>
+  </section>
+
+  <section>
+    <h2>学習進捗</h2>
+    <p class="section-note" id="progress-note">コース別の学習の進み具合です。</p>
+    <div class="lp-list" id="progress-list"></div>
+    <div class="lp-cta" id="progress-cta" hidden><a href="learning_path.html">続きから学ぶ →</a></div>
+  </section>
+
+  <section>
+    <h2>お気に入り</h2>
+    <p class="section-note" id="favorites-note">最近お気に入りに追加したコンテンツです。</p>
+    <div class="fav-list" id="favorites-list"></div>
+  </section>
+
+  <section>
+    <h2>自分で学ぶ</h2>
+    <p class="section-note">おすすめだけでなく、学びたいテーマを自分で探すこともできます。</p>
+    <div class="card-grid">
+      <a class="card" href="learning_path.html">
+        <div class="card-eyebrow">ROADMAP</div>
+        <h3>学習ロードマップ</h3>
+        <p>初心者が迷わないよう、コース形式で順番に学べます。</p>
+        <div class="card-link">ロードマップを見る →</div>
+      </a>
+      <a class="card" href="lessons.html">
+        <div class="card-eyebrow">LESSONS</div>
+        <h3>すべてのLessonを見る</h3>
+        <p>投資の基本から歴史イベントの読み方まで、Lesson一覧です。</p>
+        <div class="card-link">Lesson一覧へ →</div>
+      </a>
+      <a class="card" href="themes.html">
+        <div class="card-eyebrow">THEMES</div>
+        <h3>すべてのテーマを見る</h3>
+        <p>興味のある経済・市場テーマから探せます。</p>
+        <div class="card-link">テーマ一覧へ →</div>
+      </a>
+      <a class="card" href="glossary.html">
+        <div class="card-eyebrow">GLOSSARY</div>
+        <h3>用語解説を見る</h3>
+        <p>わからない用語があれば、いつでも確認できます。</p>
+        <div class="card-link">用語解説へ →</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Premiumで利用できること</h2>
+    <div class="premium-block">
+      <p class="section-note" style="margin-bottom:0;">出来事をひとつずつ学ぶ無料版に対し、複数の局面を横断して資産の特徴を整理する内容です。</p>
+      <ul>
+        <li>資産ごとの横断整理 — ひとつの資産が過去の複数の出来事でどのような特徴を示してきたかを、共通点と例外の両面から確認する</li>
+        <li>テーマ別・時間軸別の視点 — 金融危機・インフレ・金利・地政学などのテーマごとに、短期・中期・長期で傾向がどう分かれたかを確認する</li>
+        <li>理由と読み解き — そう考えられる理由と、投資家として何を読み取るとよいかを、根拠にした過去の出来事とあわせて確認する</li>
+      </ul>
+      <p class="section-note" style="margin:12px 0 0;">なお、個別の出来事ページでは、その後の価格反応の推移（方向推移）も確認できます。</p>
+      <a class="premium-cta" href="pricing.html">Premiumについて見る</a>
+      <p class="premium-note">Marketcast Labは投資助言・売買推奨サービスではありません。判断材料の提供を目的としています。</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>Marketcast Lab
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+<script type="module">
+import { fetchAllProgress } from './assets/js/learning-progress.js';
+import { fetchRecentFavorites } from './assets/js/favorites.js';
+/**
+ * dashboard.html — Marketcast Lab v2 の中心ページ
+ *
+ * 方針:
+ *   - account.htmlのinitAccount()と同一パターンでログイン必須（未ログインはlogin.htmlへ）。
+ *     Dashboardは診断結果に基づくパーソナライズが主目的のため、診断ページと同じ
+ *     「ログイン必須」方針に揃える（診断→Dashboardという導線上、自然な選択）。
+ *   - MEMBERSHIP_SUSPENDED中はSupabaseに一切接続しない。
+ *   - おすすめテーマ／Lessonの選定は固定の対応表による単純マッピングのみ。
+ *     AIレコメンドや複雑なスコアリングは行わない。
+ *   - themes.json / lessons.json はfetchで読み込む（event_detail.html等の既存パターンと同様）。
+ */
+
+// Q2（診断の興味テーマ）→ themes.json の theme id への単純マッピング
+const INTEREST_TO_THEME = {
+  jp_stocks: 'yen_depreciation',
+  us_stocks: 'central_banks',
+  mutual_funds: 'long_term_investing',
+  etf: 'long_term_investing',
+  gold: 'gold_safe_haven',
+  oil: 'oil_resources',
+  fx: 'fx',
+  crypto: 'crypto',
+  world_news: 'business_cycle',
+  financial_crisis: 'financial_crisis',
+};
+
+// Q2（診断の興味テーマ）→ assets.json の asset id への単純マッピング（複数可）
+// world_news は特定の資産に紐づかないため対応なし。
+const INTEREST_TO_ASSET = {
+  jp_stocks: ['jp_stocks'],
+  us_stocks: ['us_stocks'],
+  mutual_funds: ['mutual_funds'],
+  etf: ['etf'],
+  gold: ['gold'],
+  oil: ['oil'],
+  fx: ['fx'],
+  crypto: ['bitcoin', 'ethereum'],
+  world_news: [],
+  financial_crisis: ['bonds'],
+};
+
+const LESSON_CATEGORY_LABEL = {
+  investing_basics: '投資基礎',
+  economic_themes: '経済テーマ',
+  asset_encyclopedia: '資産図鑑',
+  crypto: '暗号資産',
+  reading_history: '歴史イベントの読み方',
+};
+
+const ASSET_CATEGORY_LABEL = {
+  equity: '株式',
+  fund: 'ファンド',
+  commodity: 'コモディティ',
+  fixed_income: '債券',
+  currency: '為替',
+  crypto: '暗号資産',
+};
+
+const loadingEl = document.getElementById('dashboard-loading');
+const bannerEl  = document.getElementById('membership-suspended-banner');
+const contentEl = document.getElementById('dashboard-content');
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+function renderThemeCards(themes) {
+  const grid = document.getElementById('theme-cards');
+  grid.innerHTML = '';
+  themes.forEach((theme) => {
+    const card = el('a', 'card');
+    card.href = 'theme_detail.html?id=' + encodeURIComponent(theme.id);
+    card.appendChild(el('div', 'card-eyebrow', 'THEME'));
+    card.appendChild(el('h3', null, theme.label));
+    card.appendChild(el('p', null, theme.intro_summary || ''));
+    const linkWrap = el('div', 'card-link', 'このテーマを学ぶ →');
+    card.appendChild(linkWrap);
+    grid.appendChild(card);
+  });
+}
+
+function renderAssetCards(assets) {
+  const grid = document.getElementById('asset-cards');
+  grid.innerHTML = '';
+  assets.forEach((asset) => {
+    const card = el('a', 'card');
+    card.href = 'asset_detail.html?id=' + encodeURIComponent(asset.id);
+    card.appendChild(el('div', 'card-eyebrow', ASSET_CATEGORY_LABEL[asset.category] || 'ASSET'));
+    card.appendChild(el('h3', null, asset.label));
+    card.appendChild(el('p', null, asset.overview || ''));
+    const linkWrap = el('div', 'card-link', asset.label + 'を理解する →');
+    card.appendChild(linkWrap);
+    grid.appendChild(card);
+  });
+}
+
+function renderLessonCards(lessons) {
+  const grid = document.getElementById('lesson-cards');
+  grid.innerHTML = '';
+  lessons.forEach((lesson) => {
+    const card = el('a', 'card');
+    card.href = 'lesson_detail.html?id=' + encodeURIComponent(lesson.id);
+    card.appendChild(el('div', 'card-eyebrow', LESSON_CATEGORY_LABEL[lesson.category] || 'LESSON'));
+    card.appendChild(el('h3', null, lesson.title));
+    card.appendChild(el('p', null, lesson.overview || ''));
+    const linkWrap = el('div', 'card-link', 'Lessonを読む →');
+    card.appendChild(linkWrap);
+    grid.appendChild(card);
+  });
+}
+
+// interest_assets（診断回答）→ 上位3テーマID（重複なし、themes.json順で不足分を補完）
+function pickRecommendedThemeIds(interestAssets, allThemes) {
+  const ordered = [];
+  const seen = new Set();
+
+  (interestAssets || []).forEach((key) => {
+    const themeId = INTEREST_TO_THEME[key];
+    if (themeId && !seen.has(themeId)) {
+      seen.add(themeId);
+      ordered.push(themeId);
+    }
+  });
+
+  if (ordered.length < 3) {
+    for (const theme of allThemes) {
+      if (ordered.length >= 3) break;
+      if (!seen.has(theme.id)) {
+        seen.add(theme.id);
+        ordered.push(theme.id);
+      }
+    }
+  }
+
+  return ordered.slice(0, 3);
+}
+
+// 最近のお気に入り（favorites テーブル）を最大5件表示する。
+// ctx が使えない場合（未ログイン・停止中・エラー）は案内文のみ表示する。
+async function renderFavorites(ctx) {
+  const noteEl = document.getElementById('favorites-note');
+  const listEl = document.getElementById('favorites-list');
+  const TYPE_LABEL = { lesson: 'LESSON', theme: 'THEME', asset: 'ASSET', event: 'EVENT' };
+
+  if (!ctx || !ctx.ok) {
+    noteEl.textContent = '';
+    listEl.innerHTML =
+      '<div class="fav-empty">ログインすると、お気に入りに追加したコンテンツをここに表示できます。</div>';
+    return;
+  }
+
+  const favorites = await fetchRecentFavorites(ctx, 5);
+
+  if (favorites.length === 0) {
+    noteEl.textContent = 'まだお気に入りがありません。気になるコンテンツのページから追加できます。';
+    listEl.innerHTML = '';
+    return;
+  }
+
+  noteEl.textContent = '最近お気に入りに追加したコンテンツです。';
+  listEl.innerHTML = '';
+  favorites.forEach((f) => {
+    const row = el('div', 'fav-row');
+    const left = el('span');
+    left.appendChild(el('span', 'fav-row-type', TYPE_LABEL[f.content_type] || f.content_type));
+    left.appendChild(document.createTextNode(f.title));
+    const link = el('a', null, '見る →');
+    link.href = f.url;
+    row.appendChild(left);
+    row.appendChild(link);
+    listEl.appendChild(row);
+  });
+}
+
+// 学習進捗（learning_paths.json × learning_progress）をコース別に描画する。
+// ctx が使えない場合（未ログイン・停止中・エラー）は案内文のみ表示する。
+async function renderLearningProgress(ctx) {
+  const noteEl = document.getElementById('progress-note');
+  const listEl = document.getElementById('progress-list');
+  const ctaEl  = document.getElementById('progress-cta');
+
+  let pathsData = { paths: [] };
+  try {
+    const res = await fetch('data/learning_paths.json', { cache: 'no-store' });
+    pathsData = await res.json();
+  } catch (_) {
+    noteEl.textContent = '学習ロードマップを読み込めませんでした。';
+    return;
+  }
+
+  if (!ctx || !ctx.ok) {
+    // ここに来るのは主に未ログイン。Dashboard自体がログイン必須のため通常は発生しない。
+    noteEl.textContent = '';
+    listEl.innerHTML =
+      '<div class="lp-empty">ログインすると、どこまで学習したかを保存できます。'
+      + '<a href="learning_path.html">学習ロードマップを見る →</a></div>';
+    return;
+  }
+
+  const progress = await fetchAllProgress(ctx);
+  const isDone = (t, i) => {
+    const rec = progress.get(`${t}:${i}`);
+    return !!(rec && rec.status === 'completed');
+  };
+
+  let anyDone = false;
+  listEl.innerHTML = (pathsData.paths || []).map((course) => {
+    const steps = course.steps || [];
+    const total = steps.length;
+    const done = steps.filter((s) => isDone(s.content_type, s.content_id)).length;
+    if (done > 0) anyDone = true;
+    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+    return `<div class="lp-row">
+      <div class="lp-row-head">
+        <span class="lp-row-title">${course.title}</span>
+        <span class="lp-row-count">${done} / ${total} 完了</span>
+      </div>
+      <div class="lp-bar"><span style="width:${pct}%"></span></div>
+    </div>`;
+  }).join('');
+
+  noteEl.textContent = anyDone
+    ? 'コース別の学習の進み具合です。'
+    : 'まだ学習の記録がありません。気になるコースから読み進めてみてください。';
+  ctaEl.hidden = false;
+}
+
+// interest_assets（診断回答）→ 上位3資産ID（重複なし、assets.json順で不足分を補完）
+function pickRecommendedAssetIds(interestAssets, allAssets) {
+  const ordered = [];
+  const seen = new Set();
+
+  (interestAssets || []).forEach((key) => {
+    (INTEREST_TO_ASSET[key] || []).forEach((assetId) => {
+      if (!seen.has(assetId)) {
+        seen.add(assetId);
+        ordered.push(assetId);
+      }
+    });
+  });
+
+  if (ordered.length < 3) {
+    for (const asset of allAssets) {
+      if (ordered.length >= 3) break;
+      if (!seen.has(asset.id)) {
+        seen.add(asset.id);
+        ordered.push(asset.id);
+      }
+    }
+  }
+
+  return ordered.slice(0, 3);
+}
+
+// 選ばれたテーマの related_lesson_ids から上位3件（重複なし、lessons.json順で不足分を補完）
+function pickRecommendedLessons(themeObjs, allLessons) {
+  const ordered = [];
+  const seen = new Set();
+
+  themeObjs.forEach((theme) => {
+    (theme.related_lesson_ids || []).forEach((lessonId) => {
+      if (!seen.has(lessonId)) {
+        seen.add(lessonId);
+        ordered.push(lessonId);
+      }
+    });
+  });
+
+  if (ordered.length < 3) {
+    for (const lesson of allLessons) {
+      if (ordered.length >= 3) break;
+      if (!seen.has(lesson.id)) {
+        seen.add(lesson.id);
+        ordered.push(lesson.id);
+      }
+    }
+  }
+
+  const lessonById = new Map(allLessons.map((l) => [l.id, l]));
+  return ordered.slice(0, 3).map((id) => lessonById.get(id)).filter(Boolean);
+}
+
+if (window.MEMBERSHIP_SUSPENDED) {
+  loadingEl.hidden = true;
+  bannerEl.hidden = false;
+} else {
+  (async () => {
+    const { supabase } = await import('./assets/js/supabase-client.js');
+
+    let session;
+    try {
+      const { data } = await supabase.auth.getSession();
+      session = data.session;
+    } catch (_) {
+      window.location.href = 'login.html';
+      return;
+    }
+
+    if (!session) {
+      window.location.href = 'login.html';
+      return;
+    }
+
+    const userId = session.user.id;
+
+    let profile = null;
+    try {
+      const { data: profileRow, error } = await supabase
+        .from('user_profiles')
+        .select('investment_experience,interest_assets,learning_goal')
+        .eq('user_id', userId)
+        .maybeSingle();
+      if (!error) profile = profileRow;
+    } catch (_) {
+      profile = null;
+    }
+
+    let themesData = { themes: [] };
+    let lessonsData = { lessons: [] };
+    let assetsData = { assets: [] };
+    try {
+      const [themesRes, lessonsRes, assetsRes] = await Promise.all([
+        fetch('data/themes.json', { cache: 'no-store' }),
+        fetch('data/lessons.json', { cache: 'no-store' }),
+        fetch('data/assets.json', { cache: 'no-store' }),
+      ]);
+      themesData = await themesRes.json();
+      lessonsData = await lessonsRes.json();
+      assetsData = await assetsRes.json();
+    } catch (_) {
+      // JSON取得に失敗した場合は空リストのまま表示（カード0件）
+    }
+
+    document.getElementById('welcome-email').textContent = session.user.email;
+
+    const hasProfile = !!profile;
+    document.getElementById('empty-state').hidden = hasProfile;
+    document.getElementById('theme-section-note').textContent = hasProfile
+      ? 'あなたの興味に基づくおすすめテーマです。'
+      : '診断がまだのため、初期のおすすめテーマを表示しています。';
+    document.getElementById('asset-section-note').textContent = hasProfile
+      ? 'あなたの興味に基づくおすすめ資産です。'
+      : '診断がまだのため、初期のおすすめ資産を表示しています。';
+
+    const recommendedThemeIds = pickRecommendedThemeIds(
+      hasProfile ? profile.interest_assets : [],
+      themesData.themes
+    );
+    const themeById = new Map(themesData.themes.map((t) => [t.id, t]));
+    const recommendedThemeObjs = recommendedThemeIds.map((id) => themeById.get(id)).filter(Boolean);
+
+    const recommendedAssetIds = pickRecommendedAssetIds(
+      hasProfile ? profile.interest_assets : [],
+      assetsData.assets
+    );
+    const assetById = new Map(assetsData.assets.map((a) => [a.id, a]));
+    const recommendedAssetObjs = recommendedAssetIds.map((id) => assetById.get(id)).filter(Boolean);
+
+    renderThemeCards(recommendedThemeObjs);
+    renderAssetCards(recommendedAssetObjs);
+    renderLessonCards(pickRecommendedLessons(recommendedThemeObjs, lessonsData.lessons));
+
+    // 学習進捗（Dashboardはログイン必須のため ctx は通常 ok）
+    await renderLearningProgress({ ok: true, supabase, userId });
+    await renderFavorites({ ok: true, supabase, userId });
+
+    loadingEl.hidden = true;
+    contentEl.hidden = false;
+  })();
+}
+</script>
+</body>
+</html>
