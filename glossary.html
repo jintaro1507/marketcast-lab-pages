@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/glossary.html">
+<meta name="description" content="当サイトで使われる投資・市場の基本的な用語を、投資初心者の方にもわかりやすく解説しています。サイトの内容を理解するための入り口として使えます。">
+<title>用語解説 ｜ Marketcast Lab</title>
+<meta property="og:title" content="用語解説 ｜ Marketcast Lab">
+<meta property="og:description" content="当サイトで使われる投資・市場の基本的な用語を、投資初心者の方にもわかりやすく解説しています。サイトの内容を理解するための入り口として使えます。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/glossary.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="用語解説 ｜ Marketcast Lab">
+<meta name="twitter:description" content="当サイトで使われる投資・市場の基本的な用語を、投資初心者の方にもわかりやすく解説しています。サイトの内容を理解するための入り口として使えます。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<style>
+  :root{
+    --paper: #F2EFE8;
+    --paper-deep: #E8E3D7;
+    --ink: #1C1A16;
+    --ink-soft: #5B564B;
+    --line-rule: #cfc7b6;
+    --oil: #B5703A;
+    --gold: #9C7A2E;
+    --equity: #38456B;
+    --crypto: #6B4A8A;
+    --display: "Shippori Mincho", "Noto Serif JP", serif;
+    --body: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    --mono: "JetBrains Mono", "Courier New", monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  :target{scroll-margin-top:24px;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.75;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+
+  header{border-bottom:1px solid var(--line-rule);padding:18px 5vw 16px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-family:var(--display);font-size:20px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:24px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+
+  .page-head{padding:48px 5vw 28px;border-bottom:1px solid var(--line-rule);}
+  .page-head .eyebrow{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;}
+  .page-head h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;}
+  .page-head p{max-width:60ch;color:var(--ink-soft);font-size:14.5px;margin:0;}
+
+  /* カテゴリ目次 */
+  .toc{padding:22px 5vw 0;max-width:880px;display:flex;gap:10px;flex-wrap:wrap;}
+  .toc a{font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--ink-soft);border:1px solid var(--line-rule);background:var(--paper-deep);padding:5px 11px;border-radius:2px;}
+  .toc a:hover{border-color:var(--ink-soft);color:var(--ink);}
+
+  .terms{padding:10px 5vw 0;max-width:880px;}
+  .term{padding:26px 0;border-bottom:1px solid var(--line-rule);}
+  .term .term-name{font-family:var(--display);font-size:18px;margin:0 0 6px;display:flex;align-items:center;gap:10px;}
+  .swatch{width:9px;height:9px;border-radius:2px;display:inline-block;flex-shrink:0;}
+  .swatch.oil{background:var(--oil);}
+  .swatch.gold{background:var(--gold);}
+  .swatch.equity{background:var(--equity);}
+  .swatch.crypto{background:var(--crypto);}
+  .term .term-reading{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-bottom:12px;letter-spacing:0.04em;}
+  .term p{font-size:14px;margin:0;max-width:64ch;}
+  .term-oneliner{display:inline-block;font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);background:var(--paper-deep);border-radius:2px;padding:5px 10px;margin-bottom:12px;}
+  .term-newsview{font-size:13px;color:var(--ink-soft);margin:12px 0 0;padding-top:12px;border-top:1px dashed var(--line-rule);max-width:64ch;}
+  .term-newsview b{color:var(--ink);font-weight:600;}
+  .term-link{margin-top:10px;font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;}
+  .term-link a{border-bottom:1px solid var(--line-rule);color:var(--ink-soft);}
+  .term-link a:hover{color:var(--ink);}
+  .term-aliases{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);margin-top:8px;opacity:0.85;}
+
+  .group-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);padding:30px 5vw 0;}
+
+  #glossary-loading{padding:40px 5vw;font-size:13px;color:var(--ink-soft);}
+  #glossary-error{padding:40px 5vw;font-size:14px;color:var(--ink-soft);}
+
+  footer{margin-top:50px;border-top:1px solid var(--line-rule);padding:30px 5vw 50px;font-size:12px;color:var(--ink-soft);}
+  footer .back{display:inline-block;margin-bottom:14px;border-bottom:1px solid var(--line-rule);}
+  footer .disclaimer{max-width:64ch;line-height:1.8;}
+  [hidden]{display:none !important;}
+
+  .local-subnav{padding:10px 5vw;border-bottom:1px solid var(--line-rule);display:flex;gap:20px;font-size:12px;color:var(--ink-soft);}
+  .local-subnav a{color:var(--ink-soft);}
+  .local-subnav a:hover{color:var(--ink);}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="local-subnav"><a href="learning_path.html">学習ロードマップ</a><a href="lessons.html">Lesson一覧</a><a href="themes.html">テーマ一覧</a></div>
+
+<div class="page-head">
+  <div class="eyebrow">Glossary</div>
+  <h1>用語解説</h1>
+  <p>当サイトで使われる基本的な用語を、投資初心者の方にもわかりやすくまとめています。専門的な厳密さよりも、サイトの内容を理解するための入り口となることを優先しています。</p>
+</div>
+
+<p id="glossary-loading">読み込み中…</p>
+<p id="glossary-error" hidden>用語データを読み込めませんでした。時間をおいて再度お試しください。</p>
+<div id="glossary-toc" class="toc" hidden></div>
+<div id="glossary-root" hidden></div>
+
+<footer>
+  <a class="back" href="index.html">← トップに戻る</a>
+  <div class="disclaimer">本ページの解説は、サイトの内容を理解するための一般的・教育的な説明であり、特定の投資判断を推奨するものではありません。正確な定義は各分野の専門資料をご確認ください。</div>
+
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script>
+(async function () {
+  const loadingEl = document.getElementById('glossary-loading');
+  const errorEl   = document.getElementById('glossary-error');
+  const tocEl     = document.getElementById('glossary-toc');
+  const rootEl    = document.getElementById('glossary-root');
+
+  // 用語の関連リンク先ラベル解決に使う（存在しないIDはリンクを描画しない）
+  let glossary, lessonsData, themesData, assetsData, eventsData;
+  try {
+    const [g, l, t, a, e] = await Promise.all([
+      fetch('data/glossary_terms.json', { cache: 'no-store' }),
+      fetch('data/lessons.json', { cache: 'no-store' }),
+      fetch('data/themes.json', { cache: 'no-store' }),
+      fetch('data/assets.json', { cache: 'no-store' }),
+      fetch('data/events.json', { cache: 'no-store' }),
+    ]);
+    glossary    = await g.json();
+    lessonsData = await l.json();
+    themesData  = await t.json();
+    assetsData  = await a.json();
+    eventsData  = await e.json();
+  } catch (_) {
+    loadingEl.hidden = true;
+    errorEl.hidden = false;
+    return;
+  }
+
+  if (!glossary || !Array.isArray(glossary.terms)) {
+    loadingEl.hidden = true;
+    errorEl.hidden = false;
+    return;
+  }
+
+  const lessonById = new Map((lessonsData.lessons || []).map((x) => [x.id, x.title]));
+  const themeById  = new Map((themesData.themes  || []).map((x) => [x.id, x.label]));
+  const assetById  = new Map((assetsData.assets  || []).map((x) => [x.id, x.label]));
+  const eventById  = new Map((eventsData.events  || []).map((x) => [x.id, x.name]));
+
+  const labels = glossary.category_labels || {};
+  const order  = Array.isArray(glossary.category_order) ? glossary.category_order : [];
+
+  // HTMLエスケープ（JSON由来テキストをそのまま挿入しないため）
+  function esc(s) {
+    return String(s ?? '')
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  // 関連リンク（実在するIDのみ描画する）
+  function relLinks(term) {
+    const out = [];
+    (term.related_lesson_ids || []).forEach((id) => {
+      if (lessonById.has(id)) {
+        out.push(`<a href="lesson_detail.html?id=${encodeURIComponent(id)}">Lesson: ${esc(lessonById.get(id))} →</a>`);
+      }
+    });
+    (term.related_theme_ids || []).forEach((id) => {
+      if (themeById.has(id)) {
+        out.push(`<a href="theme_detail.html?id=${encodeURIComponent(id)}">テーマ: ${esc(themeById.get(id))} →</a>`);
+      }
+    });
+    (term.related_asset_ids || []).forEach((id) => {
+      if (assetById.has(id)) {
+        out.push(`<a href="asset_detail.html?id=${encodeURIComponent(id)}">資産: ${esc(assetById.get(id))} →</a>`);
+      }
+    });
+    (term.related_event_ids || []).forEach((id) => {
+      if (eventById.has(id)) {
+        out.push(`<a href="event_detail.html?id=${encodeURIComponent(id)}">事例: ${esc(eventById.get(id))} →</a>`);
+      }
+    });
+    return out.length ? `<div class="term-link">${out.join('')}</div>` : '';
+  }
+
+  // カテゴリ順（category_order 優先、未定義カテゴリは末尾へ）
+  const byCategory = new Map();
+  glossary.terms.forEach((t) => {
+    const c = t.category || 'other';
+    if (!byCategory.has(c)) byCategory.set(c, []);
+    byCategory.get(c).push(t);
+  });
+  const categories = [
+    ...order.filter((c) => byCategory.has(c)),
+    ...[...byCategory.keys()].filter((c) => !order.includes(c)),
+  ];
+
+  tocEl.innerHTML = categories
+    .map((c) => `<a href="#category-${esc(c)}">${esc(labels[c] || c)}</a>`)
+    .join('');
+
+  rootEl.innerHTML = categories.map((c) => {
+    const termsHtml = byCategory.get(c).map((t) => `
+      <div class="term" id="term-${esc(t.id)}">
+        <h3 class="term-name">${esc(t.term)}</h3>
+        ${t.reading ? `<div class="term-reading">${esc(t.reading)}</div>` : ''}
+        ${t.short_definition ? `<div class="term-oneliner">一言でいうと：${esc(t.short_definition)}</div>` : ''}
+        <p>${esc(t.beginner_explanation)}</p>
+        ${t.market_context ? `<div class="term-newsview"><b>市場ニュースでの見え方：</b>${esc(t.market_context)}</div>` : ''}
+        ${relLinks(t)}
+        ${(t.aliases && t.aliases.length) ? `<div class="term-aliases">別の言い方：${t.aliases.map(esc).join(' / ')}</div>` : ''}
+      </div>`).join('');
+
+    return `<div class="group-label" id="category-${esc(c)}">${esc(labels[c] || c)}</div>
+            <div class="terms">${termsHtml}</div>`;
+  }).join('');
+
+  loadingEl.hidden = true;
+  tocEl.hidden = false;
+  rootEl.hidden = false;
+
+  // 描画後に #term-xxx アンカーへスクロールする。
+  // 用語はJSONのfetch後に生成されるため、ブラウザ本来のフラグメント遷移
+  // （読み込み完了時点で実行される）では対象要素がまだ存在しない。
+  // レイアウト確定を待ってから、アニメーションなしで一度だけ移動する。
+  if (location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        });
+      });
+    }
+  }
+})();
+</script>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>

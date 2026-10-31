@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<meta name="robots" content="noindex,follow">
+<title>経済ニュースと資産のつながりを知る ｜ Marketcast Lab</title>
+<meta name="description" content="経済ニュースが、株・債券・為替・金などの資産にどう関係するかを、追い風・逆風という見方で整理して見せるサービスです。">
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+    --accent-blue:#7C93B3; --accent-blue-bg:#EAF0F7;
+    --radius-card:14px; --radius-btn:12px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  :focus-visible{outline:2.5px solid var(--accent-blue);outline-offset:2px;border-radius:4px;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+
+  header{border-bottom:1px solid var(--line-rule);padding:14px 5vw;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .brand{font-family:var(--display);font-size:18px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:8px;}
+  .brand a{color:inherit;}
+  .brand .mark{font-family:var(--mono);font-size:10px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;}
+  .home-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+
+  .hero{padding:36px 5vw 30px;max-width:760px;margin:0 auto;}
+  .hero-eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:0.03em;color:var(--ink-soft);margin:0 0 14px;line-height:1.7;}
+  .hero h1{font-family:var(--display);font-size:clamp(23px,6vw,32px);line-height:1.5;margin:0 0 16px;font-weight:400;}
+  .hero-lead{font-size:14px;color:var(--ink-soft);line-height:1.95;margin:0 0 26px;max-width:56ch;}
+  .hero-lead b{color:var(--ink);font-weight:600;}
+
+  .cta{display:flex;align-items:center;justify-content:center;min-height:52px;padding:14px 22px;
+       background:var(--ink);color:var(--paper);border:none;border-radius:var(--radius-btn);
+       font-family:var(--body);font-size:14.5px;letter-spacing:0.02em;cursor:pointer;
+       text-align:center;line-height:1.5;width:100%;max-width:420px;}
+  .cta:hover{opacity:0.88;}
+
+  .section-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px;}
+
+  .explain{padding:34px 5vw 38px;max-width:760px;margin:0 auto;border-top:1px solid var(--line-rule);}
+  .explain h2{font-family:var(--display);font-size:clamp(19px,4vw,24px);margin:0 0 24px;line-height:1.55;font-weight:400;}
+
+  .stage{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line-rule);}
+  .stage:first-of-type{border-top:none;padding-top:0;}
+  .stage-num{flex:none;width:32px;height:32px;border-radius:50%;background:var(--accent-blue-bg);
+             color:var(--accent-blue);display:flex;align-items:center;justify-content:center;
+             font-family:var(--mono);font-size:13px;}
+  .stage-body h3{font-family:var(--display);font-size:16.5px;margin:3px 0 6px;font-weight:400;}
+  .stage-body p{font-size:13.5px;color:var(--ink-soft);line-height:1.9;margin:0;max-width:56ch;}
+
+  .choices{padding:34px 5vw 40px;max-width:900px;margin:0 auto;border-top:1px solid var(--line-rule);}
+  .choices h2{font-family:var(--display);font-size:clamp(19px,4vw,24px);margin:0 0 22px;line-height:1.55;font-weight:400;}
+  .choice-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  .choice-card{display:block;border:1px solid var(--line-rule);border-radius:var(--radius-card);
+               background:var(--paper-deep);padding:20px 20px 18px;}
+  .choice-card:hover{border-color:var(--ink-soft);}
+  .choice-tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.02em;
+              color:var(--ink-soft);border:1px solid var(--line-rule);border-radius:2px;
+              padding:3px 8px;margin-bottom:10px;}
+  .choice-card h3{font-family:var(--display);font-size:17px;margin:0 0 8px;font-weight:400;}
+  .choice-card p{font-size:13px;color:var(--ink-soft);line-height:1.85;margin:0 0 14px;}
+  .choice-cta{font-size:13px;font-weight:600;color:var(--ink);}
+
+  footer{padding:22px 5vw 50px;max-width:760px;margin:0 auto;border-top:1px solid var(--line-rule);
+         font-size:11.5px;color:var(--ink-soft);line-height:1.85;}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+
+  @media(min-width:681px){
+    .choice-grid{grid-template-columns:repeat(3,1fr);}
+    .cta{width:auto;}
+  }
+</style>
+<script src="assets/js/membership-flag.js"></script>
+<script src="assets/js/analytics.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <a class="home-link" href="index.html">トップへ</a>
+</header>
+
+<section class="hero">
+  <p class="hero-eyebrow">ニュースは見る。でも、「で、自分の資産にはどう関係するの？」となる方へ。</p>
+  <h1>経済ニュースと資産のつながりが、順番でわかる。</h1>
+  <p class="hero-lead">Marketcast Labは、経済ニュースを<br>
+    <b>①何が起きた？</b> → <b>②どの資産にどう関係する？</b> → <b>③過去の似た局面ではどう動いた？</b><br>
+    の順に整理して見せるサービスです。</p>
+  <a class="cta" href="#explain">Marketcastでどう見えるかを見る →</a>
+</section>
+
+<section class="explain" id="explain">
+  <p class="section-eyebrow">Marketcastの見方</p>
+  <h2>経済ニュースを、3つのステップで整理します。</h2>
+
+  <div class="stage">
+    <div class="stage-num">1</div>
+    <div class="stage-body">
+      <h3>ニュースを整理</h3>
+      <p>何が起きたのかを、まず簡潔に理解します。</p>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="stage-num">2</div>
+    <div class="stage-body">
+      <h3>資産とのつながりを見る</h3>
+      <p>同じニュースでも、株・債券・為替・金などでは意味が異なります。Marketcastでは「追い風」「逆風」といった見方で整理します（将来の価格を断定するものではありません）。日本株については13業界それぞれの追い風・逆風・条件次第の整理を、1つの出来事について<b>無料</b>でご覧いただけます。</p>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="stage-num">3</div>
+    <div class="stage-body">
+      <h3>過去の反応を見る</h3>
+      <p>似た出来事のあと、実際に市場がどう動いたかを、公式データをもとに確認できます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="choices" id="choices">
+  <p class="section-eyebrow">次のステップ</p>
+  <h2>次は、知りたいところから。</h2>
+
+  <div class="choice-grid">
+    <a class="choice-card" href="beginner.html" data-path="beginner">
+      <span class="choice-tag">投資がはじめての方へ</span>
+      <h3>投資の基本から知りたい</h3>
+      <p>投資って何？から、タップしながら気軽に学べます。</p>
+      <span class="choice-cta">投資の基本をやってみる →</span>
+    </a>
+
+    <a class="choice-card" href="current_context.html?cause=supply_shock" data-path="news">
+      <span class="choice-tag">ニュースを実際に見たい方へ</span>
+      <h3>実際のニュースから見てみたい</h3>
+      <p>ニュースと資産のつながりを、実際の局面で確認します。</p>
+      <span class="choice-cta">実際のニュースから見る →</span>
+    </a>
+
+    <a class="choice-card" href="learning_path.html" data-path="learning">
+      <span class="choice-tag">自分に合う進め方を知りたい方へ</span>
+      <h3>自分に合う学び方を知りたい</h3>
+      <p>今の理解度に合わせて、学ぶテーマを探せます。</p>
+      <span class="choice-cta">学び方をチェックする →</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  このページは情報提供・教育目的のコンテンツです。個別の投資助言ではなく、特定の金融商品の購入を勧めるものではありません。投資判断はご自身の責任で行ってください。
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script>
+(function () {
+  try { if (typeof trackProductEvent === 'function') trackProductEvent('marketcast_intro_view'); } catch (_) {}
+  document.querySelectorAll('.choice-card').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var path = a.getAttribute('data-path');
+      try { if (typeof trackProductEvent === 'function') trackProductEvent('marketcast_path_select', { path: path }); } catch (_) {}
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

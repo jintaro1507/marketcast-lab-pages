@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/practical_guide.html">
+<title>はじめての投資 実践ガイド ｜ Marketcast Lab</title>
+<meta property="og:title" content="はじめての投資 実践ガイド ｜ Marketcast Lab">
+<meta property="og:description" content="株式・投資信託・ETF・金・暗号資産を実際に始める際の口座開設、入金、購入、売却までの基本的な流れを初心者向けに解説します。特定の金融商品・金融機関を推奨するものではありません。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/practical_guide.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="はじめての投資 実践ガイド ｜ Marketcast Lab">
+<meta name="twitter:description" content="株式・投資信託・ETF・金・暗号資産を実際に始める際の口座開設、入金、購入、売却までの基本的な流れを初心者向けに解説します。特定の金融商品・金融機関を推奨するものではありません。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<meta name="description" content="株式・投資信託・ETF・金・暗号資産を実際に始める際の口座開設、入金、購入、売却までの基本的な流れを初心者向けに解説します。特定の金融商品・金融機関を推奨するものではありません。">
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --oil:#B5703A; --gold:#9C7A2E; --equity:#38456B; --bond:#7A6A55; --fx:#4A6B5A;
+    --up:#8A3B2E; --down:#2F5D4E;
+    --surface-card:#FBFAF7;
+    --shadow-card:0 1px 2px rgba(28,26,22,.05), 0 2px 8px rgba(28,26,22,.04);
+    --fs-caption:12px;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.85;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:11.5px;padding:8px 5vw;line-height:1.6;}
+  .strip b{font-weight:600;}
+  header{border-bottom:1px solid var(--line-rule);padding:14px 5vw;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .brand{font-family:var(--display);font-size:18px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:8px;}
+  .brand .mark{font-family:var(--mono);font-size:10px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;}
+  .home-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+
+  main{padding:0 5vw 60px;max-width:760px;margin:0 auto;}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);padding-top:26px;}
+  h1{font-family:var(--display);font-size:clamp(21px,5.4vw,30px);margin:8px 0 0;line-height:1.5;}
+  .lead{font-size:14px;color:var(--ink-soft);margin:12px 0 0;max-width:62ch;line-height:1.9;}
+  .sec-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:34px;}
+  .back-link{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);margin-top:22px;}
+  .back-link:hover{color:var(--ink);}
+
+  /* ── 一覧 ─────────────────────────────────────────────── */
+  .guide-grid{display:grid;grid-template-columns:1fr;gap:11px;margin-top:18px;}
+  .guide-card{border:1px solid var(--line-rule);background:var(--surface-card);border-radius:8px;
+              box-shadow:var(--shadow-card);padding:16px 17px;min-height:44px;}
+  .guide-card:hover{border-color:var(--ink-soft);}
+  .guide-card b{font-family:var(--display);font-size:17px;font-weight:400;display:block;}
+  .guide-sub{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px;}
+  .guide-sum{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:8px;line-height:1.8;}
+
+  /* ── フロー（縦・番号つき） ───────────────────────────── */
+  .flow{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:9px;}
+  .flow-step{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line-rule);
+             background:var(--surface-card);border-radius:8px;padding:13px 14px;}
+  .flow-num{flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--paper);
+            font-family:var(--mono);font-size:12px;display:inline-flex;align-items:center;justify-content:center;margin-top:1px;}
+  .flow-body{display:flex;flex-direction:column;gap:3px;}
+  .flow-body b{font-size:14px;}
+  .flow-body span{font-size:13px;color:var(--ink-soft);line-height:1.85;}
+
+  /* ── 考え方 ───────────────────────────────────────────── */
+  .concept{border-top:1px solid var(--line-rule);padding-top:20px;margin-top:20px;}
+  .concept:first-of-type{border-top:none;padding-top:6px;}
+  .concept h3{font-family:var(--display);font-size:16px;margin:0 0 9px;line-height:1.6;}
+  .concept p{font-size:13.5px;margin:0;line-height:1.9;}
+  .concept .caution{font-size:12.5px;color:var(--ink-soft);margin-top:10px;padding-top:9px;border-top:1px dashed var(--line-rule);}
+
+  .ex{margin-top:12px;border:1px solid var(--line-rule);border-radius:8px;background:#fff;padding:13px 14px;}
+  .ex-label{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-bottom:8px;}
+  .ex-lines{display:flex;flex-direction:column;gap:6px;}
+  .ex-line{font-size:13.5px;line-height:1.8;}
+  .ex-note{font-size:12px;color:var(--ink-soft);line-height:1.75;margin:10px 0 0;padding-top:9px;border-top:1px dashed var(--line-rule);}
+
+  /* ── つまずき ─────────────────────────────────────────── */
+  .mistakes{margin-top:14px;border-left:3px solid var(--ink-soft);background:var(--paper-deep);padding:13px 16px;}
+  .mistakes ul{margin:0;padding-left:1.2em;}
+  .mistakes li{font-size:13px;line-height:1.9;margin-bottom:6px;}
+  .mistakes li:last-child{margin-bottom:0;}
+
+  /* ── サービス例 ───────────────────────────────────────── */
+  .services-note{font-size:12.5px;color:var(--ink-soft);line-height:1.85;margin:14px 0 0;}
+  .service{margin-top:12px;border:1px solid var(--line-rule);border-radius:8px;background:var(--surface-card);padding:14px 15px;}
+  .service-name{font-family:var(--display);font-size:15px;font-weight:400;display:block;}
+  .service-desc{font-size:13px;color:var(--ink-soft);margin:6px 0 0;line-height:1.85;}
+  .facts{margin:11px 0 0;display:grid;grid-template-columns:1fr;gap:2px;}
+  .facts dt{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-top:8px;}
+  .facts dd{margin:2px 0 0;font-size:13px;line-height:1.8;}
+  .fact-src{display:block;font-size:11.5px;color:var(--ink-soft);}
+  .service-link{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;font-size:13px;color:var(--ink-soft);}
+  .service-link span{border-bottom:1px solid var(--line-rule);}
+  .service-link:hover{color:var(--ink);}
+
+  /* ── 練習 ─────────────────────────────────────────────── */
+  .practice-note{font-size:12.5px;color:var(--ink-soft);line-height:1.85;margin:14px 0 0;
+                 border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:8px;padding:11px 13px;}
+  .q{margin-top:14px;border:1px solid var(--line-rule);border-radius:8px;background:var(--surface-card);padding:14px 15px;}
+  .q-text{font-size:14px;margin:0 0 11px;line-height:1.85;}
+  .q-opts{display:flex;flex-direction:column;gap:8px;}
+  .q-opt{display:inline-flex;align-items:center;justify-content:flex-start;min-height:48px;width:100%;
+         padding:12px 15px;border:1px solid var(--line-rule);border-radius:8px;background:var(--paper);
+         font-family:var(--body);font-size:13.5px;text-align:left;cursor:pointer;line-height:1.6;}
+  .q-opt:hover:not(:disabled){border-color:var(--ink-soft);}
+  .q-opt:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+  .q-opt:disabled{cursor:default;opacity:0.75;}
+  .q-opt.is-correct{border-color:var(--down);border-width:2px;background:#fff;opacity:1;}
+  .q-opt.is-chosen{border-color:var(--up);}
+  .q-result{font-size:13px;line-height:1.85;margin:11px 0 0;padding-top:10px;border-top:1px dashed var(--line-rule);}
+
+  .links-list{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+  .link-card{border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:8px;padding:14px 15px;min-height:44px;}
+  .link-card:hover{border-color:var(--ink-soft);}
+  .link-card b{font-family:var(--display);font-size:14.5px;font-weight:400;display:block;}
+  .link-card span{font-size:12.5px;color:var(--ink-soft);display:block;margin-top:4px;}
+
+  footer{margin-top:44px;border-top:1px solid var(--line-rule);padding:22px 0 0;font-size:12px;color:var(--ink-soft);line-height:1.9;}
+
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 5vw 40px;margin-top:6px;border-top:1px solid var(--line-rule);max-width:760px;margin-left:auto;margin-right:auto;}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+
+  @media(min-width:681px){
+    .guide-grid{grid-template-columns:1fr 1fr;}
+    .facts{grid-template-columns:auto 1fr;gap:6px 14px;align-items:baseline;}
+    .facts dt{margin-top:0;}
+    .q-opt{width:auto;min-width:260px;}
+  }
+  /* 静的 semantic shell（JS未実行時のみ表示される） */
+  .static-shell h1{font-family:var(--display);font-size:clamp(22px,4vw,30px);line-height:1.5;margin:30px 0 14px;}
+  .static-shell p{font-size:14px;line-height:1.9;color:var(--ink-soft);max-width:62ch;margin:0 0 12px;}
+  .static-shell b{color:var(--ink);}
+  .static-shell a{border-bottom:1px solid var(--line-rule);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+<script src="assets/js/analytics.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。特定の金融商品・金融機関の利用を勧めるものではありません。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <a class="home-link" href="index.html">トップへ</a>
+</header>
+
+<main id="app">
+  <!-- 静的 semantic shell。practical-guide.js が replaceChildren で置き換える。 -->
+  <div class="static-shell">
+    <h1>はじめての投資 実践ガイド</h1>
+    <p>「はじめての投資 実践ガイド」は、株式・投資信託・ETF・金・暗号資産について、口座開設から入金・購入・売却までの基本的な流れを初心者向けに整理した Marketcast Lab の無料コンテンツです。</p>
+    <p>各資産の最低購入金額や手数料の考え方など、実際に始めるときに確認することを、一次情報の出典つきで確認できます。<b>特定の金融機関・金融商品を推奨するものではなく、投資助言でもありません。</b></p>
+    <p>投資の考え方そのものから確認したい場合は<a href="beginner.html">はじめての投資</a>をご覧ください。</p>
+    <p>各資産の手順を読み込み中です…</p>
+  </div>
+</main>
+
+<nav class="legal-links" aria-label="ご利用にあたって">
+  <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="disclaimer.html">免責事項</a>
+</nav>
+
+<script type="module" src="assets/js/practical-guide.js"></script>
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>
