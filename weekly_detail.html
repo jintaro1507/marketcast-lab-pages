@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<title>Marketcast Weekly ｜ Marketcast Lab</title>
+<meta name="robots" content="noindex,follow">
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --surface-card:#FBFAF7;
+    --shadow-card:0 1px 2px rgba(28,26,22,.05), 0 2px 8px rgba(28,26,22,.04);
+    --observed:#38456B; --analysis:#8A3B2E;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.85;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:11.5px;padding:8px 5vw;line-height:1.6;}
+  header{border-bottom:1px solid var(--line-rule);padding:14px 5vw;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .brand{font-family:var(--display);font-size:18px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:8px;}
+  .brand .mark{font-family:var(--mono);font-size:10px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;}
+  .home-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+
+  main{padding:0 5vw 60px;max-width:760px;margin:0 auto;}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);padding-top:26px;}
+  h1{font-family:var(--display);font-size:clamp(21px,5.4vw,30px);margin:8px 0 0;line-height:1.5;}
+  .period{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-top:10px;}
+  .lead{font-size:14px;color:var(--ink-soft);margin:12px 0 0;max-width:62ch;line-height:1.9;}
+  .back-link{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);margin-top:22px;}
+  .back-link:hover{color:var(--ink);}
+  .sec-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:34px;}
+
+  .card{margin-top:12px;border:1px solid var(--line-rule);background:var(--surface-card);border-radius:8px;padding:15px 16px;box-shadow:var(--shadow-card);}
+  .card b{font-size:14.5px;display:block;}
+  .card p{font-size:13.5px;color:var(--ink-soft);margin:6px 0 0;line-height:1.85;}
+
+  .kv{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
+  .kv-item{border:1px solid var(--line-rule);border-radius:8px;padding:13px 14px;background:#fff;}
+  .kv-item dt{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:0.05em;}
+  .kv-item dd{margin:5px 0 0;font-size:13.5px;line-height:1.8;}
+  .kv-item .src{display:block;font-size:11px;color:var(--ink-soft);margin-top:6px;}
+
+  .asset-row{border-left:3px solid var(--analysis);padding:11px 0 11px 14px;margin-top:10px;}
+  .asset-row b{font-size:13.5px;display:block;}
+  .asset-row p{font-size:13px;color:var(--ink-soft);margin:5px 0 0;line-height:1.85;}
+  .lens-note{font-size:11.5px;color:var(--ink-soft);margin-top:16px;}
+
+  .next-week li{font-size:13.5px;line-height:1.9;margin-bottom:10px;}
+  .next-week .why{color:var(--ink-soft);font-size:12.5px;display:block;margin-top:2px;}
+
+  .summary-list{margin:12px 0 0;padding-left:1.3em;}
+  .summary-list li{font-size:14px;line-height:1.9;margin-bottom:6px;}
+
+  .disclaimer{font-size:12px;color:var(--ink-soft);margin-top:28px;line-height:1.85;padding-top:14px;border-top:1px dashed var(--line-rule);}
+  .email-cta{font-size:12.5px;margin-top:10px;}
+  .email-cta a{border-bottom:1px solid var(--line-rule);}
+  /* Task45: 読み終えたあとの自然な次の一手（多くて2件まで） */
+  .next-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+  .link-card{border:1px solid var(--line-rule);border-radius:8px;padding:14px 15px;min-height:44px;display:block;}
+  .link-card:hover{border-color:var(--ink-soft);}
+  .link-card b{font-family:var(--display);font-size:14.5px;font-weight:400;display:block;}
+  .link-card span{font-size:12.5px;color:var(--ink-soft);display:block;margin-top:4px;}
+  @media(max-width:560px){ .next-actions{grid-template-columns:1fr;} }
+
+  /* ── Premium gate（asset_impact.htmlと同一パターン） ─────── */
+  .gate{margin-top:26px;border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:8px;padding:22px 22px 24px;}
+  .gate h2{font-family:var(--display);font-size:19px;margin:0 0 10px;font-weight:400;}
+  .gate p{font-size:14px;color:var(--ink-soft);margin:0 0 14px;line-height:1.9;}
+  .gate-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;background:var(--ink);color:var(--paper);
+                border-radius:2px;font-size:13.5px;margin-right:10px;margin-top:6px;}
+  .gate-links a.secondary{background:transparent;color:var(--ink);border:1px solid var(--line-rule);}
+
+  footer{margin-top:44px;border-top:1px solid var(--line-rule);padding:22px 0 0;font-size:12px;color:var(--ink-soft);line-height:1.9;}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 5vw 40px;margin-top:6px;border-top:1px solid var(--line-rule);max-width:760px;margin-left:auto;margin-right:auto;}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+<script src="assets/js/analytics.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。特定の取引・銘柄・商品を推奨するものではありません。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <a class="home-link" href="index.html">トップへ</a>
+</header>
+
+<main id="app"><p class="lead" style="padding-top:30px;">読み込み中…</p></main>
+
+<nav class="legal-links" aria-label="ご利用にあたって">
+  <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  <a href="disclaimer.html">免責事項</a>
+</nav>
+
+<script type="module">
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function track(name, props) {
+  try { if (typeof trackProductEvent === 'function') trackProductEvent(name, props); } catch (_) {}
+}
+
+const main = document.getElementById('app');
+const params = new URLSearchParams(location.search);
+const key = params.get('key');
+
+function notFound() {
+  main.innerHTML = `<p class="lead" style="padding-top:30px;">このWeeklyは見つかりませんでした。</p>
+    <a class="back-link" href="weekly.html">← Marketcast Weekly 一覧へ</a>`;
+}
+
+function gateBox(title, lead, links) {
+  const linkHtml = links.map((l) =>
+    `<a href="${esc(l.href)}"${l.secondary ? ' class="secondary"' : ''}>${esc(l.text)}</a>`
+  ).join('');
+  return `<div class="gate"><h2>${esc(title)}</h2><p>${esc(lead)}</p><div class="gate-links">${linkHtml}</div></div>`;
+}
+
+function renderMarketMoved(marketMoved) {
+  const order = [['wti', 'WTI原油'], ['usdjpy', 'USD/JPY'], ['ust10y', '米10年債利回り'], ['effr', '実効FF金利']];
+  const items = order
+    .filter(([k]) => marketMoved && marketMoved[k])
+    .map(([k, label]) => {
+      const e = marketMoved[k];
+      return `<div class="kv-item"><dt>${esc(label)} ・ OBSERVED</dt>
+        <dd>${esc(e.observed)}</dd>
+        <span class="src">出典: ${esc(e.source)}${e.confirmed ? '／' + esc(e.confirmed) + '確認' : ''}</span></div>`;
+    }).join('');
+  return `<div class="kv">${items}</div>`;
+}
+
+function renderBody(body, assetLabelOf) {
+  const news = (body.important_news || []).map((n) =>
+    `<div class="card"><b>${esc(n.headline)}</b><p>${esc(n.summary)}</p></div>`
+  ).join('');
+
+  const assets = (body.asset_by_asset || []).map((a) =>
+    `<div class="asset-row"><b>${esc(assetLabelOf(a.asset_key))} ・ MARKETCAST ANALYSIS</b><p>${esc(a.text)}</p></div>`
+  ).join('');
+
+  const nextWeek = (body.next_week || []).map((n) =>
+    `<li>${esc(n.event)}<span class="why">${esc(n.why_it_matters)}</span></li>`
+  ).join('');
+
+  const summary = (body.thirty_second_summary || []).map((s) => `<li>${esc(s)}</li>`).join('');
+
+  return `
+    <div class="sec-label">今週の重要ニュース</div>
+    ${news}
+
+    <div class="sec-label">市場は実際にどう動いた？（Observed）</div>
+    ${renderMarketMoved(body.market_moved)}
+
+    <div class="sec-label">資産別にはどう考える？（Marketcast Analysis）</div>
+    ${assets}
+    <p class="lens-note">過去の局面に共通して見られた傾向の定性的な整理であり、将来の値動きを示すものでも、特定の取引・銘柄・商品を推奨するものでもありません。</p>
+
+    <div class="sec-label">今週の深掘り</div>
+    <div class="card"><b>${esc(body.deep_dive.title)}</b><p>${esc(body.deep_dive.body)}</p></div>
+
+    <div class="sec-label">来週見るべき予定</div>
+    <p style="font-size:12.5px;color:var(--ink-soft);margin-top:8px;">値動きの予測ではなく、確認しておくとよい経済カレンダーの案内です。</p>
+    <ul class="next-week" style="margin-top:10px;padding-left:1.3em;">${nextWeek}</ul>
+
+    <div class="sec-label">30秒まとめ</div>
+    <ul class="summary-list">${summary}</ul>
+
+    <div class="sec-label">もっと深く見る</div>
+    <div class="next-actions">
+      <a class="link-card" href="asset_impact.html"><b>資産影響分析</b><span>資産ごとに、複数の出来事を横断した傾向を整理しています。</span></a>
+      <a class="link-card" href="account.html"><b>My Watch</b><span>気になる資産を登録すると、関係する変化をAlertで受け取れます。</span></a>
+    </div>
+
+    <p class="email-cta">メールでも受け取る → <a href="account.html" id="email-cta-link">アカウント設定</a></p>
+  `;
+}
+
+(async () => {
+  if (!key || !/^[a-z0-9-]{1,100}$/.test(key)) return notFound();
+
+  if (typeof window !== 'undefined' && window.MEMBERSHIP_SUSPENDED) {
+    main.innerHTML = gateBox(
+      '会員機能を停止しています',
+      'Marketcast Weeklyは有料プラン向けの機能です。現在は会員機能の提供を停止しているため表示できません。',
+      [{ href: 'weekly.html', text: 'Weekly一覧へ', secondary: true }]
+    );
+    return;
+  }
+
+  let supabase;
+  try { ({ supabase } = await import('./assets/js/supabase-client.js')); } catch (_) { return notFound(); }
+
+  // 資産の表示名は data/assets.json を正とする（asset_impact.html と同じ規約）。
+  // 内部の asset_key は変更しない。表示のみラベルへ変換する。
+  let assetLabelById = {};
+  try {
+    const assetsRes = await fetch('data/assets.json', { cache: 'no-store' });
+    const assetsJson = await assetsRes.json();
+    const list = Array.isArray(assetsJson) ? assetsJson : (assetsJson.assets || []);
+    assetLabelById = Object.fromEntries(list.map((a) => [a.id, a.label]));
+  } catch (_) { /* フォールバックでkeyそのままを表示 */ }
+  const assetLabelOf = (assetKey) => assetLabelById[assetKey] || assetKey;
+
+  // ── 1. free_preview を取得（未ログインでも表示可能） ──
+  let preview = null;
+  try {
+    const url = `get-marketcast-weekly?key=${encodeURIComponent(key)}`;
+    const { data, error } = await supabase.functions.invoke(url, { method: 'GET' });
+    if (!error && data && data.preview) preview = data.preview;
+  } catch (_) { /* noop */ }
+
+  if (!preview) return notFound();
+
+  track('weekly_open');
+
+  const period = preview.period_start && preview.period_end
+    ? `${esc(preview.period_start)} 〜 ${esc(preview.period_end)}` : '';
+  const headHtml = `
+    <div class="eyebrow">Marketcast Weekly</div>
+    <h1>${esc(preview.title)}</h1>
+    <div class="period">${period}</div>
+    <p class="lead">${esc((preview.free_preview || {}).summary || '')}</p>`;
+
+  // ── 2. 認可状態を確認 ──
+  let state = 'error';
+  try {
+    const mod = await import('./assets/js/subscription-state.js');
+    ({ state } = await mod.getSubscriptionState());
+  } catch (_) { state = 'error'; }
+
+  if (state !== 'paid') {
+    const COPY = {
+      unauthenticated: ['ログインが必要です', 'ログインのうえPremiumプランをご利用いただくと、本文をご覧いただけます。',
+        [{ href: 'login.html', text: 'ログインする' }, { href: 'pricing.html', text: 'Premiumプランを見る', secondary: true }]],
+      free: ['Premiumプランでご覧いただけます', 'Marketcast Weeklyの本文はPremiumプラン向けのコンテンツです。',
+        [{ href: 'pricing.html', text: 'Premiumプランを見る' }]],
+      inactive: ['Premiumプランでご覧いただけます', 'Marketcast Weeklyの本文はPremiumプラン向けのコンテンツです。',
+        [{ href: 'pricing.html', text: 'Premiumプランを見る' }]],
+      attention: ['お支払い状況をご確認ください', 'ご契約の状態を確認できませんでした。',
+        [{ href: 'account.html', text: 'アカウントを確認する' }]],
+      error: ['現在ご利用いただけません', '契約状態を確認できませんでした。時間をおいて再度お試しください。',
+        [{ href: 'weekly.html', text: 'Weekly一覧へ', secondary: true }]],
+    };
+    const [title, lead, links] = COPY[state] || COPY.error;
+    main.innerHTML = headHtml + gateBox(title, lead, links);
+    return;
+  }
+
+  // ── 3. 本文取得（Premium認可通過） ──
+  try {
+    const { data, error } = await supabase.functions.invoke('get-marketcast-weekly', {
+      body: { key },
+    });
+    if (error || !data || !data.body) {
+      main.innerHTML = headHtml + gateBox(
+        '現在ご利用いただけません', '本文を読み込めませんでした。時間をおいて再度お試しください。',
+        [{ href: 'weekly.html', text: 'Weekly一覧へ', secondary: true }]
+      );
+      return;
+    }
+    main.innerHTML = headHtml + renderBody(data.body, assetLabelOf) +
+      `<div class="disclaimer">${esc(data.disclaimer || '')}</div>
+       <a class="back-link" href="weekly.html">← Marketcast Weekly 一覧へ</a>`;
+
+    const ctaLink = document.getElementById('email-cta-link');
+    if (ctaLink) ctaLink.addEventListener('click', () => track('weekly_email_cta'));
+  } catch (_) {
+    main.innerHTML = headHtml + gateBox(
+      '現在ご利用いただけません', '本文を読み込めませんでした。時間をおいて再度お試しください。',
+      [{ href: 'weekly.html', text: 'Weekly一覧へ', secondary: true }]
+    );
+  }
+})();
+</script>
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>
