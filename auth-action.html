@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<meta name="robots" content="noindex,follow">
+<!-- リファラ経由で token_hash が外部へ漏れないようにする -->
+<meta name="referrer" content="no-referrer">
+<title>本人確認 ｜ Marketcast Lab</title>
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:var(--ink);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  header{
+    border-bottom:1px solid var(--line-rule);
+    padding:18px 5vw 16px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .brand{font-family:var(--display);font-size:22px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:28px;font-size:13px;letter-spacing:0.03em;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a{color:var(--ink-soft);}
+  nav a:hover{color:var(--ink);}
+
+  .page-wrap{max-width:420px;margin:64px auto 80px;padding:0 5vw;}
+  h1{font-family:var(--display);font-size:22px;font-weight:400;letter-spacing:0.04em;margin:0 0 20px;}
+  .lead{font-size:13.5px;color:var(--ink-soft);margin:0 0 28px;}
+
+  .submit-btn{
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    border-radius:2px;
+    padding:12px 20px;
+    font-family:var(--body);
+    font-size:14px;
+    letter-spacing:0.04em;
+    cursor:pointer;
+    width:100%;
+  }
+  .submit-btn:hover{opacity:0.85;}
+  .submit-btn:disabled{opacity:0.5;cursor:not-allowed;}
+
+  .invalid-notice{
+    font-size:13px;
+    padding:12px 14px;
+    border-radius:2px;
+    background:#f5eae8;
+    color:#5a1a14;
+    border:1px solid #d4b0ac;
+    margin-bottom:20px;
+  }
+  .checking{font-size:13px;color:var(--ink-soft);margin-bottom:16px;}
+  .auth-links{margin-top:24px;font-size:13px;color:var(--ink-soft);}
+  .auth-links a{color:var(--ink-soft);}
+  .auth-links a:hover{color:var(--ink);}
+
+  footer{border-top:1px solid var(--line-rule);padding:20px 5vw;font-size:12px;color:var(--ink-soft);margin-top:auto;}
+  [hidden]{display:none !important;}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body data-auth-page="auth-action">
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="page-wrap">
+  <h1 id="aa-title">本人確認</h1>
+
+  <!--
+    重要（prefetch 対策）:
+    このページはロードされただけでは verifyOtp を実行しない。
+    メールスキャナ等がリンクを先読み（GET）しても one-time token は消費されない。
+    利用者がボタンを押した時にだけ検証を行う。
+  -->
+  <div id="aa-ready" hidden>
+    <p class="lead" id="aa-lead"></p>
+    <button type="button" id="aa-confirm" class="submit-btn"></button>
+  </div>
+
+  <p class="checking" id="aa-working" hidden>確認しています…</p>
+
+  <div id="aa-error" hidden>
+    <p class="invalid-notice" id="aa-error-msg">
+      このリンクは無効または期限切れです。もう一度メールを送信してください。
+    </p>
+    <div class="auth-links" id="aa-error-links"></div>
+  </div>
+</div>
+
+<footer>Marketcast Lab
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script type="module" src="assets/js/auth-action.js"></script>
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>

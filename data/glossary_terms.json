@@ -1,0 +1,824 @@
+{
+  "schema_version": 1,
+  "note": "Marketcast Lab v2 用語解説データ。glossary.html が読み込んで描画する。初心者向けの平易な説明を優先し、投資助言表現は含めない。related_* は実在するID のみを参照する。",
+  "category_labels": {
+    "core_concepts": "基本の考え方",
+    "asset_classes": "資産クラス",
+    "market_indicators": "市場の指標",
+    "investment_basics": "投資の基本",
+    "economic_terms": "経済を見る言葉",
+    "market_news": "市場ニュースで見る言葉",
+    "crypto_terms": "暗号資産"
+  },
+  "category_order": [
+    "core_concepts",
+    "asset_classes",
+    "market_indicators",
+    "investment_basics",
+    "economic_terms",
+    "market_news",
+    "crypto_terms"
+  ],
+  "terms": [
+    {
+      "id": "supply_shock",
+      "term": "供給ショック",
+      "reading": "きょうきゅうショック / supply shock",
+      "category": "core_concepts",
+      "short_definition": "",
+      "beginner_explanation": "戦争・災害・事故などで、ある商品（原油など）の供給が急に減ると予想される状況。モノが足りなくなる懸念から価格が短期間で大きく動くことがあります。中東情勢の緊張で原油先物が反応しやすいのは、この供給ショックが意識されるためです。",
+      "market_context": "",
+      "related_lesson_ids": [],
+      "related_theme_ids": [
+        "oil_resources"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "oil"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "safe_haven_asset",
+      "term": "逃避先資産（安全資産）",
+      "reading": "とうひさきしさん / safe haven",
+      "category": "core_concepts",
+      "short_definition": "",
+      "beginner_explanation": "世の中が不安定なとき、投資家がお金を一時的に避難させる先として選ばれやすい資産のこと。代表例が金（ゴールド）です。「リスクの高いものを売って、安全とされるものに移す」という資金の流れが起きやすくなります。",
+      "market_context": "",
+      "related_lesson_ids": [
+        "what_is_gold"
+      ],
+      "related_theme_ids": [
+        "gold_safe_haven"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "gold"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "risk_off_on",
+      "term": "リスクオフ / リスクオン",
+      "reading": "risk-off / risk-on",
+      "category": "core_concepts",
+      "short_definition": "",
+      "beginner_explanation": "リスクオフは、投資家が慎重になり、値動きの大きい資産を避けて安全な資産にお金を移す局面。リスクオンはその逆で、積極的にリスクを取りにいく局面です。不況や危機の懸念が高まるとリスクオフになりやすい傾向があります。",
+      "market_context": "",
+      "related_lesson_ids": [
+        "risk_and_return"
+      ],
+      "related_theme_ids": [
+        "risk_on_off"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "percent_change",
+      "term": "変化率",
+      "reading": "へんかりつ / percent change",
+      "category": "core_concepts",
+      "short_definition": "",
+      "beginner_explanation": "ある期間で価格が何%動いたかを示す数字。当サイトの「市場の現況」では、過去30日でのおおよその変化率を表示しています。たとえば「+7%」なら、30日前と比べて約7%上がった、という意味です。",
+      "market_context": "",
+      "related_lesson_ids": [],
+      "related_theme_ids": [],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "crude_oil_futures",
+      "term": "原油先物",
+      "reading": "げんゆさきもの / crude oil futures",
+      "category": "asset_classes",
+      "short_definition": "",
+      "beginner_explanation": "将来のある時点で原油を売買する約束を、今の価格で取引するもの。WTI（米国の指標）やBrent（欧州の指標）が代表的です。供給不安が高まると上がりやすい一方、世界的な不況で需要が減ると下がる、という二面性があります。",
+      "market_context": "",
+      "related_lesson_ids": [
+        "what_is_oil"
+      ],
+      "related_theme_ids": [
+        "oil_resources"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "oil"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "gold_bullion",
+      "term": "金地金（ゴールド）",
+      "reading": "きんじがね / gold",
+      "category": "asset_classes",
+      "short_definition": "",
+      "beginner_explanation": "古くから価値の保存手段とされてきた貴金属。不安定な局面で買われやすい「逃避先資産」の代表格です。ただし常に上がるわけではなく、金利が上がる局面などでは魅力が薄れることもあります。",
+      "market_context": "",
+      "related_lesson_ids": [
+        "what_is_gold"
+      ],
+      "related_theme_ids": [
+        "gold_safe_haven"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "gold"
+      ],
+      "aliases": [
+        "ゴールド"
+      ]
+    },
+    {
+      "id": "equity_index",
+      "term": "株式（株価指数）",
+      "reading": "かぶしき / equity",
+      "category": "asset_classes",
+      "short_definition": "",
+      "beginner_explanation": "企業の所有権の一部を表すもの。個別企業の株のほか、市場全体の動きをまとめた「株価指数」（日経平均、S&P500など）があります。業種によって不況への強さが異なり、生活必需品など需要が落ちにくい業種は相対的に底堅い傾向があります。",
+      "market_context": "",
+      "related_lesson_ids": [
+        "what_is_stock_index"
+      ],
+      "related_theme_ids": [],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "jp_stocks",
+        "us_stocks"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "crypto_asset",
+      "term": "暗号資産（仮想通貨）",
+      "reading": "あんごうしさん / crypto asset",
+      "category": "asset_classes",
+      "short_definition": "",
+      "beginner_explanation": "ビットコインなどに代表される、ブロックチェーン技術に基づくデジタル資産。歴史が比較的浅く、危機の局面でリスク資産として売られる場合と、逃避先として買われる場合が混在しており、反応のパターンが定まっていません。",
+      "market_context": "",
+      "related_lesson_ids": [
+        "crypto_risks"
+      ],
+      "related_theme_ids": [
+        "crypto"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "bitcoin",
+        "ethereum"
+      ],
+      "aliases": [
+        "仮想通貨"
+      ]
+    },
+    {
+      "id": "vix",
+      "term": "VIX（恐怖指数）",
+      "reading": "ヴィックス / volatility index",
+      "category": "market_indicators",
+      "short_definition": "",
+      "beginner_explanation": "株式市場の先行きの「揺れ」の大きさに対する市場の予想を数値化したもの。数値が高いほど投資家の不安が強いとされ、急騰しているときはリスクオフ局面の目安になります。",
+      "market_context": "",
+      "related_lesson_ids": [
+        "risk_and_return"
+      ],
+      "related_theme_ids": [
+        "risk_on_off"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": [
+        "恐怖指数"
+      ]
+    },
+    {
+      "id": "treasury_yield",
+      "term": "国債利回り",
+      "reading": "こくさいりまわり / treasury yield",
+      "category": "market_indicators",
+      "short_definition": "",
+      "beginner_explanation": "国が発行する債券（国債）に投資したときの利回り。特に米10年債利回りは、市場の金利予想や景気見通しを映す重要な指標として注目されます。",
+      "market_context": "",
+      "related_lesson_ids": [
+        "what_is_bond"
+      ],
+      "related_theme_ids": [
+        "interest_rates"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "bonds"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "futures_and_spot",
+      "term": "先物価格と現物価格",
+      "reading": "さきもの・げんぶつ / futures & spot",
+      "category": "market_indicators",
+      "short_definition": "",
+      "beginner_explanation": "現物価格は「今すぐ売買する」ときの価格、先物価格は「将来のある時点で売買する約束」の価格です。両者は通常近い動きをしますが、保管コストや将来予想の違いから差が出ることもあります。",
+      "market_context": "",
+      "related_lesson_ids": [],
+      "related_theme_ids": [],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "oil"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "stock",
+      "term": "株式",
+      "reading": "",
+      "category": "investment_basics",
+      "short_definition": "会社の一部を持つ権利",
+      "beginner_explanation": "株式とは、会社が資金を集めるために発行する証券で、持っている人はその会社の一部の所有者になります。会社の業績が良くなると期待されれば値上がりしやすく、悪くなると期待されれば値下がりしやすい、という性質があります。",
+      "market_context": "「株価が上昇/下落した」というニュースは、多くの場合、日経平均やS&P500のような「株価指数」（多数の株式をまとめた数値）の動きを指しています。",
+      "related_lesson_ids": [
+        "what_is_stock"
+      ],
+      "related_theme_ids": [],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "jp_stocks",
+        "us_stocks"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "mutual_fund",
+      "term": "投資信託",
+      "reading": "",
+      "category": "investment_basics",
+      "short_definition": "みんなのお金をまとめて専門家が運用する仕組み",
+      "beginner_explanation": "投資信託は、多くの人から集めたお金を専門家がまとめて運用し、株式や債券など複数の資産に分散して投資する金融商品です。1つ買うだけで、自然と分散投資に近い状態になります。",
+      "market_context": "「インデックスファンド」「アクティブファンド」という言葉は、投資信託の運用方針の違いを表しています。",
+      "related_lesson_ids": [
+        "what_is_mutual_fund"
+      ],
+      "related_theme_ids": [],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "mutual_funds"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "etf",
+      "term": "ETF",
+      "reading": "",
+      "category": "investment_basics",
+      "short_definition": "株式のように売買できる投資信託",
+      "beginner_explanation": "ETF（上場投資信託）は、投資信託でありながら証券取引所に上場していて、株式と同じようにリアルタイムで売買できる商品です。特定の指数や資産（金、原油など）に連動するように設計されているものが多くあります。",
+      "market_context": "「Bitcoin ETFが承認された」というニュースは、暗号資産に証券口座から間接的に投資できる商品が新しく認められた、という意味です。",
+      "related_lesson_ids": [
+        "what_is_etf"
+      ],
+      "related_theme_ids": [],
+      "related_event_ids": [
+        "bitcoin_etf_approval_2024"
+      ],
+      "related_asset_ids": [
+        "etf"
+      ],
+      "aliases": [
+        "上場投資信託"
+      ]
+    },
+    {
+      "id": "bond",
+      "term": "債券",
+      "reading": "",
+      "category": "investment_basics",
+      "short_definition": "国や会社にお金を貸して利子をもらう仕組み",
+      "beginner_explanation": "債券とは、国や企業がお金を借りるときに発行する証券です。持っている人は満期まで利子を受け取り、満期がきたら貸したお金（元本）を返してもらえる、というのが基本の仕組みです。",
+      "market_context": "「米10年債利回りが上昇した」というニュースは、世界の金利水準や景気見通しを映す代表的な指標として注目されています。",
+      "related_lesson_ids": [
+        "what_is_bond"
+      ],
+      "related_theme_ids": [
+        "interest_rates"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "bonds"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "diversification",
+      "term": "分散投資",
+      "reading": "",
+      "category": "investment_basics",
+      "short_definition": "卵を一つのカゴに盛らない考え方",
+      "beginner_explanation": "分散投資とは、値動きの異なる複数の資産にお金を分けて投じることで、どれか一つが大きく値下がりしたときの影響を和らげようとする考え方です。値下がりを完全に防ぐものではありません。",
+      "market_context": "金融危機のニュースで「株式と債券・金が異なる値動きをした」と語られるとき、分散投資の効果が実際に働いた局面として紹介されることがあります。",
+      "related_lesson_ids": [
+        "diversification"
+      ],
+      "related_theme_ids": [
+        "financial_crisis",
+        "long_term_investing"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "risk",
+      "term": "リスク",
+      "reading": "",
+      "category": "investment_basics",
+      "short_definition": "価格がどれくらい上下に振れやすいか",
+      "beginner_explanation": "投資の世界でいう「リスク」は、必ずしも「危険」という意味ではなく、価格変動の大きさを指す言葉として使われます。値動きが激しい資産は「リスクが高い」、値動きが穏やかな資産は「リスクが低い」と表現します。",
+      "market_context": "「地政学リスク」「金利リスク」のように、「〜リスク」という形で、何が値動きの要因になりうるかを示す言葉として頻繁に使われます。",
+      "related_lesson_ids": [
+        "risk_and_return"
+      ],
+      "related_theme_ids": [
+        "risk_on_off"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "return",
+      "term": "リターン",
+      "reading": "",
+      "category": "investment_basics",
+      "short_definition": "投資から得られる収益",
+      "beginner_explanation": "リターンとは、投資したお金がどれだけ増えた（または減った）かを示す言葉です。一般に、期待できるリターンが高い資産ほど、値動き（リスク）も大きくなる傾向があるとされます。",
+      "market_context": "「年率リターン」のように、一定期間あたりの変化率で語られることが多い言葉です。",
+      "related_lesson_ids": [
+        "risk_and_return"
+      ],
+      "related_theme_ids": [
+        "long_term_investing"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "volatility",
+      "term": "ボラティリティ",
+      "reading": "",
+      "category": "investment_basics",
+      "short_definition": "値動きの激しさ",
+      "beginner_explanation": "ボラティリティとは、価格が短期間でどれだけ大きく上下するかを表す言葉です。ボラティリティが高い資産は、短期間で大きく値上がり・値下がりする可能性がある、という意味になります。",
+      "market_context": "「VIX（恐怖指数）」は、株式市場のボラティリティに対する市場の予想を数値化した代表的な指標です。",
+      "related_lesson_ids": [
+        "crypto_risks",
+        "risk_and_return"
+      ],
+      "related_theme_ids": [
+        "risk_on_off"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": [
+        "変動率"
+      ]
+    },
+    {
+      "id": "inflation",
+      "term": "インフレ",
+      "reading": "",
+      "category": "economic_terms",
+      "short_definition": "モノの値段が全体的に上がっていくこと",
+      "beginner_explanation": "インフレとは、モノやサービスの価格が全体として持続的に上昇していく現象です。同じ金額で買えるモノの量が少しずつ減っていく、というイメージです。",
+      "market_context": "インフレが強まると中央銀行が金利を引き上げて対応する局面が過去に繰り返し見られており、株式や為替のニュースとセットで語られることが多い言葉です。",
+      "related_lesson_ids": [
+        "what_is_inflation"
+      ],
+      "related_theme_ids": [
+        "inflation",
+        "interest_rates"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "deflation",
+      "term": "デフレ",
+      "reading": "",
+      "category": "economic_terms",
+      "short_definition": "モノの値段が全体的に下がっていくこと",
+      "beginner_explanation": "デフレとは、インフレの逆で、モノやサービスの価格が全体として持続的に下落していく現象です。一見よいことに思えますが、企業の売上や賃金の伸び悩みと合わさって経済活動全体が縮小する要因になることもあります。",
+      "market_context": "「デフレ脱却」という表現は、物価が上がりにくい状態から抜け出すことを目指す政策文脈でよく使われます。",
+      "related_lesson_ids": [
+        "what_is_inflation"
+      ],
+      "related_theme_ids": [
+        "inflation"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "interest_rate",
+      "term": "金利",
+      "reading": "",
+      "category": "economic_terms",
+      "short_definition": "お金を借りる・貸すときのコスト",
+      "beginner_explanation": "金利とは、お金を借りるときに支払う、または貸すときに受け取るコスト（対価）の割合です。中央銀行が決める「政策金利」を起点に、住宅ローンや預金金利など様々な金利に波及していきます。",
+      "market_context": "金利が上がると株式には逆風となりやすく、下がると追い風となりやすい傾向が過去に見られましたが、局面によって受け止め方は変わります。",
+      "related_lesson_ids": [
+        "what_is_interest_rate"
+      ],
+      "related_theme_ids": [
+        "interest_rates"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "bonds"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "real_interest_rate",
+      "term": "実質金利",
+      "reading": "",
+      "category": "economic_terms",
+      "short_definition": "インフレの影響を差し引いた本当の金利",
+      "beginner_explanation": "実質金利とは、表面上の金利（名目金利）から、インフレ率を差し引いたものです。名目金利が同じでも、インフレが強いときは実質金利が低くなり、お金の価値の目減りが大きいことを意味します。",
+      "market_context": "「実質金利が低下すると金が買われやすい」というように、金（ゴールド）のような配当を生まない資産の魅力を語る際によく登場します。",
+      "related_lesson_ids": [],
+      "related_theme_ids": [
+        "interest_rates",
+        "gold_safe_haven"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "gold"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "central_bank",
+      "term": "中央銀行",
+      "reading": "",
+      "category": "economic_terms",
+      "short_definition": "国のお金の量や金利を管理する機関",
+      "beginner_explanation": "中央銀行とは、一国の金融政策を担う機関です。日本では日本銀行、米国ではFRB（連邦準備制度理事会）が該当し、物価と経済の安定を目的に政策金利を調整します。",
+      "market_context": "「FRBが利上げ/利下げを決定した」というニュースは、金利・為替・株式市場に幅広く影響することが多く、市場が特に注目するニュースの一つです。",
+      "related_lesson_ids": [
+        "what_is_central_bank"
+      ],
+      "related_theme_ids": [
+        "central_banks"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": [
+        "FRB",
+        "日銀",
+        "日本銀行"
+      ]
+    },
+    {
+      "id": "monetary_easing",
+      "term": "金融緩和",
+      "reading": "",
+      "category": "economic_terms",
+      "short_definition": "中央銀行がお金の流れを良くする政策",
+      "beginner_explanation": "金融緩和とは、中央銀行が金利を引き下げたり、市場にお金を供給したりして、お金が借りやすく・使われやすくなるようにする政策です。景気を下支えする目的で行われます。",
+      "market_context": "金融緩和は株式や金への追い風となりやすい一方、危機対応の「緊急利下げ」では発表直後に株価が下落した例もあり、単純な図式では説明できない局面もあります。",
+      "related_lesson_ids": [
+        "central_bank_rate_moves_and_markets"
+      ],
+      "related_theme_ids": [
+        "central_banks"
+      ],
+      "related_event_ids": [
+        "fed_cut_start_2019",
+        "us_recovery_qe_2009"
+      ],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "monetary_tightening",
+      "term": "金融引き締め",
+      "reading": "",
+      "category": "economic_terms",
+      "short_definition": "中央銀行がお金の流れを抑える政策",
+      "beginner_explanation": "金融引き締めとは、中央銀行が金利を引き上げるなどして、お金が借りにくく・使われにくくなるようにする政策です。多くの場合、インフレを抑える目的で行われます。",
+      "market_context": "金融引き締めの局面では、長期金利の上昇や、金利に敏感なグロース株への逆風が意識されやすい傾向が過去に見られました。",
+      "related_lesson_ids": [
+        "central_bank_rate_moves_and_markets"
+      ],
+      "related_theme_ids": [
+        "central_banks",
+        "inflation"
+      ],
+      "related_event_ids": [
+        "fed_hike_start_2022"
+      ],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "business_cycle",
+      "term": "景気循環",
+      "reading": "",
+      "category": "economic_terms",
+      "short_definition": "経済は良くなったり悪くなったりを繰り返すという考え方",
+      "beginner_explanation": "景気循環とは、経済活動が「拡大」「後退」「不況」「回復」という局面を周期的に繰り返すという考え方です。今がどの局面にあるかを考える視点は、経済ニュースを読み解く手がかりになります。",
+      "market_context": "「リセッション（景気後退）入り」「景気の底打ち」といった表現は、景気循環のどの局面にいるかを議論する文脈で使われます。",
+      "related_lesson_ids": [
+        "business_cycle_basics"
+      ],
+      "related_theme_ids": [
+        "business_cycle"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "risk_on",
+      "term": "リスクオン",
+      "reading": "",
+      "category": "market_news",
+      "short_definition": "投資家がリスクを取りやすい状態",
+      "beginner_explanation": "リスクオンとは、投資家全体が積極的にリスクを取りにいく市場の雰囲気を指す言葉です。株式など値動きの大きい資産にお金が向かいやすくなる局面として語られます。",
+      "market_context": "「リスクオンの流れで株高・円安が進んだ」のように、複数の資産が同じ方向に動く局面を説明する際に使われます。",
+      "related_lesson_ids": [
+        "risk_and_return"
+      ],
+      "related_theme_ids": [
+        "risk_on_off"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "risk_off",
+      "term": "リスクオフ",
+      "reading": "",
+      "category": "market_news",
+      "short_definition": "投資家が安全性を重視しやすい状態",
+      "beginner_explanation": "リスクオフとは、投資家が慎重になり、値動きの大きい資産を避けて、より安全とされる資産にお金を移そうとする市場の雰囲気を指す言葉です。不安が高まる局面で起きやすいとされます。",
+      "market_context": "「リスクオフで円や金が買われた」のように、不確実性が高まった局面での資金の動きを説明する際に使われます。",
+      "related_lesson_ids": [
+        "risk_and_return"
+      ],
+      "related_theme_ids": [
+        "risk_on_off"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "liquidity",
+      "term": "流動性",
+      "reading": "",
+      "category": "market_news",
+      "short_definition": "お金に換えやすいかどうか",
+      "beginner_explanation": "流動性とは、資産をどれだけ早く・スムーズにお金に換えられるかを表す言葉です。すぐに売れる資産は「流動性が高い」、売りにくい資産は「流動性が低い」と表現します。",
+      "market_context": "「市場の流動性が低下した」というニュースは、買い手・売り手が少なくなり、価格が動きやすくなっている状態を示すことが多くあります。",
+      "related_lesson_ids": [
+        "what_is_financial_crisis"
+      ],
+      "related_theme_ids": [
+        "financial_crisis"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "liquidity_crisis",
+      "term": "流動性危機",
+      "reading": "",
+      "category": "market_news",
+      "short_definition": "お金の流れが急に止まってしまう状態",
+      "beginner_explanation": "流動性危機とは、金融機関や市場全体でお金の貸し借りが急に難しくなり、資金繰りに行き詰まる企業や機関が連鎖的に増えていく状態です。信用不安がきっかけで起こることが多いとされます。",
+      "market_context": "過去の事例では、政府・中央銀行が介入したかどうか、どれだけ速く動いたかによって、市場への波及の深さが大きく分かれてきました。",
+      "related_lesson_ids": [
+        "what_is_financial_crisis"
+      ],
+      "related_theme_ids": [
+        "financial_crisis"
+      ],
+      "related_event_ids": [
+        "lehman_shock_2008",
+        "ltcm_crisis_1998"
+      ],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "credit_anxiety",
+      "term": "信用不安",
+      "reading": "",
+      "category": "market_news",
+      "short_definition": "「お金がちゃんと返ってくるか」への不安",
+      "beginner_explanation": "信用不安とは、ある企業・銀行・国が「借りたお金をきちんと返せるのか」という不安が市場に広がっている状態です。不安が強まると、資金を貸し渋る動きが連鎖的に広がることがあります。",
+      "market_context": "「信用不安の高まりから金融株が売られた」のように、特定の業種・銘柄への不安が波及する文脈で使われます。",
+      "related_lesson_ids": [
+        "what_is_financial_crisis"
+      ],
+      "related_theme_ids": [
+        "financial_crisis"
+      ],
+      "related_event_ids": [
+        "svb_collapse_2023"
+      ],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "safe_asset",
+      "term": "安全資産",
+      "reading": "",
+      "category": "market_news",
+      "short_definition": "不安なときに資金が向かいやすいとされる資産",
+      "beginner_explanation": "安全資産とは、世の中が不安定なときに、投資家がお金を一時的に避難させる先として選ばれやすい資産のことです。金（ゴールド）や国債が代表例とされますが、常に一方向に動くわけではありません。",
+      "market_context": "地政学的な緊張が高まった局面で金が買われる傾向が過去に見られた一方、パンデミック初期のように株式と同時に売られた例外もあります。",
+      "related_lesson_ids": [
+        "what_is_gold"
+      ],
+      "related_theme_ids": [
+        "gold_safe_haven"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "gold",
+        "bonds"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "safe_haven",
+      "term": "セーフヘイブン",
+      "reading": "",
+      "category": "market_news",
+      "short_definition": "安全資産の英語での呼び方",
+      "beginner_explanation": "セーフヘイブン（safe haven）は「安全な避難先」という意味の英語で、日本語の「安全資産」「逃避先資産」とほぼ同じ意味で使われます。海外のニュース記事でよく見かける表現です。",
+      "market_context": "英語圏の市場解説では \"safe-haven demand\"（セーフヘイブン需要）のような形で、金や国債への資金流入を説明する際に使われます。",
+      "related_lesson_ids": [],
+      "related_theme_ids": [
+        "gold_safe_haven"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [
+        "gold"
+      ],
+      "aliases": [
+        "safe haven"
+      ]
+    },
+    {
+      "id": "priced_in",
+      "term": "織り込み",
+      "reading": "",
+      "category": "market_news",
+      "short_definition": "市場が前もって予想を価格に反映させておくこと",
+      "beginner_explanation": "「織り込む」とは、まだ正式発表されていない出来事について、市場参加者が「こうなるだろう」という予想をすでに価格に反映させておくことです。発表前に期待が織り込まれていた場合、発表直後にその通りの結果が出ても、値動きが小さかったり逆方向に動いたりすることがあります。",
+      "market_context": "「材料出尽くし」という表現は、好材料が事前に織り込まれ、実現した時点でかえって利益確定売りが出ることを指します。",
+      "related_lesson_ids": [],
+      "related_theme_ids": [
+        "risk_on_off"
+      ],
+      "related_event_ids": [
+        "bitcoin_etf_approval_2024"
+      ],
+      "related_asset_ids": [],
+      "aliases": [
+        "織り込む",
+        "材料出尽くし"
+      ]
+    },
+    {
+      "id": "blockchain",
+      "term": "ブロックチェーン",
+      "reading": "",
+      "category": "crypto_terms",
+      "short_definition": "取引の記録をみんなで分散して管理する技術",
+      "beginner_explanation": "ブロックチェーンとは、取引の記録を1つの管理者に集中させず、ネットワーク上の多数の参加者で分散して記録・検証する技術です。Bitcoinをはじめとするほとんどの暗号資産は、この技術を基盤にしています。",
+      "market_context": "「ブロックチェーン技術を活用した〜」という表現は、暗号資産に限らず、金融・物流など幅広い分野での応用文脈で使われることがあります。",
+      "related_lesson_ids": [
+        "what_is_bitcoin"
+      ],
+      "related_theme_ids": [
+        "crypto"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "bitcoin",
+      "term": "Bitcoin",
+      "reading": "",
+      "category": "crypto_terms",
+      "short_definition": "最初につくられた代表的な暗号資産",
+      "beginner_explanation": "Bitcoinは、中央管理者を持たない分散型のネットワーク上で発行・取引される最初の暗号資産です。発行上限が決められている点が特徴の一つとされ、暗号資産市場の中で時価総額が最も大きい存在です。",
+      "market_context": "2024年には米国でBitcoin価格に連動するETFが初めて承認され、証券口座からアクセスしやすくなったことが話題になりました。",
+      "related_lesson_ids": [
+        "what_is_bitcoin"
+      ],
+      "related_theme_ids": [
+        "crypto"
+      ],
+      "related_event_ids": [
+        "bitcoin_etf_approval_2024"
+      ],
+      "related_asset_ids": [
+        "bitcoin"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "ethereum",
+      "term": "Ethereum",
+      "reading": "",
+      "category": "crypto_terms",
+      "short_definition": "プログラムを動かせる暗号資産の基盤",
+      "beginner_explanation": "Ethereumは、暗号資産の送受金に加えて、スマートコントラクトと呼ばれるプログラムを実行できる分散型プラットフォームです。ETHはそのネットワーク上で使われる暗号資産です。",
+      "market_context": "Bitcoinが「価値の保存」を主目的とするのに対し、Ethereumは「プログラムが動く基盤」という異なる役割で語られることが多くあります。",
+      "related_lesson_ids": [
+        "what_is_ethereum"
+      ],
+      "related_theme_ids": [
+        "crypto"
+      ],
+      "related_event_ids": [
+        "ethereum_etf_approval_2024"
+      ],
+      "related_asset_ids": [
+        "ethereum"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "wallet",
+      "term": "ウォレット",
+      "reading": "",
+      "category": "crypto_terms",
+      "short_definition": "暗号資産を保管する財布のようなもの",
+      "beginner_explanation": "ウォレットとは、暗号資産を保管・管理するための仕組みです。取引所が管理する形式と、自分自身で管理する形式があり、管理方法によってリスクの性質が異なります。",
+      "market_context": "取引所の破綻事例では、利用者が自分のウォレットで資産を管理していなかったために資産を取り戻せなくなったケースが問題視されました。",
+      "related_lesson_ids": [
+        "crypto_risks"
+      ],
+      "related_theme_ids": [
+        "crypto"
+      ],
+      "related_event_ids": [
+        "ftx_collapse_2022"
+      ],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "token",
+      "term": "トークン",
+      "reading": "",
+      "category": "crypto_terms",
+      "short_definition": "ブロックチェーン上で発行されるデジタルな権利や資産の単位",
+      "beginner_explanation": "トークンとは、ブロックチェーン上で発行される、権利や価値を表すデジタルな単位のことです。暗号資産そのものを指す場合もあれば、特定のサービス内でのみ使える権利を表す場合もあります。",
+      "market_context": "「新しいトークンが発行された」というニュースは、新しい暗号資産やデジタル権利が市場に登場したことを意味します。",
+      "related_lesson_ids": [
+        "what_is_ethereum"
+      ],
+      "related_theme_ids": [
+        "crypto"
+      ],
+      "related_event_ids": [],
+      "related_asset_ids": [],
+      "aliases": []
+    },
+    {
+      "id": "stablecoin",
+      "term": "ステーブルコイン",
+      "reading": "",
+      "category": "crypto_terms",
+      "short_definition": "価格が安定するように設計された暗号資産",
+      "beginner_explanation": "ステーブルコインとは、米ドルなど特定の法定通貨に価値を連動させることを目指して設計された暗号資産です。通常の暗号資産と違い、価格が大きく変動しないことを目的としています。ただし、設計によっては連動が崩れることもあります。",
+      "market_context": "2022年には、アルゴリズム型ステーブルコインUSTが価値の連動を維持できなくなり、市場全体に不安が波及した事例がありました。",
+      "related_lesson_ids": [
+        "crypto_risks"
+      ],
+      "related_theme_ids": [
+        "crypto"
+      ],
+      "related_event_ids": [
+        "terra_luna_crash_2022"
+      ],
+      "related_asset_ids": [],
+      "aliases": []
+    }
+  ]
+}
