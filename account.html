@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<meta name="robots" content="noindex,follow">
+<title>アカウント ｜ Marketcast Lab</title>
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:var(--ink);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  header{
+    border-bottom:1px solid var(--line-rule);
+    padding:18px 5vw 16px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .brand{font-family:var(--display);font-size:22px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:28px;font-size:13px;letter-spacing:0.03em;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a{color:var(--ink-soft);}
+  nav a:hover{color:var(--ink);}
+
+  .page-wrap{max-width:480px;margin:64px auto 80px;padding:0 5vw;}
+  h1{font-family:var(--display);font-size:22px;font-weight:400;letter-spacing:0.04em;margin:0 0 32px;}
+
+  .account-section{
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+    padding:24px 28px;
+    margin-bottom:24px;
+  }
+  .account-section h2{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    margin:0 0 16px;
+    border-bottom:1px solid var(--line-rule);
+    padding-bottom:10px;
+  }
+  .account-row{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    font-size:14px;
+  }
+  .account-label{font-size:12px;color:var(--ink-soft);min-width:80px;}
+  #account-email{font-family:var(--mono);font-size:13px;word-break:break-all;}
+
+  #plan-loading{font-size:13px;color:var(--ink-soft);}
+  #plan-name{font-size:14px;}
+  #plan-period{font-size:12px;color:var(--ink-soft);margin-top:8px;}
+  #plan-cancel-notice{font-size:12px;color:var(--ink-soft);margin-top:6px;}
+  #plan-error{font-size:13px;color:#5a1a14;}
+
+  .auth-msg{font-size:13px;padding:10px 12px;border-radius:2px;margin-bottom:16px;}
+  .auth-msg--ok{background:#e8f0eb;color:#1a4a2e;border:1px solid #b0d4bc;}
+  .auth-msg--error{background:#f5eae8;color:#5a1a14;border:1px solid #d4b0ac;}
+
+  .logout-btn{
+    background:transparent;
+    color:var(--ink-soft);
+    border:1px solid var(--line-rule);
+    border-radius:2px;
+    padding:10px 20px;
+    font-family:var(--body);
+    font-size:13px;
+    letter-spacing:0.04em;
+    cursor:pointer;
+  }
+  .logout-btn:hover{border-color:var(--ink-soft);color:var(--ink);}
+  .logout-btn:disabled{opacity:0.5;cursor:not-allowed;}
+  a.logout-btn{display:inline-block;text-align:center;text-decoration:none;}
+  .plan-upgrade-note{font-size:12.5px;color:var(--ink-soft);margin:0 0 10px;line-height:1.8;}
+
+  footer{border-top:1px solid var(--line-rule);padding:20px 5vw;font-size:12px;color:var(--ink-soft);margin-top:auto;}
+
+  [hidden]{display:none !important;}
+  .membership-suspended-banner{margin:0 0 24px;padding:16px 20px;border:1px solid var(--line-rule);background:var(--paper-deep);font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+  /* ── 同意ゲート（Task40.3） ─────────────────────────── */
+  .consent-gate{border:1px solid var(--line-rule);background:#FBFAF7;border-radius:8px;
+                padding:20px 20px 22px;margin:8px 0 24px;max-width:64ch;}
+  .consent-gate-title{font-family:var(--display);font-size:18px;margin:0 0 12px;line-height:1.5;}
+  .consent-gate-lead{font-size:14px;line-height:1.9;margin:0 0 12px;color:var(--ink-soft);}
+  .consent-gate-facts{margin:0 0 12px 1.3em;padding:0;font-size:13.5px;line-height:1.85;color:var(--ink-soft);}
+  .consent-gate-facts li{margin-bottom:4px;}
+  .consent-gate-more{display:inline-flex;align-items:center;min-height:44px;font-size:13.5px;
+                     color:var(--equity);text-decoration:underline;text-underline-offset:2px;}
+  .consent-gate-check{display:flex;gap:11px;align-items:flex-start;margin-top:14px;
+                      padding:13px 14px;border:1px solid var(--line-rule);border-radius:8px;
+                      background:var(--paper);cursor:pointer;font-size:13.5px;line-height:1.85;}
+  .consent-gate-check input{margin-top:4px;width:20px;height:20px;flex:none;cursor:pointer;}
+  .consent-gate-check:focus-within{outline:2px solid var(--ink);outline-offset:2px;}
+  .consent-gate-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+                    margin-top:16px;padding:12px 24px;background:var(--ink);color:var(--paper);
+                    border:none;border-radius:2px;font-family:var(--body);font-size:14.5px;cursor:pointer;}
+  .consent-gate-btn:disabled{opacity:.45;cursor:not-allowed;}
+  .consent-gate-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+  .consent-gate-msg{font-size:13px;color:#8A3B2E;margin:12px 0 0;line-height:1.8;}
+  .consent-gate-note{font-size:12.5px;color:var(--ink-soft);margin:14px 0 0;line-height:1.85;}
+  /* ── Weekly メール配信設定（Task42） ────────────────── */
+  .weekly-pref-row{display:flex;align-items:flex-start;gap:11px;font-size:14px;cursor:pointer;min-height:44px;}
+  .weekly-pref-row input{margin-top:3px;width:20px;height:20px;flex:none;cursor:pointer;}
+  .weekly-pref-note{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0;line-height:1.85;}
+  .weekly-pref-status{font-size:12.5px;margin:10px 0 0;}
+  .weekly-pref-status.ok{color:#1a4a2e;}
+  .weekly-pref-status.error{color:#5a1a14;}
+  /* ── My Watch（Task43） ──────────────────────────── */
+  .my-watch-note{font-size:12.5px;color:var(--ink-soft);margin:0 0 14px;line-height:1.85;}
+  .my-watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .my-watch-chip{display:flex;align-items:center;gap:9px;font-size:13.5px;cursor:pointer;
+                 min-height:44px;padding:6px 4px;border-radius:2px;}
+  .my-watch-chip input{width:19px;height:19px;flex:none;cursor:pointer;}
+  .my-watch-status{font-size:12.5px;margin:12px 0 0;min-height:1.2em;}
+  .my-watch-status.ok{color:#1a4a2e;}
+  .my-watch-status.error{color:#5a1a14;}
+  @media(max-width:420px){ .my-watch-grid{grid-template-columns:1fr;} }
+  /* ── 受け取る情報のまとまり（Task45） ──────────────── */
+  .receive-head{margin:34px 0 0;padding:0 0 4px;}
+  .receive-head h2{font-family:var(--display);font-size:17px;margin:0 0 8px;line-height:1.5;}
+  .receive-head p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.9;max-width:64ch;}
+  .receive-head .rel{margin:10px 0 0;padding:11px 14px;border:1px solid var(--line-rule);
+                     background:var(--paper-deep);font-size:12.5px;line-height:1.9;max-width:64ch;}
+  .receive-head .rel b{color:var(--ink);}
+  .pref-link{display:inline-flex;align-items:center;min-height:44px;font-size:12.5px;
+             color:var(--equity);border-bottom:1px solid var(--line-rule);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+<script src="assets/js/analytics.js"></script>
+</head>
+<body data-auth-page="account">
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="account.html" data-auth-link>アカウント</a>
+  </nav>
+</header>
+
+<div class="page-wrap">
+  <h1>アカウント</h1>
+
+  <div id="membership-suspended-banner" class="membership-suspended-banner" hidden>
+    マーケットキャストの会員機能は現在提供を停止しています。公開コンテンツは引き続き閲覧できます。
+  </div>
+  <script>
+    if (window.MEMBERSHIP_SUSPENDED) {
+      document.getElementById('membership-suspended-banner').hidden = false;
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.MEMBERSHIP_SUSPENDED) {
+        document.querySelectorAll('[data-membership-gated]').forEach(function (el) { el.hidden = true; });
+      }
+    });
+  </script>
+
+  <p id="auth-message" class="auth-msg" hidden></p>
+
+  <!-- 外国第三者提供の同意ゲート（Task40.3）。現行同意が無い認証済み
+       ユーザーはここで止まり、会員機能ブロックは表示されない。 -->
+  <div id="consent-gate-slot"></div>
+
+  <div class="account-section" data-membership-gated>
+    <h2>登録情報</h2>
+    <div class="account-row">
+      <span class="account-label">メール</span>
+      <span id="account-email">読み込み中…</span>
+    </div>
+  </div>
+
+  <div class="account-section" data-membership-gated>
+    <h2>ご利用プラン</h2>
+    <p id="plan-loading">読み込み中…</p>
+    <div id="plan-name" hidden></div>
+    <div id="plan-period" hidden></div>
+    <p id="plan-cancel-notice" hidden></p>
+    <p id="plan-error" hidden></p>
+    <!-- 有料プラン利用者向け Customer Portal ボタン（JS で表示制御） -->
+    <div id="plan-actions" hidden style="margin-top:18px;">
+      <p id="portal-error" class="auth-msg auth-msg--error" hidden></p>
+      <button type="button" id="portal-btn" class="logout-btn">プランを管理する（解約・請求確認）</button>
+    </div>
+
+    <!-- 未契約・解約済みユーザー向け 料金ページ導線（JS で表示制御） -->
+    <div id="plan-upgrade" hidden style="margin-top:18px;">
+      <p id="plan-upgrade-note" class="plan-upgrade-note"></p>
+      <a id="plan-upgrade-link" class="logout-btn" href="pricing.html"></a>
+    </div>
+  </div>
+
+  <!-- Task45: Weekly / My Watch / Alert は「受け取る情報」という
+       ひとつのまとまりとして関係が分かるように並べる。機能は追加しない。 -->
+  <div class="receive-head" id="receive-head" hidden data-membership-gated>
+    <h2>Marketcastから受け取る情報</h2>
+    <p>受け取り方は、それぞれ独立して設定できます。すべてオフにしても、内容はWebでいつでもご覧いただけます。</p>
+    <div class="rel">
+      <b>Weekly</b>　毎週のまとめ。My Watchの設定にかかわらず届きます。<br>
+      <b>My Watch</b>　気になる資産の登録。Alertの絞り込みに使います。<br>
+      <b>Alert</b>　My Watchに登録した資産に関係する、重要な変化のお知らせ。
+    </div>
+  </div>
+
+  <div class="account-section" id="weekly-pref-section" hidden data-membership-gated>
+    <h2>Marketcast Weekly</h2>
+    <label class="weekly-pref-row" for="weekly-email-toggle">
+      <input type="checkbox" id="weekly-email-toggle">
+      <span>毎週のメール配信を受け取る</span>
+    </label>
+    <p class="weekly-pref-note">Marketcast Weeklyの本文はWeb上でいつでもご覧いただけます。メール配信は任意です。オフの場合でもWebでの閲覧に影響はありません。</p>
+    <p id="weekly-pref-status" class="weekly-pref-status" hidden></p>
+    <p class="weekly-pref-note"><a class="pref-link" href="weekly.html">これまでのWeeklyを読む</a></p>
+  </div>
+
+  <div class="account-section" id="my-watch-section" hidden data-membership-gated>
+    <h2>My Watch</h2>
+    <p class="my-watch-note">気になる資産を登録しておくと、Marketcast Alertで関連する変化があったときに受け取れます。保有数量や取得価格、損益などは記録しません。投資助言や推奨ではありません。</p>
+    <div class="my-watch-grid" id="my-watch-grid" aria-label="気になる資産を選択してください"></div>
+    <p id="my-watch-status" class="my-watch-status" aria-live="polite"></p>
+  </div>
+
+  <div class="account-section" id="alert-pref-section" hidden data-membership-gated>
+    <h2>Marketcast Alert</h2>
+    <label class="weekly-pref-row" for="alert-email-toggle">
+      <input type="checkbox" id="alert-email-toggle">
+      <span>Alertメールを受け取る</span>
+    </label>
+    <p class="weekly-pref-note">My Watchに登録した資産に関係する重要な市場変化があったときに、メールでお知らせします。毎日は届きません。Marketcast Weeklyのメール配信とは別の設定です。</p>
+    <p id="alert-watch-hint" class="my-watch-status error" hidden>My Watchで気になる資産を登録してください。登録がない間はAlertメールは届きません。</p>
+    <p id="alert-pref-status" class="weekly-pref-status" hidden></p>
+    <p class="weekly-pref-note"><a class="pref-link" href="alerts.html">これまでのAlertを見る</a></p>
+  </div>
+
+  <button type="button" id="logout-btn" class="logout-btn" data-membership-gated>ログアウト</button>
+</div>
+
+<footer>Marketcast Lab
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+<script type="module" src="assets/js/auth-pages.js"></script>
+<script type="module" src="assets/js/auth-common.js"></script>
+<script type="module">
+/**
+ * account.html — Customer Portal ボタン制御
+ * auth-pages.js のプラン表示とは独立して subscriptionState を取得し、
+ * paid / attention 状態のみポータルボタンを表示する。
+ */
+(async () => {
+  // Marketcast Pause Preflight: 会員機能停止中は Supabase に一切接続しない。
+  if (window.MEMBERSHIP_SUSPENDED) return;
+
+  const { getSubscriptionState } = await import('./assets/js/subscription-state.js');
+  const { openCustomerPortal } = await import('./assets/js/checkout.js');
+
+  const { state } = await getSubscriptionState();
+
+  // Task45: Weekly / My Watch / Alert のまとまりの見出し。
+  // 個別セクションと同じ paid 条件で出す（どれか1つでも出るなら見出しも出る）。
+  if (state === 'paid') {
+    const receiveHead = document.getElementById('receive-head');
+    if (receiveHead) receiveHead.hidden = false;
+  }
+
+  // Marketcast Weekly メール配信設定（paidのみ表示。Weekly自体がPremium機能のため）。
+  if (state === 'paid') {
+    (async () => {
+      const section = document.getElementById('weekly-pref-section');
+      const toggle = document.getElementById('weekly-email-toggle');
+      const statusEl = document.getElementById('weekly-pref-status');
+      if (!section || !toggle || !statusEl) return;
+
+      const { supabase } = await import('./assets/js/supabase-client.js');
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      const { data: profile } = await supabase
+        .from('user_profiles')
+        .select('weekly_email_enabled')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      toggle.checked = !!(profile && profile.weekly_email_enabled);
+      section.hidden = false;
+
+      toggle.addEventListener('change', async () => {
+        toggle.disabled = true;
+        statusEl.hidden = true;
+        const { error } = await supabase
+          .from('user_profiles')
+          .upsert(
+            { user_id: user.id, weekly_email_enabled: toggle.checked },
+            { onConflict: 'user_id' }
+          );
+        toggle.disabled = false;
+        statusEl.hidden = false;
+        if (error) {
+          statusEl.textContent = '設定を保存できませんでした。時間をおいて再度お試しください。';
+          statusEl.className = 'weekly-pref-status error';
+          toggle.checked = !toggle.checked;
+        } else {
+          statusEl.textContent = toggle.checked ? '設定を保存しました。' : '配信を停止しました。';
+          statusEl.className = 'weekly-pref-status ok';
+        }
+      });
+    })();
+  }
+
+  // My Watch（Task43）。paidのみ表示（Premium recurring valueの一部）。
+  // 資産の追加・削除はDB側のRLS（has_active_premium_entitlement）でも
+  // 強制されるため、この表示制御はUXのためであって唯一の防御ではない。
+  if (state === 'paid') {
+    (async () => {
+      const section = document.getElementById('my-watch-section');
+      const grid = document.getElementById('my-watch-grid');
+      const statusEl = document.getElementById('my-watch-status');
+      if (!section || !grid || !statusEl) return;
+
+      const WATCHABLE_ASSET_ORDER = [
+        'jp_stocks', 'us_stocks', 'mutual_funds', 'etf', 'gold',
+        'oil', 'bonds', 'fx', 'bitcoin', 'ethereum',
+      ];
+
+      const { supabase } = await import('./assets/js/supabase-client.js');
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      // 表示ラベルは data/assets.json を正とする（重複マッピングを増やさない）。
+      let labelById = {};
+      try {
+        const res = await fetch('data/assets.json', { cache: 'no-store' });
+        const json = await res.json();
+        labelById = Object.fromEntries((json.assets || []).map((a) => [a.id, a.label]));
+      } catch (_) { /* フォールバックでkeyそのままを表示 */ }
+
+      const { data: rows } = await supabase
+        .from('user_watch_assets')
+        .select('asset_key')
+        .eq('user_id', user.id);
+      const watched = new Set((rows || []).map((r) => r.asset_key));
+
+      grid.innerHTML = WATCHABLE_ASSET_ORDER.map((key) => {
+        const id = `watch-${key}`;
+        const label = labelById[key] || key;
+        return `<label class="my-watch-chip" for="${id}">
+          <input type="checkbox" id="${id}" data-asset-key="${key}" ${watched.has(key) ? 'checked' : ''}>
+          <span>${label}</span>
+        </label>`;
+      }).join('');
+      section.hidden = false;
+
+      try { if (typeof trackProductEvent === 'function') trackProductEvent('my_watch_view'); } catch (_) {}
+
+      grid.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
+        cb.addEventListener('change', async () => {
+          const assetKey = cb.dataset.assetKey;
+          cb.disabled = true;
+          statusEl.textContent = '';
+          statusEl.className = 'my-watch-status';
+
+          const { error } = cb.checked
+            ? await supabase.from('user_watch_assets').insert({ user_id: user.id, asset_key: assetKey })
+            : await supabase.from('user_watch_assets').delete()
+                .eq('user_id', user.id).eq('asset_key', assetKey);
+
+          cb.disabled = false;
+          if (error) {
+            statusEl.textContent = '設定を保存できませんでした。時間をおいて再度お試しください。';
+            statusEl.className = 'my-watch-status error';
+            cb.checked = !cb.checked;
+          } else {
+            statusEl.textContent = '保存しました。';
+            statusEl.className = 'my-watch-status ok';
+            if (cb.checked) watched.add(assetKey); else watched.delete(assetKey);
+            // Alert側の「My Watchが空です」案内をその場で同期する
+            window.__myWatchCount = watched.size;
+            if (typeof window.syncAlertWatchHint === 'function') {
+              window.syncAlertWatchHint(watched.size);
+            }
+            try { if (typeof trackProductEvent === 'function') trackProductEvent('my_watch_save'); } catch (_) {}
+          }
+        });
+      });
+
+      // Alertセクションが先に描画されている場合に備えて初期同期する
+      if (typeof window.syncAlertWatchHint === 'function') {
+        window.syncAlertWatchHint(watched.size);
+      }
+      window.__myWatchCount = watched.size;
+    })();
+  }
+
+  // Marketcast Alert メール配信設定（Task44）。paidのみ表示。
+  // Weekly の weekly_email_enabled とは完全に独立した設定。
+  // 実際の配信可否は server-side（send-alert-email）で
+  // entitlement × alert_email_enabled × My Watch交差 として判定される。
+  if (state === 'paid') {
+    (async () => {
+      const section = document.getElementById('alert-pref-section');
+      const toggle = document.getElementById('alert-email-toggle');
+      const statusEl = document.getElementById('alert-pref-status');
+      const hintEl = document.getElementById('alert-watch-hint');
+      if (!section || !toggle || !statusEl || !hintEl) return;
+
+      // My Watch が空のときだけ案内を出す。勝手にwatchを追加はしない。
+      window.syncAlertWatchHint = (count) => {
+        hintEl.hidden = !(toggle.checked && count === 0);
+      };
+
+      const { supabase } = await import('./assets/js/supabase-client.js');
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      const { data: profile } = await supabase
+        .from('user_profiles')
+        .select('alert_email_enabled')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      toggle.checked = !!(profile && profile.alert_email_enabled);
+      section.hidden = false;
+
+      const { count } = await supabase
+        .from('user_watch_assets')
+        .select('asset_key', { count: 'exact', head: true })
+        .eq('user_id', user.id);
+      let watchCount = typeof count === 'number' ? count : (window.__myWatchCount ?? 0);
+      window.syncAlertWatchHint(watchCount);
+
+      toggle.addEventListener('change', async () => {
+        toggle.disabled = true;
+        statusEl.hidden = true;
+        const { error } = await supabase
+          .from('user_profiles')
+          .upsert(
+            { user_id: user.id, alert_email_enabled: toggle.checked },
+            { onConflict: 'user_id' }
+          );
+        toggle.disabled = false;
+        statusEl.hidden = false;
+        if (error) {
+          statusEl.textContent = '設定を保存できませんでした。時間をおいて再度お試しください。';
+          statusEl.className = 'weekly-pref-status error';
+          toggle.checked = !toggle.checked;
+        } else {
+          statusEl.textContent = toggle.checked ? '設定を保存しました。' : '配信を停止しました。';
+          statusEl.className = 'weekly-pref-status ok';
+          try { if (typeof trackProductEvent === 'function') trackProductEvent('alert_preference_change'); } catch (_) {}
+        }
+        window.syncAlertWatchHint(window.__myWatchCount ?? watchCount);
+      });
+    })();
+  }
+
+  // 契約中（paid / attention）: Customer Portal を表示し、購入CTAは出さない
+  if (state === 'paid' || state === 'attention') {
+    const actionsEl = document.getElementById('plan-actions');
+    const portalBtn = document.getElementById('portal-btn');
+    const portalErr = document.getElementById('portal-error');
+    if (!actionsEl || !portalBtn) return;
+    actionsEl.hidden = false;
+    portalBtn.addEventListener('click', () => {
+      try { if (typeof trackProductEvent === 'function') trackProductEvent('customer_portal_open'); } catch (_) {}
+      openCustomerPortal(portalBtn, portalErr);
+    });
+    return;
+  }
+
+  // 未契約（free）／解約済み（inactive）: 料金ページへの導線を表示する。
+  // account.html では checkout を実装せず、既存の pricing.html のフローへ集約する。
+  const UPGRADE_COPY = {
+    free: {
+      note: 'プレミアムプランでは、複数の出来事を横断して資産ごとの特徴を整理した「資産影響分析」をご覧いただけます。',
+      label: 'プレミアムプランを見る',
+    },
+    inactive: {
+      note: 'プレミアムプランは解約済みです。再度プレミアム機能を利用する場合は、月額980円で再契約できます。',
+      label: 'プレミアムプランを再契約する',
+    },
+  };
+  const copy = UPGRADE_COPY[state];
+  if (!copy) return;
+
+  const upgradeEl = document.getElementById('plan-upgrade');
+  const noteEl = document.getElementById('plan-upgrade-note');
+  const linkEl = document.getElementById('plan-upgrade-link');
+  if (!upgradeEl || !noteEl || !linkEl) return;
+
+  noteEl.textContent = copy.note;
+  linkEl.textContent = copy.label;
+  upgradeEl.hidden = false;
+})();
+</script>
+</body>
+</html>

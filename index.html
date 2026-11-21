@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<link rel="canonical" href="https://marketcast.oneshorejp.com/index.html">
+<meta name="description" content="世界の出来事が各資産にとって追い風か逆風かを整理し、過去の似た局面で実際に価格がどう動いたかを公式データで確認できる金融リテラシーサービスです。投資助言・売買推奨は行いません。">
+<title>Marketcast Lab ｜ マクロイベントと資産価格の観測所</title>
+<meta property="og:title" content="Marketcast Lab ｜ マクロイベントと資産価格の観測所">
+<meta property="og:description" content="世界の出来事が各資産にとって追い風か逆風かを整理し、過去の似た局面で実際に価格がどう動いたかを公式データで確認できる金融リテラシーサービスです。投資助言・売買推奨は行いません。">
+<meta property="og:url" content="https://marketcast.oneshorejp.com/index.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="Marketcast Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marketcast Lab ｜ マクロイベントと資産価格の観測所">
+<meta name="twitter:description" content="世界の出来事が各資産にとって追い風か逆風かを整理し、過去の似た局面で実際に価格がどう動いたかを公式データで確認できる金融リテラシーサービスです。投資助言・売買推奨は行いません。">
+<meta name="twitter:image" content="https://marketcast.oneshorejp.com/assets/img/og-default.png">
+<meta name="robots" content="max-image-preview:large">
+<script type="application/ld+json" id="ld-organization">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ONE SHORE合同会社",
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "email": "contact@oneshorejp.com",
+    "contactType": "customer support"
+  }]
+}
+</script>
+<script type="application/ld+json" id="ld-website">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Marketcast Lab",
+  "url": "https://marketcast.oneshorejp.com/",
+  "image": "https://marketcast.oneshorejp.com/assets/img/og-default.png",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ONE SHORE合同会社"
+  }
+}
+</script>
+<style>
+  :root{
+    --paper: #F2EFE8;
+    --paper-deep: #E8E3D7;
+    --ink: #1C1A16;
+    --ink-soft: #5B564B;
+    --line: #D4CDBF;
+    --line-rule: #cfc7b6;
+    --oil: #B5703A;       /* 原油 = 琥珀 */
+    --gold: #9C7A2E;      /* 金 = 真鍮 */
+    --equity: #38456B;    /* 株式 = インディゴ */
+    --crypto: #6B4A8A;    /* 暗号資産 = 紫 */
+    --accent-up: #8A3B2E;
+    --accent-down: #2F5D4E;
+    --display: "Shippori Mincho", "Noto Serif JP", serif;
+    --body: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    --mono: "JetBrains Mono", "Courier New", monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  :target{scroll-margin-top:24px;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* ===== Header ===== */
+  header{
+    border-bottom:1px solid var(--line-rule);
+    padding:18px 5vw 16px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .brand{
+    font-family:var(--display);
+    font-size:22px;
+    letter-spacing:0.04em;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .brand .mark{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink-soft);
+    border:1px solid var(--line-rule);
+    padding:2px 6px;
+    border-radius:2px;
+    letter-spacing:0.08em;
+  }
+  nav{
+    display:flex;
+    gap:28px;
+    font-size:13px;
+    letter-spacing:0.03em;
+    color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+
+  /* ===== Disclaimer strip ===== */
+  .strip{
+    background:var(--ink);
+    color:var(--paper);
+    font-size:12px;
+    letter-spacing:0.02em;
+    padding:8px 5vw;
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+  .strip b{font-weight:600;}
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:64px 5vw 40px;
+    border-bottom:1px solid var(--line-rule);
+    position:relative;
+  }
+  .hero-eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-size:clamp(28px, 4.2vw, 52px);
+    line-height:1.35;
+    margin:0 0 22px;
+    max-width:18ch;
+  }
+  .hero p.lead{
+    max-width:46ch;
+    color:var(--ink-soft);
+    font-size:15px;
+    margin-bottom:22px;
+  }
+  .hero-cta{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:2px;
+    padding:12px 22px;
+    font-size:13.5px;
+    letter-spacing:0.03em;
+  }
+  .hero-cta:hover{opacity:0.85;text-decoration:none;}
+  /* 初心者向け最優先導線。既存CTAより上に置き、視覚的にも先に目に入るようにする。
+     モバイルでは幅いっぱいにし、タップ領域を十分に取る。 */
+  .hero-cta-beginner{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--paper-deep);
+    border:1px solid var(--ink-soft);
+    border-left:4px solid var(--ink);
+    border-radius:2px;
+    padding:15px 18px;
+    margin-bottom:16px;
+    max-width:520px;
+    min-height:56px;
+  }
+  .hero-cta-beginner:hover{background:#e2dcce;}
+  .hero-cta-beginner .bc-main{font-size:14.5px;color:var(--ink);line-height:1.6;}
+  .hero-cta-beginner .bc-sub{display:block;font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.6;}
+  .hero-cta-beginner .bc-arrow{font-size:15px;color:var(--ink-soft);flex:none;}
+  .hero-cta-secondary{display:inline-block;margin-left:14px;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);}
+  .hero-cta-secondary:hover{color:var(--ink);}
+  .hero-links{margin-top:16px;display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);}
+  .hero-links a:hover{color:var(--ink);}
+
+  /* ===== Current Situation Navigator ===== */
+  .csn-section{
+    padding:40px 5vw 0;
+    border-bottom:1px solid var(--line-rule);
+    padding-bottom:36px;
+  }
+  .csn-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:6px;
+  }
+  .csn-head h2{
+    font-family:var(--display);
+    font-size:20px;
+    margin:0;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .csn-lead{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:0 0 24px;
+    max-width:56ch;
+    line-height:1.7;
+  }
+  .csn-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+  }
+  .csn-card{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    border:1px solid var(--line-rule);
+    background:var(--paper);
+    padding:16px 16px 14px;
+    cursor:pointer;
+    text-decoration:none;
+    color:var(--ink);
+    transition:border-color 0.15s, background 0.15s;
+    position:relative;
+  }
+  .csn-card:hover{
+    border-color:var(--ink-soft);
+    background:var(--paper-deep);
+  }
+  .csn-card-symbol{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .csn-card-symbol .sym-dot{
+    width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0;
+  }
+  .csn-card h3{
+    font-family:var(--display);
+    font-size:14.5px;
+    margin:0;
+    line-height:1.45;
+  }
+  .csn-card p{
+    font-size:12px;
+    color:var(--ink-soft);
+    margin:0;
+    line-height:1.6;
+    flex:1;
+  }
+  .csn-card-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1px dashed var(--line-rule);
+    padding-top:8px;
+    margin-top:2px;
+    font-family:var(--mono);
+    font-size:10px;
+    color:var(--ink-soft);
+  }
+  /* 参考値・信頼性：低スタイル */
+  .csn-card.few{opacity:0.65;}
+  .csn-card.sparse{opacity:0.45;}
+  .csn-badge{
+    font-family:var(--mono);
+    font-size:9.5px;
+    border:1px solid var(--line-rule);
+    padding:1px 6px;
+    border-radius:2px;
+    color:var(--ink-soft);
+    letter-spacing:0.04em;
+  }
+  .csn-note{
+    margin-top:16px;
+    font-family:var(--mono);
+    font-size:10.5px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    opacity:0.8;
+  }
+  @media(max-width:900px){
+    .csn-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:540px){
+    .csn-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== Section heading ===== */
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    padding:0 5vw;
+    margin-top:54px;
+    margin-bottom:18px;
+  }
+  .flow-mobile{display:none;}
+  .fm-step{background:var(--paper);border:1px solid var(--line-rule);border-radius:8px;padding:11px 13px;flex:1 1 100%;}
+  .fm-step b{display:block;font-size:13.5px;}
+  .fm-step span{display:block;font-size:12px;color:var(--ink-soft);line-height:1.7;}
+  .fm-origin{background:var(--ink);color:var(--paper);}
+  .fm-origin span{color:var(--paper);opacity:0.75;}
+  .fm-row{display:flex;flex-direction:column;gap:8px;}
+  .fm-arrow{height:16px;margin:3px 0 3px 18px;border-left:2px solid var(--line-rule);}
+  .fm-dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;}
+  .fm-dot.oil{background:var(--oil);} .fm-dot.gold{background:var(--gold);}
+  .fm-dot.equity{background:var(--equity);} .fm-dot.crypto{background:var(--crypto);}
+  .fm-note{font-size:12px;color:var(--ink-soft);line-height:1.8;padding-top:10px;}
+  @media(max-width:680px){
+    .flow-mobile{display:flex;flex-direction:column;gap:0;}
+    svg.flow{display:none;}
+  }
+  .section-lead{padding:10px 5vw 0;font-size:13.5px;color:var(--ink-soft);max-width:70ch;line-height:1.85;}
+  .section-head h2{
+    font-family:var(--display);
+    font-size:20px;
+    margin:0;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .section-head .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink-soft);
+    letter-spacing:0.1em;
+  }
+  .section-head .more{
+    font-size:12px;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--line-rule);
+  }
+
+  /* ===== Event ticker cards ===== */
+  .events{
+    padding:0 5vw;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line-rule);
+    border:1px solid var(--line-rule);
+  }
+  .event-card{
+    background:var(--paper);
+    padding:22px 22px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-height:210px;
+  }
+  .event-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .dot{width:6px;height:6px;border-radius:50%;display:inline-block;}
+  .dot.geo{background:var(--oil);}
+  .dot.macro{background:var(--equity);}
+  .dot.liquidity{background:var(--crypto);}
+  .event-card h3{
+    font-family:var(--display);
+    font-size:17px;
+    margin:0;
+    line-height:1.5;
+  }
+  .event-card p{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:0;
+    flex:1;
+  }
+  .event-meta{
+    display:flex;
+    justify-content:space-between;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line-rule);
+    padding-top:10px;
+  }
+  .heat{
+    display:flex;
+    gap:3px;
+    align-items:center;
+  }
+  .heat span{
+    width:4px;height:12px;background:var(--line-rule);display:inline-block;
+  }
+  .heat span.on{background:var(--accent-up);}
+
+  /* ===== Propagation diagram (signature element) ===== */
+  .signature{
+    padding:0 5vw;
+  }
+  .signature-frame{
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    padding:30px 30px 10px;
+  }
+  .signature-frame .cap{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+    display:flex;
+    justify-content:space-between;
+  }
+  svg.flow text{
+    font-family:var(--body);
+  }
+  svg.flow .node-label{
+    font-size:12.5px;
+    fill:var(--ink);
+  }
+  svg.flow .node-sub{
+    font-size:10px;
+    fill:var(--ink-soft);
+    font-family:var(--mono);
+  }
+  svg.flow .edge{
+    fill:none;
+    stroke:var(--line-rule);
+    stroke-width:1.4;
+  }
+  svg.flow .edge.active{
+    stroke:var(--accent-up);
+    stroke-width:1.8;
+  }
+  svg.flow .node-box{
+    fill:var(--paper);
+    stroke:var(--line-rule);
+    stroke-width:1;
+  }
+  svg.flow .node-box.origin{stroke:var(--oil); stroke-width:1.6;}
+  svg.flow .node-box.oil{stroke:var(--oil);}
+  svg.flow .node-box.equity{stroke:var(--equity);}
+  svg.flow .node-box.gold{stroke:var(--gold);}
+  svg.flow .node-box.crypto{stroke:var(--crypto);}
+
+  /* ===== Asset class table ===== */
+  .asset-table{
+    padding:0 5vw 10px;
+  }
+  table.assets{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+  }
+  table.assets th{
+    text-align:left;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    border-bottom:1px solid var(--line-rule);
+    padding:10px 14px;
+  }
+  table.assets td{
+    padding:14px 14px;
+    border-bottom:1px solid var(--line-rule);
+    vertical-align:top;
+  }
+  table.assets tr:hover td{
+    background:rgba(0,0,0,0.02);
+  }
+
+  /* ===== Live market snapshot (data-driven) ===== */
+  .snapshot{
+    padding:0 5vw;
+  }
+  .snapshot-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line-rule);
+    border:1px solid var(--line-rule);
+  }
+  .snap-cell{
+    background:var(--paper);
+    padding:18px 18px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    min-height:118px;
+  }
+  .snap-cell .snap-label{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+  .snap-cell .snap-swatch{width:8px;height:8px;border-radius:2px;display:inline-block;flex-shrink:0;}
+  .snap-swatch.oil{background:var(--oil);}
+  .snap-swatch.gold{background:var(--gold);}
+  .snap-swatch.equity{background:var(--equity);}
+  .snap-swatch.crypto{background:var(--crypto);}
+  .snap-swatch.fx{background:#4A6B5A;}
+  .snap-swatch.bond{background:#7A6A55;}
+  .snap-cell .snap-pct{
+    font-family:var(--mono);
+    font-size:24px;
+    line-height:1;
+    letter-spacing:-0.01em;
+  }
+  .snap-pct.up{color:var(--accent-up);}
+  .snap-pct.down{color:var(--accent-down);}
+  .snap-pct.flat{color:var(--ink-soft);}
+  .snap-cell .snap-arrow{font-size:13px;}
+  .snap-cell .snap-meta{
+    font-family:var(--mono);
+    font-size:10px;
+    color:var(--ink-soft);
+    margin-top:auto;
+    display:flex;
+    justify-content:space-between;
+  }
+  .snap-cell.restricted .snap-meta::after{
+    content:"派生値のみ";
+    color:var(--ink-soft);
+  }
+  .snap-note{
+    font-family:var(--mono);
+    font-size:10.5px;
+    color:var(--ink-soft);
+    padding:10px 0 0;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .asset-name{
+    font-family:var(--display);
+    font-size:14.5px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .swatch{width:9px;height:9px;border-radius:2px;display:inline-block;}
+  .swatch.oil{background:var(--oil);}
+  .swatch.gold{background:var(--gold);}
+  .swatch.equity{background:var(--equity);}
+  .swatch.crypto{background:var(--crypto);}
+  .tendency{
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  .conf{
+    font-family:var(--mono);
+    font-size:11px;
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    margin-top:70px;
+    border-top:1px solid var(--line-rule);
+    padding:30px 5vw 50px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  footer .disclaimer{
+    max-width:60ch;
+    line-height:1.8;
+  }
+
+  @media (max-width:880px){
+    .events{grid-template-columns:1fr;}
+    table.assets{font-size:12px;}
+    .snapshot-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+  /* Task46.2: 静的発見リンク（JS未実行でも個別ページへ辿れるようにする） */
+  .disc-nav{padding:14px 5vw 0;max-width:920px;}
+  .disc-nav h3{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 8px;font-weight:400;}
+  .disc-list{display:flex;flex-wrap:wrap;gap:7px 14px;}
+  .disc-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);display:inline-flex;align-items:center;min-height:36px;}
+  .disc-link:hover{color:var(--ink);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<div class="strip">
+  <b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。
+</div>
+
+<header>
+  <div class="brand">Marketcast Lab <span class="mark">観測所</span></div>
+  <nav>
+    <a href="#events">イベント観測</a>
+    <a href="#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">世界の出来事から、投資を理解する力を養う</div>
+  <h1>投資を、わかるところから。<br>自分で考えられるところまで。</h1>
+  <p class="lead">
+    <b>Marketcast Lab</b>とは、世界の出来事が各資産にとって追い風の材料なのか逆風の材料なのかを整理し、過去の似た局面で実際に価格がどう動いたかを公式データで確認できる金融リテラシーサービスです。「投資はよく分からない」というところから始められます。投資助言や売買推奨ではなく、自分自身で判断するための材料と視点を提供します。
+  </p>
+  <a class="hero-cta-beginner" href="beginner.html">
+    <span class="bc-main">投資がこわい・難しいと感じる方へ<span class="bc-sub">「投資とは何か」から、順番に確認できます（無料・約8分）</span></span>
+    <span class="bc-arrow">→</span>
+  </a>
+  <a class="hero-cta" href="diagnosis.html">まずは診断して、自分に合った学習テーマを見る →</a>
+  <a class="hero-cta-secondary" href="dashboard.html">診断済みの方は学習テーマを見る →</a>
+  <div class="hero-links">
+    <a href="learning_path.html">学習ロードマップ</a>
+    <a href="lessons.html">Lesson一覧</a>
+    <a href="glossary.html">用語解説</a>
+  </div>
+</section>
+
+<!-- ===== Current Situation Navigator ===== -->
+<section class="csn-section">
+  <div class="csn-head">
+    <h2><span class="eyebrow" style="font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:0.1em;">今の状況から探す</span> 類似局面を選ぶ</h2>
+  </div>
+  <p class="csn-lead">今、市場や経済で起きていることに近い状況を選んでください。過去に似た局面で各資産がどう動いたかを確認できます。</p>
+  <div class="csn-grid">
+
+    <!-- 供給ショック：5件・通常 -->
+    <a class="csn-card" href="current_context.html?cause=supply_shock">
+      <div class="csn-card-symbol">
+        <span class="sym-dot" style="background:var(--oil);"></span>エネルギー・資源
+      </div>
+      <h3>原油・エネルギーが急騰している</h3>
+      <p>産油国の減産・地政学リスクなどで原油価格やエネルギー供給への不安が高まっている局面。</p>
+      <div class="csn-card-footer">
+        <span data-csn-count="supply_shock">過去の類似局面 5件</span>
+        <span>供給ショック →</span>
+      </div>
+    </a>
+
+    <!-- 銀行危機：5件・通常 -->
+    <a class="csn-card" href="current_context.html?cause=bank_crisis">
+      <div class="csn-card-symbol">
+        <span class="sym-dot" style="background:var(--equity);"></span>金融システム
+      </div>
+      <h3>銀行・金融機関に不安がある</h3>
+      <p>銀行破綻・信用収縮・流動性危機が意識され、金融システムへの不信感が高まっている局面。</p>
+      <div class="csn-card-footer">
+        <span data-csn-count="bank_crisis">過去の類似局面 5件</span>
+      </div>
+    </a>
+
+    <!-- 戦争：6件・通常 -->
+    <a class="csn-card" href="current_context.html?cause=war">
+      <div class="csn-card-symbol">
+        <span class="sym-dot" style="background:var(--ink-soft);"></span>地政学
+      </div>
+      <h3>地政学的緊張・軍事衝突が起きている</h3>
+      <p>大規模な軍事衝突・戦争が勃発・拡大し、グローバルなリスク回避が意識される局面。</p>
+      <div class="csn-card-footer">
+        <span data-csn-count="war">過去の類似局面 6件</span>
+        <span>戦争・軍事衝突 →</span>
+      </div>
+    </a>
+
+    <!-- 中東地政学：7件・通常 -->
+    <a class="csn-card" href="current_context.html?cause=middle_east">
+      <div class="csn-card-symbol">
+        <span class="sym-dot" style="background:var(--oil);"></span>地政学・中東
+      </div>
+      <h3>中東情勢が不安定になっている</h3>
+      <p>中東の産油国周辺で軍事的緊張・攻撃・内戦などが発生し、供給不安と地政学リスクが重なる局面。</p>
+      <div class="csn-card-footer">
+        <span data-csn-count="middle_east">過去の類似局面 7件</span>
+        <span>中東地政学 →</span>
+      </div>
+    </a>
+
+    <!-- 金融引き締め：2件・参考値 -->
+    <a class="csn-card few" href="current_context.html?cause=monetary_tightening">
+      <div class="csn-card-symbol">
+        <span class="sym-dot" style="background:var(--equity);"></span>金融政策
+      </div>
+      <h3>中央銀行が利上げ・引き締めをしている</h3>
+      <p>インフレ対応などで中央銀行が利上げサイクルに入り、金利上昇・流動性縮小が意識される局面。</p>
+      <div class="csn-card-footer">
+        <span data-csn-count="monetary_tightening">過去の類似局面 2件</span>
+        <span class="csn-badge">参考値</span>
+      </div>
+    </a>
+
+    <!-- 金融緩和：2件・参考値 -->
+    <a class="csn-card few" href="current_context.html?cause=monetary_easing">
+      <div class="csn-card-symbol">
+        <span class="sym-dot" style="background:var(--equity);"></span>金融政策
+      </div>
+      <h3>中央銀行が利下げ・緩和をしている</h3>
+      <p>景気支援や危機対応のため中央銀行が利下げに転じ、金融緩和が株式・債券に影響を与える局面。</p>
+      <div class="csn-card-footer">
+        <span data-csn-count="monetary_easing">過去の類似局面 2件</span>
+        <span class="csn-badge">参考値</span>
+      </div>
+    </a>
+
+    <!-- 緊急利下げ：1件・参考値 -->
+    <a class="csn-card few" href="current_context.html?cause=emergency_cut">
+      <div class="csn-card-symbol">
+        <span class="sym-dot" style="background:var(--equity);"></span>金融政策
+      </div>
+      <h3>中央銀行が緊急の大幅利下げをした</h3>
+      <p>経済危機・市場の急変に対応し、中央銀行が通常の会合外で緊急の大幅利下げを実施した局面。</p>
+      <div class="csn-card-footer">
+        <span data-csn-count="emergency_cut">過去の類似局面 1件</span>
+        <span class="csn-badge">参考値</span>
+      </div>
+    </a>
+
+    <!-- パンデミック：1件・参考値 -->
+    <a class="csn-card few" href="current_context.html?cause=pandemic">
+      <div class="csn-card-symbol">
+        <span class="sym-dot" style="background:var(--gold);"></span>公衆衛生
+      </div>
+      <h3>感染症・パンデミックが経済を直撃している</h3>
+      <p>世界的な感染症の拡大が経済活動を停滞させ、需要急減と供給寸断が同時に発生する局面。</p>
+      <div class="csn-card-footer">
+        <span data-csn-count="pandemic">過去の類似局面 1件</span>
+        <span class="csn-badge">参考値</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<div class="disc-nav">
+  <h3>収録している出来事（一覧）</h3>
+  <div class="disc-list">
+  <!-- AUTOGEN:events:start -->
+    <a class="disc-link" href="event_detail.html?id=saudi_attack_2019">サウジアラビア石油施設への攻撃</a>
+    <a class="disc-link" href="event_detail.html?id=us_iran_tension_2020">米イラン緊張の高まり（ソレイマニ司令官殺害）</a>
+    <a class="disc-link" href="event_detail.html?id=russia_ukraine_2022">ロシアによるウクライナ侵攻</a>
+    <a class="disc-link" href="event_detail.html?id=hamas_israel_2023">ハマス・イスラエル衝突</a>
+    <a class="disc-link" href="event_detail.html?id=iran_israel_strike_2024">イランによるイスラエルへの攻撃</a>
+    <a class="disc-link" href="event_detail.html?id=fed_cut_start_2019">FRB利下げ開始（2008年以来初）</a>
+    <a class="disc-link" href="event_detail.html?id=fed_emergency_cut_2020">FRB緊急利下げ（ゼロ金利復帰）</a>
+    <a class="disc-link" href="event_detail.html?id=fed_hike_start_2022">FRB利上げ開始（インフレ対応）</a>
+    <a class="disc-link" href="event_detail.html?id=fed_hike_final_2023">FRB利上げサイクル最終（22年ぶり高水準）</a>
+    <a class="disc-link" href="event_detail.html?id=fed_cut_start_2024">FRB利下げ開始（50bpの大幅利下げ）</a>
+    <a class="disc-link" href="event_detail.html?id=oil_shock_1973">第一次石油危機（OAPEC石油禁輸）</a>
+    <a class="disc-link" href="event_detail.html?id=gulf_war_1990">イラクのクウェート侵攻（湾岸戦争）</a>
+    <a class="disc-link" href="event_detail.html?id=libya_civil_war_2011">リビア内戦による原油供給停止</a>
+    <a class="disc-link" href="event_detail.html?id=ltcm_crisis_1998">LTCMショック（ヘッジファンド救済）</a>
+    <a class="disc-link" href="event_detail.html?id=lehman_shock_2008">リーマンブラザーズ破綻（リーマンショック）</a>
+    <a class="disc-link" href="event_detail.html?id=svb_collapse_2023">シリコンバレー銀行（SVB）破綻</a>
+    <a class="disc-link" href="event_detail.html?id=eurozone_crisis_2010">欧州債務危機（ギリシャJunk格下げ）</a>
+    <a class="disc-link" href="event_detail.html?id=asian_crisis_1997">アジア通貨危機（タイバーツ切り下げ）</a>
+    <a class="disc-link" href="event_detail.html?id=covid_shock_2020">COVID-19ショック（世界的パンデミック勃発）</a>
+    <a class="disc-link" href="event_detail.html?id=dotcom_bubble_burst_2000">ITバブル崩壊（ドットコムバブル）</a>
+    <a class="disc-link" href="event_detail.html?id=us_recovery_qe_2009">世界金融危機後の株式市場底打ちと量的緩和相場</a>
+    <a class="disc-link" href="event_detail.html?id=terra_luna_crash_2022">Terra/Lunaショック（アルゴリズム型ステーブルコインの崩壊）</a>
+    <a class="disc-link" href="event_detail.html?id=ftx_collapse_2022">FTX破綻</a>
+    <a class="disc-link" href="event_detail.html?id=bitcoin_etf_approval_2024">米国スポットBitcoin ETF承認</a>
+    <a class="disc-link" href="event_detail.html?id=ethereum_etf_approval_2024">米国スポットEthereum ETF承認</a>
+  <!-- AUTOGEN:events:end -->
+  </div>
+</div>
+
+<div class="section-head" id="events">
+  <h2>Marketcastで学べる主なテーマ</h2>
+  <a class="more" href="themes.html">テーマ一覧を見る →</a>
+</div>
+
+<div class="section-lead">ニュースの背景にある仕組みを、テーマごとに確認できます。過去の局面で各資産が実際にどう動いたかもあわせて見られます。</div>
+
+<div class="events">
+  <a class="event-card" href="theme_detail.html?id=central_banks" style="text-decoration:none;">
+    <span class="event-tag"><span class="dot macro"></span>金融政策</span>
+    <h3>金融政策を学ぶ</h3>
+    <p>中央銀行の利上げ・利下げが、金利や為替を通じて資産にどう伝わるかを見ていきます。</p>
+    <div class="event-meta"><span>テーマ解説と関連する過去の局面を見る →</span></div>
+  </a>
+  <a class="event-card" href="theme_detail.html?id=war_geopolitics" style="text-decoration:none;">
+    <span class="event-tag"><span class="dot geo"></span>地政学</span>
+    <h3>地政学を学ぶ</h3>
+    <p>戦争や紛争が市場に伝わるとき、何が効いて何が効かないのかを過去の局面から確認します。</p>
+    <div class="event-meta"><span>テーマ解説と関連する過去の局面を見る →</span></div>
+  </a>
+  <a class="event-card" href="theme_detail.html?id=inflation" style="text-decoration:none;">
+    <span class="event-tag"><span class="dot macro"></span>インフレ</span>
+    <h3>インフレを学ぶ</h3>
+    <p>物価の上昇が、金利・企業のコスト・家計の購買力にどう影響するかを整理します。</p>
+    <div class="event-meta"><span>テーマ解説と関連する過去の局面を見る →</span></div>
+  </a>
+  <a class="event-card" href="theme_detail.html?id=business_cycle" style="text-decoration:none;">
+    <span class="event-tag"><span class="dot liquidity"></span>景気循環</span>
+    <h3>景気循環を学ぶ</h3>
+    <p>景気が良くなる・悪くなるという流れを、指標の組み合わせから読み解きます。</p>
+    <div class="event-meta"><span>テーマ解説と関連する過去の局面を見る →</span></div>
+  </a>
+  <a class="event-card" href="theme_detail.html?id=oil_resources" style="text-decoration:none;">
+    <span class="event-tag"><span class="dot geo"></span>原油・資源</span>
+    <h3>原油・資源を学ぶ</h3>
+    <p>原油価格が動く条件と、それが業界のコストや収益にどう伝わるかを見ます。</p>
+    <div class="event-meta"><span>テーマ解説と関連する過去の局面を見る →</span></div>
+  </a>
+  <a class="event-card" href="theme_detail.html?id=fx" style="text-decoration:none;">
+    <span class="event-tag"><span class="dot liquidity"></span>為替</span>
+    <h3>為替を学ぶ</h3>
+    <p>円安・円高が、輸出企業や輸入コストにどう効くのかを確認します。</p>
+    <div class="event-meta"><span>テーマ解説と関連する過去の局面を見る →</span></div>
+  </a>
+</div>
+
+<div class="section-head">
+  <h2>ニュースは、どの資産に伝わるのか</h2>
+  <span class="more">中東リスク上昇 → 各資産への伝わり方</span>
+</div>
+
+<div class="signature">
+  <div class="signature-frame">
+    <div class="cap">
+      <span>FLOW MAP ｜ イベントの起点から資産クラスへ</span>
+      <span>過去6回の類似局面の平均的伝播パターン</span>
+    </div>
+    <div class="flow-mobile" aria-hidden="false">
+      <div class="fm-step fm-origin"><b>中東情勢の緊張</b><span>起点となる出来事</span></div>
+      <div class="fm-arrow" aria-hidden="true"></div>
+      <div class="fm-row">
+        <div class="fm-step"><span class="fm-dot oil"></span><b>原油先物</b><span>上昇しやすい</span></div>
+        <div class="fm-step"><span class="fm-dot gold"></span><b>金</b><span>逃避先として意識される</span></div>
+        <div class="fm-step"><span class="fm-dot equity"></span><b>海運コスト</b><span>供給網への影響</span></div>
+      </div>
+      <div class="fm-arrow" aria-hidden="true"></div>
+      <div class="fm-row">
+        <div class="fm-step"><span class="fm-dot equity"></span><b>エネルギー株</b><span>追い風になりやすい</span></div>
+        <div class="fm-step"><span class="fm-dot equity"></span><b>空運・物流株</b><span>逆風になりやすい</span></div>
+        <div class="fm-step"><span class="fm-dot crypto"></span><b>暗号資産</b><span>反応は局面で一致しない</span></div>
+      </div>
+      <div class="fm-note">これは過去の局面から見た一般的な伝わり方であり、将来の値動きを示すものではありません。</div>
+    </div>
+    <svg class="flow" viewBox="0 0 920 360" width="100%" height="360">
+      <!-- edges -->
+      <path class="edge active" d="M150,180 C230,180 230,90 320,90"/>
+      <path class="edge active" d="M150,180 C230,180 230,270 320,270"/>
+      <path class="edge active" d="M150,180 C230,180 230,180 320,180"/>
+
+      <path class="edge active" d="M470,90 C540,90 540,60 610,60"/>
+
+      <path class="edge active" d="M470,180 C540,180 540,210 610,210"/>
+
+      <path class="edge" d="M470,270 C540,270 540,300 610,300"/>
+
+      <!-- origin -->
+      <rect class="node-box origin" x="20" y="150" width="130" height="60" rx="3"/>
+      <text class="node-label" x="35" y="178">中東情勢の緊張</text>
+      <text class="node-sub" x="35" y="196">起点イベント</text>
+
+      <!-- first ring -->
+      <rect class="node-box oil" x="320" y="60" width="150" height="60" rx="3"/>
+      <text class="node-label" x="335" y="88">原油先物 上昇</text>
+      <text class="node-sub" x="335" y="106">WTI / Brent</text>
+
+      <rect class="node-box" x="320" y="150" width="150" height="60" rx="3"/>
+      <text class="node-label" x="335" y="178">海運コスト上昇</text>
+      <text class="node-sub" x="335" y="196">供給網への影響</text>
+
+      <rect class="node-box gold" x="320" y="240" width="150" height="60" rx="3"/>
+      <text class="node-label" x="335" y="268">金（ゴールド）</text>
+      <text class="node-sub" x="335" y="286">逃避先として需要</text>
+
+      <!-- second ring -->
+      <rect class="node-box equity" x="610" y="30" width="150" height="60" rx="3"/>
+      <text class="node-label" x="625" y="58">エネルギー株</text>
+      <text class="node-sub" x="625" y="76">上昇しやすい傾向</text>
+
+      <rect class="node-box equity" x="610" y="180" width="150" height="60" rx="3"/>
+      <text class="node-label" x="625" y="208">空運・物流株</text>
+      <text class="node-sub" x="625" y="226">下落しやすい傾向</text>
+
+      <rect class="node-box crypto" x="610" y="270" width="150" height="60" rx="3"/>
+      <text class="node-label" x="625" y="298">仮想通貨</text>
+      <text class="node-sub" x="625" y="316">反応は局面で不一致</text>
+
+      <!-- third ring -->
+      <rect class="node-box" x="850" y="10" width="60" height="60" rx="3" style="display:none"/>
+
+    </svg>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;padding:4px 0 18px;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);">
+      <span><span class="swatch oil" style="display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;"></span>原油</span>
+      <span><span class="swatch gold" style="display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;"></span>金</span>
+      <span><span class="swatch equity" style="display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;"></span>株式</span>
+      <span><span class="swatch crypto" style="display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;"></span>暗号資産</span>
+      <span style="margin-left:auto;">線が濃い経路 = 過去局面での再現性が高い</span>
+    </div>
+  </div>
+</div>
+
+<div class="disc-nav">
+  <h3>資産図鑑（一覧）</h3>
+  <div class="disc-list">
+  <!-- AUTOGEN:assets:start -->
+    <a class="disc-link" href="asset_detail.html?id=jp_stocks">日本株</a>
+    <a class="disc-link" href="asset_detail.html?id=us_stocks">米国株</a>
+    <a class="disc-link" href="asset_detail.html?id=mutual_funds">投資信託</a>
+    <a class="disc-link" href="asset_detail.html?id=etf">ETF</a>
+    <a class="disc-link" href="asset_detail.html?id=gold">金</a>
+    <a class="disc-link" href="asset_detail.html?id=oil">原油</a>
+    <a class="disc-link" href="asset_detail.html?id=bonds">債券</a>
+    <a class="disc-link" href="asset_detail.html?id=fx">為替（ドル円）</a>
+    <a class="disc-link" href="asset_detail.html?id=bitcoin">Bitcoin</a>
+    <a class="disc-link" href="asset_detail.html?id=ethereum">Ethereum</a>
+    <a class="disc-link" href="asset_detail.html?id=vix">VIX（恐怖指数）</a>
+    <a class="disc-link" href="asset_detail.html?id=sp500">S&amp;P 500</a>
+    <a class="disc-link" href="asset_detail.html?id=nikkei225">日経平均株価</a>
+  <!-- AUTOGEN:assets:end -->
+  </div>
+</div>
+
+<div class="section-head" id="assets">
+  <h2>資産ごとの、これまでの傾向</h2>
+  <a class="more" href="glossary.html">用語解説を見る →</a>
+</div>
+
+<div class="asset-table">
+  <table class="assets">
+    <thead>
+      <tr>
+        <th>資産クラス</th>
+        <th>不況・リスクオフ局面での過去の傾向</th>
+        <th>再現性</th>
+        <th>参考事例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="asset-name"><span class="swatch gold"></span>金地金</span></td>
+        <td class="tendency">資金の逃避先として買われやすい傾向が複数局面で確認されている。</td>
+        <td class="conf">高（8/10局面）</td>
+        <td class="tendency">2008年, 2020年など</td>
+      </tr>
+      <tr>
+        <td><span class="asset-name"><span class="swatch oil"></span>原油先物</span></td>
+        <td class="tendency">供給不安型の危機では上昇、需要減退型の不況では下落と反応が分かれる。</td>
+        <td class="conf">中（要因による）</td>
+        <td class="tendency">2022年, 2014年など</td>
+      </tr>
+      <tr>
+        <td><span class="asset-name"><span class="swatch equity"></span>内需・生活必需品株</span></td>
+        <td class="tendency">不況下でも需要が落ちにくい業種として相対的に底堅い傾向。</td>
+        <td class="conf">中〜高</td>
+        <td class="tendency">2008年, 2020年など</td>
+      </tr>
+      <tr>
+        <td><span class="asset-name"><span class="swatch crypto"></span>暗号資産</span></td>
+        <td class="tendency">局面によりリスク資産として売られる場合と、逃避先とされる場合が混在。</td>
+        <td class="conf">低（歴史が浅い）</td>
+        <td class="tendency">2020年, 2022年</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <div class="disclaimer">
+    本サイトに掲載する情報は、公開されているニュース・経済指標・過去の市場データに基づく一般的・教育的な情報提供を目的としており、特定の銘柄・商品の購入や売却を推奨するものではありません。投資に関する最終判断は、利用者ご自身の責任で行ってください。当サイトは金融商品取引法上の投資助言を行うものではありません。
+  </div>
+  <div>
+    Marketcast Lab
+  </div>
+
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+
+
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>

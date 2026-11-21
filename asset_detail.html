@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<meta name="description" content="日本株・米国株・投資信託・ETF・金・原油・債券・為替・暗号資産などについて、その資産の特徴と値動きの背景、何を見るとよいのかを初心者向けに解説します。">
+<title>資産図鑑 ｜ Marketcast Lab</title>
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+  header{border-bottom:1px solid var(--line-rule);padding:18px 5vw 16px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-family:var(--display);font-size:20px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:24px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+
+  .breadcrumb{padding:20px 5vw 0;font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+  .breadcrumb a{border-bottom:1px solid var(--line-rule);}
+
+  .as-head{padding:14px 5vw 26px;border-bottom:1px solid var(--line-rule);}
+  .as-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .as-head h1{font-family:var(--display);font-size:clamp(24px,3.2vw,34px);margin:0;max-width:28ch;}
+
+  .section-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);padding:32px 5vw 0;}
+
+  .why{padding:14px 5vw 0;}
+  .why p{max-width:64ch;font-size:14px;line-height:1.9;margin:0;}
+
+  .insight{padding:14px 5vw 0;}
+  .insight-box{border:1px solid var(--line-rule);border-left:3px solid var(--ink-soft);background:var(--paper-deep);padding:18px;max-width:64ch;}
+  .insight-box p{margin:0;font-size:14px;line-height:1.9;}
+  .insight-box ul{margin:0;padding-left:20px;}
+  .insight-box li{font-size:14px;line-height:1.9;margin-bottom:6px;}
+  .insight-box li:last-child{margin-bottom:0;}
+
+  .related{padding:14px 5vw 0;}
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;}
+  .card{
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+    padding:16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  a.card:hover{border-color:var(--ink-soft);}
+  .card-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);}
+  .card h3{font-family:var(--display);font-size:15px;font-weight:400;margin:0;}
+  .card p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.7;}
+  .card-date{font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+
+  .empty-note{padding:14px 5vw 0;font-size:13px;color:var(--ink-soft);}
+
+  /* 資産影響分析（Premium）への導線 */
+  .aia-entry{padding:12px 5vw 0;}
+  .aia-box{border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:2px;padding:16px 18px;max-width:600px;}
+  .aia-box p{font-size:13.5px;color:var(--ink-soft);margin:0 0 12px;line-height:1.8;max-width:60ch;}
+  .aia-box p b{color:var(--ink);font-weight:600;}
+  .aia-link{display:inline-block;font-size:13px;border:1px solid var(--line-rule);padding:7px 14px;border-radius:2px;color:var(--ink-soft);}
+  .aia-link:hover{border-color:var(--ink-soft);color:var(--ink);}
+  .aia-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;color:var(--ink-soft);margin-top:10px;}
+
+  /* 学習進捗UI */
+  .lp-wrap{padding:14px 5vw 0;}
+  .lp-box{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:2px;padding:14px 18px;max-width:64ch;}
+  .lp-box.is-done{border-color:var(--ink-soft);}
+  .lp-msg{font-size:13px;color:var(--ink-soft);}
+  .lp-box.is-done .lp-msg{color:var(--ink);}
+  .lp-btn{background:var(--ink);color:var(--paper);border:none;border-radius:2px;padding:8px 16px;font-family:var(--body);font-size:12.5px;letter-spacing:0.03em;cursor:pointer;}
+  .lp-btn:hover{opacity:0.85;}
+  .lp-btn:disabled{opacity:0.5;cursor:not-allowed;}
+  .lp-box.is-done .lp-btn{background:transparent;color:var(--ink-soft);border:1px solid var(--line-rule);}
+  .lp-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);}
+  .lp-link:hover{color:var(--ink);}
+
+  /* お気に入りUI */
+  .fav-box{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:2px;padding:14px 18px;max-width:64ch;margin-top:10px;}
+  .fav-box.is-done{border-color:var(--ink-soft);}
+  .fav-msg{font-size:13px;color:var(--ink-soft);}
+  .fav-box.is-done .fav-msg{color:var(--ink);}
+  .fav-btn{background:var(--ink);color:var(--paper);border:none;border-radius:2px;padding:8px 16px;font-family:var(--body);font-size:12.5px;letter-spacing:0.03em;cursor:pointer;}
+  .fav-btn:hover{opacity:0.85;}
+  .fav-btn:disabled{opacity:0.5;cursor:not-allowed;}
+  .fav-box.is-done .fav-btn{background:transparent;color:var(--ink-soft);border:1px solid var(--line-rule);}
+  .fav-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);}
+  .fav-link:hover{color:var(--ink);}
+
+  /* 用語解説リンク（半自動） */
+  .glossary-link{border-bottom:1px dotted var(--ink-soft);text-decoration:none;color:inherit;}
+  .glossary-link:hover{border-bottom-style:solid;color:var(--ink);}
+
+  /* 公式参照リンク（reference-only 資産用。数値は転載しない） */
+  .ref-entry{padding:14px 5vw 0;}
+  .ref-box{border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:2px;padding:16px 18px;max-width:600px;}
+  .ref-box p{font-size:13.5px;color:var(--ink-soft);margin:0 0 12px;line-height:1.8;max-width:60ch;}
+  .ref-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;border:1px solid var(--line-rule);padding:7px 14px;border-radius:2px;color:var(--ink-soft);}
+  .ref-link:hover{border-color:var(--ink-soft);color:var(--ink);}
+  .ref-link .ext-mark{font-family:var(--mono);font-size:11px;}
+  .ref-caption{font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;color:var(--ink-soft);margin-top:10px;}
+
+
+  footer{margin-top:50px;border-top:1px solid var(--line-rule);padding:28px 5vw 50px;font-size:12px;color:var(--ink-soft);}
+  footer .back{display:inline-block;margin-bottom:12px;border-bottom:1px solid var(--line-rule);}
+  footer .disclaimer{max-width:64ch;line-height:1.8;}
+  .empty{padding:40px 5vw;color:var(--ink-soft);font-size:14px;}
+
+  .local-subnav{padding:10px 5vw;border-bottom:1px solid var(--line-rule);display:flex;gap:20px;font-size:12px;color:var(--ink-soft);}
+  .local-subnav a{color:var(--ink-soft);}
+  .local-subnav a:hover{color:var(--ink);}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+  /* 静的 semantic shell（JS未実行時のみ表示される） */
+  .static-shell h1{font-family:var(--display);font-size:clamp(22px,4vw,30px);line-height:1.5;margin:30px 0 14px;}
+  .static-shell p{font-size:14px;line-height:1.9;color:var(--ink-soft);max-width:62ch;margin:0 0 12px;}
+  .static-shell b{color:var(--ink);}
+  .static-shell a{border-bottom:1px solid var(--line-rule);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+<script src="assets/js/analytics.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="local-subnav"><a href="dashboard.html">&larr; Dashboardへ戻る</a></div>
+
+<div id="content">
+  <!-- 静的 semantic shell。JS が content.innerHTML で置き換える。 -->
+  <div class="static-shell">
+    <h1>資産図鑑</h1>
+    <p>資産図鑑は、日本株・米国株・投資信託・ETF・金・原油・債券・為替・暗号資産などについて、その資産がどのようなもので、値動きの背景に何があるのか、何を見るとよいのかを初心者向けに解説する Marketcast Lab の無料コンテンツです。</p>
+    <p>価格や騰落率の提供を目的としたページではありません。特定の銘柄・商品を推奨するものではなく、投資助言でもありません。</p>
+    <p>資産の情報を読み込み中です…</p>
+  </div>
+</div>
+
+<script>
+(async function(){
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id') ?? '';
+  const content = document.getElementById('content');
+
+  const ASSET_CATEGORY_LABEL = {
+    equity: '株式',
+    fund: 'ファンド',
+    commodity: 'コモディティ',
+    fixed_income: '債券',
+    currency: '為替',
+    crypto: '暗号資産',
+    index: '指数',
+  };
+
+  let assetsData, themesData, eventsData, impactsData;
+  try {
+    const [r1, r2, r3, r4] = await Promise.all([
+      fetch('data/assets.json', { cache: 'no-store' }),
+      fetch('data/themes.json', { cache: 'no-store' }),
+      fetch('data/events.json', { cache: 'no-store' }),
+      fetch('data/asset_impacts.json', { cache: 'no-store' }),
+    ]);
+    assetsData = await r1.json();
+    themesData = await r2.json();
+    eventsData = await r3.json();
+    impactsData = await r4.json();
+  } catch (e) {
+    content.innerHTML = '<div class="empty">データを読み込めませんでした。</div>';
+    return;
+  }
+
+  const asset = (assetsData.assets || []).find(a => a.id === id);
+  if (!asset) {
+    content.innerHTML = '<div class="empty">コンテンツが見つかりません。</div>';
+    return;
+  }
+
+  document.title = asset.label + ' ｜ Marketcast Lab';
+  /* reference-only 資産のページが読まれているかを計測する。
+     official_reference を持つ資産＝reference-only 分類のみ対象。 */
+  if (asset.official_reference) {
+    try { if (typeof trackProductEvent === 'function') trackProductEvent('reference_asset_open', { asset_key: asset.id }); } catch (_) {}
+  }
+
+  const themeIds = asset.related_theme_ids || [];
+  const themeById = new Map((themesData.themes || []).map(t => [t.id, t]));
+  const relatedThemes = themeIds.map(tid => themeById.get(tid)).filter(Boolean);
+
+  // 関連イベント: このassetのrelated_theme_idsと、event.theme_idsが1件でも重なるイベント
+  const relatedEvents = (eventsData.events || []).filter(e =>
+    (e.theme_ids || []).some(tid => themeIds.includes(tid))
+  );
+
+  const driversHtml = (asset.main_drivers || []).length
+    ? `<ul>${asset.main_drivers.map(d => `<li>${d}</li>`).join('')}</ul>`
+    : '';
+
+  const themeCardsHtml = relatedThemes.length
+    ? relatedThemes.map(t => `
+        <a class="card" href="theme_detail.html?id=${encodeURIComponent(t.id)}">
+          <div class="card-eyebrow">THEME</div>
+          <h3>${t.label}</h3>
+          <p>${t.intro_summary || ''}</p>
+        </a>`).join('')
+    : '';
+
+  // 資産影響分析（Premium）の導線。分析本文はここには出さず、
+  // 「何を横断して整理しているか」の規模だけを示して asset_impact.html へ渡す。
+  // 根拠イベントIDは protected 側へ移したため、横断件数は public metadata の
+  // 事前集計（asset_summaries）から取得する。
+  const impactRows = (impactsData.asset_impacts || []).filter(i => i.asset_id === asset.id);
+  const impactSummary = (impactsData.asset_summaries || {})[asset.id] || {};
+  const impactHorizonCount = new Set(impactRows.map(i => i.horizon)).size;
+  const impactThemeCount = impactSummary.themes ?? new Set(impactRows.map(i => i.theme_id)).size;
+  const impactEventCount = impactSummary.events ?? 0;
+
+  // Premium導線。件数の羅列ではなく「どの問いに答えるページか」を先に示す。
+  // 例示するテーマ名は public metadata から取得しており、分析本文は含まない。
+  const impactThemeLabels = [...new Set(impactRows.map(i => i.theme_id))]
+    .map(tid => (themeById.get(tid) || {}).label || tid);
+  const sampleThemes = impactThemeLabels.slice(0, 3).join('・');
+
+  const impactEntryHtml = impactRows.length
+    ? `<div class="aia-entry">
+         <div class="aia-box">
+           <p>このページは${asset.label}という資産そのものの解説です。これに対し「資産影響分析」では、${sampleThemes}${impactThemeLabels.length > 3 ? 'など' : ''}の局面をまたいで${asset.label}を見比べ、<b>個別の出来事を1件ずつ読むだけでは見えにくい共通点と例外</b>を時間軸ごとに整理しています。</p>
+           <a class="aia-link" href="asset_impact.html?id=${encodeURIComponent(asset.id)}">${asset.label}は過去の局面でどう動いたかを見る →</a>
+           <div class="aia-meta">${impactThemeCount}テーマ・${impactEventCount}件の出来事を横断 ／ ${impactHorizonCount}つの時間軸</div>
+         </div>
+       </div>`
+    : '<div class="empty-note">この資産の横断分析はまだ登録されていません。</div>';
+
+  // 公式参照リンク（reference-only 資産用）。数値・チャートは Marketcast Lab 側に
+  // 保持しないため、最新の値は外部の公式サイトへ誘導する。
+  // 外部サイトであることが一目でわかるよう明示し、リンク先の値を保証しているように
+  // 見せない（Task34）。
+  const ref = asset.official_reference;
+  const refEntryHtml = ref
+    ? `<div class="ref-entry">
+         <div class="ref-box">
+           <p>${asset.label}の現在値・チャートは、Marketcast Lab では保持していません。最新の情報は公式サイトでご確認ください。</p>
+           <a class="ref-link" href="${ref.url}" target="_blank" rel="noopener noreferrer">
+             ${ref.label}で現在の情報を確認 <span class="ext-mark">↗ 外部サイト</span>
+           </a>
+           <div class="ref-caption">Marketcast Lab はリンク先の内容を保証するものではありません。</div>
+         </div>
+       </div>`
+    : '';
+
+  const eventCardsHtml = relatedEvents.length
+    ? relatedEvents.map(e => `
+        <a class="card" href="event_detail.html?id=${encodeURIComponent(e.id)}">
+          <div class="card-date">${e.date || ''}</div>
+          <h3>${e.name}</h3>
+          <p>${e.beginner_summary || e.description || ''}</p>
+        </a>`).join('')
+    : '';
+
+  content.innerHTML = `
+    <div class="breadcrumb"><a href="index.html">トップ</a> ／ ${asset.label}</div>
+
+    <div class="as-head">
+      <div class="as-eyebrow">${ASSET_CATEGORY_LABEL[asset.category] || 'ASSET'}</div>
+      <h1>${asset.label}</h1>
+    </div>
+
+    <div class="section-label">資産概要</div>
+    <div class="why"><p>${asset.overview || ''}</p></div>
+
+    <div class="section-label">なぜ投資対象になるのか</div>
+    <div class="why"><p>${asset.why_investors_watch || ''}</p></div>
+
+    <div class="section-label">価格を動かす主な要因</div>
+    <div class="insight">${driversHtml ? `<div class="insight-box">${driversHtml}</div>` : '<div class="empty-note">情報はまだ登録されていません。</div>'}</div>
+
+    <div class="section-label">注意点</div>
+    <div class="insight">${asset.risk_notes ? `<div class="insight-box"><p>${asset.risk_notes}</p></div>` : '<div class="empty-note">情報はまだ登録されていません。</div>'}</div>
+
+    ${refEntryHtml ? `<div class="section-label">公式で確認</div>${refEntryHtml}` : ''}
+
+    <div class="section-label">関連テーマ</div>
+    ${themeCardsHtml
+      ? `<div class="related"><div class="card-grid">${themeCardsHtml}</div></div>`
+      : `<div class="empty-note">関連するテーマはまだ登録されていません。</div>`}
+
+    <div class="section-label">関連イベント</div>
+    ${eventCardsHtml
+      ? `<div class="related"><div class="card-grid">${eventCardsHtml}</div></div>`
+      : `<div class="empty-note">関連する歴史イベントはまだ登録されていません。</div>`}
+
+    <div class="section-label">複数の出来事を横断して見る</div>
+    ${impactEntryHtml}
+
+    <div class="section-label">学習の記録</div>
+    <div class="lp-wrap"><div id="learning-progress"></div></div>
+    <div class="lp-wrap"><div id="favorite-toggle"></div></div>
+
+    <footer>
+      <a class="back" href="dashboard.html">← Dashboardへ戻る</a>
+      <a class="back" href="glossary.html">わからない用語がある場合 → 用語解説を見る</a>
+      <div class="disclaimer">本ページは情報提供・教育目的のコンテンツです。個別の投資助言ではありません。現在価格・騰落率は表示していません。過去の傾向の記録であり、将来の値動きを示すものでも、特定の取引・銘柄・商品を推奨するものでもありません。</div>
+    
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+  `;
+
+  // Task46.4: 構造化データ（BreadcrumbList / CreativeWork）を実データから注入する。
+  // 上の可視breadcrumbと同じ階層をそのまま使う。datePublishedは実在しないため入れない。
+  (function injectStructuredData(){
+    const BASE = 'https://marketcast.oneshorejp.com';
+    const url = `${BASE}/asset_detail.html?id=${encodeURIComponent(asset.id)}`;
+    const breadcrumb = {
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Marketcast Lab', item: `${BASE}/index.html` },
+        { '@type': 'ListItem', position: 2, name: asset.label, item: url },
+      ],
+    };
+    const creativeWork = {
+      '@context': 'https://schema.org', '@type': 'CreativeWork',
+      name: asset.label, description: asset.overview || '', inLanguage: 'ja', url,
+      publisher: { '@type': 'Organization', name: 'Marketcast Lab', url: `${BASE}/` },
+    };
+    for (const [ldId, data] of [['ld-breadcrumb', breadcrumb], ['ld-creativework', creativeWork]]) {
+      let tag = document.getElementById(ldId);
+      if (!tag) {
+        tag = document.createElement('script');
+        tag.type = 'application/ld+json';
+        tag.id = ldId;
+        document.head.appendChild(tag);
+      }
+      tag.textContent = JSON.stringify(data);
+    }
+  })();
+
+  /* 公式参照リンクのクリック計測。innerHTML 生成後にリスナを付ける。
+     外部遷移中でも keepalive で送信される。 */
+  const refLink = content.querySelector('.ref-link');
+  if (refLink && asset.official_reference) {
+    refLink.addEventListener('click', () => {
+      try { if (typeof trackProductEvent === 'function') trackProductEvent('official_reference_click', { asset_key: asset.id }); } catch (_) {}
+    });
+  }
+})();
+</script>
+
+<script type="module">
+// 学習進捗UI・お気に入りUI・用語解説の半自動リンク化。
+// メインの描画（非同期IIFE）完了後に #learning-progress が現れるのを待ってから実行する
+// （同じinnerHTMLテンプレートの一部のため、出現＝本文全体の描画完了を意味する）。
+import { renderProgressControl } from './assets/js/learning-progress.js';
+import { renderFavoriteControl } from './assets/js/favorites.js';
+import { autoLinkGlossaryTerms } from './assets/js/glossary-linker.js';
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id') ?? '';
+  if (!id) return;                       // ID未指定ページでは進捗・お気に入りを保存しない
+  const el = await waitFor('learning-progress');
+  if (!el) return;                       // 見つからない=コンテンツ不在ページ。何もしない
+  const favEl = document.getElementById('favorite-toggle');
+  const title = document.title.replace(/\s*｜\s*Marketcast Lab\s*$/, '');
+  const url = 'asset_detail.html?id=' + encodeURIComponent(id);
+
+  await Promise.all([
+    renderProgressControl(el, 'asset', id),
+    favEl ? renderFavoriteControl(favEl, 'asset', id, title, url) : Promise.resolve(),
+    autoLinkGlossaryTerms('content'),
+  ]);
+})();
+function waitFor(elId, maxMs = 6000) {
+  return new Promise((resolve) => {
+    const found = document.getElementById(elId);
+    if (found) { resolve(found); return; }
+    const start = Date.now();
+    const obs = new MutationObserver(() => {
+      const el = document.getElementById(elId);
+      if (el || Date.now() - start > maxMs) { obs.disconnect(); resolve(el || null); }
+    });
+    obs.observe(document.getElementById('content') || document.body,
+                { childList: true, subtree: true });
+  });
+}
+</script>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>
