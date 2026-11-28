@@ -1,0 +1,456 @@
+{
+  "schema_version": 3,
+  "note": "Marketcast Lab v2 Premium: Asset Impact Analysis の public metadata。「どの資産にどんな分析があるか」だけを公開し、本文（傾向・理由・読み解き）と根拠イベントは含めない。本文は protected な Edge Function (get-asset-impact-analysis) からのみ取得できる。本ファイルは scripts/build_asset_impacts_public.py がGit管理外のPremium本文ソースから生成する（直接編集しない）。",
+  "asset_summaries": {
+    "oil": {
+      "themes": 5,
+      "events": 7,
+      "analyses": 6,
+      "horizons": {
+        "short_term": 3,
+        "mid_term": 2,
+        "long_term": 1
+      }
+    },
+    "gold": {
+      "themes": 6,
+      "events": 7,
+      "analyses": 6,
+      "horizons": {
+        "short_term": 3,
+        "mid_term": 1,
+        "long_term": 2
+      }
+    },
+    "us_stocks": {
+      "themes": 6,
+      "events": 11,
+      "analyses": 6,
+      "horizons": {
+        "short_term": 3,
+        "mid_term": 2,
+        "long_term": 1
+      }
+    },
+    "bonds": {
+      "themes": 4,
+      "events": 7,
+      "analyses": 5,
+      "horizons": {
+        "short_term": 2,
+        "mid_term": 2,
+        "long_term": 1
+      }
+    },
+    "fx": {
+      "themes": 5,
+      "events": 5,
+      "analyses": 5,
+      "horizons": {
+        "short_term": 2,
+        "mid_term": 2,
+        "long_term": 1
+      }
+    },
+    "bitcoin": {
+      "themes": 3,
+      "events": 4,
+      "analyses": 4,
+      "horizons": {
+        "short_term": 2,
+        "mid_term": 2
+      }
+    },
+    "jp_stocks": {
+      "themes": 5,
+      "events": 8,
+      "analyses": 5,
+      "horizons": {
+        "short_term": 2,
+        "mid_term": 2,
+        "long_term": 1
+      }
+    },
+    "ethereum": {
+      "themes": 3,
+      "events": 4,
+      "analyses": 3,
+      "horizons": {
+        "short_term": 1,
+        "mid_term": 2
+      }
+    },
+    "mutual_funds": {
+      "themes": 5,
+      "events": 5,
+      "analyses": 5,
+      "horizons": {
+        "short_term": 1,
+        "mid_term": 2,
+        "long_term": 2
+      }
+    },
+    "etf": {
+      "themes": 5,
+      "events": 7,
+      "analyses": 5,
+      "horizons": {
+        "short_term": 2,
+        "mid_term": 2,
+        "long_term": 1
+      }
+    }
+  },
+  "asset_impacts": [
+    {
+      "id": "ai_war_oil_short",
+      "asset_id": "oil",
+      "theme_id": "war_geopolitics",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_war_gold_short",
+      "asset_id": "gold",
+      "theme_id": "war_geopolitics",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_oil_resources_short",
+      "asset_id": "oil",
+      "theme_id": "oil_resources",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_finc_usstocks_short",
+      "asset_id": "us_stocks",
+      "theme_id": "financial_crisis",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_finc_gold_short",
+      "asset_id": "gold",
+      "theme_id": "financial_crisis",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_finc_bonds_short",
+      "asset_id": "bonds",
+      "theme_id": "financial_crisis",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cb_usstocks_mid",
+      "asset_id": "us_stocks",
+      "theme_id": "central_banks",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cb_bonds_short",
+      "asset_id": "bonds",
+      "theme_id": "central_banks",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_pandemic_usstocks_short",
+      "asset_id": "us_stocks",
+      "theme_id": "pandemic",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_pandemic_oil_short",
+      "asset_id": "oil",
+      "theme_id": "pandemic",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_fx_currency_crisis_short",
+      "asset_id": "fx",
+      "theme_id": "fx",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_gold_safehaven_long",
+      "asset_id": "gold",
+      "theme_id": "gold_safe_haven",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_riskoff_gold_short",
+      "asset_id": "gold",
+      "theme_id": "risk_on_off",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_crypto_bitcoin_short",
+      "asset_id": "bitcoin",
+      "theme_id": "crypto",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_finc_jpstocks_short",
+      "asset_id": "jp_stocks",
+      "theme_id": "financial_crisis",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_yen_jpstocks_mid",
+      "asset_id": "jp_stocks",
+      "theme_id": "yen_depreciation",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cb_jpstocks_mid",
+      "asset_id": "jp_stocks",
+      "theme_id": "central_banks",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_war_jpstocks_short",
+      "asset_id": "jp_stocks",
+      "theme_id": "war_geopolitics",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cycle_jpstocks_long",
+      "asset_id": "jp_stocks",
+      "theme_id": "business_cycle",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cycle_usstocks_long",
+      "asset_id": "us_stocks",
+      "theme_id": "business_cycle",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_infl_usstocks_mid",
+      "asset_id": "us_stocks",
+      "theme_id": "inflation",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_riskoff_usstocks_short",
+      "asset_id": "us_stocks",
+      "theme_id": "risk_on_off",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cb_gold_mid",
+      "asset_id": "gold",
+      "theme_id": "central_banks",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_infl_gold_long",
+      "asset_id": "gold",
+      "theme_id": "inflation",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_infl_bonds_mid",
+      "asset_id": "bonds",
+      "theme_id": "inflation",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_rates_bonds_long",
+      "asset_id": "bonds",
+      "theme_id": "interest_rates",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cycle_oil_mid",
+      "asset_id": "oil",
+      "theme_id": "business_cycle",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_infl_oil_mid",
+      "asset_id": "oil",
+      "theme_id": "inflation",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_yen_fx_mid",
+      "asset_id": "fx",
+      "theme_id": "yen_depreciation",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_finc_fx_short",
+      "asset_id": "fx",
+      "theme_id": "financial_crisis",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_crypto_bitcoin_mid",
+      "asset_id": "bitcoin",
+      "theme_id": "crypto",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_riskoff_bitcoin_short",
+      "asset_id": "bitcoin",
+      "theme_id": "risk_on_off",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_crypto_ethereum_short",
+      "asset_id": "ethereum",
+      "theme_id": "crypto",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_lt_mutualfunds_long",
+      "asset_id": "mutual_funds",
+      "theme_id": "long_term_investing",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_lt_etf_long",
+      "asset_id": "etf",
+      "theme_id": "long_term_investing",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_finc_mutualfunds_short",
+      "asset_id": "mutual_funds",
+      "theme_id": "financial_crisis",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cb_mutualfunds_mid",
+      "asset_id": "mutual_funds",
+      "theme_id": "central_banks",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_riskoff_etf_short",
+      "asset_id": "etf",
+      "theme_id": "risk_on_off",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cycle_etf_mid",
+      "asset_id": "etf",
+      "theme_id": "business_cycle",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_lt_ethereum_mid",
+      "asset_id": "ethereum",
+      "theme_id": "long_term_investing",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_infl_fx_long",
+      "asset_id": "fx",
+      "theme_id": "inflation",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_oilres_oil_long",
+      "asset_id": "oil",
+      "theme_id": "oil_resources",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_yen_mutualfunds_mid",
+      "asset_id": "mutual_funds",
+      "theme_id": "yen_depreciation",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_cycle_mutualfunds_long",
+      "asset_id": "mutual_funds",
+      "theme_id": "business_cycle",
+      "horizon": "long_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_oilres_etf_mid",
+      "asset_id": "etf",
+      "theme_id": "oil_resources",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_tech_etf_short",
+      "asset_id": "etf",
+      "theme_id": "ai_technology",
+      "horizon": "short_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_riskoff_ethereum_mid",
+      "asset_id": "ethereum",
+      "theme_id": "risk_on_off",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_lt_bitcoin_mid",
+      "asset_id": "bitcoin",
+      "theme_id": "long_term_investing",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_finc_bonds_mid",
+      "asset_id": "bonds",
+      "theme_id": "financial_crisis",
+      "horizon": "mid_term",
+      "is_premium": true
+    },
+    {
+      "id": "ai_oilres_fx_mid",
+      "asset_id": "fx",
+      "theme_id": "oil_resources",
+      "horizon": "mid_term",
+      "is_premium": true
+    }
+  ]
+}

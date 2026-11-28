@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="assets/img/favicon-512.png" sizes="512x512">
+<title>テーマ ｜ Marketcast Lab</title>
+<style>
+  :root{
+    --paper:#F2EFE8; --paper-deep:#E8E3D7; --ink:#1C1A16; --ink-soft:#5B564B;
+    --line-rule:#cfc7b6;
+    --display:"Shippori Mincho","Noto Serif JP",serif;
+    --body:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  .strip{background:var(--ink);color:var(--paper);font-size:12px;padding:8px 5vw;}
+  .strip b{font-weight:600;}
+  header{border-bottom:1px solid var(--line-rule);padding:18px 5vw 16px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .brand{font-family:var(--display);font-size:20px;letter-spacing:0.04em;display:flex;align-items:baseline;gap:10px;}
+  .brand .mark{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-rule);padding:2px 6px;border-radius:2px;letter-spacing:0.08em;}
+  nav{display:flex;gap:24px;font-size:13px;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+
+  .breadcrumb{padding:20px 5vw 0;font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+  .breadcrumb a{border-bottom:1px solid var(--line-rule);}
+
+  .th-head{padding:14px 5vw 26px;border-bottom:1px solid var(--line-rule);}
+  .th-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .th-head h1{font-family:var(--display);font-size:clamp(24px,3.2vw,34px);margin:0 0 14px;max-width:28ch;}
+  .th-head p{max-width:62ch;color:var(--ink-soft);font-size:14px;margin:0;}
+
+  .section-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);padding:32px 5vw 0;}
+
+  .why{padding:14px 5vw 0;}
+  .why p{max-width:64ch;font-size:14px;line-height:1.9;margin:0;}
+
+  .card-grid{padding:14px 5vw 0;display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:12px;}
+  .card{
+    border:1px solid var(--line-rule);
+    background:var(--paper-deep);
+    border-radius:2px;
+    padding:16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  a.card:hover{border-color:var(--ink-soft);}
+  .card-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);}
+  .card h3{font-family:var(--display);font-size:15px;font-weight:400;margin:0;}
+  .card p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.7;}
+  .card-date{font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+
+  .empty-note{padding:14px 5vw 0;font-size:13px;color:var(--ink-soft);}
+
+  /* 学習進捗UI */
+  .lp-wrap{padding:14px 5vw 0;}
+  .lp-box{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:2px;padding:14px 18px;max-width:64ch;}
+  .lp-box.is-done{border-color:var(--ink-soft);}
+  .lp-msg{font-size:13px;color:var(--ink-soft);}
+  .lp-box.is-done .lp-msg{color:var(--ink);}
+  .lp-btn{background:var(--ink);color:var(--paper);border:none;border-radius:2px;padding:8px 16px;font-family:var(--body);font-size:12.5px;letter-spacing:0.03em;cursor:pointer;}
+  .lp-btn:hover{opacity:0.85;}
+  .lp-btn:disabled{opacity:0.5;cursor:not-allowed;}
+  .lp-box.is-done .lp-btn{background:transparent;color:var(--ink-soft);border:1px solid var(--line-rule);}
+  .lp-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);}
+  .lp-link:hover{color:var(--ink);}
+
+  /* お気に入りUI */
+  .fav-box{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:1px solid var(--line-rule);background:var(--paper-deep);border-radius:2px;padding:14px 18px;max-width:64ch;margin-top:10px;}
+  .fav-box.is-done{border-color:var(--ink-soft);}
+  .fav-msg{font-size:13px;color:var(--ink-soft);}
+  .fav-box.is-done .fav-msg{color:var(--ink);}
+  .fav-btn{background:var(--ink);color:var(--paper);border:none;border-radius:2px;padding:8px 16px;font-family:var(--body);font-size:12.5px;letter-spacing:0.03em;cursor:pointer;}
+  .fav-btn:hover{opacity:0.85;}
+  .fav-btn:disabled{opacity:0.5;cursor:not-allowed;}
+  .fav-box.is-done .fav-btn{background:transparent;color:var(--ink-soft);border:1px solid var(--line-rule);}
+  .fav-link{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);}
+  .fav-link:hover{color:var(--ink);}
+
+  /* 用語解説リンク（半自動） */
+  .glossary-link{border-bottom:1px dotted var(--ink-soft);text-decoration:none;color:inherit;}
+  .glossary-link:hover{border-bottom-style:solid;color:var(--ink);}
+
+
+  footer{margin-top:50px;border-top:1px solid var(--line-rule);padding:28px 5vw 50px;font-size:12px;color:var(--ink-soft);}
+  footer .back{display:inline-block;margin-bottom:12px;border-bottom:1px solid var(--line-rule);}
+  footer .disclaimer{max-width:64ch;line-height:1.8;}
+  .empty{padding:40px 5vw;color:var(--ink-soft);font-size:14px;}
+
+  .local-subnav{padding:10px 5vw;border-bottom:1px solid var(--line-rule);display:flex;gap:20px;font-size:12px;color:var(--ink-soft);}
+  .local-subnav a{color:var(--ink-soft);}
+  .local-subnav a:hover{color:var(--ink);}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line-rule);}
+  .legal-links a{font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line-rule);min-height:44px;display:inline-flex;align-items:center;}
+  .legal-links a:hover{color:var(--ink);border-color:var(--ink-soft);}
+</style>
+<script src="assets/js/membership-flag.js"></script>
+</head>
+<body>
+
+<div class="strip"><b>本サイトは情報提供・教育目的です。</b>個別の投資助言ではありません。最終判断はご自身の責任で行ってください。</div>
+
+<header>
+  <div class="brand"><a href="index.html">Marketcast Lab</a> <span class="mark">観測所</span></div>
+  <nav>
+    <a href="index.html#events">イベント観測</a>
+    <a href="index.html#assets">資産別反応史</a>
+    <a href="premium.html">プレミアム</a>
+    <a href="glossary.html">用語解説</a>
+    <a href="pricing.html">料金・プラン</a>
+    <a href="login.html" data-auth-link>ログイン</a>
+  </nav>
+</header>
+
+<div class="local-subnav"><a href="dashboard.html">&larr; Dashboardへ戻る</a></div>
+
+<div id="content"></div>
+
+<script>
+(async function(){
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id') ?? '';
+  const content = document.getElementById('content');
+
+  const LESSON_CATEGORY_LABEL = {
+    investing_basics: '投資基礎',
+    economic_themes: '経済テーマ',
+    asset_encyclopedia: '資産図鑑',
+    crypto: '暗号資産',
+    reading_history: '歴史イベントの読み方',
+  };
+  const ASSET_CATEGORY_LABEL = {
+    equity: '株式',
+    fund: 'ファンド',
+    commodity: 'コモディティ',
+    fixed_income: '債券',
+    currency: '為替',
+    crypto: '暗号資産',
+  };
+
+  let themesData, lessonsData, eventsData, assetsData;
+  try {
+    const [r1, r2, r3, r4] = await Promise.all([
+      fetch('data/themes.json', { cache: 'no-store' }),
+      fetch('data/lessons.json', { cache: 'no-store' }),
+      fetch('data/events.json', { cache: 'no-store' }),
+      fetch('data/assets.json', { cache: 'no-store' }),
+    ]);
+    themesData  = await r1.json();
+    lessonsData = await r2.json();
+    eventsData  = await r3.json();
+    assetsData  = await r4.json();
+  } catch (e) {
+    content.innerHTML = '<div class="empty">データを読み込めませんでした。</div>';
+    return;
+  }
+
+  const theme = (themesData.themes || []).find(t => t.id === id);
+  if (!theme) {
+    content.innerHTML = '<div class="empty">コンテンツが見つかりません。</div>';
+    return;
+  }
+
+  document.title = theme.label + ' ｜ Marketcast Lab';
+
+  const relatedLessons = (lessonsData.lessons || []).filter(l =>
+    (l.related_theme_ids || []).includes(theme.id)
+  );
+  const relatedEvents = (eventsData.events || []).filter(e =>
+    (e.theme_ids || []).includes(theme.id)
+  );
+  const relatedAssets = (assetsData.assets || []).filter(a =>
+    (a.related_theme_ids || []).includes(theme.id)
+  );
+
+  const lessonCardsHtml = relatedLessons.length
+    ? relatedLessons.map(l => `
+        <a class="card" href="lesson_detail.html?id=${encodeURIComponent(l.id)}">
+          <div class="card-eyebrow">${LESSON_CATEGORY_LABEL[l.category] || 'LESSON'}</div>
+          <h3>${l.title}</h3>
+          <p>${l.overview || ''}</p>
+        </a>`).join('')
+    : '';
+
+  const eventCardsHtml = relatedEvents.length
+    ? relatedEvents.map(e => `
+        <a class="card" href="event_detail.html?id=${encodeURIComponent(e.id)}">
+          <div class="card-date">${e.date || ''}</div>
+          <h3>${e.name}</h3>
+          <p>${e.beginner_summary || e.description || ''}</p>
+        </a>`).join('')
+    : '';
+
+  const assetCardsHtml = relatedAssets.length
+    ? relatedAssets.map(a => `
+        <a class="card" href="asset_detail.html?id=${encodeURIComponent(a.id)}">
+          <div class="card-eyebrow">${ASSET_CATEGORY_LABEL[a.category] || ''}</div>
+          <h3>${a.label}</h3>
+          <p>${a.overview || ''}</p>
+        </a>`).join('')
+    : '';
+
+  content.innerHTML = `
+    <div class="breadcrumb"><a href="index.html">トップ</a> ／ ${theme.label}</div>
+
+    <div class="th-head">
+      <div class="th-eyebrow">THEME</div>
+      <h1>${theme.label}</h1>
+      <p>${theme.intro_summary || ''}</p>
+    </div>
+
+    <div class="section-label">テーマ概要</div>
+    <div class="why"><p>${theme.summary || ''}</p></div>
+
+    <div class="section-label">このテーマを理解するポイント</div>
+    ${lessonCardsHtml
+      ? `<div class="card-grid">${lessonCardsHtml}</div>`
+      : `<div class="empty-note">関連するLessonはまだ登録されていません。</div>`}
+
+    <div class="section-label">関連する歴史イベント</div>
+    ${eventCardsHtml
+      ? `<div class="card-grid">${eventCardsHtml}</div>`
+      : `<div class="empty-note">関連する歴史イベントはまだ登録されていません。</div>`}
+
+    <div class="section-label">関連資産</div>
+    ${assetCardsHtml
+      ? `<div class="card-grid">${assetCardsHtml}</div>`
+      : `<div class="empty-note">関連する資産情報はまだ登録されていません。</div>`}
+
+    <div class="section-label">学習の記録</div>
+    <div class="lp-wrap"><div id="learning-progress"></div></div>
+    <div class="lp-wrap"><div id="favorite-toggle"></div></div>
+
+    <footer>
+      <a class="back" href="dashboard.html">← Dashboardへ戻る</a>
+      <a class="back" href="glossary.html">わからない用語がある場合 → 用語解説を見る</a>
+      <div class="disclaimer">本ページは情報提供・教育目的のコンテンツです。個別の投資助言ではありません。過去の傾向の記録であり、将来の値動きを示すものでも、特定の取引・銘柄・商品を推奨するものでもありません。</div>
+    
+  <nav class="legal-links" aria-label="ご利用にあたって">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="disclaimer.html">免責事項</a>
+  </nav>
+</footer>
+  `;
+
+  // Task46.4: 構造化データ（BreadcrumbList / CreativeWork）を実データから注入する。
+  (function injectStructuredData(){
+    const BASE = 'https://marketcast.oneshorejp.com';
+    const url = `${BASE}/theme_detail.html?id=${encodeURIComponent(theme.id)}`;
+    const breadcrumb = {
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Marketcast Lab', item: `${BASE}/index.html` },
+        { '@type': 'ListItem', position: 2, name: theme.label, item: url },
+      ],
+    };
+    const creativeWork = {
+      '@context': 'https://schema.org', '@type': 'CreativeWork',
+      name: theme.label, description: theme.intro_summary || theme.summary || '',
+      inLanguage: 'ja', url,
+      publisher: { '@type': 'Organization', name: 'Marketcast Lab', url: `${BASE}/` },
+    };
+    for (const [ldId, data] of [['ld-breadcrumb', breadcrumb], ['ld-creativework', creativeWork]]) {
+      let tag = document.getElementById(ldId);
+      if (!tag) {
+        tag = document.createElement('script');
+        tag.type = 'application/ld+json';
+        tag.id = ldId;
+        document.head.appendChild(tag);
+      }
+      tag.textContent = JSON.stringify(data);
+    }
+  })();
+})();
+</script>
+
+<script type="module">
+// 学習進捗UI・お気に入りUI・用語解説の半自動リンク化。
+// メインの描画（非同期IIFE）完了後に #learning-progress が現れるのを待ってから実行する
+// （同じinnerHTMLテンプレートの一部のため、出現＝本文全体の描画完了を意味する）。
+import { renderProgressControl } from './assets/js/learning-progress.js';
+import { renderFavoriteControl } from './assets/js/favorites.js';
+import { autoLinkGlossaryTerms } from './assets/js/glossary-linker.js';
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id') ?? '';
+  if (!id) return;                       // ID未指定ページでは進捗・お気に入りを保存しない
+  const el = await waitFor('learning-progress');
+  if (!el) return;                       // 見つからない=コンテンツ不在ページ。何もしない
+  const favEl = document.getElementById('favorite-toggle');
+  const title = document.title.replace(/\s*｜\s*Marketcast Lab\s*$/, '');
+  const url = 'theme_detail.html?id=' + encodeURIComponent(id);
+
+  await Promise.all([
+    renderProgressControl(el, 'theme', id),
+    favEl ? renderFavoriteControl(favEl, 'theme', id, title, url) : Promise.resolve(),
+    autoLinkGlossaryTerms('content'),
+  ]);
+})();
+function waitFor(elId, maxMs = 6000) {
+  return new Promise((resolve) => {
+    const found = document.getElementById(elId);
+    if (found) { resolve(found); return; }
+    const start = Date.now();
+    const obs = new MutationObserver(() => {
+      const el = document.getElementById(elId);
+      if (el || Date.now() - start > maxMs) { obs.disconnect(); resolve(el || null); }
+    });
+    obs.observe(document.getElementById('content') || document.body,
+                { childList: true, subtree: true });
+  });
+}
+</script>
+
+<script type="module" src="assets/js/auth-common.js"></script>
+</body>
+</html>
